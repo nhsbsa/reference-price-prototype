@@ -1,0 +1,204 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Quarterly collection dropdown - expander list
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-back-link">
+
+    <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-5" href="reference-price-list">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to reference price list</a>
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-large">
+           Atorvastatin 10mg tablets
+        </h1>
+    </div>
+</div>
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h2 class="heading-large">Product information</h2>
+    </div>
+</div>
+
+<div class="nhsuk-table__panel-with-heading-tab" id="productInformationFormView">
+    <h2 class="nhsuk-table__heading-tab" id="productInformationHeader">Product information</h2>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="presentationHeader">Presentation</h3>
+            <p id="productPresentation">  Atorvastatin 10mg tablets</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="formHeader">Form</h3>
+            <p id="productForm">tablets</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="packSizeHeader">Pack size</h3>
+            <p id="productPackSize">28</p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="orgNameHeader">Organisation</h3>
+            <p id="productOrgName">Test company A</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="linkStartDateHeader">Presentation SNOMED</h3>
+            <p id="snomed">123456789</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="linkEndDateHeader">Current maximum price</h3>
+            <p id="maxPrice">£7.50</p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="vmpHeader">Virtual medicinal product (VMP) name</h3>
+            <p id="productVMP">
+                Atorvastatin</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="vtmHeader">Virtual therapeutic moiety (VTM) name
+            </h3>
+            <p id="productVTM">Atorvastatin</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h2 class="heading-large">Reference price information</h2>
+    </div>
+</div>
+
+<div class="nhsuk-table__panel-with-heading-tab" id="refPriceInformationFormView">
+    <h2 class="nhsuk-table__heading-tab" id="refPriceInformationHeadfder">Reference price information</h2>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="expirySPCHeader">Expiry date of SPC</h3>
+            <p id="spcDate">  31st Dec 2024</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="maHeader">Date of first identified marketing authorisation (MA)</h3>
+            <p id="maDate">1st Jan 2012</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="spcOrMAUsedHeader">Details of relevant SPC or MA used to establish reference anchor date (RAD)</h3>
+            <p id="relevantSPCorMAused">MA, 14/01/1998, Atorvastatin
+            </p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="spnNumberHeader">Supplementary protection certificate (SPC) number</h3>
+            <p id="spcNumber">123456</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="originatorClassHeader">Originator classification</h3>
+            <p id="originatorClassification">Originator</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="olderOrNewerHeader">Older / newer medicine classification</h3>
+            <p id="olderOrNewer">Older</p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="radHeader">Reference anchor date (RAD)</h3>
+            <p id="rad">1st Jan 2024</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="refPriceHeader">Reference price - final
+            </h3>
+            <p id="refPrice">£7.50</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-grid-heading-s" id="refPriceTypeHeader">Reference price type</h3>
+            <p id="refPriceType" >Average selling price of comparator(s) subject to adjustments</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h2 class="heading-large">Reference price calculation details</h2>
+    </div>
+</div>
+
+<div class="nhsuk-table__panel-with-heading-tab" id="refPriceCalculationFormView">
+    <h2 class="nhsuk-table__heading-tab" id="refPriceCalculationHeader">Reference price calculation details</h2>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="comparatorsUsedHeader">Comparator(s) used to establish reference price</h3>
+            <p id="comparatorsUsed">  Atorvastatin 10mg tablets (Test company B) 28 tablet</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="refPriceYearHeader">Reference price year</h3>
+            <p id="refPriceYear">2022</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="packSizeAdjHeader">Pack size adjustment flag</h3>
+            <p id="packSizeAdj">Pack size adjustment applied</p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="strengthAdjHeader">Strength adjustment flag</h3>
+            <p id="strengthAdj">Strength adjustment applied</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="intFormAdjHeader">Inter formulation adjustment flag</h3>
+            <p id="intFormAdj">Inter formulation adjustment applied</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="compFlatPriceHeader">Comparator flat price flag</h3>
+            <p id="compFlatPrice">Flat priced</p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="exclusionHeader">Reason for exclusion</h3>
+            <p id="exclusion"></p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="changesPhase1Header">Changes to phase 1
+            </h3>
+            <p id="changesPhase1">Originator updated since Phase 1 Release</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-grid-heading-s" id="changeReviewHeader">Change following review of previous version</h3>
+            <p id="changeReview" >Reference Price Calculated</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

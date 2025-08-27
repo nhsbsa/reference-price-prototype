@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Quarterly collection - dropdown table
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-width-container">
+
+<h1>
+    Reference prices dashboard
+</h1>
+
+    <h2>Summary</h2>
+
+    <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-8">
+
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+               Older products without a reference price
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+                <span id="missing-reference-prices">12</span>
+            </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+                Products becoming older within next 6 months
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+                <span id="upcoming-older-presentations">56</span>
+            </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+                Ongoing queries
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+                <span id="ongoing-queries">17</span>
+            </dd>
+        </div>
+    </dl>
+
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="reference-prices/reference-price-list">Reference prices</a>
+                </h2>
+                <p class="nhsuk-card__description">A list of all products which have a reference price.</p>
+            </div>
+        </div>
+
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="outstanding-reference-prices/outstanding-reference-price-list">Outstanding products</a>
+                </h2>
+                <p class="nhsuk-card__description">A list of all products which do not have a reference price.</p>
+            </div>
+        </div>
+
+    </li>
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="queries/queries-list">Queries</a>
+                </h2>
+                <p class="nhsuk-card__description">A list of all reference price queries.</p>
+            </div>
+        </div>
+
+    </li>
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="#">Help</a>
+                </h2>
+                <p class="nhsuk-card__description">Visit user guides for additional assistance.</p>
+            </div>
+        </div>
+
+    </li>
+</ul>
+
+        </div>
+
+<script>
+    console.log(localStorage);
+
+    function logAdminUser() {
+        localStorage.setItem("admin-user", "yes");
+    }
+
+    function logUser() {
+        localStorage.setItem("admin-user", "no");
+    }
+</script>
+{% endblock %}

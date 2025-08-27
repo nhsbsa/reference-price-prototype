@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Quarterly collection dropdown - expander list
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-back-link">
+
+    <a class="nhsuk-back-link__link nhsuk-u-margin-bottom-5" href="queries-list">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to queries list</a>
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-large">
+            Atorvastatin 10mg tablets
+        </h1>
+    </div>
+</div>
+
+
+
+<div class="nhsuk-table__panel-with-heading-tab" id="refPriceCalculationFormView">
+    <h2 class="nhsuk-table__heading-tab" id="refPriceCalculationHeader">Query details</h2>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="comparatorsUsedHeader">Reason for query</h3>
+            <p id="comparatorsUsed"> Calculation is incorrect</p>
+        </div>
+
+        <div class="nhsuk-grid-column-one-third">
+            <h3 class="nhsuk-heading-s" id="refPriceYearHeader">Date of query</h3>
+            <p id="refPriceYear">1st Dec 2024</p>
+        </div>
+
+        <a class="nhsuk-button nhsuk-button--primary nhsuk-u-margin-right-4" href="action-query" id="download-button">Accept or reject query</a>
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

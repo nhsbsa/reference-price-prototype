@@ -1,0 +1,153 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Quarterly collection - dropdown table
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-width-container">
+<!--    <div class="nhsuk-grid-row">-->
+<!--        <div class="nhsuk-grid-column-full">-->
+
+<h1>
+    Reference prices dashboard
+</h1>
+
+
+<ul class="nhsuk-grid-row nhsuk-card-group">
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="request-list">Reference prices list</a>
+                </h2>
+                <p class="nhsuk-card__description">A list of all existing reference prices.</p>
+            </div>
+        </div>
+
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="#">Responses</a>
+                </h2>
+                <p class="nhsuk-card__description">A list of responses.</p>
+            </div>
+        </div>
+
+    </li>
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="#">Record of Concessions (RoC)</a>
+                </h2>
+                <p class="nhsuk-card__description">View RoC.</p>
+            </div>
+        </div>
+
+    </li>
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="#">Trend data</a>
+                </h2>
+                <p class="nhsuk-card__description">View trend data by month.</p>
+            </div>
+        </div>
+
+    </li>
+
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="#">Help</a>
+                </h2>
+                <p class="nhsuk-card__description">Visit user guides for additional assistance.</p>
+            </div>
+        </div>
+
+    </li>
+</ul>
+
+    <h2>Administration</h2>
+
+    <ul class="nhsuk-grid-row nhsuk-card-group">
+
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+                <div class="nhsuk-card__content">
+                    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                        <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="/pcp-prototype-version-4/supplier-area/supplier-select-page">Supplier directory</a>
+                    </h2>
+                    <p class="nhsuk-card__description">View, edit, add or remove main and additional suppliers.</p>
+                </div>
+            </div>
+
+        </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="account-area">My account</a>
+                </h2>
+                <p class="nhsuk-card__description">View and edit your own account details.</p>
+            </div>
+        </div>
+
+    </li>
+
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+        <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                    <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="account-area-all" onclick="logAdminUser()">User accounts (administrator)</a>
+                </h2>
+                <p class="nhsuk-card__description">View, edit, add or remove user accounts.</p>
+            </div>
+        </div>
+
+    </li>
+
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+            <div class="nhsuk-card nhsuk-card--clickable">
+                <div class="nhsuk-card__content">
+                    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                        <a class="nhsuk-card__link nhsuk-link--no-visited-state" href="account-area-all" onclick="logUser()">User accounts (user)</a>
+                    </h2>
+                    <p class="nhsuk-card__description">View user accounts.</p>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+
+        </div>
+
+<script>
+    console.log(localStorage);
+
+    function logAdminUser() {
+        localStorage.setItem("admin-user", "yes");
+    }
+
+    function logUser() {
+        localStorage.setItem("admin-user", "no");
+    }
+</script>
+{% endblock %}

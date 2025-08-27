@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="nhsuk-back-link nhsuk-u-margin-bottom-5">
+    <a class="nhsuk-back-link__link" href="/v1/admin/outstanding-reference-prices/outstanding-reference-price-list">
+        <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+        </svg>
+        Go back to outstanding products list</a>
+</div>
+
+<h1><span class="nhsuk-caption-l">
+     <span class="nhsuk-u-visually-hidden"> for </span>
+   </span>Automatically calculate reference prices</h1>
+
+<p>Pressing the button below will automatically calculate outstanding reference prices where there is sufficient data to do so. You will be able to view the results on the next page before confirming.</p>
+
+
+<div class="nhsuk-action-link nhsuk-u-margin-bottom-7" id="cdr-query-area">
+    <a class="nhsuk-action-link__link nhsuk-link--no-visited-state" href="automatic-calculation-results">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        </svg>
+        <span class="nhsuk-action-link__text ">Run automatic reference price calculations</span>
+    </a>
+</div>
+
+
+
+{% endblock %}
