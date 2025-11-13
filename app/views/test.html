@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% set pageName = "Blank transactional template" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "#",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <!-- Add your content here -->
+<div class="nhsuk-form-group">
+
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-fieldset__heading">
+        Are you 18 or over?
+      </h1>
+    </legend>
+    <div class="nhsuk-radios nhsuk-radios--inline" data-module="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-inline" name="example-inline" type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-inline">
+          Search by product
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-inline-2" name="example-inline" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
+          Search by company
+        </label>
+      </div>
+         <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-inline-2" name="example-inline" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
+          Search by product and company
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+    </div>
+  </div>
+{% endblock %}
