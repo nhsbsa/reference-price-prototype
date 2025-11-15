@@ -14,50 +14,30 @@
 
 <!-- Edit the header -->
 <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
-{% from 'header/macro.njk' import header %}
-
+{% block header %}
 {{ header({
   logo: {
     href: "#",
-    ariaLabel: "Reference Price Dashboard"
+    ariaLabel: "Manage patients homepage"
   },
   service: {
-    text: "Reference Price Dashboard",
+    text: "Manage patients",
     href: "#"
   },
   account: {
     items: [
       {
-        text: "Florence Nightingale (DHSC Analyst)",
+        text: "Florence Nightingale",
         icon: true
-      },
-      {
-        text: "Change role",
-        href: "#"
       },
       {
         text: "Log out",
         href: "#"
       }
     ]
-  },
-  navigation: {
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Add new patient",
-        href: "#"
-      },
-      {
-        text: "Find a patient",
-        href: "#"
-      }
-    ]
   }
 }) }}
+{% endblock %}
 
 <!-- Edit the footer -->
 <!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
