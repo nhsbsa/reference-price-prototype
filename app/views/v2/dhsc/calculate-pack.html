@@ -1,0 +1,97 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Build a Calculate Pack" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<a class="nhsuk-back-link" href="/v2/dhsc/datasources">
+    Go back
+</a>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1>Build a joined table</h1>
+        <p>Select the data sources for the join parameter</p>
+
+        <fieldset class="nhsuk-fieldset">
+
+            <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
+                <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="email">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="contact">
+                        Dictionary of Medicines and Devices
+                    </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
+                        Market Authorization
+                    </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="contact-3" name="contact" type="checkbox"
+                        value="text message">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">
+                        Supplementary Protection Certificate
+                    </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="contact-4" name="contact" type="checkbox"
+                        value="text message">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-4">
+                        Presentation Level Returns
+                    </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="contact-5" name="contact" type="checkbox"
+                        value="text message">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-5">
+                        Pseudo VTMs
+                    </label>
+                </div>
+                <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="contact-6" name="contact" type="checkbox"
+                        value="text message">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-6">
+                        VTM Originator table
+                    </label>
+                </div>
+            </div>
+
+        </fieldset>
+        <br>
+        <div>
+
+<a href="/v2/dhsc/calculate-pack-confirm" class="nhsuk-button">
+  Generate table
+</a>
+
+
+        </div>
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

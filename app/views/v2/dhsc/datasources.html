@@ -17,11 +17,14 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Home Page" %}
+{% set pageName = "Data Sources" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
+<a class="nhsuk-back-link" href="/v2/dhsc/">
+ Back to dashboard
+</a>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -35,9 +38,8 @@
 
                 <div class="nhsuk-card nhsuk-card--clickable">
                     <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="/v2/dhsc/datasources">Data
-                                sources</a> </h2>
-                        <p class="nhsuk-card__description">View and download data needed to calculate a reference price
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="/v2/dhsc/dmd-data">Dictionary of Medicines + Devices (dm+d)</a> </h2>
+                        <p class="nhsuk-card__description">Product Attributes, Supllier Information, and Pricing Information
                         </p>
                     </div>
                 </div>
@@ -47,45 +49,20 @@
 
                 <div class="nhsuk-card nhsuk-card--clickable">
                     <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Reference
-                                price data</a> </h2>
-                        <p class="nhsuk-card__description">View reference price master data and audit logs</p>
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="/v2/dhsc/ma-data">Medicines and Healthcare products Regulatory Agency</a> </h2>
+                         <p class="nhsuk-card__description">Market Authorisation Information</p> 
                     </div>
                 </div>
 
             </li>
-            <!-- <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-
-                <div class="nhsuk-card nhsuk-card--clickable">
-                    <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Generate
-                                calculation table</a> </h2>
-                        <p class="nhsuk-card__description">Download a joined table with all up to date data sources used
-                            to calculate a reference </p>
-                    </div>
-                </div>
-
-            </li> -->
+        
             <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
 
                 <div class="nhsuk-card nhsuk-card--clickable">
                     <div class="nhsuk-card__content">
                         <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
-                                href="#">Queries</a> </h2>
-                        <p class="nhsuk-card__description">View and respond to queries </p>
-                    </div>
-                </div>
-
-            </li>
-
-
-            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-
-                <div class="nhsuk-card nhsuk-card--clickable">
-                    <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
-                                href="#">Reports</a> </h2>
-                        <p class="nhsuk-card__description">Generate standard reports</p>
+                                href="/v2/dhsc/spc-data">Intellectual Property Office</a> </h2>
+                        <p class="nhsuk-card__description">Supplementary Protection Certificate information</p>
                     </div>
                 </div>
 
@@ -95,23 +72,20 @@
 
                 <div class="nhsuk-card nhsuk-card--clickable">
                     <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
-                                href="#">Notifications</a> </h2>
-                        <p class="nhsuk-card__description">View what information has changed across the dashboard</p>
-                    </div>
-                </div>
-
-            </li>
-
-
-            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-
-                <div class="nhsuk-card nhsuk-card--clickable">
-                    <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Search</a>
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="/v2/dhsc/plr-data">Presentation Level Returns</a>
                         </h2>
-                        <p class="nhsuk-card__description">Find a product or company that currently has a reference
-                            price</p>
+                        <p class="nhsuk-card__description">Submitted sales information</p>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                href="/v2/dhsc/pseudovtm-data">Pseudo-VTMs</a> </h2>
+                        <p class="nhsuk-card__description">Products without a VTM but with ingredients</p>
                     </div>
                 </div>
 
@@ -121,15 +95,24 @@
 
                 <div class="nhsuk-card nhsuk-card--clickable">
                     <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Help and
-                                support</a> </h2>
-                        <p class="nhsuk-card__description">Access guidance about the reference price service</p>
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                href="/v2/dhsc/vtmoriginator-data">VTM Originator Table</a> </h2>
+                        <p class="nhsuk-card__description">Awaiting clarity on what this is</p>
                     </div>
                 </div>
 
             </li>
+
 
         </ul>
+
+        <a class="nhsuk-action-link" href="/v2/dhsc/calculate-pack">
+  <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+  </svg>
+
+  <span class="nhsuk-action-link__text">Build a joined table to calculate reference price</span>
+</a>
         <!-- End of content -->
 
     </div>
