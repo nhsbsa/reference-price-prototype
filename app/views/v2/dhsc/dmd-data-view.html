@@ -4,6 +4,7 @@
 
 <!-- Extends the layout from /app/views/layout.html -->
 {% extends 'layout-dhsc.html' %}
+
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -64,6 +65,10 @@
             <strong class="nhsuk-tag nhsuk-tag--white">
                 Product name:
             </strong>
+
+                    <strong class="nhsuk-tag nhsuk-tag--white">
+                Product SNOMED code:
+            </strong>
         </div>
         <br>
         <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
@@ -72,9 +77,7 @@
 
         <div class="large-table-container">
             <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
-                <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">
-                    Extracted medication data table
-                </caption>
+                
                 <thead role="rowgroup" class="nhsuk-table__head">
                     <tr role="row">
                         <th role="columnheader" scope="col" aria-sort="none">ATC <span class="sort-indicator"
@@ -131,7 +134,7 @@
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160mg tablets (A A H Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_31447010C</td>
+                        <td role="cell" class="nhsuk-table__cell">31447010C</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">160</td>
@@ -154,7 +157,7 @@
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160mg tablets (A A H Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_31447010C</td>
+                        <td role="cell" class="nhsuk-table__cell">31447010C</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">160</td>
@@ -178,7 +181,7 @@
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160mg tablets (A A H Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_31447010C</td>
+                        <td role="cell" class="nhsuk-table__cell">31447010C</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">160</td>
@@ -202,7 +205,7 @@
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160m</td>
                         <td role="cell" class="nhsuk-table__cell">Verapamil 160mg tablets (A A H Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_31447010C</td>
+                        <td role="cell" class="nhsuk-table__cell">31447010C</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">160</td>
@@ -226,7 +229,7 @@
                         <td role="cell" class="nhsuk-table__cell">Metformin 500mg</td>
                         <td role="cell" class="nhsuk-table__cell">Metformin 500mg</td>
                         <td role="cell" class="nhsuk-table__cell">Metformin tablets (Generic Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_1234567890</td>
+                        <td role="cell" class="nhsuk-table__cell">1234567890</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">500</td>
@@ -250,7 +253,7 @@
                         <td role="cell" class="nhsuk-table__cell">Paracetamol 500mg</td>
                         <td role="cell" class="nhsuk-table__cell">Paracetamol 500mg</td>
                         <td role="cell" class="nhsuk-table__cell">Paracetamol tablets (Pain Relief Inc.)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_0987654321</td>
+                        <td role="cell" class="nhsuk-table__cell">0987654321</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">500</td>
@@ -274,7 +277,7 @@
                         <td role="cell" class="nhsuk-table__cell">Amoxicillin 500mg</td>
                         <td role="cell" class="nhsuk-table__cell">Amoxicillin 500mg</td>
                         <td role="cell" class="nhsuk-table__cell">Amoxicillin capsules (MediCare Ltd.)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_1122334455</td>
+                        <td role="cell" class="nhsuk-table__cell">1122334455</td>
                         <td role="cell" class="nhsuk-table__cell">Capsule</td>
                         <td role="cell" class="nhsuk-table__cell">capsule</td>
                         <td role="cell" class="nhsuk-table__cell">500</td>
@@ -298,7 +301,7 @@
                         <td role="cell" class="nhsuk-table__cell">Ramipril 10mg</td>
                         <td role="cell" class="nhsuk-table__cell">Ramipril 10mg</td>
                         <td role="cell" class="nhsuk-table__cell">Ramipril tablets (HeartCare Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_2233445566</td>
+                        <td role="cell" class="nhsuk-table__cell">2233445566</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">10</td>
@@ -322,7 +325,7 @@
                         <td role="cell" class="nhsuk-table__cell">Salbutamol 100mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Salbutamol 100mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Salbutamol inhaler (Respira Ltd.)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_3344556677</td>
+                        <td role="cell" class="nhsuk-table__cell">3344556677</td>
                         <td role="cell" class="nhsuk-table__cell">Inhaler</td>
                         <td role="cell" class="nhsuk-table__cell">inhaler</td>
                         <td role="cell" class="nhsuk-table__cell">100mcg</td>
@@ -346,7 +349,7 @@
                         <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Contraceptive tablets (FemCare)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_4455667788</td>
+                        <td role="cell" class="nhsuk-table__cell">4455667788</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">30mcg</td>
@@ -370,7 +373,7 @@
                         <td role="cell" class="nhsuk-table__cell">Ibuprofen 200mg</td>
                         <td role="cell" class="nhsuk-table__cell">Ibuprofen 200mg</td>
                         <td role="cell" class="nhsuk-table__cell">Ibuprofen tablets (ReliefPlus)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_5566778899</td>
+                        <td role="cell" class="nhsuk-table__cell">5566778899</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">200</td>
@@ -394,7 +397,7 @@
                         <td role="cell" class="nhsuk-table__cell">Imatinib 100mg</td>
                         <td role="cell" class="nhsuk-table__cell">Imatinib 100mg</td>
                         <td role="cell" class="nhsuk-table__cell">Imatinib tablets (OncoPharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_6677889900</td>
+                        <td role="cell" class="nhsuk-table__cell">6677889900</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">100</td>
@@ -418,7 +421,7 @@
                         <td role="cell" class="nhsuk-table__cell">Ipratropium bromide 20mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Ipratropium bromide 20mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Ipratropium inhaler (BreatheRight Pharma)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_7788990011</td>
+                        <td role="cell" class="nhsuk-table__cell">7788990011</td>
                         <td role="cell" class="nhsuk-table__cell">Inhaler</td>
                         <td role="cell" class="nhsuk-table__cell">inhaler</td>
                         <td role="cell" class="nhsuk-table__cell">20mcg</td>
@@ -442,7 +445,7 @@
                         <td role="cell" class="nhsuk-table__cell">Atorvastatin 20mg</td>
                         <td role="cell" class="nhsuk-table__cell">Atorvastatin 20mg</td>
                         <td role="cell" class="nhsuk-table__cell">Atorvastatin tablets (CardioHealth)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_8899001122</td>
+                        <td role="cell" class="nhsuk-table__cell">8899001122</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">20</td>
@@ -466,7 +469,7 @@
                         <td role="cell" class="nhsuk-table__cell">Levothyroxine 50mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Levothyroxine 50mcg</td>
                         <td role="cell" class="nhsuk-table__cell">Levothyroxine tablets (ThyroCare)</td>
-                        <td role="cell" class="nhsuk-table__cell">SNOMED_9900112233</td>
+                        <td role="cell" class="nhsuk-table__cell">9900112233</td>
                         <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
                         <td role="cell" class="nhsuk-table__cell">tablet</td>
                         <td role="cell" class="nhsuk-table__cell">50mcg</td>
@@ -535,3 +538,4 @@
 
 
 {% endblock %}
+

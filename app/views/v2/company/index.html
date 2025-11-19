@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -31,18 +31,7 @@
     <div class="nhsuk-grid-column-full">
 
         <ul class="nhsuk-grid-row nhsuk-card-group">
-            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-
-                <div class="nhsuk-card nhsuk-card--clickable">
-                    <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="/v2/dhsc/datasources">Data
-                                sources</a> </h2>
-                        <p class="nhsuk-card__description">View and download data needed to calculate a reference price
-                        </p>
-                    </div>
-                </div>
-
-            </li>
+ 
             <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
 
                 <div class="nhsuk-card nhsuk-card--clickable">
@@ -68,17 +57,7 @@
             </li>
 
 
-            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
 
-                <div class="nhsuk-card nhsuk-card--clickable">
-                    <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
-                                href="#">Reports</a> </h2>
-                        <p class="nhsuk-card__description">Generate standard reports</p>
-                    </div>
-                </div>
-
-            </li>
 
             <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
 
@@ -110,9 +89,21 @@
 
                 <div class="nhsuk-card nhsuk-card--clickable">
                     <div class="nhsuk-card__content">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Help and
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="/v2/help">Help and
                                 support</a> </h2>
                         <p class="nhsuk-card__description">Access guidance about the reference price service</p>
+                    </div>
+                </div>
+
+            </li>
+
+                        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                href="https://www.gov.uk/government/collections/vpag-2024-scheme-documents-and-guidance">VPAG Policy guidance</a> </h2>
+                        <p class="nhsuk-card__description">Generate standard reports</p>
                     </div>
                 </div>
 
