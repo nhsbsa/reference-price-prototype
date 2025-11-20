@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -22,7 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2/dhsc/search">
+<a class="nhsuk-back-link" href="/v2/company/search">
     Go back
 </a>
 {% endblock %}
@@ -32,7 +32,35 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-        <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+        <h1>Metabet SR 1000mg tablets ( 2 x 14 tablets)</h1>
+        <details class="nhsuk-details">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      View company details
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+   <table class="nhsuk-table-responsive" role="table">
+  <caption class="nhsuk-table__caption">Company details</caption>
+  <thead class="nhsuk-table__head" role="rowgroup">
+    <tr role="row">
+      <th scope="col" class="nhsuk-table__header " role="columnheader">Name</th>
+      <th scope="col" class="nhsuk-table__header " role="columnheader">SNOMED code</th>
+      <th scope="col" class="nhsuk-table__header " role="columnheader">Reference</th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row" role="row">
+      <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading" aria-hidden="true">SNOMED Code</span>2345678909</td>
+      <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading" aria-hidden="true">Reference</span>876</td>
+    </tr>
+
+  </tbody>
+</table>
+
+  </div>
+</details>
         <div class="nhsuk-tabs" data-module="nhsuk-tabs">
 
             <ul class="nhsuk-tabs__list">

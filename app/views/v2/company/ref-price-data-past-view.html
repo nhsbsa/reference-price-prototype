@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -22,7 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2/dhsc/ref-price-data">
+<a class="nhsuk-back-link" href="/v2/company/ref-price-data">
     Go back
 </a>
 {% endblock %}
@@ -44,14 +44,7 @@
 
 
 
-            <strong class="nhsuk-tag nhsuk-tag--white">
-                Company name:
-            </strong>
-
-            <strong class="nhsuk-tag nhsuk-tag--white">
-                Company SNOMED code:
-            </strong>
-
+        
             <strong class="nhsuk-tag nhsuk-tag--white">
                 Product name:
             </strong>
@@ -60,7 +53,6 @@
                 Product SNOMED code:
             </strong>
         </div>
-
                 <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
@@ -223,12 +215,12 @@ Filter dataset
 
 
         <div>
-            <a href="/v2/dhsc/ref-price-data" class="nhsuk-button nhsuk-button--secondary">
+            <a href="/v2/company/ref-price-data" class="nhsuk-button nhsuk-button--secondary">
                 New search
             </a>
         </div>
         <div>
-            <a href="/v2/dhsc/datasources" class="nhsuk-button nhsuk-button--secondary">
+            <a href="/v2/company/" class="nhsuk-button nhsuk-button--secondary">
                 Back to dashboard
             </a>
         </div>

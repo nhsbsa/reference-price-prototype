@@ -71,6 +71,55 @@
             </strong>
         </div>
         <br>
+                <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter table results
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="column-filter-select">
+                        Choose column to filter
+                    </label>
+
+      <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="ATC">ATC</option>
+    <option value="VMP_NAME">VMP_NAME</option>
+    <option value="VMPP_NAME">VMPP_NAME</option>
+    <option value="AMP_NAME">AMP_NAME</option>
+    <option value="AMPP_NAME">AMPP_NAME</option>
+    <option value="AMP_NAME_COMPANY">AMP_NAME_COMPANY</option>
+    <option value="COMPANY">COMPANY</option>
+    <option value="COMPANY_CODE">COMPANY_CODE</option>
+    <option value="FORM">FORM</option>
+    <option value="UNIT_DOSE">UNIT_DOSE</option>
+    <option value="STRENGTH">STRENGTH</option>
+    <option value="PACK_SIZE">PACK_SIZE</option>
+    <option value="PACK">PACK</option>
+    <option value="PRICE">PRICE</option>
+    <option value="PRICE_DATE">PRICE_DATE</option>
+    <option value="PRICE_PREVIOUS">PRICE_PREVIOUS</option>
+    <option value="PRICE_BASIS">PRICE_BASIS</option>
+    <option value="DISCONTINUED">DISCONTINUED</option>
+    <option value="DISCONTINUED_DATE">DISCONTINUED_DATE</option>
+    <option value="BNF_CODE">BNF_CODE</option>
+    <option value="BNF_CHAPTER">BNF_CHAPTER</option>
+    <option value="COMBPACKCD">COMBPACKCD</option>
+  </select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary" >
+Filter dataset
+                </button>
+            </div>
+        </details>
         <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
             Download dataset
         </button>

@@ -69,6 +69,41 @@
             </strong>
 </div>
 <br>
+                <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter table results
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="column-filter-select">
+                        Choose column to filter
+                    </label>
+
+<select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="ID">ID</option>
+    <option value="VTM">VTM</option>
+    <option value="Dataset">Dataset</option>
+    <option value="MA Date">MA Date</option>
+    <option value="Auth No.">Auth No.</option>
+    <option value="Licensed product name">Licensed product name</option>
+    <option value="Auth holder name">Auth holder name</option>
+    <option value="Matched Company (MA Holder)">Matched Company (MA Holder)</option>
+  </select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary" >
+Filter dataset
+                </button>
+            </div>
+        </details>
   <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
             Download dataset
         </button>

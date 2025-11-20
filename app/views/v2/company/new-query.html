@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-company.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Query Home" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        
+        <fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+    <h1 class="nhsuk-fieldset__heading">
+     New query
+    </h1>
+  </legend>
+
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="address-line-1">
+      Affected product
+    </label>
+    <input class="nhsuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+    Query type
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>Data query</option>
+    <option value="recently-updated">Policy query</option>
+   
+  </select>
+</div>
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="example-right-size">
+    Query details
+  </label>
+
+  <textarea class="nhsuk-textarea" id="example-right-size" name="exampleRightSize" rows="3" aria-describedby="example-right-size-hint"></textarea>
+</div>
+
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="file-upload">
+               Upload a file (optional)
+            </label>
+
+            <input class="nhsuk-file-upload" id="file-upload" name="file-upload" type="file" >
+
+
+        </div>
+
+</fieldset>
+
+ <div>
+      <a href="/v2/company/query-sent" class="nhsuk-button">
+        Send query
+      </a>
+    </div>
+
+     <div>
+      <a href="/v2/company/query-home" class="nhsuk-button nhsuk-button--secondary">
+      Discard query
+      </a>
+    </div>
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

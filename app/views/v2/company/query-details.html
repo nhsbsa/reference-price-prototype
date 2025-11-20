@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -22,7 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2/dhsc/queries">
+<a class="nhsuk-back-link" href="/v2/company/queries">
   Go back
 </a>
 {% endblock %}
@@ -31,7 +31,7 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-full">
 
     <h1>Query Details</h1>
 
@@ -87,27 +87,11 @@
       </div>
 
     </dl>
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="example-right-size">
-    Query response
-  </label>
-
-  <textarea class="nhsuk-textarea" id="example-right-size" name="exampleRightSize" rows="3" aria-describedby="example-right-size-hint"></textarea>
-</div>
 
 
-        <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="file-upload">
-               Upload a file (optional)
-            </label>
-
-            <input class="nhsuk-file-upload" id="file-upload" name="file-upload" type="file" >
-
-
-        </div>
     <div>
-      <a href="/v2/dhsc/response-sent" class="nhsuk-button">
-       Send response
+      <a href="/v2/company/query-response" class="nhsuk-button">
+        Respond to query
       </a>
     </div>
 

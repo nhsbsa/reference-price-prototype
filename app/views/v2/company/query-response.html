@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -22,7 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2/dhsc/queries">
+<a class="nhsuk-back-link" href="/v2/company/queries">
   Go back
 </a>
 {% endblock %}
@@ -87,6 +87,37 @@
       </div>
 
     </dl>
+
+    <h2>New Response</h2>
+<dl class="nhsuk-summary-list">
+
+
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Response by</dt>
+    <dd class="nhsuk-summary-list__value">sendersemail@mail.com</dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Response details</dt>
+    <dd class="nhsuk-summary-list__value">
+      This is a body of text. Where the quick brown fox jumps over the lazy dog.. potato. potato.<br><br>
+      potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.<br>
+      potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.<br>
+      potato.potato.potato.potato.<br><br>
+      potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.potato.
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">Attachments</dt>
+    <dd class="nhsuk-summary-list__value">
+<a href="/images/placeholder-image-16-9.jpg" target="_blank" rel="noopener noreferrer">image.jpg</a>
+, <a href="/images/placeholder-image-16-9.jpg" target="_blank" rel="noopener noreferrer">uploadedfile.csv</a>
+    </dd>
+  </div>
+
+</dl>
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="example-right-size">
     Query response
@@ -106,7 +137,7 @@
 
         </div>
     <div>
-      <a href="/v2/dhsc/response-sent" class="nhsuk-button">
+      <a href="/v2/company/response-sent" class="nhsuk-button">
        Send response
       </a>
     </div>

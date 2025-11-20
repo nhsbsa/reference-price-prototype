@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -22,7 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2/dhsc/">
+<a class="nhsuk-back-link" href="/v2/company/">
  Back to dashboard
 </a>
 {% endblock %}
@@ -35,7 +35,7 @@
     <div class="nhsuk-grid-column-two-thirds">
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend">
-    <h1 >
+    <h1>
       Search for a product
     </h1>
   </legend>
@@ -57,11 +57,11 @@
 
 </fieldset>
 
-  <a href="/v2/dhsc/search-result" class="nhsuk-button">
+  <a href="/v2/company/search-result" class="nhsuk-button">
            Search
         </a>
 
-          <a href="/v2/dhsc/" class="nhsuk-button nhsuk-button--secondary">
+          <a href="/v2/company/" class="nhsuk-button nhsuk-button--secondary">
            Back to dashboard
         </a>
 

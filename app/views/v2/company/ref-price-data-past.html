@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-company.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -22,7 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2/dhsc/">
+<a class="nhsuk-back-link" href="/v2/company/">
     Back to dashboard
 </a>
 {% endblock %}
@@ -83,29 +83,6 @@
             <fieldset class="nhsuk-fieldset" role="group" aria-describedby="filters">
 
 
-
-
-
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="company-name">
-                        Company name (optional)
-                    </label>
-                    <input class="nhsuk-input" id="company-name" name="company-name" type="text">
-
-
-
-                </div>
-
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="company-snomed">
-                        Company SNOMED code (optional)
-                    </label>
-                    <input class="nhsuk-input nhsuk-input--width-20" id="company-snomed" name="company-snomed"
-                        type="text">
-
-
-
-                </div>
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label" for="product-name">
                         Product name (optional)
@@ -121,7 +98,7 @@
 
 
 
-        <a href="/v2/dhsc/ref-price-data-past-view" class="nhsuk-button nhsuk-button--secondary">
+        <a href="/v2/company/ref-price-data-past-view" class="nhsuk-button nhsuk-button--secondary">
             Search
         </a>
         <!-- End of content -->
