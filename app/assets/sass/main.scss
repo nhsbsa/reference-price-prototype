@@ -189,3 +189,15 @@
           -webkit-overflow-scrolling: touch;
           /* Smooth scrolling on mobile */
         }
+
+
+/*Full bleed - lets element expand*/
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  overflow-x: auto;   /* this stops page scrolling */
+}

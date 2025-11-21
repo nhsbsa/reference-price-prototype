@@ -1,0 +1,156 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Historical Data - Dictionary of Medicines + Devices" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<a class="nhsuk-back-link" href="/v2b/dhsc/datasources">
+    Go back
+</a>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Historical Data - Dictionary of Medicines + Devices (dm+d) </h1>
+
+
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-search-hint">
+                <legend class="nhsuk-fieldset__legend">
+                    <p class="nhsuk-fieldset__heading">
+                        Record date
+                    </p>
+                </legend>
+                <div id="date-search-hint" class="nhsuk-hint">
+                    The system will return values the database held at this date
+                </div>
+                <div id="date-search" class="nhsuk-date-input">
+                    <div class="nhsuk-date-input__item">
+                        <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="date-search-day">
+                                Day
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-search-day"
+                                name="dateOfBirth[day]" type="text" inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="nhsuk-date-input__item">
+                        <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="date-search-month">
+                                Month
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                id="date-search-month" name="dateOfBirth[month]" type="text" inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="nhsuk-date-input__item">
+                        <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="date-search-year">
+                                Year
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
+                                id="date-search-year" name="dateOfBirth[year]" type="text" inputmode="numeric">
+                        </div>
+                    </div>
+                </div>
+
+
+            </fieldset>
+            <br>
+            <fieldset class="nhsuk-fieldset" role="group" aria-describedby="filters">
+
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="vtm">
+                        VTM (optional)
+                    </label>
+                    <input class="nhsuk-input" id="vtm" name="vtm" type="text">
+
+
+
+                </div>
+
+                   <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="vtm-snomed">
+                        VTM SNOMED code (optional)
+                    </label>
+                    <input class="nhsuk-input nhsuk-input--width-20" id="vtm-snomed" name="vtm-snomed" type="text">
+
+                    
+
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="company-name">
+                        Company name (optional)
+                    </label>
+                    <input class="nhsuk-input" id="company-name" name="company-name" type="text">
+
+
+
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="company-snomed">
+                        Company SNOMED code (optional)
+                    </label>
+                    <input class="nhsuk-input nhsuk-input--width-20" id="company-snomed" name="company-snomed"
+                        type="text">
+
+
+
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="product-name">
+                        Product name (optional)
+                    </label>
+                    <input class="nhsuk-input" id="product-name" name="product-name" type="text">
+
+
+
+                </div>
+
+                   <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="product-snomed-code">
+                        Product SNOMED code (optional)
+                    </label>
+                    <input class="nhsuk-input" id="product-snomed-code" name="product-snomed-code" type="text">
+
+
+
+                </div>
+            </fieldset>
+        </div>
+
+
+
+
+        <a href="/v2b/dhsc/dmd-data-view" class="nhsuk-button ">
+            Search
+        </a>
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

@@ -18,7 +18,9 @@ const sessionInMemory = require('express-session')
 const nunjucks = require('nunjucks')
 
 // Run before other code to make sure variables from .env are available
-dotenv.config()
+dotenv.config({
+  quiet: true
+})
 
 // Local dependencies
 const config = require('./app/config')
@@ -99,23 +101,21 @@ if (process.env.NODE_ENV === 'production') {
 // Support session data in cookie or memory
 if (useCookieSessionStore === 'true') {
   app.use(
-    sessionInCookie(
-      Object.assign(sessionOptions, {
-        cookieName: sessionName,
-        proxy: true,
-        requestKey: 'session'
-      })
-    )
+    sessionInCookie({
+      ...sessionOptions,
+      cookieName: sessionName,
+      proxy: true,
+      requestKey: 'session'
+    })
   )
 } else {
   app.use(
-    sessionInMemory(
-      Object.assign(sessionOptions, {
-        name: sessionName,
-        resave: false,
-        saveUninitialized: false
-      })
-    )
+    sessionInMemory({
+      ...sessionOptions,
+      name: sessionName,
+      resave: false,
+      saveUninitialized: false
+    })
   )
 }
 
@@ -178,6 +178,10 @@ app.use(locals(config))
 // View engine
 app.set('view engine', 'html')
 exampleTemplatesApp.set('view engine', 'html')
+
+// Support for parsing nested query strings
+// https://github.com/nhsuk/nhsuk-prototype-kit/issues/644
+app.set('query parser', 'extended')
 
 // This setting trusts the X-Forwarded headers set by
 // a proxy and uses them to set the standard header in

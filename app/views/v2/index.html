@@ -27,33 +27,63 @@
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
-  <div class="nhsuk-grid-row">
+<div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-
-      <h1 class="nhsuk-heading-xl">
-        Sign in 
-      </h1>
-
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-width-20">
-    Enter your email
-  </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" type="text">
+        <div class="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
+  <div class="nhsuk-notification-banner__header">
+    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+      Note: Delete during development
+    </h2>
+  </div>
+  <div class="nhsuk-notification-banner__content">
+    <p>
+To navigae to dhsc journey, type <strong>dhsc</strong> in the email field and click the submit button. To nagivate the company journey, type <strong>company</strong> and click the submit button
+     
+    </p>
+  </div>
 </div>
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-width-20">
-    Enter your password
-  </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds"  type="text">
-</div>
+        <h1 class="nhsuk-heading-xl">
+            Sign in
+        </h1>
 
- <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-  Sign in
-</button>
-      <!-- End of content -->
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Enter your email
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="direction" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Enter your password
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" type="text">
+        </div>
+
+        <button onclick="goPage()" class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Sign in
+        </button>
+        <!-- End of content -->
 
     </div>
-  </div>
+</div>
+
+<script>
+function goPage() {
+    const value = document.getElementById("direction").value.toLowerCase();
+
+    if (value === "dhsc") {
+        window.location.href = "/v2/dhsc/";   
+    } 
+    else if (value === "company") {
+        window.location.href = "/v2/company"; 
+    } 
+    else {
+        alert("Invalid input");
+    }
+}
+</script>
+
 {% endblock %}

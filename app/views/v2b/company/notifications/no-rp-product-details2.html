@@ -1,0 +1,955 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Product Details" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<a class="nhsuk-back-link" href="/v2b/company/notifications/becoming-older">
+    Go back
+</a>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+        <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+
+            <ul class="nhsuk-tabs__list">
+                <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+                    <a class="nhsuk-tabs__tab" href="#product-information">
+                        Product
+                    </a>
+                </li>
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#pricing-information">
+                        Pricing
+                    </a>
+                </li>
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#sales-information">
+                        Sales
+                    </a>
+                </li>
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#exclusivity-information">
+                        Exclusivity
+                    </a>
+                </li>
+
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#ref-price-information">
+                        Reference price
+                    </a>
+                </li>
+
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#comparator-information">
+                        Comparators
+                    </a>
+                </li>
+            </ul>
+            <div class="nhsuk-tabs__panel" id="product-information">
+
+
+                <!-- Hierarchy Attributes -->
+                <div>
+                    <h2 class="nhsuk-heading-m">Hierarchy Attributes</h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Attribute</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">SNOMED code</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">VTM</td>
+                                <td class="nhsuk-table__cell">Metformin</td>
+                                <td class="nhsuk-table__cell">776713006</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">VMP</td>
+                                <td class="nhsuk-table__cell">Metformin 1g modified-release tablets</td>
+                                <td class="nhsuk-table__cell">38893711000001104</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">VMPP</td>
+                                <td class="nhsuk-table__cell">Metformin 1g modified-release tablets 28 tablet</td>
+                                <td class="nhsuk-table__cell">15367611000001106</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">AMP</td>
+                                <td class="nhsuk-table__cell">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)
+                                </td>
+                                <td class="nhsuk-table__cell">18885611000001108</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">AMPP</td>
+                                <td class="nhsuk-table__cell">Metabet SR 1000mg tablets (Morningside Healthcare Ltd) 28
+                                    tablet 2 x 14 tablets</td>
+                                <td class="nhsuk-table__cell">18885711000001104</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Dispensing Attributes -->
+                <div>
+                    <h2 class="nhsuk-heading-m">Dispensing Attributes</h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Pack size</td>
+                                <td class="nhsuk-table__cell">28 tablets</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Sub pack information</td>
+                                <td class="nhsuk-table__cell">2 x 14 tablets</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Unit of Measure</td>
+                                <td class="nhsuk-table__cell">tablet</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Form</td>
+                                <td class="nhsuk-table__cell">Modified-release tablet</td>
+                                <td class="nhsuk-table__cell">20-04-2009</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Route</td>
+                                <td class="nhsuk-table__cell">Oral</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Supplier Information -->
+                <div>
+                    <h2 class="nhsuk-heading-m">Supplier Information</h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Supplier</td>
+                                <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Supplier SNOMED Code</td>
+                                <td class="nhsuk-table__cell">10246711000001109</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Supplier Type Indicator</td>
+                                <td class="nhsuk-table__cell">Manufacturer</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Small Company</td>
+                                <td class="nhsuk-table__cell">Yes</td>
+                                <td class="nhsuk-table__cell">Not Applicable</td>
+                                <td class="nhsuk-table__cell">Not Applicable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- BNF Information -->
+                <div>
+                    <h2 class="nhsuk-heading-m">BNF Information</h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">BNF Chapter</td>
+                                <td class="nhsuk-table__cell">06010202</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Presentation Code (BNF)</td>
+                                <td class="nhsuk-table__cell">0601022B0BJABAW</td>
+                                <td class="nhsuk-table__cell">01-06-2011</td>
+                                <td class="nhsuk-table__cell">01-02-3456</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Exemptions -->
+                <div>
+                    <h2 class="nhsuk-heading-m">Exemptions</h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Plasma Derived Medicines Product</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">£1.5 million exemption</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Vaccine</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Historic Cash Payments</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Additional Information -->
+                <div>
+                    <h2 class="nhsuk-heading-m">Additional Information</h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Over the counter payments</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Discontinued</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">CDR Discontinued</td>
+                                <td class="nhsuk-table__cell">Yes</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">PIT</td>
+                                <td class="nhsuk-table__cell">Yes</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Combination Product</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Percentage Attribute</td>
+                                <td class="nhsuk-table__cell">Not Applicable</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="pricing-information">
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        List Price
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Price Basis</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>NHS Indicative Price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>Not Applicable</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>Not Applicable</td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Indicative Price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£3.67</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>03-07-2024</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>01-02-3456</td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Indicative Price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£4.16</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>11-01-2018</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>02-07-2024</td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Indicative Price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£5.73</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>01-06-2011</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>10-01-2018</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        Maximum Price
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Maximum Price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£3.67</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>03-07-2024</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>01-02-3456</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        Temporary Price
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Temporary Price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>Not Applicable</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>Not Applicable</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>Not Applicable</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="sales-information">
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        Sales Information – 2024
+                    </h2>
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Average Selling Price
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    £4.12
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Total Quantity
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    12,353,789,892
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Total Net Sales
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare Ltd
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Sales Year
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    2024
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Sales Company
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        Sales Information – 2023
+                    </h2>
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Average Selling Price
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    £3.98
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Total Quantity
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    1,353,649,522
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Total Net Sales
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare Ltd
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Sales Year
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    2023
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Sales Company
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="exclusivity-information">
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        VTM Market Authorization Information
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Licensing Authority
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Medicines – MHRA/ERA
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Market Authorization Number
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    PL 20117/0184
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Market Authorization Holder
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare Ltd
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Date of First Authorization
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    01-06-2011
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Date of Authorization Renewal
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    11/11/2024
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <br />
+
+                <div>
+                    <h2 class="nhsuk-heading-m">
+                        VTM Supplementary Protection Certificate Information
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    SPC Date
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    01-06-2011
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    SPC Expiry Date
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    01-06-2011
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    SPC Number
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    IPO456789
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    SPC Number Alternative
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    No data
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    SPC Holder
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare Ltd
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ref-price-information">
+<p>No information available</p>
+            </div>
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="comparator-information">
+<div>
+    <h2 class="nhsuk-heading-m">
+        Comparator Information – Comparators for Year 2024
+    </h2>
+
+    <table class="nhsuk-table-responsive" role="table">
+        <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+                <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator Product</th>
+                <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator Price Year</th>
+                <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator Price</th>
+            </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2023
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £6.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2016
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £6.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2025
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £8.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Migard 2.5mg tablets (TestCompanyA) 6 tablet
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2011
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £9.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2020
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £8.30
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+     View comparator information for 2023
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+   
+<div>
+    <h2 class="nhsuk-heading-m">
+        Comparator Information – Comparators for Year 2023
+    </h2>
+
+    <table class="nhsuk-table-responsive" role="table">
+        <thead class="nhsuk-table__head" role="rowgroup">
+            <tr role="row">
+                <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator Product</th>
+                <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator Price Year</th>
+                <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator Price</th>
+            </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2023
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £6.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2016
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £6.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2025
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £8.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Migard 2.5mg tablets (TestCompanyA) 6 tablet
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2011
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £9.30
+                </td>
+            </tr>
+
+            <tr class="nhsuk-table__row" role="row">
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product </span>
+                    Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year </span>
+                    2020
+                </td>
+                <td class="nhsuk-table__cell" role="cell">
+                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price </span>
+                    £8.30
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+  </div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+     View comparator information for 2022
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+   
+<p>No information available</p>
+  </div>
+</details>
+            </div>
+        </div>
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
