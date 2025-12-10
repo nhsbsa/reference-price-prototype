@@ -22,9 +22,24 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2b/dhsc/">
-    Back to dashboard
-</a>
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2b/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2b/dhsc/ref-price-data">Reference price datasets</a>
+    </li>
+   <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -32,19 +47,17 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1>Historical Data - Reference Price Dataset</h1>
+        <h1>Search for historical reference price datasets</h1>
 
 
                <div class="nhsuk-form-group">
             <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-search-hint">
                 <legend class="nhsuk-fieldset__legend">
                     <p class="nhsuk-fieldset__heading">
-                        Record date
+                        Enter a date to search for and view historical reference price dataset
                     </p>
                 </legend>
-                <div id="date-search-hint" class="nhsuk-hint">
-                    The system will return values the database held at this date
-                </div>
+     
                 <div id="date-search" class="nhsuk-date-input">
                     <div class="nhsuk-date-input__item">
                         <div class="nhsuk-form-group">

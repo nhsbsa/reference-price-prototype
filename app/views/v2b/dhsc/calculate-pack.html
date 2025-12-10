@@ -17,14 +17,29 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Build a Calculate Pack" %}
+{% set pageName = "Join data tables" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2b/dhsc/datasources">
-    Go back
-</a>
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2b/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2b/dhsc/datasources">View data</a>
+    </li>
+   <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
+    </li> -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -32,8 +47,8 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1>Build a joined table</h1>
-        <p>Select the data sources for the join parameter</p>
+        <h1>Join data tables</h1>
+        <p>Select the data tables you want to join</p>
 
         <fieldset class="nhsuk-fieldset">
 
@@ -41,27 +56,27 @@
                 <div class="nhsuk-checkboxes__item">
                     <input class="nhsuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="email">
                     <label class="nhsuk-label nhsuk-checkboxes__label" for="contact">
-                        Dictionary of Medicines and Devices
+                        Dictionary of medicines and devices (dm+d)
                     </label>
                 </div>
                 <div class="nhsuk-checkboxes__item">
                     <input class="nhsuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone">
                     <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
-                        Market Authorization
+                        Market authorization
                     </label>
                 </div>
                 <div class="nhsuk-checkboxes__item">
                     <input class="nhsuk-checkboxes__input" id="contact-3" name="contact" type="checkbox"
                         value="text message">
                     <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-3">
-                        Supplementary Protection Certificate
+                        Supplementary protection certificate
                     </label>
                 </div>
                 <div class="nhsuk-checkboxes__item">
                     <input class="nhsuk-checkboxes__input" id="contact-4" name="contact" type="checkbox"
                         value="text message">
                     <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-4">
-                        Presentation Level Returns
+                        Presentation level returns
                     </label>
                 </div>
                 <div class="nhsuk-checkboxes__item">
@@ -75,7 +90,7 @@
                     <input class="nhsuk-checkboxes__input" id="contact-6" name="contact" type="checkbox"
                         value="text message">
                     <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-6">
-                        VTM Originator table
+                        VTM originator 
                     </label>
                 </div>
             </div>

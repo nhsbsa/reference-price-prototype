@@ -22,9 +22,24 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v2b/dhsc/">
-    Back to dashboard
-</a>
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2b/dhsc">Dashboard</a>
+    </li>
+     <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2/dhsc/datasources">View data</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v2/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -32,12 +47,12 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1>Reference Price Dataset</h1>
+        <h1>View reference price datasets</h1>
         <div class="nhsuk-inset-text">
             <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>Last updated: <span id="date"></span> at <span id="time"></span></p>
+            <p>Date the reference price dataset was last updated: <span id="date"></span> at <span id="time"></span></p>
         </div>
-        <p>View reference price data</p>
+    
 
 
       <a href="/v2b/dhsc/ref-price-data-view" class="nhsuk-button ">
