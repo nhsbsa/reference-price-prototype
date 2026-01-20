@@ -1,0 +1,78 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Upload Reference Price Data" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/ref-price-data">Reference price datasets</a>
+    </li>
+   <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1>Upload new reference price data</h1>
+
+
+        <p class="nhsuk-body">
+            Upload a new reference price dataset. Make sure the file is formatted correctly by following the
+            <a href="/v3/dhsc/upload-guidance" target="_blank">
+                Guidance on formatting and uploading the reference price data file
+            </a> (opens in a new tab)
+        </p>
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="file-upload">
+                Choose an Excel file
+            </label>
+
+            <input class="nhsuk-file-upload" id="file-upload" name="file-upload" type="file" accept=".xlsx">
+
+
+        </div>
+
+  <a href="/v3/dhsc/upload-ref-price-check" class="nhsuk-button">
+            Continue
+        </a>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

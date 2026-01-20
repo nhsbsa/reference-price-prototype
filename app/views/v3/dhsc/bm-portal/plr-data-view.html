@@ -1,0 +1,469 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Presentation level returns" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<a class="nhsuk-back-link" href="/v3/dhsc/bm-portal/index">
+    Go back
+</a>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>Presentation level returns</h1>
+        <p>The table below shows the most up to date version of presentation level returns data</p>
+
+
+        <p>You can filter this dataset to view only the rows you want to see or <a href="/v3/dhsc/bm-portal/plr-data-past" class="nhsuk-link">Search
+                </a></p>
+        <br>
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the dataset
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="column-filter-select">
+                        Choose column to filter
+                    </label>
+
+                 <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="company_name">company_name</option>
+    <option value="dmd_company">dmd_company</option>
+    <option value="ampp_name">ampp_name</option>
+    <option value="ampp_snomed">ampp_snomed</option>
+    <option value="vtm">vtm</option>
+    <option value="year">year</option>
+    <option value="average_selling_price">average_selling_price</option>
+</select>
+
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary">
+                    Filter dataset
+                </button>
+            </div>
+        </details>
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download dataset
+        </button>
+
+        <div class="large-table-container">
+            <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+<thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+        <th role="columnheader" scope="col" aria-sort="none">company_name</th>
+        <th role="columnheader" scope="col" aria-sort="none">dmd_company</th>
+        <th role="columnheader" scope="col" aria-sort="none">ampp_name</th>
+        <th role="columnheader" scope="col" aria-sort="none">ampp_snomed</th>
+        <th role="columnheader" scope="col" aria-sort="none">vtm</th>
+        <th role="columnheader" scope="col" aria-sort="none">year</th>
+        <th role="columnheader" scope="col" aria-sort="none">average_selling_price</th>
+        <th role="columnheader" scope="col" >action</th>
+    </tr>
+</thead>
+
+<tbody class="nhsuk-table__body">
+
+    <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Delmosart 50mg modified-release tablets</td>
+        <td class="nhsuk-table__cell">3400271</td>
+        <td class="nhsuk-table__cell">Methylphenidate</td>
+        <td class="nhsuk-table__cell">2023</td>
+        <td class="nhsuk-table__cell">17.25</td>
+        <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+        
+    </tr>
+
+    <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Delmosart 54mg modified-release tablets</td>
+        <td class="nhsuk-table__cell">3400291</td>
+        <td class="nhsuk-table__cell">Methylphenidate</td>
+        <td class="nhsuk-table__cell">2023</td>
+        <td class="nhsuk-table__cell">30.21</td>
+        <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+    </tr>
+
+    <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Granpidam 20mg tablets</td>
+        <td class="nhsuk-table__cell">3493751</td>
+        <td class="nhsuk-table__cell">Sildenafil</td>
+        <td class="nhsuk-table__cell">2023</td>
+        <td class="nhsuk-table__cell">245.52</td>
+        <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+    </tr>
+
+    <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Hapactosin 35micrograms/hour transdermal patches</td>
+        <td class="nhsuk-table__cell">2344631</td>
+        <td class="nhsuk-table__cell">Buprenorphine</td>
+        <td class="nhsuk-table__cell">2023</td>
+        <td class="nhsuk-table__cell">8.28</td>
+        <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+    </tr>
+
+    <tr role="row" class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+        <td class="nhsuk-table__cell">Hapactosin 52.5micrograms/hour transdermal patches</td>
+        <td class="nhsuk-table__cell">2344651</td>
+        <td class="nhsuk-table__cell">Buprenorphine</td>
+        <td class="nhsuk-table__cell">2023</td>
+        <td class="nhsuk-table__cell">12.38</td>
+        <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+    </tr>
+
+
+    <tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Delmosart 50mg modified-release tablets</td>
+    <td class="nhsuk-table__cell">3400271</td>
+    <td class="nhsuk-table__cell">Methylphenidate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">17.25</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Delmosart 54mg modified-release tablets</td>
+    <td class="nhsuk-table__cell">3400291</td>
+    <td class="nhsuk-table__cell">Methylphenidate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">30.21</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Granpidam 20mg tablets (Accord-UK)</td>
+    <td class="nhsuk-table__cell">3493751</td>
+    <td class="nhsuk-table__cell">Sildenafil</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">245.52</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Hapactosin 35micrograms/hour transdermal patch</td>
+    <td class="nhsuk-table__cell">2344631</td>
+    <td class="nhsuk-table__cell">Buprenorphine</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">8.28</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Hapactosin 52.5micrograms/hour transdermal patch</td>
+    <td class="nhsuk-table__cell">2344651</td>
+    <td class="nhsuk-table__cell">Buprenorphine</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">12.38</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Hapactosin 70micrograms/hour transdermal patch</td>
+    <td class="nhsuk-table__cell">2344671</td>
+    <td class="nhsuk-table__cell">Buprenorphine</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">16.39</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Ictastan 200mg/245mg tablets</td>
+    <td class="nhsuk-table__cell">3583151</td>
+    <td class="nhsuk-table__cell">Emtricitabine + Tenofovir</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell"></td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Indipam XL 1.5mg tablets</td>
+    <td class="nhsuk-table__cell">1554871</td>
+    <td class="nhsuk-table__cell">Indapamide</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">1.00</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Allergan Ltd</td>
+    <td class="nhsuk-table__cell">Izinova concentrate for oral solution</td>
+    <td class="nhsuk-table__cell">3101541100001103</td>
+    <td class="nhsuk-table__cell"></td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell"></td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Kentera 3.9mg/24hours patches</td>
+    <td class="nhsuk-table__cell">9189411</td>
+    <td class="nhsuk-table__cell">Oxybutynin</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">23.91</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Teva UK Ltd</td>
+    <td class="nhsuk-table__cell">Larbex XL 4mg tablets</td>
+    <td class="nhsuk-table__cell">1733831</td>
+    <td class="nhsuk-table__cell">Doxazosin</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">362.50</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Lotprosin XL 16mg capsules</td>
+    <td class="nhsuk-table__cell">2171001</td>
+    <td class="nhsuk-table__cell">Galantamine</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">9.97</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Lotprosin XL 24mg capsules</td>
+    <td class="nhsuk-table__cell">2171021</td>
+    <td class="nhsuk-table__cell">Galantamine</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">5.81</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Lotprosin XL 8mg capsules</td>
+    <td class="nhsuk-table__cell">2170951</td>
+    <td class="nhsuk-table__cell">Galantamine</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">2.34</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Lynlor 10mg capsules</td>
+    <td class="nhsuk-table__cell">2268681</td>
+    <td class="nhsuk-table__cell">Oxycodone</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">9.49</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Lynlor 20mg capsules</td>
+    <td class="nhsuk-table__cell">2268701</td>
+    <td class="nhsuk-table__cell">Oxycodone</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">20.39</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Lynlor 5mg capsules</td>
+    <td class="nhsuk-table__cell">2268661</td>
+    <td class="nhsuk-table__cell">Oxycodone</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">4.21</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+    <td class="nhsuk-table__cell">Metabet SR 1000mg tablets</td>
+    <td class="nhsuk-table__cell">1888571</td>
+    <td class="nhsuk-table__cell">Metformin</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">0.61</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Methofill 10mg/0.2ml solution for injection</td>
+    <td class="nhsuk-table__cell">3477701</td>
+    <td class="nhsuk-table__cell">Methotrexate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">10.25</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Methofill 10mg/0.2ml solution for injection</td>
+    <td class="nhsuk-table__cell">3757141</td>
+    <td class="nhsuk-table__cell">Methotrexate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">8.79</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Methofill 12.5mg/0.25ml solution for injection</td>
+    <td class="nhsuk-table__cell">3477741</td>
+    <td class="nhsuk-table__cell">Methotrexate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">11.13</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Methofill 12.5mg/0.25ml solution for injection</td>
+    <td class="nhsuk-table__cell">3757161</td>
+    <td class="nhsuk-table__cell">Methotrexate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">9.92</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Methofill 15mg/0.3ml solution for injection</td>
+    <td class="nhsuk-table__cell">3477721</td>
+    <td class="nhsuk-table__cell">Methotrexate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">11.05</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Accord-UK Ltd</td>
+    <td class="nhsuk-table__cell">Methofill 15mg/0.3ml solution for injection</td>
+    <td class="nhsuk-table__cell">3757181</td>
+    <td class="nhsuk-table__cell">Methotrexate</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">9.55</td>
+    <td class="nhsuk-table__cell"><a href="/v3/dhsc/bm-portal/plr-single" class="nhsuk-link">View</a></td>
+</tr>
+</tbody>
+
+
+            </table>
+        </div>
+
+
+        <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+            <ul class="nhsuk-list nhsuk-pagination__list">
+                <li class="nhsuk-pagination-item--previous">
+                    <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="#">
+                        <span class="nhsuk-pagination__title">Previous</span>
+                        <span class="nhsuk-u-visually-hidden">:</span>
+                        <span class="nhsuk-pagination__page">1 -15 results</span>
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                            <path
+                                d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nhsuk-pagination-item--next">
+                    <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
+                        <span class="nhsuk-pagination__title">Next</span>
+                        <span class="nhsuk-u-visually-hidden">:</span>
+                        <span class="nhsuk-pagination__page">15-30 results</span>
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                            <path
+                                d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+    
+        <!-- End of content -->
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

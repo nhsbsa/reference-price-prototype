@@ -1,0 +1,89 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
+  <div class="nhsuk-notification-banner__header">
+    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+      Note: Delete during development
+    </h2>
+  </div>
+  <div class="nhsuk-notification-banner__content">
+    <p>
+To navigae to dhsc journey, type <strong>dhsc</strong> in the email field and click the submit button. To nagivate the company journey, type <strong>company</strong> and click the submit button
+     
+    </p>
+  </div>
+</div>
+
+        <h1 class="nhsuk-heading-xl">
+            Sign in
+        </h1>
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Enter your email
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" id="direction" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Enter your password
+            </label>
+            <input class="nhsuk-input nhsuk-u-width-two-thirds" type="text">
+        </div>
+
+        <button onclick="goPage()" class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Sign in
+        </button>
+        <!-- End of content -->
+
+    </div>
+</div>
+
+<script>
+function goPage() {
+    const value = document.getElementById("direction").value.toLowerCase();
+
+    if (value === "dhsc") {
+        window.location.href = "/v3/dhsc/";   
+    } 
+    else if (value === "company") {
+        window.location.href = "/v3/company"; 
+    } 
+    else {
+        alert("Invalid input");
+    }
+}
+</script>
+
+{% endblock %}

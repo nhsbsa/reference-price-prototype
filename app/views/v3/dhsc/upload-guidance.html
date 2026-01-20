@@ -1,0 +1,263 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Upload Reference Price Data Guidance" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<a class="nhsuk-back-link" href="/v3/dhsc/">
+   Dashboard
+</a>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      
+
+        <!-- Page title -->
+        <h1>Guidance for Uploading Excel Files to Update the Reference Pricing Database</h1>
+
+        <p class="nhsuk-body">
+            This guide explains how to prepare, validate and upload an Excel spreadsheet so that your data updates
+            correctly in the system.
+        </p>
+
+        <!-- Overview -->
+        <h2 class="nhsuk-heading-m">1. Overview</h2>
+        <p class="nhsuk-body">
+            The database expects a single Excel file (.xlsx) with one worksheet containing the required column headers.
+            Each row represents one medicinal product presentation and its associated pricing, regulatory, and
+            comparator information.
+        </p>
+        <p class="nhsuk-body">
+            Uploads replace existing entries where a matching SNOMED code exists, or create new records where none
+            exist.
+        </p>
+
+        <!-- File Format Section -->
+        <h2 class="nhsuk-heading-m">2. Required Excel Format</h2>
+
+        <h3 class="nhsuk-heading-s">2.1 File Format</h3>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Must be a <strong>.xlsx</strong> Microsoft Excel file</li>
+            <li>Only <strong>one sheet</strong> will be processed</li>
+            <li>The sheet must contain a <strong>header row</strong> (Row 1)</li>
+            <li>No blank rows above the header row</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">2.2 Required Column Headers</h3>
+        <p class="nhsuk-body">Your Excel file must contain these exact column names:</p>
+
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">Show required column list</span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <pre class="nhsuk-body">
+Company.Name
+Presentation.snomed.code
+Presentation.name
+Current.maximum.price.[£].(list.price)
+Virtual.medicinal.product.(VMP).name
+Virtual.therapeutic.moiety.(VTM).name
+Expiry.date.of.relevant.supplementary.protection.certificate.(SPC).applying.to.the.VTM.(for.non-combination.products)
+Date.of.first.identified.marketing.authorisation.(MA).for.the.VTM.(for.non-combination.products)
+Details.of.the.relevant.SPC.or.MA.used.to.establish.reference.anchor.date.(RAD).for.combination.products,.products.without.a.reported.VTM.and.vaccines
+Supplementary.protection.certificate.number(s).where.applicable
+Name.of.originator.presentation(s).identified
+Originator.Classification
+Older.Newer.Medicine.Classification
+Date.presentation.became.an.older.medicine
+Reference.Anchor.Date.(RAD)
+Reference Price - Final 2024
+Reference.Price.Type
+Comparator(s).used.to.establish.reference.price
+Reference.Price.Year.(year.from.which.comparator.price.data.is.taken)
+Comparator(s).raw.price.used.to.calculate.the.Reference.Price.[£]
+Pack.size.adjustment.flag
+Strength.adjustment.flag
+Inter.formulation.adjustment.flag
+Comparator.flat.price.flag
+Reason.for.exclusion
+Changes.to.Phase.1
+Change.following.review.of.previous.version
+      </pre>
+            </div>
+        </details>
+
+        <div class="nhsuk-warning-callout">
+            <h3 class="nhsuk-warning-callout__label">Important</h3>
+            <p class="nhsuk-body">
+                All column names must match exactly, including capital letters, punctuation, brackets, and spaces.
+            </p>
+        </div>
+
+        <!-- Mandatory Columns -->
+        <h2 class="nhsuk-heading-m">3. Mandatory Columns</h2>
+
+        <p class="nhsuk-body">These fields <strong>must</strong> be populated for every row:</p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Company.Name</li>
+            <li>Presentation.snomed.code</li>
+            <li>Presentation.name</li>
+            <li>Current.maximum.price.[£].(list.price)</li>
+            <li>Virtual.medicinal.product.(VMP).name</li>
+            <li>Virtual.therapeutic.moiety.(VTM).name</li>
+        </ul>
+
+        <!-- Data Validation -->
+        <h2 class="nhsuk-heading-m">4. Data Validation Rules</h2>
+
+        <h3 class="nhsuk-heading-s">4.1 Date Fields</h3>
+        <p class="nhsuk-body">
+            Dates must use the format <strong>DD/MM/YYYY</strong>.
+        </p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Expiry.date.of.relevant.supplementary.protection.certificate...(SPC)</li>
+            <li>Date.of.first.identified.marketing.authorisation...(MA)</li>
+            <li>Date.presentation.became.an.older.medicine</li>
+            <li>Reference.Anchor.Date.(RAD)</li>
+        </ul>
+
+        <p class="nhsuk-body">Examples:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>✔ 22/04/2023</li>
+            <li>❌ 22-04-2023</li>
+            <li>❌ 2023/04/22</li>
+            <li>❌ Apr 22 2023</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">4.2 Currency Fields</h3>
+        <p class="nhsuk-body">Values must be numeric, with or without the £ sign:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>12.12</li>
+            <li>£12.12</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">4.3 Flag Fields</h3>
+        <p class="nhsuk-body">Accepted values:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Yes / No</li>
+            <li>Y / N</li>
+            <li>1 / 0</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">4.4 Blank Values</h3>
+        <p class="nhsuk-body">Blank values are allowed for optional regulatory or comparator fields.</p>
+
+        <!-- Uploading -->
+        <h2 class="nhsuk-heading-m">5. Uploading the File</h2>
+
+        <ol class="nhsuk-list nhsuk-list--number">
+            <li>Navigate to <strong>Admin → Reference Price Data Upload</strong></li>
+            <li>Select <strong>Choose file</strong></li>
+            <li>Upload your <strong>.xlsx</strong> file</li>
+            <li>Click <strong>Validate file</strong></li>
+            <li>Review the validation results</li>
+            <li>Fix any issues and re-upload if needed</li>
+            <li>When validation passes, click <strong>Confirm upload</strong></li>
+        </ol>
+
+        <!-- What Happens After Upload -->
+        <h2 class="nhsuk-heading-m">6. What Happens After Upload</h2>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>If <strong>Presentation.snomed.code</strong> already exists, the record will be updated.</li>
+            <li>If not, a new record will be created.</li>
+            <li>Unaffected records remain unchanged.</li>
+        </ul>
+
+        <p class="nhsuk-body">An audit entry is generated for every upload, including:</p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>filename</li>
+            <li>user who uploaded</li>
+            <li>timestamp</li>
+            <li>number of records added/updated</li>
+        </ul>
+
+        <!-- Example Row -->
+        <h2 class="nhsuk-heading-m">7. Example Template Row</h2>
+
+        <table class="nhsuk-table">
+            <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Example Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Company.Name</td>
+                    <td>TestCompanyA</td>
+                </tr>
+                <tr>
+                    <td>Presentation.snomed.code</td>
+                    <td>SNOMED_17031011000001104</td>
+                </tr>
+                <tr>
+                    <td>Presentation.name</td>
+                    <td>TestA 120mg tablets 28 tablet (2 × 14)</td>
+                </tr>
+                <tr>
+                    <td>Current.maximum.price.[£].(list.price)</td>
+                    <td>12.12</td>
+                </tr>
+                <tr>
+                    <td>Virtual.medicinal.product.(VMP).name</td>
+                    <td>TestProductA 120mg tablets</td>
+                </tr>
+                <tr>
+                    <td>Virtual.therapeutic.moiety.(VTM).name</td>
+                    <td>febuxostat</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Support -->
+        <h2 class="nhsuk-heading-m">8. Help and Support</h2>
+        <p class="nhsuk-body">
+            If your file does not upload successfully, common causes include:
+        </p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Header row misspellings</li>
+            <li>Incorrect date format</li>
+            <li>Extra sheets in the workbook</li>
+            <li>Hidden rows or merged cells</li>
+            <li>Currency fields containing additional characters</li>
+        </ul>
+
+        <p class="nhsuk-body">
+            For support, contact: <a
+                href="mailto:reference.pricing@yourdomain.gov.uk">reference.pricing@yourdomain.gov.uk</a>
+        </p>
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

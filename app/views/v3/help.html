@@ -1,0 +1,151 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Help and Support" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<a class="nhsuk-back-link" href="javascript:history.go(-1)">Go Back</a>
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+<h1>
+Reference price help and support
+           
+        </h1>
+        
+
+<div class="nhsuk-grid-column-one-quarter">
+  <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+    <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+    <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+        <a class="nhsuk-contents-list__link" href="#abbreviations">Abbreviations</a>
+      </li>
+      <li class="nhsuk-contents-list__item">
+        <a class="nhsuk-contents-list__link" href="#errors">Errors</a>
+      </li>
+      <li class="nhsuk-contents-list__item">
+        <a class="nhsuk-contents-list__link" href="#price-query">Price query</a>
+      </li>
+      <li class="nhsuk-contents-list__item">
+        <a class="nhsuk-contents-list__link" href="#policy">Policy</a>
+      </li>
+      <li class="nhsuk-contents-list__item">
+        <a class="nhsuk-contents-list__link" href="#contact-us">Contact us</a>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="nhsuk-grid-column-three-quarters">
+
+  <!-- Abbreviations -->
+  <h2 id="abbreviations">Abbreviations</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet, augue vitae dictum maximus, 
+  justo lacus aliquet erat, sed pulvinar velit enim quis lorem. Suspendisse et eros id velit molestie faucibus.</p>
+
+  <ul>
+  <li><strong>ABPI</strong> – Association of the British Pharmaceutical Industry</li>
+  <li><strong>AMP</strong> – Actual Medicinal Product</li>
+  <li><strong>AMPP</strong> – Actual Medicinal Product Pack</li>
+  <li><strong>BNF</strong> – British National Formulary</li>
+  <li><strong>BPL</strong> – Branded Presentation List</li>
+  <li><strong>CDR</strong> – Common Drug Reference</li>
+  <li><strong>DM+D</strong> – Dictionary of Medicines + Devices</li>
+  <li><strong>IPO</strong> – Intellectual Property Office</li>
+  <li><strong>LOE</strong> – Loss of Exclusivity date</li>
+  <li><strong>MA</strong> – Market Authorisation</li>
+  <li><strong>MHRA</strong> – Medicines and Healthcare Regulatory Authority</li>
+  <li><strong>MPL</strong> – Maximum Price Lists</li>
+  <li><strong>PDMP</strong> – Plasma Derived Medical Products</li>
+  <li><strong>PLR</strong> – Presentation Level Returns</li>
+  <li><strong>RA</strong> – Reference Anchor date</li>
+  <li><strong>RAD</strong> – Reference Anchor Date</li>
+  <li><strong>SPC</strong> – Supplementary Protection Certificates (like a patent)</li>
+  <li><strong>VMP</strong> – Virtual Medicinal Product</li>
+  <li><strong>VMPP</strong> – Virtual Medicinal Product Pack</li>
+  <li><strong>VPAG</strong> – Voluntary Scheme for Pricing, Access and Growth</li>
+  <li><strong>VTM</strong> – Virtual Therapeutic Moiety</li>
+</ul>
+
+
+  <!-- Errors -->
+  <h2 id="errors">Errors</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet sapien sed 
+  libero venenatis, at dictum lorem tincidunt. Integer ac feugiat justo.</p>
+
+  <p>Common types of errors may include:</p>
+  <ul>
+    <li>Input mistakes or missing information.</li>
+    <li>Incorrect formatting or outdated data.</li>
+    <li>System-related issues causing inaccurate outputs.</li>
+  </ul>
+
+  <!-- Price Query -->
+  <h2 id="price-query">Price query</h2>
+  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. 
+  Integer fermentum, augue vel cursus varius, risus lorem ullamcorper risus, nec luctus erat est in sem.</p>
+
+  <p>Example placeholder content:</p>
+  <ul>
+    <li>Price variations may occur due to supplier changes.</li>
+    <li>Some items may require manual verification.</li>
+    <li>Check the most recent pricing guidelines for accuracy.</li>
+  </ul>
+
+  <!-- Policy -->
+  <h2 id="policy">Policy</h2>
+  <p>Donec nec magna ac velit porttitor suscipit. Mauris eget dolor ac sapien pellentesque commodo. 
+  Nulla facilisi. Donec convallis luctus ipsum, vitae tincidunt tortor posuere sed.</p>
+
+  <p>Policies may include:</p>
+  <ul>
+    <li>Guidance on documentation requirements.</li>
+    <li>Procedures for quality assurance checks.</li>
+    <li>Compliance standards and best practice recommendations.</li>
+  </ul>
+
+  <!-- Contact us -->
+  <h2 id="contact-us">Contact us</h2>
+  <p>Praesent feugiat, nisl et consectetur tempor, massa libero vestibulum odio, a hendrerit 
+  arcu ipsum id magna. Suspendisse potenti.</p>
+
+  <p>You can reach the support team by:</p>
+  <ul>
+    <li>Email: <em>example@example.com</em></li>
+    <li>Phone: <em>01234 567 890</em></li>
+    <li>Submitting a query through the online help desk.</li>
+  </ul>
+
+</div>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
