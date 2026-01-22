@@ -1,0 +1,256 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Provisional Products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+      <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/provisional/index">Add a provisional products</a>
+    </li>
+<!--   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1>Provisional products</h1>
+
+               <p>The table below shows all provisional products</p>
+
+
+        <p>You can filter this dataset to view only the rows you want to see </p>
+ 
+        <br>
+                <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the dataset
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="column-filter-select">
+                        Choose column to filter
+                    </label>
+
+      <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="ATC">Company name</option>
+        <option value="ATC">Product name</option>
+    <option value="VMP_NAME">VTM</option>
+    <option value="VMPP_NAME">Originator brand name</option>
+        <option value="VMPP_NAME">Originator status</option>
+    <option value="AMP_NAME">Loss of exclusivity</option>
+    <option value="AMPP_NAME">Reference anchor date</option>
+    <option value="AMP_NAME_COMPANY">Newer/older classificatiom</option>
+    <option value="COMPANY">Reference price</option>
+
+    
+  </select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary" >
+Filter dataset
+                </button>
+            </div>
+        </details>
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download dataset
+        </button>
+
+            <div class="large-table-container">
+      <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" scope="col" aria-sort="none">Company name</th>
+            <th role="columnheader" scope="col" aria-sort="none">Product name</th>
+            <th role="columnheader" scope="col" aria-sort="none">VTM</th>
+             <th role="columnheader" scope="col" aria-sort="none">Originator brand name</th>
+                 <th role="columnheader" scope="col" aria-sort="none">Originator status</th>
+            <th role="columnheader" scope="col" aria-sort="none">Loss of Exclusivity</th>
+             <th role="columnheader" scope="col" aria-sort="none">Reference anchor date</th>
+          <th role="columnheader" scope="col" aria-sort="none">Newer/Older classification</th>
+         <th role="columnheader" scope="col" aria-sort="none">Reference price</th>
+            <th role="columnheader" scope="col" aria-sort="hidden">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">AAH Medical</td>
+            <td class="nhsuk-table__cell">Medication q 200mg tablets (2 x 24)</td>
+            <td class="nhsuk-table__cell">Metsulin</td>
+             <td class="nhsuk-table__cell">Abagna LTD</td>
+                 <td class="nhsuk-table__cell">Unknown</td>
+            <td class="nhsuk-table__cell">19-12-2026</td>
+            <td class="nhsuk-table__cell">01-01-2025</td>
+            <td class="nhsuk-table__cell">New entrant</td>
+            <td class="nhsuk-table__cell">£7.32</td>
+            <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+            
+          </tr>
+         
+             <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Hollister</td>
+            <td class="nhsuk-table__cell">Aspirin liquid shots</td>
+            <td class="nhsuk-table__cell">Aspirin</td>
+             <td class="nhsuk-table__cell">Morningside PLC</td>
+                 <td class="nhsuk-table__cell">Older</td>
+            <td class="nhsuk-table__cell">19-12-1984</td>
+            <td class="nhsuk-table__cell">01-01-1980</td>
+            <td class="nhsuk-table__cell">Older medicine</td>
+            <td class="nhsuk-table__cell">£4.58</td>
+            <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+            
+          </tr>
+
+           <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Company A</td>
+            <td class="nhsuk-table__cell">Metablue MR 1000mg</td>
+            <td class="nhsuk-table__cell">Insutab</td>
+             <td class="nhsuk-table__cell">Insutab corp</td>
+                 <td class="nhsuk-table__cell">Unavailable</td>
+            <td class="nhsuk-table__cell">15-11-2006</td>
+            <td class="nhsuk-table__cell">01-01-2005</td>
+            <td class="nhsuk-table__cell">Newer medicine</td>
+            <td class="nhsuk-table__cell">£2.58</td>
+            <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+            
+          </tr>
+
+          <tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Pfizer</td>
+  <td class="nhsuk-table__cell">Cardiostat 10mg tablets (28)</td>
+  <td class="nhsuk-table__cell">Atorvastatin</td>
+  <td class="nhsuk-table__cell">Atotin Manufacturing</td>
+      <td class="nhsuk-table__cell">-</td>
+  <td class="nhsuk-table__cell">30-06-2028</td>
+  <td class="nhsuk-table__cell">01-01-2027</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">£3.44</td>
+  <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">GSK</td>
+  <td class="nhsuk-table__cell">Pulmovent inhaler 200mcg</td>
+  <td class="nhsuk-table__cell">Budesonide</td>
+  <td class="nhsuk-table__cell">Sunny morning corp</td>
+   <td class="nhsuk-table__cell">-</td>
+  <td class="nhsuk-table__cell">12-11-2029</td>
+  <td class="nhsuk-table__cell">01-01-2028</td>
+  <td class="nhsuk-table__cell">Newer medicine</td>
+  <td class="nhsuk-table__cell">£8.90</td>
+  <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Teva UK</td>
+  <td class="nhsuk-table__cell">Neuroquel XR 150mg tablets</td>
+  <td class="nhsuk-table__cell">Quetiapine</td>
+  <td class="nhsuk-table__cell">Quiet Tech</td>
+   <td class="nhsuk-table__cell">-</td>
+  <td class="nhsuk-table__cell">01-03-2030</td>
+  <td class="nhsuk-table__cell">01-01-2029</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">£6.72</td>
+  <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Sandoz</td>
+  <td class="nhsuk-table__cell">Glucofast 850mg tablets</td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">Meta Labs</td>
+   <td class="nhsuk-table__cell">-</td>
+  <td class="nhsuk-table__cell">18-09-2027</td>
+  <td class="nhsuk-table__cell">01-01-2026</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">£1.95</td>
+  <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Bayer</td>
+  <td class="nhsuk-table__cell">Thrombolex 75mg tablets</td>
+  <td class="nhsuk-table__cell">Clopidogrel</td>
+  <td class="nhsuk-table__cell">Sayer & Sons</td>
+   <td class="nhsuk-table__cell">-</td>
+  <td class="nhsuk-table__cell">05-05-2031</td>
+  <td class="nhsuk-table__cell">01-01-2030</td>
+  <td class="nhsuk-table__cell">Newer medicine</td>
+  <td class="nhsuk-table__cell">£4.63</td>
+  <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Accord</td>
+  <td class="nhsuk-table__cell">Renopress 5mg tablets</td>
+  <td class="nhsuk-table__cell">Amlodipine</td>
+  <td class="nhsuk-table__cell">Aymeee tech</td>
+   <td class="nhsuk-table__cell">-</td>
+  <td class="nhsuk-table__cell">20-10-2028</td>
+  <td class="nhsuk-table__cell">01-01-2027</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">£2.21</td>
+  <td class="nhsuk-table__cell"><a href="/v3/dhsc/provisional/single">View</a></td>
+</tr>
+
+
+
+</tbody>
+
+
+
+
+
+      </table>
+    </div>
+
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
