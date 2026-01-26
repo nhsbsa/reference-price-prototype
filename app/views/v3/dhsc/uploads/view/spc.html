@@ -1,0 +1,230 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Uploaded data" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+   <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
+    </li> -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Supplementary protection certificate data</h1>
+
+    
+
+        <p>You can filter this dataset to view only the rows you want to see</p>
+ 
+        <br>
+                <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the dataset
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="column-filter-select">
+                        Choose column to filter
+                    </label>
+
+      <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="ATC">ATC</option>
+    <option value="VMP_NAME">VMP_NAME</option>
+    <option value="VMPP_NAME">VMPP_NAME</option>
+    <option value="AMP_NAME">AMP_NAME</option>
+    <option value="AMPP_NAME">AMPP_NAME</option>
+    <option value="AMP_NAME_COMPANY">AMP_NAME_COMPANY</option>
+    <option value="COMPANY">COMPANY</option>
+    <option value="COMPANY_CODE">COMPANY_CODE</option>
+    <option value="FORM">FORM</option>
+    <option value="UNIT_DOSE">UNIT_DOSE</option>
+    <option value="STRENGTH">STRENGTH</option>
+    <option value="PACK_SIZE">PACK_SIZE</option>
+    <option value="PACK">PACK</option>
+    <option value="PRICE">PRICE</option>
+    <option value="PRICE_DATE">PRICE_DATE</option>
+    <option value="PRICE_PREVIOUS">PRICE_PREVIOUS</option>
+    <option value="PRICE_BASIS">PRICE_BASIS</option>
+    <option value="DISCONTINUED">DISCONTINUED</option>
+    <option value="DISCONTINUED_DATE">DISCONTINUED_DATE</option>
+    <option value="BNF_CODE">BNF_CODE</option>
+    <option value="BNF_CHAPTER">BNF_CHAPTER</option>
+    <option value="COMBPACKCD">COMBPACKCD</option>
+  </select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary" >
+Filter dataset
+                </button>
+            </div>
+        </details>
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download dataset
+        </button>
+
+        <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC Date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC Number <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC Number Alternate <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product Description <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product Search Key <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Applicant Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Matched Company <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">febuxostat</td>
+      <td class="nhsuk-table__cell">22/04/2023</td>
+      <td class="nhsuk-table__cell">SPC 2010019</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">TestA 120mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">febuxostat 120mg tablets</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">amlodipine</td>
+      <td class="nhsuk-table__cell">12/09/2024</td>
+      <td class="nhsuk-table__cell">SPC 20056453</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Cardiovex 20mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">amlodipine 20mg tablets</td>
+      <td class="nhsuk-table__cell">HealthPharm Ltd</td>
+      <td class="nhsuk-table__cell">HealthPharm Ltd</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">omeprazole</td>
+      <td class="nhsuk-table__cell">05/03/2022</td>
+      <td class="nhsuk-table__cell">SPC 19992211</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Gastroquel 40mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">omeprazole 40mg capsules</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">montelukast</td>
+      <td class="nhsuk-table__cell">19/07/2023</td>
+      <td class="nhsuk-table__cell">SPC 19989874</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets (56 tablets)</td>
+      <td class="nhsuk-table__cell">montelukast 5mg tablets</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">pregabalin</td>
+      <td class="nhsuk-table__cell">14/11/2024</td>
+      <td class="nhsuk-table__cell">SPC 20043345</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Neurocet 75mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">pregabalin 75mg capsules</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">cetirizine</td>
+      <td class="nhsuk-table__cell">01/02/2021</td>
+      <td class="nhsuk-table__cell">SPC 19968871</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Allergion 10mg tablets (30 tablets)</td>
+      <td class="nhsuk-table__cell">cetirizine 10mg tablets</td>
+      <td class="nhsuk-table__cell">NexThera</td>
+      <td class="nhsuk-table__cell">NexThera</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+
+
+        <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+        <ul class="nhsuk-list nhsuk-pagination__list">
+          <li class="nhsuk-pagination-item--previous">
+            <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="#">
+              <span class="nhsuk-pagination__title">Previous</span>
+              <span class="nhsuk-u-visually-hidden">:</span>
+              <span class="nhsuk-pagination__page">1 -15 results</span>
+              <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z">
+                </path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-pagination-item--next">
+            <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
+              <span class="nhsuk-pagination__title">Next</span>
+              <span class="nhsuk-u-visually-hidden">:</span>
+              <span class="nhsuk-pagination__page">15-30 results</span>
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z">
+                </path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Edit Product Details" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/search">Search for a product</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/product-details">Product page</a>
+    </li>   
+
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+         <span class="nhsuk-caption-l">Review changes</span>
+        <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+        <h2>Sales information</h2>
+
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Average Selling Price
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    £4.12
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Total Quantity
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    12,353,789,892
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Total Net Sales
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    4567
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Sales Year
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    2024
+                                </td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
+                                    Sales Company
+                                </td>
+                                <td class="nhsuk-table__cell" role="cell">
+                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
+                                    Morningside Healthcare
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+     <a href="/v3/dhsc/product-details" class="nhsuk-button">
+                Save changes
+            </a>
+
+                 <a href="sales-info" class="nhsuk-button nhsuk-button--secondary">
+              Edit changes
+            </a>
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

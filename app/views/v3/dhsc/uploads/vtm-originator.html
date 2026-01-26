@@ -1,0 +1,162 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Upload Data" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+    <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+  <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1>Review VTM originator data</h1>
+
+        <p>Review this data, and if it is correct, select Confirm data. The data will then be uploaded to the  portal</p>
+
+        <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">
+        VTM <span class="sort-indicator" aria-hidden="true">⇅</span>
+      </th>
+      <th role="columnheader" aria-sort="none">
+        Originator licensee <span class="sort-indicator" aria-hidden="true">⇅</span>
+      </th>
+      <th role="columnheader" aria-sort="none">
+        Originator brand(s) <span class="sort-indicator" aria-hidden="true">⇅</span>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">febuxostat</td>
+      <td class="nhsuk-table__cell">Menarini</td>
+      <td class="nhsuk-table__cell">Adenuric</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">amlodipine</td>
+      <td class="nhsuk-table__cell">Pfizer</td>
+      <td class="nhsuk-table__cell">Norvasc</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">omeprazole</td>
+      <td class="nhsuk-table__cell">AstraZeneca</td>
+      <td class="nhsuk-table__cell">Losec</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">montelukast</td>
+      <td class="nhsuk-table__cell">Merck Sharp & Dohme</td>
+      <td class="nhsuk-table__cell">Singulair</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">pregabalin</td>
+      <td class="nhsuk-table__cell">Pfizer</td>
+      <td class="nhsuk-table__cell">Lyrica</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">cetirizine</td>
+      <td class="nhsuk-table__cell">UCB</td>
+      <td class="nhsuk-table__cell">Zirtek</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">naproxen</td>
+      <td class="nhsuk-table__cell">Roche</td>
+      <td class="nhsuk-table__cell">Naprosyn</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">metformin</td>
+      <td class="nhsuk-table__cell">Merck Santé</td>
+      <td class="nhsuk-table__cell">Glucophage</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">salmeterol</td>
+      <td class="nhsuk-table__cell">GlaxoSmithKline</td>
+      <td class="nhsuk-table__cell">Serevent</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">levothyroxine</td>
+      <td class="nhsuk-table__cell">Aspen Pharma</td>
+      <td class="nhsuk-table__cell">Eltroxin</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">atorvastatin</td>
+      <td class="nhsuk-table__cell">Pfizer</td>
+      <td class="nhsuk-table__cell">Lipitor</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+        </div>
+
+
+
+
+   
+
+
+  <a href="/v3/dhsc/uploads/confirm?origin=vtm" class="nhsuk-button">
+            Confirm data
+        </a>
+
+          <a href="/v3/dhsc/uploads/index" class="nhsuk-button nhsuk-button--secondary">
+            Cancel upload
+        </a>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

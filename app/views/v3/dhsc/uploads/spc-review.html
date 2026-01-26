@@ -1,0 +1,160 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Upload Data" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+    <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+  <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1>Review supplementary protection certificate data</h1>
+
+        <p>Review this data, and if it is correct, select Confirm data. The data will then be uploaded to the  portal</p>
+
+        <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC Date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC Number <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC Number Alternate <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product Description <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product Search Key <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Applicant Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Matched Company <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">febuxostat</td>
+      <td class="nhsuk-table__cell">22/04/2023</td>
+      <td class="nhsuk-table__cell">SPC 2010019</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">TestA 120mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">febuxostat 120mg tablets</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">amlodipine</td>
+      <td class="nhsuk-table__cell">12/09/2024</td>
+      <td class="nhsuk-table__cell">SPC 20056453</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Cardiovex 20mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">amlodipine 20mg tablets</td>
+      <td class="nhsuk-table__cell">HealthPharm Ltd</td>
+      <td class="nhsuk-table__cell">HealthPharm Ltd</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">omeprazole</td>
+      <td class="nhsuk-table__cell">05/03/2022</td>
+      <td class="nhsuk-table__cell">SPC 19992211</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Gastroquel 40mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">omeprazole 40mg capsules</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">montelukast</td>
+      <td class="nhsuk-table__cell">19/07/2023</td>
+      <td class="nhsuk-table__cell">SPC 19989874</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets (56 tablets)</td>
+      <td class="nhsuk-table__cell">montelukast 5mg tablets</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">pregabalin</td>
+      <td class="nhsuk-table__cell">14/11/2024</td>
+      <td class="nhsuk-table__cell">SPC 20043345</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Neurocet 75mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">pregabalin 75mg capsules</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">cetirizine</td>
+      <td class="nhsuk-table__cell">01/02/2021</td>
+      <td class="nhsuk-table__cell">SPC 19968871</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Allergion 10mg tablets (30 tablets)</td>
+      <td class="nhsuk-table__cell">cetirizine 10mg tablets</td>
+      <td class="nhsuk-table__cell">NexThera</td>
+      <td class="nhsuk-table__cell">NexThera</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </div>
+
+
+
+
+   
+
+
+  <a href="/v3/dhsc/uploads/confirm?origin=spc" class="nhsuk-button">
+            Confirm data
+        </a>
+
+          <a href="/v3/dhsc/uploads/index" class="nhsuk-button nhsuk-button--secondary">
+            Cancel upload
+        </a>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

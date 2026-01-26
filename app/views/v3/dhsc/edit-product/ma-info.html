@@ -51,30 +51,46 @@
          <span class="nhsuk-caption-l">Edit product details</span>
         <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
-        <h2>Pricing information</h2>
+        <h2>VTM Market authorization information</h2>
        
 
-{{ input({
-  label: {
-      text: "Maximum price"
-  },
-  id: "cost-pounds",
-  name: "costPounds",
-  prefix: "£",
-  classes: "nhsuk-input--width-5",
-  spellcheck: false
-}) }}
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+    Licensing Authority
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>Medicines – MHRA/ERA</option>
+    <option value="recently-updated">Other Licensing Organisation</option>
+ <option value="recently-updated">Other Other Licensing Organisation</option>
+  </select>
+</div>
+
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="one-half">
+    Market Authorization Number
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-one-third" id="one-third" name="oneThird" type="text">
+</div>
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="one-half">
+     Market Authorization Holder
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-one-third" id="one-third" name="oneThird" type="text">
+</div>
+
 
 <div class="nhsuk-form-group">
   <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
     <legend class="nhsuk-fieldset__legend ">
   
-  Start date
+  Date of First Authorization
       
     </legend>
-    <div id="date-of-birth-hint" class="nhsuk-hint">
-      When does this price take effect
-    </div>
+   
     <div id="date-of-birth" class="nhsuk-date-input">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
@@ -108,12 +124,10 @@
   <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
     <legend class="nhsuk-fieldset__legend ">
   
-  End date
+  Date of Authorization Renewal
       
     </legend>
-    <div id="date-of-birth-hint" class="nhsuk-hint">
-      If no end date has been set, you can leave this blank
-    </div>
+   
     <div id="date-of-birth" class="nhsuk-date-input">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
@@ -145,7 +159,8 @@
 
 
 
-     <a href="maximum-price-confirm" class="nhsuk-button ">
+
+     <a href="ma-info-confirm" class="nhsuk-button">
                 Continue
             </a>
 

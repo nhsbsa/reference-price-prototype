@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Market Authorization" %}
+{% set pageName = "Upload data confirm" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -27,14 +27,14 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
     </li>
-     <li class="nhsuk-breadcrumb__list-item">
+    <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
     </li>
-   <!-- <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
-    </li> -->
+    <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/calculate-pack">Join table</a>
+    </li>  -->
   </ol>
-<!-- 
+  <!-- 
   <a class="nhsuk-back-link" href="#">
     <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
   </a> -->
@@ -47,24 +47,50 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+        <div class="nhsuk-panel">
+  <h1 class="nhsuk-panel__title">
+    Reference price data uploaded
+  </h1>
 
-        <h1>Market authorisation data</h1>
-        <div class="nhsuk-inset-text">
-            <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>Last updated: <span id="date"></span> at <span id="time"></span></p>
-        </div>
-        <p>View or download market authorization data</p>
+</div>
+        <p class="nhsuk-body">
+            You have updated <strong>eighty (80)</strong> entries in the dataset
+        </p>
 
 
-        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download latest dataset
-        </button>
 
-        <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit">
-            View past dataset
-        </button>
+  <a href="/v3/dhsc/ref-price-data" class="nhsuk-button">
+            View reference price dataset
+        </a>
+
+
+  <a href="/v3/dhsc/" class="nhsuk-button nhsuk-button--secondary">
+            Back to dashboard
+        </a>
+
         <!-- End of content -->
 
     </div>
 </div>
+
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const origin = params.get("origin");
+
+    const titleMap = {
+      "ma": "Market authorization data uploaded",
+      "spc": "Supplementary product certificate data uploaded",
+      "vtm": "VTM originator data uploaded"
+    };
+
+    const heading = document.querySelector(".nhsuk-panel__title");
+
+    if (heading && titleMap[origin]) {
+      heading.textContent = titleMap[origin];
+    }
+  })();
+</script>
 {% endblock %}
+
+
