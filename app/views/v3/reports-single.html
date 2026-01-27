@@ -1,0 +1,788 @@
+<!-- USE THE currentPage VARIABLE TO SHOW THE SELECTED STATE ON MOBILE DEVICES -->
+
+
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Reports" %}
+
+
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+        </li>
+        <!--     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
+    </li> -->
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-quarter hide-on-mobile">
+
+        <!-- Use "app-side-nav__item--current" class on <li> for selected state -->
+
+        <nav class="app-side-nav">
+            <h2 class="nhsuk-heading-m">Reports</h2>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        Miscellaneous reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">DHSC view all submitted reports</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PLR work in progress report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Maximum price list report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Reference prices report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Download active user information csv</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Invalid submission report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Small company report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">DHSC wip report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Organisation details report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">CDR report</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </details>
+
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        Statutory reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="/v3/reports-statutory">Statutory PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory PLR checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory DHSC payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2019 Statutory checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory quarters report</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        2019 Voluntary reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary PLR checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2019 Voluntary DHSC payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary quarters report</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </details>
+
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        2024 Voluntary reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary DHSC payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary quarter consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary PLR checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary annual consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary company PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 VPAG DHSC payment report</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        2025 Voluntary reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory quarters consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory quarters checklist report</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        PCA reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA compared to PLR Data Report</strong><br>
+                                Compares the PCA figures to the PLR figures
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA unmatched AMPPs to PLR Report</strong><br>
+                                Lists all PCA lines where the PPA code is linked to multiple AMPPs and so an AMPP ID was
+                                unable to be collected
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA linked products but no PLR Data Report</strong><br>
+                                Lists PCA data where there is no corresponding PLR data. This is either because the
+                                company is not a payment company or because they have not submitted
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA not linked to BM companies report</strong><br>
+                                Lists all PCA lines where the product was not linked to a Branded Medicines company for
+                                the period
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>BSA prescribing data report</strong><br>
+                                Lists all rows of the PCA Data
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        PPRS reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PPRS consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PPRS DH payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PPRS quarters report</a>
+                        </li>
+                    </ul>
+
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        Audit reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Audit detail csv</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Audit report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Audit attributes report</a>
+                        </li>
+                    </ul>
+
+
+
+
+
+                </div>
+            </details>
+
+        </nav>
+
+    </div>
+    <div class="nhsuk-grid-column-three-quarters">
+
+
+ 
+
+		<h1 id="main-content" class="nhsuk-heading-xl">
+               <span>DHSC View All Submitted Reports</span>
+		</h1>
+	
+
+<div class="nhsuk-grid-row">
+                    <div class="nhsuk-grid-column-full">
+
+                        <!-- Mobile Nav -->
+                     
+                        <h2 class="nhsuk-heading-l">Report parameters</h2>
+
+                        <form method="post" action="/reports/queueReport"><input type="hidden" name="_csrf" value="fb9be036-59d2-41e8-8a8e-cf282b3c9c79">
+
+                            <div>
+                                <input type="hidden" id="dispatcherParameters0.dispatcherName" name="dispatcherParameters[0].dispatcherName" value="companyIdentifier">
+                                <input type="hidden" id="dispatcherParameters0.type" name="dispatcherParameters[0].type" value="2">
+                                <input type="hidden" id="dispatcherParameters0.displayName" name="dispatcherParameters[0].displayName" value="Company identifier">
+                                <input type="hidden" id="dispatcherParameters0.dispatcherParameterOptions" name="dispatcherParameters[0].dispatcherParameterOptions" value="">
+
+                                
+
+                                
+
+                                
+
+                                <div class="nhsuk-grid-row nhsuk-u-padding-bottom-4">
+                                    <!-- Text -->
+                                    <div class="nhsuk-grid-column-full">
+
+                                        <div class="nhsuk-u-margin-botton-5 nhsuk-form-group">
+
+											<span class="nhsuk-form-group">
+												<!-- <h3 class="heading-small" id="textDisplayName" th:text="${parameter.displayName}"></h3> -->
+												<label class="nhsuk-label" for="textBox" id="identifier-label">Company identifier</label>
+
+                                                
+
+												<div class="nhsuk-hint" id="identifier-hint-text"></div>
+												<input type="text" name="dispatcherParameters[0].value" id="textBox" class="nhsuk-input filterInput nhsuk-input--width-20" value="">
+											</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+                            <div>
+                                <input type="hidden" id="dispatcherParameters1.dispatcherName" name="dispatcherParameters[1].dispatcherName" value="periodYear">
+                                <input type="hidden" id="dispatcherParameters1.type" name="dispatcherParameters[1].type" value="0">
+                                <input type="hidden" id="dispatcherParameters1.displayName" name="dispatcherParameters[1].displayName" value="Period year">
+                                <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions" name="dispatcherParameters[1].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=2014, dispatcherValue=2014),DispatcherParameterOption(displayName=2015, dispatcherValue=2015),DispatcherParameterOption(displayName=2016, dispatcherValue=2016),DispatcherParameterOption(displayName=2017, dispatcherValue=2017),DispatcherParameterOption(displayName=2018, dispatcherValue=2018),DispatcherParameterOption(displayName=2019, dispatcherValue=2019),DispatcherParameterOption(displayName=2020, dispatcherValue=2020),DispatcherParameterOption(displayName=2021, dispatcherValue=2021),DispatcherParameterOption(displayName=2022, dispatcherValue=2022),DispatcherParameterOption(displayName=2023, dispatcherValue=2023),DispatcherParameterOption(displayName=2024, dispatcherValue=2024),DispatcherParameterOption(displayName=2025, dispatcherValue=2025),DispatcherParameterOption(displayName=2026, dispatcherValue=2026)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions0.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[0].displayName" value="2014">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[0].dispatcherValue" value="2014">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions1.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[1].displayName" value="2015">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[1].dispatcherValue" value="2015">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions2.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[2].displayName" value="2016">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[2].dispatcherValue" value="2016">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions3.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[3].displayName" value="2017">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[3].dispatcherValue" value="2017">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions4.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[4].displayName" value="2018">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions4.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[4].dispatcherValue" value="2018">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions5.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[5].displayName" value="2019">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions5.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[5].dispatcherValue" value="2019">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions6.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[6].displayName" value="2020">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions6.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[6].dispatcherValue" value="2020">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions7.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[7].displayName" value="2021">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions7.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[7].dispatcherValue" value="2021">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions8.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[8].displayName" value="2022">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions8.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[8].dispatcherValue" value="2022">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions9.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[9].displayName" value="2023">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions9.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[9].dispatcherValue" value="2023">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions10.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[10].displayName" value="2024">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions10.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[10].dispatcherValue" value="2024">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions11.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[11].displayName" value="2025">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions11.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[11].dispatcherValue" value="2025">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions12.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[12].displayName" value="2026">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions12.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[12].dispatcherValue" value="2026">
+                                </div>
+
+                                <div class="nhsuk-grid-row"> <!-- Dropdown -->
+                                    <div class="nhsuk-grid-column-full">
+                                        <div class="nhsuk-form-group">
+                                            <label class="nhsuk-label" for="periodYear" id="status-label1">Period year</label>
+
+                                            
+
+
+                                            <select aria-describedby="status-label1" class="nhsuk-select nhsuk-input--width-20" id="periodYear" name="dispatcherParameters[1].value">
+                                                <option value="2014">2014</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026" selected="selected">2026</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+                            <div>
+                                <input type="hidden" id="dispatcherParameters2.dispatcherName" name="dispatcherParameters[2].dispatcherName" value="periodMonth">
+                                <input type="hidden" id="dispatcherParameters2.type" name="dispatcherParameters[2].type" value="0">
+                                <input type="hidden" id="dispatcherParameters2.displayName" name="dispatcherParameters[2].displayName" value="Period month">
+                                <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions" name="dispatcherParameters[2].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=January, dispatcherValue=01),DispatcherParameterOption(displayName=February, dispatcherValue=02),DispatcherParameterOption(displayName=March, dispatcherValue=03),DispatcherParameterOption(displayName=April, dispatcherValue=04),DispatcherParameterOption(displayName=May, dispatcherValue=05),DispatcherParameterOption(displayName=June, dispatcherValue=06),DispatcherParameterOption(displayName=July, dispatcherValue=07),DispatcherParameterOption(displayName=August, dispatcherValue=08),DispatcherParameterOption(displayName=September, dispatcherValue=09),DispatcherParameterOption(displayName=October, dispatcherValue=10),DispatcherParameterOption(displayName=November, dispatcherValue=11),DispatcherParameterOption(displayName=December, dispatcherValue=12)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions0.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[0].displayName" value="January">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[0].dispatcherValue" value="01">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions1.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[1].displayName" value="February">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[1].dispatcherValue" value="02">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions2.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[2].displayName" value="March">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[2].dispatcherValue" value="03">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions3.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[3].displayName" value="April">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[3].dispatcherValue" value="04">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions4.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[4].displayName" value="May">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions4.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[4].dispatcherValue" value="05">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions5.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[5].displayName" value="June">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions5.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[5].dispatcherValue" value="06">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions6.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[6].displayName" value="July">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions6.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[6].dispatcherValue" value="07">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions7.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[7].displayName" value="August">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions7.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[7].dispatcherValue" value="08">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions8.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[8].displayName" value="September">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions8.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[8].dispatcherValue" value="09">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions9.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[9].displayName" value="October">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions9.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[9].dispatcherValue" value="10">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions10.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[10].displayName" value="November">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions10.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[10].dispatcherValue" value="11">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions11.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[11].displayName" value="December">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions11.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[11].dispatcherValue" value="12">
+                                </div>
+
+                                <div class="nhsuk-grid-row"> <!-- Dropdown -->
+                                    <div class="nhsuk-grid-column-full">
+                                        <div class="nhsuk-form-group">
+                                            <label class="nhsuk-label" for="periodMonth" id="status-label2">Period month</label>
+
+                                            
+
+
+                                            <select aria-describedby="status-label2" class="nhsuk-select nhsuk-input--width-20" id="periodMonth" name="dispatcherParameters[2].value">
+                                                <option value="01" selected="selected">January</option>
+                                                <option value="02">February</option>
+                                                <option value="03">March</option>
+                                                <option value="04">April</option>
+                                                <option value="05">May</option>
+                                                <option value="06">June</option>
+                                                <option value="07">July</option>
+                                                <option value="08">August</option>
+                                                <option value="09">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+                            <div>
+                                <input type="hidden" id="dispatcherParameters3.dispatcherName" name="dispatcherParameters[3].dispatcherName" value="periodType">
+                                <input type="hidden" id="dispatcherParameters3.type" name="dispatcherParameters[3].type" value="1">
+                                <input type="hidden" id="dispatcherParameters3.displayName" name="dispatcherParameters[3].displayName" value="Period type">
+                                <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions" name="dispatcherParameters[3].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=Quarterly, dispatcherValue=Q),DispatcherParameterOption(displayName=Annual, dispatcherValue=A)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions0.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[0].displayName" value="Quarterly">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[0].dispatcherValue" value="Q">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions1.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[1].displayName" value="Annual">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[1].dispatcherValue" value="A">
+                                </div>
+
+                                
+
+                                <div class="nhsuk-grid-row"> <!-- Radio -->
+                                    <div class="nhsuk-grid-column-full">
+
+                                        <div class="nhsuk-u-margin-botton-5 nhsuk-form-group">
+                                            <fieldset class="nhsuk-fieldset">
+                                                <legend>
+                                                    <h3 class="nhsuk-fieldset__legend" id="radio3">Period type</h3>
+                                                </legend>
+
+                                                
+
+                                                <div class="nhsuk-form-group">
+
+                                                    <div class="nhsuk-radios">
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="periodType-Q" class="nhsuk-radios__input" name="dispatcherParameters[3].value" value="Q" type="radio" checked="checked">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="periodType-Q">Quarterly</label>
+                                                        </div>
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="periodType-A" class="nhsuk-radios__input" name="dispatcherParameters[3].value" value="A" type="radio">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="periodType-A">Annual</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+                            <div>
+                                <input type="hidden" id="dispatcherParameters4.dispatcherName" name="dispatcherParameters[4].dispatcherName" value="submissionStatus">
+                                <input type="hidden" id="dispatcherParameters4.type" name="dispatcherParameters[4].type" value="1">
+                                <input type="hidden" id="dispatcherParameters4.displayName" name="dispatcherParameters[4].displayName" value="Submission status">
+                                <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions" name="dispatcherParameters[4].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=Active, dispatcherValue=98),DispatcherParameterOption(displayName=Rejected, dispatcherValue=2),DispatcherParameterOption(displayName=Replaced, dispatcherValue=4),DispatcherParameterOption(displayName=All, dispatcherValue=99)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions0.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[0].displayName" value="Active">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[0].dispatcherValue" value="98">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions1.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[1].displayName" value="Rejected">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[1].dispatcherValue" value="2">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions2.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[2].displayName" value="Replaced">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[2].dispatcherValue" value="4">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions3.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[3].displayName" value="All">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[3].dispatcherValue" value="99">
+                                </div>
+
+                                
+
+                                <div class="nhsuk-grid-row"> <!-- Radio -->
+                                    <div class="nhsuk-grid-column-full">
+
+                                        <div class="nhsuk-u-margin-botton-5 nhsuk-form-group">
+                                            <fieldset class="nhsuk-fieldset">
+                                                <legend>
+                                                    <h3 class="nhsuk-fieldset__legend" id="radio4">Submission status</h3>
+                                                </legend>
+
+                                                
+
+                                                <div class="nhsuk-form-group">
+
+                                                    <div class="nhsuk-radios">
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="submissionStatus-98" class="nhsuk-radios__input" name="dispatcherParameters[4].value" value="98" type="radio">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="submissionStatus-98">Active</label>
+                                                        </div>
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="submissionStatus-2" class="nhsuk-radios__input" name="dispatcherParameters[4].value" value="2" type="radio">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="submissionStatus-2">Rejected</label>
+                                                        </div>
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="submissionStatus-4" class="nhsuk-radios__input" name="dispatcherParameters[4].value" value="4" type="radio">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="submissionStatus-4">Replaced</label>
+                                                        </div>
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="submissionStatus-99" class="nhsuk-radios__input" name="dispatcherParameters[4].value" value="99" type="radio" checked="checked">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="submissionStatus-99">All</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+                            
+                                <input type="hidden" id="repositoryName" name="repositoryName" value="DHSubmission0.jasper">
+                                <input type="hidden" id="fileName" name="fileName" value="DH Submission">
+                                <input type="hidden" id="pageTitle" name="pageTitle" value="DHSC View All Submitted Reports">
+                                <input type="hidden" id="usesDispatcher" name="usesDispatcher" value="false">
+                                <input type="hidden" id="redirectUrl" name="redirectUrl" value="">
+                                <input type="hidden" id="queued" name="queued" value="true">
+                                <input type="hidden" id="format" name="format" value="PDF">
+                            
+
+                            <input class="nhsuk-button" id="submitReport" type="submit" value="Queue ">
+                        </form>
+
+                    </div>
+                </div>
+
+    </div>
+</div>
+{% endblock %}

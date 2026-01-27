@@ -22,9 +22,24 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v3/dhsc/notifications/index">
-    Back to all notificatons
-</a>
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+      <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/notifications">Notifications</a>
+    </li>
+   <!--<li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/index">Uploaded data</a>
+    </li>  -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -98,6 +113,24 @@
           <a href="/v3/dhsc/notifications/details" class="nhsuk-link">View details</a>
         </td>
       </tr>
+       <tr role="row" class="nhsuk-table__row">
+        <td role="cell" class="nhsuk-table__cell">
+            <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="care home">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+         
+        </label>
+      </div>
+        </td>
+        <td role="cell" class="nhsuk-table__cell">Reference price</td>
+        <td role="cell" class="nhsuk-table__cell">11-10-2025</td>
+        <td role="cell" class="nhsuk-table__cell">Medicine classification</td>
+        <td role="cell" class="nhsuk-table__cell">Newer medicine</td>
+        <td role="cell" class="nhsuk-table__cell">Older medicine</td>
+        <td role="cell" class="nhsuk-table__cell">
+          <a href="/v3/dhsc/notifications/details2" class="nhsuk-link">View details</a>
+        </td>
+      </tr>
       <tr role="row" class="nhsuk-table__row">
   <td role="cell" class="nhsuk-table__cell">
     <div class="nhsuk-checkboxes__item">
@@ -113,6 +146,20 @@
   <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
 </tr>
 
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-4" name="example" type="checkbox" value="row4">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-4"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">Branded medicines portal</td>
+  <td role="cell" class="nhsuk-table__cell">12-10-2025</td>
+  <td role="cell" class="nhsuk-table__cell">PLR Submission status</td>
+  <td role="cell" class="nhsuk-table__cell">Submitted</td>
+  <td role="cell" class="nhsuk-table__cell">Acknowledged</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="/v3/dhsc/notifications/details3" class="nhsuk-link">View details</a></td>
+</tr>
 <tr role="row" class="nhsuk-table__row">
   <td role="cell" class="nhsuk-table__cell">
     <div class="nhsuk-checkboxes__item">

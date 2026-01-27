@@ -1,0 +1,349 @@
+<!-- USE THE currentPage VARIABLE TO SHOW THE SELECTED STATE ON MOBILE DEVICES -->
+
+
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Reports" %}
+
+
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+        </li>
+        <!--     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
+    </li> -->
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-quarter hide-on-mobile">
+
+        <!-- Use "app-side-nav__item--current" class on <li> for selected state -->
+
+        <nav class="app-side-nav">
+            <h2 class="nhsuk-heading-m">Reports</h2>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        Miscellaneous reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="/v3/reports-single">DHSC view all submitted reports</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PLR work in progress report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Maximum price list report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Reference prices report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Download active user information csv</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Invalid submission report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Small company report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">DHSC wip report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Organisation details report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">CDR report</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </details>
+
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        Statutory reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="/v3/reports-statutory">Statutory PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory PLR checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory DHSC payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2019 Statutory checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory quarters report</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        2019 Voluntary reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary PLR checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2019 Voluntary DHSC payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary quarters report</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </details>
+
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        2024 Voluntary reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary DHSC payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary quarter consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary PLR checklist report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 Voluntary annual consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Voluntary company PLR consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">2024 VPAG DHSC payment report</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        2025 Voluntary reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory quarters consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Statutory quarters checklist report</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        PCA reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA compared to PLR Data Report</strong><br>
+                                Compares the PCA figures to the PLR figures
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA unmatched AMPPs to PLR Report</strong><br>
+                                Lists all PCA lines where the PPA code is linked to multiple AMPPs and so an AMPP ID was
+                                unable to be collected
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA linked products but no PLR Data Report</strong><br>
+                                Lists PCA data where there is no corresponding PLR data. This is either because the
+                                company is not a payment company or because they have not submitted
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>PCA not linked to BM companies report</strong><br>
+                                Lists all PCA lines where the product was not linked to a Branded Medicines company for
+                                the period
+                            </a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">
+                                <strong>BSA prescribing data report</strong><br>
+                                Lists all rows of the PCA Data
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        PPRS reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PPRS consolidation report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PPRS DH payment report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">PPRS quarters report</a>
+                        </li>
+                    </ul>
+
+
+
+
+                </div>
+            </details>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text app-side-nav__heading">
+                        Audit reports
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+
+                    <ul class="nhsuk-list app-side-nav__list">
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Audit detail csv</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Audit report</a>
+                        </li>
+                        <li class="app-side-nav__item">
+                            <a class="app-side-nav__link" href="#">Audit attributes report</a>
+                        </li>
+                    </ul>
+
+
+
+
+
+                </div>
+            </details>
+
+        </nav>
+
+    </div>
+    <div class="nhsuk-grid-column-three-quarters">
+
+        <h1>Download a report</h1>
+        <p>You can download a report by selecting it from the side navigation</p>
+
+     <p></p>
+
+    </div>
+</div>
+{% endblock %}

@@ -201,3 +201,89 @@
   width: 100vw;
   overflow-x: auto;   /* this stops page scrolling */
 }
+
+
+////
+/// Side nav component
+////
+
+.app-side-nav {
+  @include nhsuk-media-query($until: desktop) {
+    margin-bottom: nhsuk-spacing(5);
+  }    
+}
+
+.app-side-nav__heading {
+  color: $nhsuk-secondary-text-colour;
+  margin-bottom: 12px;
+  padding-top: 4px;
+  @include nhsuk-font(19, $line-height: 1.25, $weight: bold);
+
+  @include nhsuk-media-query($until: desktop) {
+    color: $nhsuk-text-colour;
+    @include nhsuk-font(26, $line-height: 1.25, $weight: bold);
+  }
+}
+
+.app-side-nav__list {
+  margin-bottom: 0;
+  @include nhsuk-font(16, $line-height: 1.3);
+
+  @include nhsuk-media-query($until: desktop) {
+    margin-bottom: nhsuk-spacing(2);
+    @include nhsuk-font(19, $line-height: 1.3);
+  }
+}
+
+.app-side-nav__item {
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.app-side-nav__item--current {
+  border-left: 4px solid nhsuk-colour("blue");
+  margin-left: -12px;
+  padding-left: 8px;
+
+  .app-side-nav__link {
+    font-weight: $nhsuk-font-bold;
+  }
+}
+
+.app-side-nav__link {
+  text-decoration: none;
+  @include nhsuk-link-style-no-visited-state;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include nhsuk-media-query($until: desktop) {
+    text-decoration: underline;
+  }
+}
+
+.app-side-nav__list--nested {
+  @include nhsuk-responsive-margin(2, "bottom");
+  @include nhsuk-responsive-margin(3, "top");
+
+  .app-side-nav__item {
+    list-style: none;
+    @include nhsuk-font(16, $line-height: 1.3);
+  }
+
+  .app-side-nav__link {
+    font-weight: 400;
+  }
+}
+
+.app-side-nav__list--nested .app-side-nav__item::before {
+  color: nhsuk-colour("grey-3");
+  content: "—";
+  margin-left: -20px;
+  margin-right: 4px;
+}
+
+.app-index-navigation {
+  @include nhsuk-responsive-padding(4, "top");
+}
