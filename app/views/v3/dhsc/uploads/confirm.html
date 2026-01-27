@@ -59,8 +59,8 @@
 
 
 
-  <a href="/v3/dhsc/ref-price-data" class="nhsuk-button">
-            View reference price dataset
+  <a href="/v3/uploads/view/" class="nhsuk-button">
+            View dataset
         </a>
 
 
@@ -78,19 +78,34 @@
     const params = new URLSearchParams(window.location.search);
     const origin = params.get("origin");
 
+    // Map for headings
     const titleMap = {
       "ma": "Market authorization data uploaded",
       "spc": "Supplementary product certificate data uploaded",
       "vtm": "VTM originator data uploaded"
     };
 
-    const heading = document.querySelector(".nhsuk-panel__title");
+    // Map for button URLs
+    const urlMap = {
+      "ma": "/v3/dhsc/uploads/view/ma",
+      "spc": "/v3/dhsc/uploads/view/spc",
+      "vtm": "/v3/dhsc/uploads/view/vtm"
+    };
 
+    // Update heading if it exists
+    const heading = document.querySelector(".nhsuk-panel__title");
     if (heading && titleMap[origin]) {
       heading.textContent = titleMap[origin];
     }
+
+    // Update "View dataset" button href if it exists
+    const viewButton = document.querySelector(".nhsuk-button");
+    if (viewButton && urlMap[origin]) {
+      viewButton.href = urlMap[origin];
+    }
   })();
 </script>
+
 {% endblock %}
 
 

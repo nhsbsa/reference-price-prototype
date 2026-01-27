@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Upload Data source" %}
+{% set pageName = "Upload your dataset" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -27,14 +27,14 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
     </li>
-     <li class="nhsuk-breadcrumb__list-item">
+    <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
     </li>
-   <li class="nhsuk-breadcrumb__list-item">
+    <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/index">Uploaded data</a>
-    </li> 
+    </li>
   </ol>
-<!-- 
+  <!-- 
   <a class="nhsuk-back-link" href="#">
     <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
   </a> -->
@@ -47,22 +47,41 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <h1>Upload new dataset</h1>
+    <h1>Upload your dataset</h1>
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Make sure you upload your data in the correct format
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <p>If you are not sure your data is in the correct format you can use one of these templates:</p>
+
+        <ul>
+          <li><a href="#"></a>Market authorisation data template</li>
+          <li><a href="#"></a>Supplementary protection certificate data template</li>
+          <li><a href="#"></a> VTM originator data template</li>
+
+
+        </ul>
+
+
+      </div>
+    </details>
 
     <div class="nhsuk-form-group">
       <label class="nhsuk-label" for="sort-by">
-        Select what dataset you are uploading
+        Select dataset type
       </label>
       <select class="nhsuk-select" id="sort-by" name="sortBy">
-        <option value="recently-published" selected>Market authorization data</option>
+        <option value="recently-published" selected>Choose your data</option>
+        <option value="recently-published">Market authorization data</option>
         <option value="recently-updated">Supplementary protection certificate data</option>
         <option value="most-views">VTM originator data</option>
       </select>
     </div>
-    <p class="nhsuk-body">
-     Ensure the data is formatted to align with the <a href="/v3/dhsc/upload-guidance" target="_blank">appropriate template
-      </a> (opens in a new tab)
-    </p>
+
 
     <div class="nhsuk-form-group">
       <label class="nhsuk-label" for="file-upload">
