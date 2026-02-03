@@ -83,14 +83,19 @@
     </div>
 
 
-    <div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload" data-nhsuk-file-upload-init="">
+    <div class="nhsuk-form-group nhsuk-form-group--error nhsuk-file-upload" data-module="nhsuk-file-upload" data-nhsuk-file-upload-init="">
             <h1 class="nhsuk-label-wrapper">
               <label class="nhsuk-label nhsuk-label--s" for="file-upload-6" id="file-upload-6-label">
                 Choose an Excel file
               </label>
             </h1>
+            <p id="file-upload-11-error" class="nhsuk-error-message">
+              <span class="nhsuk-u-visually-hidden">Error:</span> The selected file has more than 5 errors, review and upload again
+            </p>
             <div class="nhsuk-file-upload__drop-zone"><button class="nhsuk-file-upload__drop-button nhsuk-file-upload__drop-button--empty" type="button" id="file-upload-6" aria-labelledby="file-upload-6-label file-upload-6-comma file-upload-6"><span class="nhsuk-body nhsuk-file-upload__status" aria-live="polite">No file chosen</span><span class="nhsuk-u-visually-hidden" id="file-upload-6-comma">, </span><span class="nhsuk-file-upload__drop-button-group"><span class="nhsuk-button nhsuk-file-upload__choose-files-button nhsuk-button--secondary">Choose file</span> <span class="nhsuk-body nhsuk-file-upload__drop-instruction">or drop file</span></span></button><input class="nhsuk-file-upload__input" id="file-upload-6-input" name="file-upload-6" type="file" hidden="" tabindex="-1" aria-hidden="true"></div><span class="nhsuk-file-upload__announcements nhsuk-u-visually-hidden" aria-live="assertive"></span>
           </div>
+          
+          <p>Review the <a href="/v3/dhsc/upload-guidance" target="_blank">guidance page</a> to see what could be wrong</p>
 
     <a href="#" class="nhsuk-button">
       Continue
@@ -101,33 +106,6 @@
   </div>
 </div>
 
-<script>
-  document.querySelector(".nhsuk-button").addEventListener("click", function (e) {
-    e.preventDefault();
 
-    const select = document.getElementById("sort-by");
-    const value = select.value;
-
-    let targetUrl = "";
-
-    switch (value) {
-      case "recently-published":
-        targetUrl = "ma-review";
-        break;
-
-      case "recently-updated":
-        targetUrl = "spc-review";
-        break;
-
-      case "most-views":
-        targetUrl = "vtm-originator";
-        break;
-    }
-
-    if (targetUrl) {
-      window.location.href = targetUrl;
-    }
-  });
-</script>
 
 {% endblock %}

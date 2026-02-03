@@ -1,0 +1,192 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Upload Data" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/index">Uploaded data</a>
+    </li> 
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1>Review market authorization data</h1>
+
+        <p>Review this data, and if it is correct, select Confirm data. The data will then be uploaded to the  portal</p>
+
+        <div class="large-table-container">
+        <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">MA Date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Authorisation Number <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Company Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">dm+d Matched Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">febuxostat</td>
+      <td class="nhsuk-table__cell">22/04/2023</td>
+      <td class="nhsuk-table__cell">MA/2010/019</td>
+      <td class="nhsuk-table__cell">TestA 120mg tablets</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+      <td class="nhsuk-table__cell">TestProductA 120mg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">amlodipine</td>
+      <td class="nhsuk-table__cell">12/09/2024</td>
+      <td class="nhsuk-table__cell">MA/2005/6453</td>
+      <td class="nhsuk-table__cell">Cardiovex 20mg tablets</td>
+      <td class="nhsuk-table__cell">HealthPharm Ltd</td>
+      <td class="nhsuk-table__cell">Cardiovex 20mg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">omeprazole</td>
+      <td class="nhsuk-table__cell">05/03/2022</td>
+      <td class="nhsuk-table__cell">MA/1999/2211</td>
+      <td class="nhsuk-table__cell">Gastroquel 40mg capsules</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+      <td class="nhsuk-table__cell">Gastroquel 40mg capsules</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">montelukast</td>
+      <td class="nhsuk-table__cell">19/07/2023</td>
+      <td class="nhsuk-table__cell">MA/1998/9874</td>
+      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">pregabalin</td>
+      <td class="nhsuk-table__cell">14/11/2024</td>
+      <td class="nhsuk-table__cell">MA/2004/3345</td>
+      <td class="nhsuk-table__cell">Neurocet 75mg capsules</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
+      <td class="nhsuk-table__cell">Neurocet 75mg capsules</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">cetirizine</td>
+      <td class="nhsuk-table__cell">01/02/2021</td>
+      <td class="nhsuk-table__cell">MA/1996/8871</td>
+      <td class="nhsuk-table__cell">Allergion 10mg tablets</td>
+      <td class="nhsuk-table__cell">NexThera</td>
+      <td class="nhsuk-table__cell">Allergion 10mg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">naproxen</td>
+      <td class="nhsuk-table__cell">10/09/2018</td>
+      <td class="nhsuk-table__cell">MA/1975/1144</td>
+      <td class="nhsuk-table__cell">Arthrex 500mg tablets</td>
+      <td class="nhsuk-table__cell">PrimeCure</td>
+      <td class="nhsuk-table__cell">Arthrex 500mg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">metformin</td>
+      <td class="nhsuk-table__cell">01/04/2020</td>
+      <td class="nhsuk-table__cell">MA/1958/0022</td>
+      <td class="nhsuk-table__cell">Diabrex 850mg tablets</td>
+      <td class="nhsuk-table__cell">Genex Pharma</td>
+      <td class="nhsuk-table__cell">Diabrex 850mg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">salmeterol</td>
+      <td class="nhsuk-table__cell">10/06/2023</td>
+      <td class="nhsuk-table__cell">MA/1993/5541</td>
+      <td class="nhsuk-table__cell">Respiron 200mcg inhaler</td>
+      <td class="nhsuk-table__cell">Aurelia Pharma</td>
+      <td class="nhsuk-table__cell">Respiron 200mcg inhaler</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">levothyroxine</td>
+      <td class="nhsuk-table__cell">15/03/2022</td>
+      <td class="nhsuk-table__cell">MA/1955/0010</td>
+      <td class="nhsuk-table__cell">Thyroxalia 100mcg tablets</td>
+      <td class="nhsuk-table__cell">CoreMed</td>
+      <td class="nhsuk-table__cell">Thyroxalia 100mcg tablets</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">atorvastatin</td>
+      <td class="nhsuk-table__cell">07/09/2021</td>
+      <td class="nhsuk-table__cell">MA/1996/6652</td>
+      <td class="nhsuk-table__cell">Hypertor 80mg tablets</td>
+      <td class="nhsuk-table__cell">Theramed UK</td>
+      <td class="nhsuk-table__cell">Hypertor 80mg tablets</td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+
+
+
+
+   
+
+
+  <a href="/v3/dhsc/uploads/confirm?origin=ma" class="nhsuk-button">
+            Confirm data
+        </a>
+
+          <a href="/v3/dhsc/uploads/index" class="nhsuk-button nhsuk-button--secondary">
+            Cancel upload
+        </a>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
+
+

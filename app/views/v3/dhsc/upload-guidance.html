@@ -17,13 +17,13 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Upload Reference Price Data Guidance" %}
+{% set pageName = "Upload Guidance" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<a class="nhsuk-back-link" href="/v3/dhsc/">
-   Dashboard
+<a class="nhsuk-back-link" href="/v2/dhsc/">
+    Dashboard
 </a>
 {% endblock %}
 
@@ -31,29 +31,245 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
 
-        <h1>Download a template</h1>
-      
-<h2>Market authorization template</h2>
-   <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-  Download market authorization template
-</button>
-<h2>Supplementary protection certificate template</h2>
-   <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-  Download supplementary protection certificate template
-</button>
 
-<h2>VTM originator template</h2>
-   <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-  Download VTM originator template
-</button>
+  <!-- Side navigation -->
+  <div class="nhsuk-grid-column-one-quarter">
+    <nav class="nhsuk-side-nav" aria-label="Guidance sections">
+      <ul class=" nhsuk-list app-side-nav__list">
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#before-you-upload">Before you upload</a>
+        </li>
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#vtm-originator">VTM and originator data</a>
+        </li>
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#ma-data">Marketing authorisation (MA)</a>
+        </li>
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#spc-data">SPC and product data</a>
+        </li>
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#pricing-data">Reference price data</a>
+        </li>
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#review-and-confirm">Review and confirm</a>
+        </li>
+        <li class="nhsuk-side-nav__item">
+          <a class="nhsuk-side-nav__link" href="#common-errors">Common errors</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-<h2>Reference price master data template</h2>
-   <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-  Download reference price master data template
-</button>
+  <!-- Main content -->
+  <div class="nhsuk-grid-column-three-quarters">
 
-    </div>
+    <h1>Guidance for uploading data</h1>
+
+    <p class="nhsuk-body">
+      This guidance explains how to prepare your Excel file and avoid common errors
+      when uploading data into the system.
+    </p>
+
+    <!-- Section: Before upload -->
+
+
+    <section id="before-you-upload">
+  <h2 class="nhsuk-heading-m">Before you upload</h2>
+
+  <p class="nhsuk-body">Before starting any upload, make sure your file:</p>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+    <li>Is saved as a <strong>.xlsx</strong> Excel file</li>
+    <li>Contains <strong>one worksheet only</strong></li>
+    <li>Has column headers in the <strong>first row</strong></li>
+    <li>Has no blank rows above the headers</li>
+    <li>Does not contain merged cells, formulas, or hidden rows</li>
+  </ul>
+
+  <!-- Download templates -->
+  <h3 class="nhsuk-heading-s">Download upload templates</h3>
+
+  <p class="nhsuk-body">
+    To reduce errors, use the correct template for the type of data you are uploading.
+    Each template contains the required columns in the correct order.
+  </p>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+    <li>
+      <a href="/templates/vtm-originator-upload.xlsx">
+        VTM and originator reference template
+      </a>
+    </li>
+    <li>
+      <a href="/templates/ma-upload.xlsx">
+        Marketing authorisation (MA) upload template
+      </a>
+    </li>
+    <li>
+      <a href="/templates/spc-product-upload.xlsx">
+        SPC and product-level upload template
+      </a>
+    </li>
+    <li>
+      <a href="/templates/reference-price-upload.xlsx">
+        Reference price and comparator upload template
+      </a>
+    </li>
+  </ul>
+
+  <div class="nhsuk-inset-text">
+    <span class="nhsuk-u-visually-hidden">Information: </span>
+    <p class="nhsuk-body">
+      Do not change column names, remove columns, or reorder columns in the templates.
+      Additional columns will cause the upload to fail.
+    </p>
+  </div>
+
+  <div class="nhsuk-warning-callout">
+    <h3 class="nhsuk-warning-callout__label">Important</h3>
+    <p class="nhsuk-body">
+      Column names must match exactly, including punctuation, brackets and capital letters.
+    </p>
+  </div>
+</section>
+
+
+    <!-- Section: VTM -->
+    <section id="vtm-originator">
+      <h2 class="nhsuk-heading-m">VTM and originator reference data</h2>
+
+      <p class="nhsuk-body">
+        Some uploads rely on Virtual Therapeutic Moiety (VTM) and originator information.
+        This data is used to group products correctly.
+      </p>
+
+      <p class="nhsuk-body">Tables may include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>VTM name</li>
+        <li>Originator licensee</li>
+        <li>Originator brand name</li>
+      </ul>
+
+      <h3 class="nhsuk-heading-s">How to avoid errors</h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Enter the VTM name only (do not include strength or form)</li>
+        <li>Use consistent spelling for VTMs across all rows</li>
+        <li>Use recognised company names for originator licensees</li>
+        <li>Avoid adding notes or brackets in name fields</li>
+      </ul>
+    </section>
+
+    <!-- Section: MA -->
+    <section id="ma-data">
+      <h2 class="nhsuk-heading-m">Marketing authorisation (MA) data</h2>
+
+      <p class="nhsuk-body">
+        MA uploads are reviewed before confirmation. The review table shows how the system
+        has interpreted your data.
+      </p>
+
+      <p class="nhsuk-body">You will typically see:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>VTM</li>
+        <li>MA date</li>
+        <li>Authorisation number</li>
+        <li>Product name</li>
+        <li>Company name</li>
+        <li>dm+d matched name</li>
+      </ul>
+
+      <h3 class="nhsuk-heading-s">How to avoid errors</h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Use <strong>DD/MM/YYYY</strong> for all dates</li>
+        <li>Enter the full MA number (for example: MA/1999/2211)</li>
+        <li>Ensure product names match dm+d naming conventions</li>
+        <li>Use the legal company name exactly as authorised</li>
+      </ul>
+    </section>
+
+    <!-- Section: SPC -->
+    <section id="spc-data">
+      <h2 class="nhsuk-heading-m">SPC and product-level data</h2>
+
+      <p class="nhsuk-body">
+        SPC uploads include detailed product and regulatory information.
+        Errors here often relate to formatting or missing identifiers.
+      </p>
+
+      <p class="nhsuk-body">Review tables may include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>SPC date</li>
+        <li>SPC number</li>
+        <li>Product description</li>
+        <li>Product search key</li>
+        <li>Applicant name</li>
+        <li>Matched company</li>
+      </ul>
+
+      <h3 class="nhsuk-heading-s">How to avoid errors</h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Enter SPC numbers in the correct column only</li>
+        <li>Leave alternate SPC number blank if not applicable</li>
+        <li>Ensure applicant name matches the submitting company</li>
+        <li>Avoid adding pack size notes into search key fields</li>
+      </ul>
+    </section>
+
+    <!-- Section: Pricing -->
+    <section id="pricing-data">
+      <h2 class="nhsuk-heading-m">Reference price and comparator data</h2>
+
+      <p class="nhsuk-body">
+        Reference pricing uploads may include comparator prices, adjustment flags,
+        and explanatory notes.
+      </p>
+
+      <h3 class="nhsuk-heading-s">How to avoid errors</h3>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Enter prices as numbers (with or without the £ symbol)</li>
+        <li>Use a consistent format for flags (Yes / No)</li>
+        <li>Ensure comparator years are numeric (for example: 2022)</li>
+        <li>Only provide reasons for exclusion where relevant</li>
+      </ul>
+    </section>
+
+    <!-- Section: Review -->
+    <section id="review-and-confirm">
+      <h2 class="nhsuk-heading-m">Review and confirm your upload</h2>
+
+      <p class="nhsuk-body">
+        After uploading, review the table carefully before confirming.
+      </p>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Check dates, names and numbers appear correctly</li>
+        <li>Confirm company and dm+d matches look correct</li>
+        <li>Cancel the upload if anything looks wrong</li>
+      </ul>
+
+      <p class="nhsuk-body">
+        Once confirmed, uploads cannot be edited. Corrections require a new upload.
+      </p>
+    </section>
+
+    <!-- Section: Common errors -->
+    <section id="common-errors">
+      <h2 class="nhsuk-heading-m">Common causes of upload errors</h2>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Incorrect column headers</li>
+        <li>Wrong date formats</li>
+        <li>Extra worksheets in the file</li>
+        <li>Hidden rows or merged cells</li>
+        <li>Free-text notes added to structured fields</li>
+        <li>Inconsistent naming across rows</li>
+      </ul>
+    </section>
+
+  </div>
 </div>
+
+
 {% endblock %}
