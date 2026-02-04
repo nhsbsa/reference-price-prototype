@@ -1,0 +1,162 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Update market authorization " %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/datasources">View data</a>
+    </li>
+
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+<div class="nhsuk-grid-column-full">
+
+
+<h1 class="nhsuk-heading-xl">
+
+Update market authorisation
+</h1>
+
+<div class="nhsuk-error-summary" data-module="nhsuk-error-summary">
+  <div role="alert">
+    <h2 class="nhsuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="nhsuk-error-summary__body">
+       <p>
+        Be sure to check your spellings and formatting. For additional guidance visit the <a href="/v3/dhsc/upload-guidance" target="_blank">guidanace page</a>
+      </p> 
+      <ul class="nhsuk-list nhsuk-error-summary__list">
+           <li>
+          <a href="#vtm">Virtual Therapeutic Moeity (VTM) could not be validated </a>
+        </li>
+          <li>
+          <a href="#vtm">Selected product does not belong to VTM </a>
+        </li>
+        <li>
+          <a href="#maDate">Authorization date must be a real date</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<form >
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label" for="vtm">Virtual Therapeutic Moeity (VTM)</label>
+<input class="nhsuk-input nhsuk-u-width-one-third" id="vtm" value=" ">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label" for="maDate">Market Authorization Date</label>
+
+<div class="nhsuk-date-input" id="maDate" name="maDate" value=" " >
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="maDate-day" value=" " type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="maDate-month" value=" " type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="maDate-year" value=" " type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">Authorisation Number</label>
+<input class="nhsuk-input nhsuk-u-width-one-third" value=" ">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">Product Name</label>
+<input class="nhsuk-input nhsuk-u-width-one-third" value=" ">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">Company Name</label>
+<input class="nhsuk-input nhsuk-u-width-one-third" value=" ">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">dm+d Matched Name</label>
+<input class="nhsuk-input nhsuk-u-width-one-third" value=" ">
+</div>
+
+
+</form>
+
+<a href="/v3/dhsc/uploads/update-ma-confirm" class="nhsuk-button" >
+  Save and continue
+</a>
+
+ <a href="/v3/dhsc/" class="nhsuk-button nhsuk-button--secondary">
+            Cancel
+        </a>
+
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

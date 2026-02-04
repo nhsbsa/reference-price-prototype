@@ -75,7 +75,7 @@
         Select dataset type
       </label>
       <select class="nhsuk-select" id="sort-by" name="sortBy">
-        <option value="recently-published" selected>Choose your data</option>
+        <option value="" selected>Choose your data</option>
         <option value="recently-published">Market authorization data</option>
         <option value="recently-updated">Supplementary protection certificate data</option>
         <option value="most-views">VTM originator data</option>
@@ -92,9 +92,8 @@
             <div class="nhsuk-file-upload__drop-zone"><button class="nhsuk-file-upload__drop-button nhsuk-file-upload__drop-button--empty" type="button" id="file-upload-6" aria-labelledby="file-upload-6-label file-upload-6-comma file-upload-6"><span class="nhsuk-body nhsuk-file-upload__status" aria-live="polite">No file chosen</span><span class="nhsuk-u-visually-hidden" id="file-upload-6-comma">, </span><span class="nhsuk-file-upload__drop-button-group"><span class="nhsuk-button nhsuk-file-upload__choose-files-button nhsuk-button--secondary">Choose file</span> <span class="nhsuk-body nhsuk-file-upload__drop-instruction">or drop file</span></span></button><input class="nhsuk-file-upload__input" id="file-upload-6-input" name="file-upload-6" type="file" hidden="" tabindex="-1" aria-hidden="true"></div><span class="nhsuk-file-upload__announcements nhsuk-u-visually-hidden" aria-live="assertive"></span>
           </div>
 
-    <a href="#" class="nhsuk-button">
-      Continue
-    </a>
+<a href="#" id="continueBtn" class="nhsuk-button">Continue</a>
+
 
     <!-- End of content -->
 
@@ -102,23 +101,32 @@
 </div>
 
 <script>
-  document.querySelector(".nhsuk-button").addEventListener("click", function (e) {
+document.addEventListener("DOMContentLoaded", function () {
+
+  const button = document.getElementById("continueBtn");
+
+
+  if (!button) {
+    console.log("button not found");
+    return;
+  }
+
+  button.addEventListener("click", function (e) {
     e.preventDefault();
 
     const select = document.getElementById("sort-by");
-    const value = select.value;
+    if (!select) return;
 
+    const value = select.value;
     let targetUrl = "";
 
     switch (value) {
       case "recently-published":
         targetUrl = "ma-review";
         break;
-
       case "recently-updated":
         targetUrl = "spc-review";
         break;
-
       case "most-views":
         targetUrl = "vtm-originator";
         break;
@@ -128,6 +136,9 @@
       window.location.href = targetUrl;
     }
   });
+
+});
 </script>
+
 
 {% endblock %}

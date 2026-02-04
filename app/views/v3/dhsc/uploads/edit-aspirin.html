@@ -1,0 +1,142 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Data uploads" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+    </li> -->
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/review-error-information">Review errors</a>
+    </li>
+    <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
+    </li> -->
+  </ol>
+  <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+<div class="nhsuk-grid-column-two-thirds">
+
+
+<h1 class="nhsuk-heading-xl">
+<span class="nhsuk-caption-l">Entry 3 of 4</span>
+<span id="product-name">Edit row entry</span>
+</h1>
+
+
+<form action="edit-aspirin.html">
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label" for="vtm">Virtual Therapeutic Moeity (VTM)</label>
+<input class="nhsuk-input nhsuk-u-width-two-thirds" id="vtm" value="Abacavir">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label" for="maDate">Market Authorization Date</label>
+
+<div class="nhsuk-date-input" id="maDate" name="maDate" value="22/04/2023" >
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="maDate-day" value="22" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="maDate-month" value="04" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="maDate-year" value="2024" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">Authorisation Number</label>
+<input class="nhsuk-input nhsuk-u-width-two-thirds" value="MA/2010/220">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">Product Name</label>
+<input class="nhsuk-input nhsuk-u-width-two-thirds" value="Abacavir slow release 120mg tablets">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">Company Name</label>
+<input class="nhsuk-input nhsuk-u-width-two-thirds" value="Qualtrics Consulting Ltd">
+</div>
+
+
+<div class="nhsuk-form-group">
+<label class="nhsuk-label">dm+d Matched Name</label>
+<input class="nhsuk-input nhsuk-u-width-two-thirds" value="Qualtrucks Ltd">
+</div>
+
+
+</form>
+
+
+</div>
+</div>
+
+<a href="/v3/dhsc/uploads/edit-febuxostar" class="nhsuk-button" >
+  Save and continue
+</a>
+
+
+<a href="/v3/dhsc/uploads/upload-your-dataset" class="nhsuk-button nhsuk-button--secondary">
+  Cancel upload
+</a>
+
+
+
+
+
+{% endblock %}
