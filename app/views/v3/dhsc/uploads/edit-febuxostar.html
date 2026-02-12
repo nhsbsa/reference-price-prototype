@@ -24,11 +24,11 @@
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <ol class="nhsuk-breadcrumb__list">
-    <!-- <li class="nhsuk-breadcrumb__list-item">
+     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
-    </li> -->
+    </li> 
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/review-error-information">Review errors</a>
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/upload-your-dataset">Upload a dataset</a>
     </li>
     <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
@@ -64,10 +64,12 @@
 </div>
 
 
-<div class="nhsuk-form-group">
+<div class="nhsuk-form-group nhsuk-form-group--error">
 <label class="nhsuk-label" for="maDate">Market Authorization Date</label>
-
-<div class="nhsuk-date-input" id="maDate" name="maDate" value="22/04/2023" >
+<p id="input-error" class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Problem with entry
+  </p>
+<div class="nhsuk-date-input nhsuk-date-input--error" id="maDate" name="maDate" value="22/04/2023" >
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
@@ -131,8 +133,8 @@
 </a>
 
 
-<a href="/v3/dhsc/uploads/upload-your-dataset" class="nhsuk-button nhsuk-button--secondary">
-  Cancel upload
+<a href="/v3/dhsc/uploads/review-error-information" class="nhsuk-button nhsuk-button--secondary">
+  Review errors
 </a>
 
 

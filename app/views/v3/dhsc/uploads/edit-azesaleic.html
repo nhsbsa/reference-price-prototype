@@ -24,11 +24,11 @@
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
   <ol class="nhsuk-breadcrumb__list">
-    <!-- <li class="nhsuk-breadcrumb__list-item">
+     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
-    </li> -->
+    </li> 
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/review-error-information">Review errors</a>
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/uploads/upload-your-dataset">Upload a dataset</a>
     </li>
     <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="#">Hospitals</a>
@@ -59,9 +59,12 @@
 <form>
 
 
-<div class="nhsuk-form-group">
+<div class="nhsuk-form-group nhsuk-form-group--error">
 <label class="nhsuk-label" for="vtm">Virtual Therapeutic Moeity (VTM)</label>
-<input class="nhsuk-input nhsuk-u-width-two-thirds" id="vtm" name="vtm" value="Azesaleic acid">
+<p id="input-error" class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Problem with entry
+  </p>
+<input class="nhsuk-input nhsuk-input--error nhsuk-u-width-two-thirds" id="vtm" name="vtm" value="Azesaleic acid">
 </div>
 
 
@@ -97,9 +100,12 @@
 </div>
 
 
-<div class="nhsuk-form-group">
+<div class="nhsuk-form-group nhsuk-form-group--error">
 <label class="nhsuk-label" for="authNumber">Authorisation Number</label>
-<input class="nhsuk-input nhsuk-u-width-two-thirds" id="authNumber" name="authNumber" value="MA/2010/019">
+<p id="input-error" class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Problem with entry
+  </p>
+<input class="nhsuk-input nhsuk-input--error nhsuk-u-width-two-thirds" id="authNumber" name="authNumber" value="MA/2010/019">
 </div>
 
 
@@ -136,8 +142,8 @@
 </a>
 
 
-<a href="/v3/dhsc/uploads/upload-your-dataset" class="nhsuk-button nhsuk-button--secondary">
-  Cancel upload
+<a href="/v3/dhsc/uploads/review-error-information" class="nhsuk-button nhsuk-button--secondary">
+  Review errors
 </a>
 
 
