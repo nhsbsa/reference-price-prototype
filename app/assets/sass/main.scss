@@ -182,13 +182,19 @@
 }
 
 /*Large Table Container*/
-    .large-table-container {
-          width: 100%;
-          overflow-x: auto;
-          position: relative;
-          -webkit-overflow-scrolling: touch;
-          /* Smooth scrolling on mobile */
-        }
+        .large-table-container {
+  width: calc(100% + 128px);   /* Add 32px on each side */
+  margin-left: -64px;         /* Pull left */
+  margin-right: -64px;        /* Pull right */
+
+  padding-left: 64px;         /* Inner breathing room */
+  padding-right: 64px;
+
+  overflow-x: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
 
 
 /*Full bleed - lets element expand*/

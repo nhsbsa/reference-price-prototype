@@ -53,8 +53,7 @@
 
 
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
+   
         <h1 class="nhsuk-heading-xl" id="pageHeading">
           <span class="nhsuk-caption-l">Pseudo Virtual Therapeutic Moiety (VTM)</span>
           <span class="nhsuk-u-visually-hidden"> - </span>
@@ -62,72 +61,52 @@
             <span id="product-name">PV677</span>
           </span>
         </h1>
-      </div>
-    </div>
+ 
+           <table id="productIngredientTable" class="nhsuk-table accessible-table--hidden">
+            <caption class="nhsuk-u-visually-hidden">Products liked to VTM</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header--sticky" scope="col">Name</th>
+                <th class="nhsuk-table__header--sticky" scope="col">VTM ID</th>
+                <th class="nhsuk-table__header--sticky" scope="col">Start date</th>
+                  <th class="nhsuk-table__header--sticky" scope="col">End date</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">PV677</td>
+                <td class="nhsuk-table__cell">346</td>
+                   <td class="nhsuk-table__cell">10-01-2018</td>
+                    <td class="nhsuk-table__cell">01-02-3456</td>
+              
+              </tr>
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-one-quarter nhsuk-u-position-sticky" style="top: 17px">
+             
+            </tbody>
+          </table>
 
-        <h2 class="nhsuk-heading-l nhsuk-u-visually-hidden">Navigation</h2>
-        <ul class="nhsuk-list">
-          <li></li>
-          <li><a href="#nameDetails">Name Details</a></li>
-          <li><a href="#vtm-ingredients">Ingredient Details</a></li>
-          <li><a href="#vtmVmps">Linked Products</a></li>
-       
-        </ul>
+    <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+  <h2 class="nhsuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="nhsuk-tabs__list">
+    <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+      <a class="nhsuk-tabs__tab" href="#past-day">
+        Ingredients
+      </a>
+    </li>
+    <li class="nhsuk-tabs__list-item">
+      <a class="nhsuk-tabs__tab" href="#past-week">
+        Linked products
+      </a>
+    </li>
 
-      </div>
-
-      <div class="nhsuk-grid-column-three-quarters">
-        
-
-        <section class="name-details-section" id="nameDetails">
-  <h2 class="nhsuk-heading-l">Name Details</h2>
-  <table class="nhsuk-table nhsuk-table-responsive nhsuk-u-margin-bottom-6">
-    <thead class="nhsuk-table__head nhsuk-table__header--sticky">
-    <tr>
-      <th scope="col" class="nhsuk-table__header" id="name-heading">Name
-      </th>
-      <th scope="col" class="nhsuk-table__header nhsuk-u-date-width" id="name-start-date-heading">Start Date
-      </th>
-      <th scope="col" class="nhsuk-table__header nhsuk-u-date-width" id="name-end-date-heading">
-        End Date
-      </th>
-    </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell nhsuk-table__cell" id="name-value">
-          <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-          <span>PV677</span>
-      </td>
-      <td class="nhsuk-table__cell nhsuk-table__cell" id="name-start-date">
-          <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start Date </span>
-          <span>08-12-2025</span>
-      </td>
-      <td class="nhsuk-table__cell" id="name-end-date">
-          <span class="nhsuk-table-responsive__heading" aria-hidden="true">End Date </span>
-          <span> </span>
-      </td>
-    </tr>
-
-    
-
-    
-
-    
-    </tbody>
-  </table>
-</section>
-
-
-
-        <section class="nhsuk-section" id="vtm-ingredients">
-          <h2 class="nhsuk-heading-l">Ingredient Details</h2>
+  </ul>
+  <div class="nhsuk-tabs__panel" id="past-day">
+         <h2 class="nhsuk-heading-m">Ingredients and validity</h2>
 
           <table id="vtm-ingredients-table" class="nhsuk-table accessible-table--hidden">
-            <caption class="nhsuk-u-visually-hidden">VMP ingredients table</caption>
+            <caption class="nhsuk-u-visually-hidden">Pseudo VTM ingredients table</caption>
             <thead class="nhsuk-table__head">
             <tr class="nhsuk-table__row">
               <th class="nhsuk-table__header" scope="col">Name</th>
@@ -171,39 +150,10 @@
 
             </tbody>
           </table>
-
-          <div class="accessible-table" hidden="hidden">
-            <div class="nhsuk-grid-row">
-              <div class="nhsuk-grid-column-full">
-                <div>
-                  <h3 class="nhsuk-heading-s">Name</h3>
-                  Metformin
-                  <hr aria-hidden="true">
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="" id="vtmVmps">
-          <h2 class="nhsuk-heading-l">Linked Products</h2>
-
-          <div class="nhsuk-body-m flex--space-between">
- 
-    <div class="nhsuk-u-text-align--right">
-      <!--   TODO Setup formData parameter handling   -->
-      
-      <div>
-   
-        
-        
-       
-      </div>
-    </div>
   </div>
-
-          
-          <table id="productIngredientTable" class="nhsuk-table accessible-table--hidden">
+  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="past-week">
+       <h2 class="nhsuk-heading-m">Linked products</h2>
+       <table id="productIngredientTable" class="nhsuk-table accessible-table--hidden">
             <caption class="nhsuk-u-visually-hidden">Products liked to VTM</caption>
             <thead class="nhsuk-table__head">
               <tr class="nhsuk-table__row">
@@ -235,16 +185,11 @@
              
             </tbody>
           </table>
+  </div>
+
+</div>
 
 
-
-
-        </section>
-
-
-
-      </div>
-    </div>
 
 
 
