@@ -47,16 +47,13 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-<h1>Older medicines without reference price</h1>
-      <div class="nhsuk-inset-text">
-            <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>Last updated: <span id="date"></span> at <span id="time"></span></p>
-        </div>
+<h1>Older medicines without a reference price</h1>
+     <p>This data was last updated on <span id="date"></span> at <span id="time"></span></p>
 
 <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
-      Filter the dataset
+      Filter this table by selecting a column and entering a search term
     </span>
   </summary>
   <div class="nhsuk-details__text">
@@ -87,7 +84,7 @@
       <!-- Filter button -->
       <div class="nhsuk-grid-column-full" style="margin-top: 0.5rem;">
         <button class="nhsuk-button nhsuk-button--secondary">
-          Filter dataset
+          Apply filter
         </button>
       </div>
 
@@ -104,11 +101,11 @@
 
     <thead role="rowgroup" class="nhsuk-table__head">
       <tr role="row">
-        <th role="columnheader" scope="col" aria-sort="none">Product Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+        <th role="columnheader" scope="col" aria-sort="none">Product name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
         <th role="columnheader" scope="col" aria-sort="none">Pack size <span class="sort-indicator" aria-hidden="true">⇅</span></th>
         <th role="columnheader" scope="col" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
         <th role="columnheader" scope="col" aria-sort="none">Supplier <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-        <th role="columnheader" scope="col" aria-sort="none">Loss of Exclusivity <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+        <th role="columnheader" scope="col" aria-sort="none">Date of loss of Exclusivity <span class="sort-indicator" aria-hidden="true">⇅</span></th>
         <th role="columnheader" scope="col" aria-sort="none">Action <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       </tr>
     </thead>
@@ -119,88 +116,88 @@
         <td role="cell" class="nhsuk-table__cell">28 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Metformin</td>
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-        <td role="cell" class="nhsuk-table__cell">16-07-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="/v3/dhsc/notifications/no-rp-product-details2" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">16/07/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="/v3/dhsc/notifications/no-rp-product-details2" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">GlucoFast 500mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">30 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Metformin</td>
         <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
-        <td role="cell" class="nhsuk-table__cell">01-08-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">01/08/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">InsuCare 10ml vials</td>
         <td role="cell" class="nhsuk-table__cell">10 vials</td>
         <td role="cell" class="nhsuk-table__cell">Insulin</td>
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-        <td role="cell" class="nhsuk-table__cell">05-09-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">05/09/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">CardioMax 50mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">28 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Atorvastatin</td>
         <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
-        <td role="cell" class="nhsuk-table__cell">12-09-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">12/09/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">Neurozol 20mg capsules</td>
         <td role="cell" class="nhsuk-table__cell">14 capsule</td>
         <td role="cell" class="nhsuk-table__cell">Diazepam</td>
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-        <td role="cell" class="nhsuk-table__cell">20-09-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">20/09/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">PainRelief 500mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">24 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Ibuprofen</td>
         <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
-        <td role="cell" class="nhsuk-table__cell">30-09-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">30/09/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">AllerFree 10mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">28 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Cetirizine</td>
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-        <td role="cell" class="nhsuk-table__cell">05-10-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">05/10/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">SleepWell 25mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">14 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Zopiclone</td>
         <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
-        <td role="cell" class="nhsuk-table__cell">12-10-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">12/10/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">HeartPlus 10mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">28 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Ramipril</td>
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-        <td role="cell" class="nhsuk-table__cell">18-10-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">18/10/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">CholestoFix 20mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">30 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Simvastatin</td>
         <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
-        <td role="cell" class="nhsuk-table__cell">25-10-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">25/10/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
         <td role="cell" class="nhsuk-table__cell">Diabetex 500mg tablets</td>
         <td role="cell" class="nhsuk-table__cell">28 tablet</td>
         <td role="cell" class="nhsuk-table__cell">Metformin</td>
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-        <td role="cell" class="nhsuk-table__cell">31-10-2025</td>
-        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+        <td role="cell" class="nhsuk-table__cell">31/10/2025</td>
+        <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View</a></td>
       </tr>
     </tbody>
   </table>

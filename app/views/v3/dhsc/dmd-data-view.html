@@ -49,19 +49,21 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>NHS Commom drug reference</h1>
+        <h1>View the Commom Drug Reference dataset</h1>
 
-         <p>The table below shows the most up to date version of common drug reference, including data available on the dictionary of medicines and devices</p>
+         <p>This table contains the latest version of Common Drug Reference (CDR) dataset. This includes data from the NHS Dictionary of medicines and devices (dm+d)</p>
+
+  <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p>
 
 
-        <p>You can filter this dataset to view only the rows you want to see or <a href="/v3/dhsc/dmd-data-past" class="nhsuk-link">Search
-                </a></p>
+        <p>You can filter this dataset or <a href="/v3/dhsc/dmd-data-past" class="nhsuk-link">Search for a product
+                </a>.</p>
  
         <br>
                 <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
-                    Filter the dataset
+                    Filter this table by selecting a column and entering a search term
                 </span>
             </summary>
             <div class="nhsuk-details__text">
@@ -70,30 +72,31 @@
                         Choose column to filter
                     </label>
 
-      <select class="nhsuk-select" id="sort-by" name="sortBy">
-    <option value="ATC">ATC</option>
-    <option value="VMP_NAME">VMP_NAME</option>
-    <option value="VMPP_NAME">VMPP_NAME</option>
-    <option value="AMP_NAME">AMP_NAME</option>
-    <option value="AMPP_NAME">AMPP_NAME</option>
-    <option value="AMP_NAME_COMPANY">AMP_NAME_COMPANY</option>
-    <option value="COMPANY">COMPANY</option>
-    <option value="COMPANY_CODE">COMPANY_CODE</option>
-    <option value="FORM">FORM</option>
-    <option value="UNIT_DOSE">UNIT_DOSE</option>
-    <option value="STRENGTH">STRENGTH</option>
-    <option value="PACK_SIZE">PACK_SIZE</option>
-    <option value="PACK">PACK</option>
-    <option value="PRICE">PRICE</option>
-    <option value="PRICE_DATE">PRICE_DATE</option>
-    <option value="PRICE_PREVIOUS">PRICE_PREVIOUS</option>
-    <option value="PRICE_BASIS">PRICE_BASIS</option>
-    <option value="DISCONTINUED">DISCONTINUED</option>
-    <option value="DISCONTINUED_DATE">DISCONTINUED_DATE</option>
-    <option value="BNF_CODE">BNF_CODE</option>
-    <option value="BNF_CHAPTER">BNF_CHAPTER</option>
-    <option value="COMBPACKCD">COMBPACKCD</option>
-  </select>
+
+<select class="nhsuk-select" id="sort-by" name="sortBy">
+  <option value="ATC">Anatomical Therapeutic Chemical (ATC) code</option>
+  <option value="VMP_NAME">Virtual Medicinal Product (VMP)</option>
+  <option value="VMPP_NAME">Virtual Medicinal Product Pack (VMPP)</option>
+  <option value="AMP_NAME">Actual Medicinal Product (AMP)</option>
+  <option value="AMPP_NAME">Actual Medicinal Product Pack (AMPP)</option>
+  <option value="AMP_NAME_COMPANY">Actual Medicinal Product (AMP) company name</option>
+  <option value="COMPANY">Company name</option>
+  <option value="COMPANY_CODE">Company code</option>
+  <option value="FORM">Form</option>
+  <option value="UNIT_DOSE">Unit dose (UOM)</option>
+  <option value="STRENGTH">Strength</option>
+  <option value="PACK_SIZE">Pack size</option>
+
+  <option value="PRICE">Price</option>
+  <option value="PRICE_DATE">Price date</option>
+  <option value="PRICE_PREVIOUS">Previous price</option>
+  <option value="PRICE_BASIS">Price basis</option>
+  <option value="DISCONTINUED">Discontinued</option>
+  <option value="DISCONTINUED_DATE">Discontinued date</option>
+  <option value="BNF_CODE">British National Formulary (BNF) code</option>
+  <option value="BNF_CHAPTER">British National Formulary (BNF) chapter</option>
+  <option value="COMBPACKCD">Combination pack code</option>
+</select>
                 </div>
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label" for="full-name">
@@ -103,7 +106,7 @@
                 </div>
 
                 <button class="nhsuk-button nhsuk-button--secondary" >
-Filter dataset
+Apply filter
                 </button>
             </div>
         </details>
@@ -118,47 +121,46 @@ Filter dataset
                     <tr role="row">
                         <th role="columnheader" scope="col" aria-sort="none">ATC <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">VMP_NAME <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">VMP <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">VMPP_NAME <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">VMPP <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">AMP_NAME <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">AMP <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">AMPP_NAME <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">AMPP <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">AMP_NAME_COMPANY <span
+                        <th role="columnheader" scope="col" aria-sort="none">AMP company name <span
                                 class="sort-indicator" aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">COMPANY <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Company name <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">COMPANY_CODE <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Company code <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">FORM <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Form <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">UNIT_DOSE <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Unit dose <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">STRENGTH <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Strength <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">PACK_SIZE <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Pack size <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">PACK <span class="sort-indicator"
+                        
+                        <th role="columnheader" scope="col" aria-sort="none">Price <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">PRICE <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Price date <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">PRICE_DATE <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Previous price <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">PRICE_PREVIOUS <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Price basis <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">PRICE_BASIS <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Discontinued <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">DISCONTINUED <span class="sort-indicator"
-                                aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">DISCONTINUED_DATE <span
+                        <th role="columnheader" scope="col" aria-sort="none">Discontinued date <span
                                 class="sort-indicator" aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">BNF_CODE <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">BNF code <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">BNF_CHAPTER <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">BNF chapter <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
-                        <th role="columnheader" scope="col" aria-sort="none">COMBPACKCD <span class="sort-indicator"
+                        <th role="columnheader" scope="col" aria-sort="none">Combination pack <span class="sort-indicator"
                                 aria-hidden="true">⇅</span></th>
                     </tr>
                 </thead>
@@ -524,7 +526,6 @@ Filter dataset
                 </tbody>
             </table>
         </div>
-
 
         <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
         <ul class="nhsuk-list nhsuk-pagination__list">

@@ -36,9 +36,9 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/bm-portal/plr-data">View presentation level returns</a>
     </li>
-   
+
   </ol>
-  
+
 
 
 </nav>
@@ -48,290 +48,311 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-        <h1>Submission record</h1>
+  <div class="nhsuk-grid-column-full">
+    <span class="nhsuk-caption-l">Accord Health UK</span>
+    <h1>Submitted returns</h1>
 
-        <table class="nhsuk-table-responsive" role="table">
-  <caption class="nhsuk-table__caption">
-    Submission details
-  </caption>
-  <thead class="nhsuk-table__head" role="rowgroup">
-    <tr class="nhsuk-table__row" role="row">
-      <th scope="col" class="nhsuk-table__header" role="columnheader">
-        Company
-      </th>
-      <th scope="col" class="nhsuk-table__header " role="columnheader">
-        Submission period
-      </th>
-      <th scope="col" class="nhsuk-table__header " role="columnheader">
-        Submission type
-      </th>
-       <th scope="col" class="nhsuk-table__header " role="columnheader">
-        Status
-      </th>
-    </tr>
-  </thead>
-  <tbody class="nhsuk-table__body">
-    <tr class="nhsuk-table__row" role="row">
-      <td class="nhsuk-table__cell" role="cell">
-        <span class="nhsuk-table-responsive__heading" aria-hidden="true">Company </span>Accord Health UK
-      </td>
-      <td class="nhsuk-table__cell" role="cell">
-        <span class="nhsuk-table-responsive__heading" aria-hidden="true">Submission period </span>01/Apr/2024 - 31/Dec/2024
-      </td>
-      <td class="nhsuk-table__cell" role="cell">
-        <span class="nhsuk-table-responsive__heading" aria-hidden="true">Submission type </span>Unaudited PLR - Voluntary
-      </td>
-         <td class="nhsuk-table__cell" role="cell">
-        <span class="nhsuk-table-responsive__heading" aria-hidden="true">Submission type </span><strong class="nhsuk-tag nhsuk-tag--white">
-          In progress
-        </strong>
-      </td>
-    </tr>
+    <table class="nhsuk-table-responsive" role="table">
+      <caption class="nhsuk-table__caption">
+        Submission details
+      </caption>
+      <thead class="nhsuk-table__head" role="rowgroup">
+        <tr class="nhsuk-table__row" role="row">
+          <th scope="col" class="nhsuk-table__header" role="columnheader">
+            Company
+          </th>
+          <th scope="col" class="nhsuk-table__header " role="columnheader">
+            Submission period
+          </th>
+          <th scope="col" class="nhsuk-table__header " role="columnheader">
+            Submission type
+          </th>
+          <th scope="col" class="nhsuk-table__header " role="columnheader">
+            Status
+          </th>
+            <th scope="col" class="nhsuk-table__header " role="columnheader">
+            Submitted by
+          </th>
+        </tr>
+        
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr class="nhsuk-table__row" role="row">
+          <td class="nhsuk-table__cell" role="cell">
+            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Company </span>Accord Health UK
+          </td>
+          <td class="nhsuk-table__cell" role="cell">
+            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Submission period </span>01/04/2024 to
+            31/12/2024
+          </td>
+          <td class="nhsuk-table__cell" role="cell">
+            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Submission type </span>Unaudited PLR -
+            Voluntary
+          </td>
+          <td class="nhsuk-table__cell" role="cell">
+            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Status </span><strong
+              class="nhsuk-tag nhsuk-tag--yellow">
+              In progress
+            </strong>
+          </td>
+              <td class="nhsuk-table__cell" role="cell">
+            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Submitted by </span>corp@mail.com
+          </td>
+        </tr>
 
-  </tbody>
-</table>
-        <div class="nhsuk-tabs" data-module="nhsuk-tabs">
-  <h2 class="nhsuk-tabs__title">
-    Contents
-  </h2>
-  <ul class="nhsuk-tabs__list">
-    <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
-      <a class="nhsuk-tabs__tab" href="#submission">
-        Submission
-      </a>
-    </li>
-    <li class="nhsuk-tabs__list-item">
-      <a class="nhsuk-tabs__tab" href="#summary">
-        Summary
-      </a>
-    </li>
-    <li class="nhsuk-tabs__list-item">
-      <a class="nhsuk-tabs__tab" href="#status">
-        Status
-      </a>
-    </li>
-    <li class="nhsuk-tabs__list-item">
-      <a class="nhsuk-tabs__tab" href="#files">
-        Files
-      </a>
-    </li>
-  </ul>
-  <div class="nhsuk-tabs__panel" id="submission">
-<p>No submitted products found</p>
-  </div>
-  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="summary">
-<h2 class="nhsuk-heading-m">Eligible sales</h2>
-<table class="nhsuk-table">
-									<caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Eligible
-										sales</caption>
-									<thead role="rowgroup" class="nhsuk-table__head">
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header" id="spaceHeading2" scope="col"><span class="nhsuk-u-visually-hidden">Empty
-													header</span></th>
-											<th class="nhsuk-table__header" id="netSalesHeading2" scope="col">Net sales</th>
-											<th class="nhsuk-table__header" id="grossSalesHeading2" scope="col">Gross sales</th>
+      </tbody>
+    </table>
+    <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+      <h2 class="nhsuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="nhsuk-tabs__list">
+        <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+          <a class="nhsuk-tabs__tab" href="#submission">
+            Submitted products
+          </a>
+        </li>
+        <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#summary">
+            Summary
+          </a>
+        </li>
+        <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#status">
+            Status
+          </a>
+        </li>
+        <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#files">
+            Files
+          </a>
+        </li>
+      </ul>
+      <div class="nhsuk-tabs__panel" id="submission">
+        <p>No submitted products found</p>
+      </div>
+      <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="summary">
+        <h2 class="nhsuk-heading-m">Eligible sales</h2>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Eligible
+            sales</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header" id="spaceHeading2" scope="col"><span class="nhsuk-u-visually-hidden">Empty
+                  header</span></th>
+              <th class="nhsuk-table__header" id="netSalesHeading2" scope="col">Net sales</th>
+              <th class="nhsuk-table__header" id="grossSalesHeading2" scope="col">Gross sales</th>
 
-										</tr>
-									</thead>
-									 
-									<tbody class="nhsuk-table__body">
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Primary care</th>
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
+            </tr>
+          </thead>
 
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Primary care</th>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
 
-
-										</tr>
-
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Homecare</th>
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-										</tr>
-
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Secondary care</th>
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-										</tr>
-
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Total</th>
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-										</tr>
-
-									</tbody>
-									
-								</table>
-
-                                <br>
-
-                                <h2 class="nhsuk-heading-m">Exemptions</h2>
-                                <table class="nhsuk-table">
-									<caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Exemptions</caption>
-									<thead role="rowgroup" class="nhsuk-table__head">
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header" id="spaceHeading1" scope="col"><span class="nhsuk-u-visually-hidden">Empty
-													header</span></th>
-											<th class="nhsuk-table__header" id="netSalesHeading1" scope="col">Net sales</th>
-											<th class="nhsuk-table__header" id="grossSalesHeading1" scope="col">Gross sales</th>
-
-										</tr>
-									</thead>
-									<tbody class="nhsuk-table__body">
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Exceptional Central
-												Procurements (ECP)</th>
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-										</tr>
-
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Centrally Procured
-												Vaccines (CPV)</th>
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-
-											<td class="nhsuk-table__cell"><span>£0</span>
-											</td>
-										</tr>
-
-										
-
-										
-
-										
-
-									</tbody>
-								</table>
-
-                                <br>
-                                <h2 class="nhsuk-heading-m">Download reports</h2>
-                                <table class="nhsuk-table">
-									<caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Download
-										reports</caption>
-									<thead role="rowgroup" class="nhsuk-table__head">
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header" id="report" scope="col">Report
-												name</th>
-											<th class="nhsuk-table__header" id="action" scope="col">Action</th>
-
-										</tr>
-									</thead>
-									<tbody class="nhsuk-table__body">
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">Submission CSV</th>
-
-											<td class="nhsuk-table__cell">
-
-												<form method="post" action="/reports/plr/1"><input type="hidden" name="_csrf" value="2cd05287-f15f-443e-a4e6-5d40be3c0b25">
-
-													<button class="button-looks-like-link" role="link" style="padding: 0;" id="csv" type="submit">Download
-													</button>
-												</form>
-											</td>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
 
 
-										</tr>
+            </tr>
 
-										<tr role="row" class="nhsuk-table__row">
-											<th class="nhsuk-table__header">HCP report</th>
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Homecare</th>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
 
-											<td class="nhsuk-table__cell">
-												<form method="post" action="/reports/reportViewer"><input type="hidden" name="_csrf" value="2cd05287-f15f-443e-a4e6-5d40be3c0b25">
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
 
-													
-														<input type="hidden" id="repositoryName" name="repositoryName" value="HCPExec">
-														<input type="hidden" id="fileName" name="fileName" value="HCP.xlsx">
+            </tr>
 
-														<input type="hidden" id="dispatcherParameters0.value" name="dispatcherParameters[0].value" value="1">
-														<input type="hidden" id="dispatcherParameters1.value" name="dispatcherParameters[1].value" value="419">
-														<input type="hidden" id="dispatcherParameters2.value" name="dispatcherParameters[2].value" value="DHSC">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Secondary care</th>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
 
-														<input type="hidden" id="dispatcherParameters0.dispatcherName" name="dispatcherParameters[0].dispatcherName" value="plsh">
-														<input type="hidden" id="dispatcherParameters1.dispatcherName" name="dispatcherParameters[1].dispatcherName" value="organisation_id">
-														<input type="hidden" id="dispatcherParameters2.dispatcherName" name="dispatcherParameters[2].dispatcherName" value="user">
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
 
-													
+            </tr>
+
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Total</th>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
+
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">Exemptions</h2>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Exemptions</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header" id="spaceHeading1" scope="col"><span class="nhsuk-u-visually-hidden">Empty
+                  header</span></th>
+              <th class="nhsuk-table__header" id="netSalesHeading1" scope="col">Net sales</th>
+              <th class="nhsuk-table__header" id="grossSalesHeading1" scope="col">Gross sales</th>
+
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Exceptional Central
+                Procurements (ECP)</th>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
+
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
+            </tr>
+
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Centrally Procured
+                Vaccines (CPV)</th>
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
+
+              <td class="nhsuk-table__cell"><span>£0</span>
+              </td>
+            </tr>
 
 
 
-													<button class="button-looks-like-link" role="link" style="padding: 0;" id="hcp" type="submit">Download
-													</button>
-												</form>
-
-											</td>
-
-										</tr>
 
 
 
-									</tbody>
-								</table>
-  </div>
-  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="status">
-<h2 class="nhsuk-heading-m">Update status</h2>
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="sort-by">
-    Select new status
-  </label>
-  <select class="nhsuk-select" id="sort-by" name="sortBy">
-    <option value="recently-published" selected>Submitted</option>
-    <option value="recently-updated">Acknowledged</option>
-    <option value="most-views">Rejected</option>
-    <option value="most-comments">Deleted</option>
-  </select>
-</div>
+          </tbody>
+        </table>
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="three-quarters">
-    Comment subject
-  </label>
-  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
-</div>
+        <br>
+        <h2 class="nhsuk-heading-m">Download reports</h2>
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Download
+            reports</caption>
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header" id="report" scope="col">Report
+                name</th>
+              <th class="nhsuk-table__header" id="action" scope="col">Action</th>
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="example-right-size">
-    Comment summary
-  </label>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">Submission CSV</th>
 
-  <textarea class="nhsuk-textarea" id="example-right-size" name="exampleRightSize" rows="3" aria-describedby="example-right-size-hint"></textarea>
-</div>
+              <td class="nhsuk-table__cell">
 
-<button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-  Update status
-</button>
-  </div>
-  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="files">
-<p>There are currently no files uploaded</p>
-  </div>
-</div>
+                <form method="post" action="/reports/plr/1"><input type="hidden" name="_csrf"
+                    value="2cd05287-f15f-443e-a4e6-5d40be3c0b25">
+
+                  <button class="button-looks-like-link" role="link" style="padding: 0;" id="csv" type="submit">Download
+                  </button>
+                </form>
+              </td>
 
 
+            </tr>
 
-        <!-- End of content -->
+            <tr role="row" class="nhsuk-table__row">
+              <th class="nhsuk-table__header">HCP report</th>
 
+              <td class="nhsuk-table__cell">
+                <form method="post" action="/reports/reportViewer"><input type="hidden" name="_csrf"
+                    value="2cd05287-f15f-443e-a4e6-5d40be3c0b25">
+
+
+                  <input type="hidden" id="repositoryName" name="repositoryName" value="HCPExec">
+                  <input type="hidden" id="fileName" name="fileName" value="HCP.xlsx">
+
+                  <input type="hidden" id="dispatcherParameters0.value" name="dispatcherParameters[0].value" value="1">
+                  <input type="hidden" id="dispatcherParameters1.value" name="dispatcherParameters[1].value"
+                    value="419">
+                  <input type="hidden" id="dispatcherParameters2.value" name="dispatcherParameters[2].value"
+                    value="DHSC">
+
+                  <input type="hidden" id="dispatcherParameters0.dispatcherName"
+                    name="dispatcherParameters[0].dispatcherName" value="plsh">
+                  <input type="hidden" id="dispatcherParameters1.dispatcherName"
+                    name="dispatcherParameters[1].dispatcherName" value="organisation_id">
+                  <input type="hidden" id="dispatcherParameters2.dispatcherName"
+                    name="dispatcherParameters[2].dispatcherName" value="user">
+
+
+
+
+
+                  <button class="button-looks-like-link" role="link" style="padding: 0;" id="hcp" type="submit">Download
+                  </button>
+                </form>
+
+              </td>
+
+            </tr>
+
+
+
+          </tbody>
+        </table>
+      </div>
+      <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="status">
+        <h2 class="nhsuk-heading-m">Update status</h2>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="sort-by">
+            Select new status
+          </label>
+          <select class="nhsuk-select" id="sort-by" name="sortBy">
+            <option value="recently-published" selected>Select status</option>
+            <option value="recently-updated">Submitted</option>
+            <option value="recently-updated">Acknowledged</option>
+            <option value="most-views">Rejected</option>
+            <option value="most-comments">Deleted</option>
+          </select>
+        </div>
+<br>
+         <h3 class="nhsuk-heading-s">Add a comment (optional)</h3>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="three-quarters">
+            Comment summary
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="example-right-size">
+            Comment description
+          </label>
+
+          <textarea class="nhsuk-textarea" id="example-right-size" name="exampleRightSize" rows="3"
+            aria-describedby="example-right-size-hint"></textarea>
+        </div>
+
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+          Update status
+        </button>
+      </div>
+      <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="files">
+        <p>There are no uploaded files.</p>
+      </div>
     </div>
+
+
+
+    <!-- End of content -->
+
+  </div>
 </div>
 {% endblock %}

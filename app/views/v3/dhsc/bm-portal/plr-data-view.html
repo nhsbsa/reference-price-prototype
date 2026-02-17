@@ -49,17 +49,17 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>Presentation level returns</h1>
-        <p>The table below shows the most up to date version of presentation level returns data</p>
+        <h1>View the presentation level returns dataset</h1>
+        <p>This table contains the latest version of presentation level returns data</p>
+  <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p>
 
-
-        <p>You can filter this dataset to view only the rows you want to see or <a href="/v3/dhsc/bm-portal/plr-data-past" class="nhsuk-link">Search
+        <p>You can filter this dataset to view only the rows you want to see or <a href="/v3/dhsc/search" class="nhsuk-link">Search for a product
                 </a></p>
         <br>
         <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
-                    Filter the dataset
+                    Filter this table by selecting a column and entering a search term
                 </span>
             </summary>
             <div class="nhsuk-details__text">
@@ -68,14 +68,14 @@
                         Choose column to filter
                     </label>
 
-                 <select class="nhsuk-select" id="sort-by" name="sortBy">
-    <option value="company_name">company_name</option>
-    <option value="dmd_company">dmd_company</option>
-    <option value="ampp_name">ampp_name</option>
-    <option value="ampp_snomed">ampp_snomed</option>
-    <option value="vtm">vtm</option>
-    <option value="year">year</option>
-    <option value="average_selling_price">average_selling_price</option>
+            <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="company_name">Company name</option>
+    <option value="dmd_company">dm+d company</option>
+    <option value="ampp_name">Actual Medicinal Product Pack (AMPP)</option>
+    <option value="ampp_snomed">AMPP SNOMED</option>
+    <option value="vtm">Virtual Therapeutic Moiety (VTM)</option>
+    <option value="year">Submission year</option>
+    <option value="average_selling_price">Average selling price</option>
 </select>
 
                 </div>
@@ -87,7 +87,7 @@
                 </div>
 
                 <button class="nhsuk-button nhsuk-button--secondary">
-                    Filter dataset
+                    Apply filter
                 </button>
             </div>
         </details>
@@ -99,14 +99,14 @@
             <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
 <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
-        <th role="columnheader" scope="col" aria-sort="none">company_name</th>
-        <th role="columnheader" scope="col" aria-sort="none">dmd_company</th>
-        <th role="columnheader" scope="col" aria-sort="none">ampp_name</th>
-        <th role="columnheader" scope="col" aria-sort="none">ampp_snomed</th>
-        <th role="columnheader" scope="col" aria-sort="none">vtm</th>
-        <th role="columnheader" scope="col" aria-sort="none">year</th>
-        <th role="columnheader" scope="col" aria-sort="none">average_selling_price</th>
-        <th role="columnheader" scope="col" >action</th>
+        <th role="columnheader" scope="col" aria-sort="none">Company name</th>
+        <th role="columnheader" scope="col" aria-sort="none">dm+d Company</th>
+        <th role="columnheader" scope="col" aria-sort="none">Actual Medicinal Product Pack (AMPP)</th>
+        <th role="columnheader" scope="col" aria-sort="none">AMPP SNOMED</th>
+        <th role="columnheader" scope="col" aria-sort="none">Virtual Therapeutic Moiety (VTM)</th>
+        <th role="columnheader" scope="col" aria-sort="none">Submission year</th>
+        <th role="columnheader" scope="col" aria-sort="none">Average Selling Price</th>
+        <th role="columnheader" scope="col" >Action</th>
     </tr>
 </thead>
 

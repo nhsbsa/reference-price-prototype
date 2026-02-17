@@ -48,15 +48,18 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>Search results for dataset dated 2 December 2025</h1>
-
+        <h1>Search results for historical reference price datasets</h1>
+<p>There are <strong>2</strong> search results with the search terms:</p>
         <div>
             <!-- <div class="nhsuk-hint">
                 Delete during development: only fields populated will show up on this page. 
             </div> -->
 
 
-         
+           <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1 nhsuk-u-margin-right-1">
+                Date: 2 December 2025
+            </strong>
+
 
             <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1 nhsuk-u-margin-right-1">
                 Company name: AAH Medical
@@ -74,7 +77,7 @@
                 <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
-                    Filter the dataset
+                    Filter this table by selecting a column and entering a search term
                 </span>
             </summary>
             <div class="nhsuk-details__text">
@@ -97,7 +100,7 @@
                         <option value="originatorPresentation">Originator Presentation Name</option>
                         <option value="originatorClassification">Originator Classification</option>
                         <option value="medicineClassification">Medicine Classification (Older/Newer)</option>
-                        <option value="olderMedicineDate">Older Medicine Date</option>
+                        <option value="olderMedicineDate">Date recategorised as older medicine</option>
                         <option value="rad">Reference Anchor Date (RAD)</option>
                         <option value="referencePrice2024">Reference Price (Final 2024)</option>
                         <option value="referencePriceType">Reference Price Type</option>
@@ -121,7 +124,7 @@
                 </div>
 
                 <button class="nhsuk-button nhsuk-button--secondary" >
-Filter dataset
+Apply filter
                 </button>
             </div>
         </details>
@@ -136,33 +139,34 @@ Filter dataset
 
         <thead role="rowgroup" class="nhsuk-table__head">
             <tr role="row">
-                <th role="columnheader" aria-sort="none">Company Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">SNOMED Code <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Presentation Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Current Max Price (£) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">VMP Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">VTM Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">SPC Expiry Date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">First MA Date (VTM) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">SPC/MA Details for RAD <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">SPC Number(s) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Originator Presentation Name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Originator Classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Medicine Classification (Older/Newer) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Older Medicine Date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Reference Anchor Date (RAD) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Reference Price (Final 2024) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Reference Price Type <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Comparators Used <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Comparator Price Year <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Comparator Raw Price (£) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Pack Size Adjustment <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Strength Adjustment <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Inter-Formulation Adjustment <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Flat Price Comparator <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Reason for Exclusion <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Changes to Phase 1 <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-                <th role="columnheader" aria-sort="none">Changes After Review <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Company name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">SNOMED code <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Presentation name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Current max price (£) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">VMP name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">VTM name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">SPC expiry date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">First MA date (VTM) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">SPC/MA details for RAD <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">SPC numbers <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Originator presentation name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Originator classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Medicine classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Date recategorised as older medicine <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Reference anchor date (RAD) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Reference price <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                 <th role="columnheader" aria-sort="none">Reference price year <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Reference price type <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Comparators used <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Comparator price year <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Comparator raw price (£) <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Pack size adjustment <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Strength adjustment <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Inter-formulation adjustment <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Flat price comparator <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Reason for exclusion <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Changes for phase 1 <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+                <th role="columnheader" aria-sort="none">Changes after review <span class="sort-indicator" aria-hidden="true">⇅</span></th>
             </tr>
         </thead>
 
@@ -175,8 +179,8 @@ Filter dataset
                 <td class="nhsuk-table__cell">TestProductA 120mg tablets</td>
                 <td class="nhsuk-table__cell">febuxostat</td>
                 <td class="nhsuk-table__cell">22/04/2023</td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
                 <td class="nhsuk-table__cell">SPC 2010019</td>
                 <td class="nhsuk-table__cell">Originator1</td>
                 <td class="nhsuk-table__cell">Originator</td>
@@ -184,17 +188,18 @@ Filter dataset
                 <td class="nhsuk-table__cell">22/04/2023</td>
                 <td class="nhsuk-table__cell">01/01/2022</td>
                 <td class="nhsuk-table__cell">£10.11</td>
+                  <td class="nhsuk-table__cell">2024</td>
                 <td class="nhsuk-table__cell">Average selling price of comparator(s) subject to adjustments</td>
                 <td class="nhsuk-table__cell">Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 x 14 tablets</td>
                 <td class="nhsuk-table__cell">2021</td>
                 <td class="nhsuk-table__cell">£10.34</td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
-                <td class="nhsuk-table__cell"></td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
+                <td class="nhsuk-table__cell">No data</td>
             </tr>
         </tbody>
     </table>
