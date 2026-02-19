@@ -47,14 +47,10 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-<h1>Data changes</h1>
-      <div class="nhsuk-inset-text">
-            <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>Last updated: <span id="date"></span> at <span id="time"></span></p>
-        </div>
-
+<h1>View all data update notifications</h1>
+     <p>This data was last updated on <span id="date"></span> at <span id="time"></span></p>
         <div class="nhsuk-hint">
-  Select a notification to mark as resolved
+  View and resolve individual notifications or select multiple notifications and mark them as resolved using this page.
 </div>
 
     <a href="/v3/dhsc/notifications/all-empty" class="nhsuk-button ">
@@ -80,13 +76,13 @@
           Date <span class="sort-indicator" aria-hidden="true">⇅</span>
         </th>
         <th role="columnheader" scope="col" aria-sort="none">
-          Column affected <span class="sort-indicator" aria-hidden="true">⇅</span>
+          Updated column <span class="sort-indicator" aria-hidden="true">⇅</span>
         </th>
         <th role="columnheader" scope="col" aria-sort="none">
-          Old value <span class="sort-indicator" aria-hidden="true">⇅</span>
+          Previous value <span class="sort-indicator" aria-hidden="true">⇅</span>
         </th>
         <th role="columnheader" scope="col" aria-sort="none">
-          New value <span class="sort-indicator" aria-hidden="true">⇅</span>
+          Updated value <span class="sort-indicator" aria-hidden="true">⇅</span>
         </th>
         <th role="columnheader" scope="col" aria-sort="none">
           Action <span class="sort-indicator" aria-hidden="true">⇅</span>
@@ -110,7 +106,7 @@
         <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
         <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
         <td role="cell" class="nhsuk-table__cell">
-          <a href="/v3/dhsc/notifications/details" class="nhsuk-link">View details</a>
+          <a href="/v3/dhsc/notifications/details" class="nhsuk-link">View and resolve</a>
         </td>
       </tr>
       <tr role="row" class="nhsuk-table__row">
@@ -125,7 +121,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Brighton Pharma</td>
   <td role="cell" class="nhsuk-table__cell">MediSupply Ltd</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -140,7 +136,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Wellness Pharma</td>
   <td role="cell" class="nhsuk-table__cell">HealthFirst</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -155,7 +151,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">GreenMed Ltd</td>
   <td role="cell" class="nhsuk-table__cell">PharmaDirect</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -170,7 +166,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Sunrise Pharma</td>
   <td role="cell" class="nhsuk-table__cell">MediTrust</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -185,7 +181,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Northern Meds</td>
   <td role="cell" class="nhsuk-table__cell">CarePlus</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -200,7 +196,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">EastMed Supplies</td>
   <td role="cell" class="nhsuk-table__cell">PharmaLink</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -215,7 +211,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Westside Pharma</td>
   <td role="cell" class="nhsuk-table__cell">MediCorp</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -230,7 +226,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Central Health Ltd</td>
   <td role="cell" class="nhsuk-table__cell">MediPlus</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -245,7 +241,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">NorthCare Pharma</td>
   <td role="cell" class="nhsuk-table__cell">HealthMeds</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
 <tr role="row" class="nhsuk-table__row">
@@ -260,7 +256,7 @@
   <td role="cell" class="nhsuk-table__cell">Supplier</td>
   <td role="cell" class="nhsuk-table__cell">Southern Med Ltd</td>
   <td role="cell" class="nhsuk-table__cell">CareMed</td>
-  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View details</a></td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
 </tr>
 
     </tbody>

@@ -1,0 +1,84 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Product Details" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/search">Search for a product</a>
+        </li>
+        <!--   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/query-details">Query details</a>
+    </li>   -->
+
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14
+            tablets)</span>
+        <h1>Review new comparator</h1>
+
+<h2>Metsulin 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets</h2>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="one-third">
+            Comparator price year
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-one-third" id="one-third" name="oneThird" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="cost-pounds">
+            Comparator price
+          </label>
+          <div class="nhsuk-input-wrapper">
+            <div class="nhsuk-input-wrapper__prefix" aria-hidden="true">£</div>
+            <input class="nhsuk-input nhsuk-input--width-5" id="cost-pounds" name="costPounds" type="text"
+              spellcheck="false">
+          </div>
+        </div>
+
+            <a href="/v3/dhsc/product-details"  id="button" class="nhsuk-button">
+                Save comparator
+            </a>
+        <!-- End of content -->
+
+    </div>
+</div>
+
+
+
+{% endblock %}
