@@ -53,7 +53,7 @@
        
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="sort-by">
-  Reference Price Year
+  Reference price year
   </label>
   <select class="nhsuk-select" id="sort-by" name="sortBy">
     <option value="recently-published" selected>2026</option>
@@ -66,7 +66,7 @@
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="sort-by">
-  Reference Price Type
+  Reference price type
   </label>
   <select class="nhsuk-select" id="sort-by" name="sortBy">
     <option value="recently-published" selected>List price of comparator(s) according to dm+d minus 12.5% subject to adjustments</option>
@@ -79,7 +79,7 @@
   <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
     <legend class="nhsuk-fieldset__legend ">
   
-  Reference Price Start Date
+  Reference price start date
       
     </legend>
    
@@ -116,7 +116,44 @@
   <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
     <legend class="nhsuk-fieldset__legend ">
   
- Reference Anchor Date
+  Reference price end date
+      
+    </legend>
+   
+    <div id="date-of-birth" class="nhsuk-date-input">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-day" name="dateOfBirth[day]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-month" name="dateOfBirth[month]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="date-of-birth-year" name="dateOfBirth[year]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+    <legend class="nhsuk-fieldset__legend ">
+  
+ Reference anchor date 
       
     </legend>
    
@@ -152,7 +189,7 @@
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="sort-by">
-  Medicine Classification
+  Medicine classification
   </label>
   <select class="nhsuk-select" id="sort-by" name="sortBy">
     <option value="recently-published" selected>Older medicine</option>
@@ -165,7 +202,7 @@
   <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
     <legend class="nhsuk-fieldset__legend ">
   
-  Older Medicine
+  Date categorised as older medicine
       
     </legend>
    
@@ -201,7 +238,7 @@
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="sort-by">
-  Originator Classification
+  Originator classification
   </label>
   <select class="nhsuk-select" id="sort-by" name="sortBy">
     <option value="recently-published" selected>Classification</option>
