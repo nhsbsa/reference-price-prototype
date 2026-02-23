@@ -47,15 +47,11 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
         <h1 class="nhsuk-heading-xl" id="pageHeading">
-            <span class="nhsuk-caption-l">Edit a provisional product</span>
-            <span class="nhsuk-u-visually-hidden"> - </span>
-            <span id="full-product-name">
-                <span id="product-name">Medication q 200mg tablets (2 x 24)</span>
-            </span>
+         Enter the reference price details of the provisional product
+          
         </h1>
-<h2>Reference price details</h2>
+
 
 
 
@@ -65,7 +61,7 @@
     <legend class="nhsuk-fieldset__legend ">
       Reference anchor date
     </legend>
-    
+    <div class="nhsuk-hint">For example, 01 1 2023</div>
     <div id="date-of-birth" class="nhsuk-date-input">
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
@@ -96,12 +92,13 @@
 </div>
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="sort-by">
-    Newer/older classification
+    Classification
   </label>
   <select class="nhsuk-select" id="sort-by" name="sortBy">
-    <option value="recently-published" selected>Newer medicine</option>
+    <option value="recently-published" selected>Select classification</option>
+        <option value="recently-published" >Newer medicine</option>
     <option value="recently-updated">Older medicine</option>
-    <option value="most-views">New entranr</option>
+    <option value="most-views">New entrant</option>
 
   </select>
 </div>
@@ -116,7 +113,6 @@
   classes: "nhsuk-input--width-5",
   spellcheck: false
 }) }}
-
 
 
    <a href="/v3/dhsc/provisional/edit/p2" class="nhsuk-button ">

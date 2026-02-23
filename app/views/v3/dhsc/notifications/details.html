@@ -27,14 +27,14 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc">Dashboard</a>
     </li>
-      <li class="nhsuk-breadcrumb__list-item">
+    <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/notifications">Notifications</a>
     </li>
-<li class="nhsuk-breadcrumb__list-item">
+    <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v3/dhsc/notifications/all">View all notifications</a>
-    </li> 
+    </li>
   </ol>
-<!-- 
+  <!-- 
   <a class="nhsuk-back-link" href="#">
     <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
   </a> -->
@@ -46,57 +46,93 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-<h1>Change details</h1>
+  <div class="nhsuk-grid-column-full">
+
+    <div id="notification" style="display: none;" >
+<div  class="nhsuk-notification-banner nhsuk-notification-banner--success" role="alert" aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner" >
+  <div class="nhsuk-notification-banner__header">
+    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="nhsuk-notification-banner__content">
+    <h3 class="nhsuk-notification-banner__heading">
+      You have marked this notification as resolved
+    </h3>
+
+    <p>If this was a mistake <a href="#" id="undo">undo it</a>.</p>
    
-
-      <dl class="nhsuk-summary-list">
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Source</dt>
-          <dd class="nhsuk-summary-list__value">CDR database</dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Date</dt>
-          <dd class="nhsuk-summary-list__value">10/10/2025</dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Column affected</dt>
-          <dd class="nhsuk-summary-list__value">Supplier</dd>
-        </div>
-         <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Change description</dt>
-          <dd class="nhsuk-summary-list__value">Company divestent</dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Old value</dt>
-          <dd class="nhsuk-summary-list__value">Morningside Healthcare</dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">New value</dt>
-          <dd class="nhsuk-summary-list__value">AAH Medicals</dd>
-        </div>
-            <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Change impact</dt>
-          <dd class="nhsuk-summary-list__value">Unknown</dd>
-        </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">Action</dt>
-          <dd class="nhsuk-summary-list__value">
-            No action required
-          </dd>
-        </div>
-      </dl>
-
-          <a href="/v3/dhsc/notifications/all" class="nhsuk-button ">
-            Mark as resolved 
-        </a>
-
-
-          <a href="/v3/dhsc/notifications/all" class="nhsuk-button nhsuk-button--secondary">
-           Back to all notification
-        </a>
-        <!-- End of content -->
-
-    </div>
+  </div>
 </div>
+</div>
+
+    <h1>Mark notification as resolved</h1>
+
+
+    <dl class="nhsuk-summary-list">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Source</dt>
+        <dd class="nhsuk-summary-list__value">CDR database</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Date</dt>
+        <dd class="nhsuk-summary-list__value">10/10/2025</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Updated column</dt>
+        <dd class="nhsuk-summary-list__value">Supplier</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Change description</dt>
+        <dd class="nhsuk-summary-list__value">Company divestent</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Previous value</dt>
+        <dd class="nhsuk-summary-list__value">Morningside Healthcare</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Updated value</dt>
+        <dd class="nhsuk-summary-list__value">AAH Medicals</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Change impact</dt>
+        <dd class="nhsuk-summary-list__value">Unknown</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Action</dt>
+        <dd class="nhsuk-summary-list__value">
+          No action required
+        </dd>
+      </div>
+    </dl>
+
+<button type="button" id="resolve" class="nhsuk-button">
+  Mark as resolved
+</button>
+
+
+    <a href="/v3/dhsc/notifications/all" class="nhsuk-button nhsuk-button--secondary">
+      Back to all notifications
+    </a>
+    <!-- End of content -->
+
+  </div>
+</div>
+
+<script>
+  const resolveBtn = document.getElementById("resolve");
+  const notification = document.getElementById("notification");
+  const undoLink = document.getElementById("undo");
+
+  resolveBtn.addEventListener("click", function () {
+    notification.style.display = "block";
+    resolveBtn.disabled = true;
+  });
+
+  undoLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    notification.style.display = "none";
+    resolveBtn.disabled = false;
+  });
+</script>
 {% endblock %}
