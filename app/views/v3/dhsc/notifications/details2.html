@@ -48,11 +48,28 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
+
+      <div id="unresolved" style="display: none;">
+<div class="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
+  <div class="nhsuk-notification-banner__header">
+    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title-unresolved">
+      Unresolved
+    </h2>
+  </div>
+  <div class="nhsuk-notification-banner__content">
+    <p class="nhsuk-notification-banner__heading">
+      You have marked this notification as unresolved.
+      
+    </p>
+  </div>
+</div>
+</div>
+
           <div id="notification" style="display: none;" >
 <div  class="nhsuk-notification-banner nhsuk-notification-banner--success" role="alert" aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner" >
   <div class="nhsuk-notification-banner__header">
     <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
-      Success
+      Resolved
     </h2>
   </div>
   <div class="nhsuk-notification-banner__content">
@@ -60,7 +77,7 @@
       You have marked this notification as resolved
     </h3>
 
-    <p>If this was a mistake <a href="#" id="undo">undo it</a>.</p>
+    <p>If you resolved this notification by mistake you can <a href="#" id="undo">change the status to unresolved</a>.</p>
    
   </div>
 </div>
@@ -120,17 +137,21 @@
 
 <script>
   const resolveBtn = document.getElementById("resolve");
-  const notification = document.getElementById("notification");
+  const notification = document.getElementById("notification"); // success banner
+  const unresolved = document.getElementById("unresolved"); // unresolved banner
   const undoLink = document.getElementById("undo");
 
   resolveBtn.addEventListener("click", function () {
     notification.style.display = "block";
+    unresolved.style.display = "none"; // hide unresolved if visible
     resolveBtn.disabled = true;
   });
 
   undoLink.addEventListener("click", function (e) {
     e.preventDefault();
-    notification.style.display = "none";
+
+    notification.style.display = "none";  // hide success
+    unresolved.style.display = "block";   // show unresolved
     resolveBtn.disabled = false;
   });
 </script>
