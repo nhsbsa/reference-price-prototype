@@ -1,0 +1,319 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Edit Product Details" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v4/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/search">Search for a product</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/product-details">Product page</a>
+    </li>   
+
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+    <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+    <h1>Edit reference price information</h1>
+       
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Reference price year
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>2026</option>
+    <option value="recently-updated">2025</option>
+    <option value="most-views">2024</option>
+    <option value="most-comments">2027</option>
+  </select>
+</div>
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Reference price type
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>List price of comparator(s) according to dm+d minus 12.5% subject to adjustments</option>
+    <option value="recently-updated">Average selling price of comparator(s) subject to adjustments</option>
+
+  </select>
+</div>
+
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+    <legend class="nhsuk-fieldset__legend ">
+  
+  Reference price start date
+      
+    </legend>
+   
+    <div id="date-of-birth" class="nhsuk-date-input">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-day" name="dateOfBirth[day]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-month" name="dateOfBirth[month]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="date-of-birth-year" name="dateOfBirth[year]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+    <legend class="nhsuk-fieldset__legend ">
+  
+  Reference price end date
+      
+    </legend>
+   
+    <div id="date-of-birth" class="nhsuk-date-input">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-day" name="dateOfBirth[day]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-month" name="dateOfBirth[month]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="date-of-birth-year" name="dateOfBirth[year]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+    <legend class="nhsuk-fieldset__legend ">
+  
+ Reference anchor date 
+      
+    </legend>
+   
+    <div id="date-of-birth" class="nhsuk-date-input">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-day" name="dateOfBirth[day]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-month" name="dateOfBirth[month]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="date-of-birth-year" name="dateOfBirth[year]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Medicine classification
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>Older medicine</option>
+    <option value="recently-updated">Newer medicine</option>
+
+  </select>
+</div>
+
+<div class="nhsuk-form-group">
+  <fieldset class="nhsuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+    <legend class="nhsuk-fieldset__legend ">
+  
+  Date categorised as older medicine
+      
+    </legend>
+   
+    <div id="date-of-birth" class="nhsuk-date-input">
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
+            Day
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-day" name="dateOfBirth[day]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-month" name="dateOfBirth[month]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="date-of-birth-year" name="dateOfBirth[year]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Originator classification
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>Classification</option>
+    <option value="recently-updated">Other classification</option>
+
+  </select>
+</div>
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Interformulation adjustment
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>0.25</option>
+    <option value="recently-updated">0.5</option>
+     <option value="recently-published" >2</option>
+    <option value="recently-updated">4</option>
+     <option value="recently-published" selected>0.25</option>
+    <option value="recently-updated">None</option>
+
+  </select>
+</div>
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Pack size adjustment
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>0.25</option>
+    <option value="recently-updated">0.5</option>
+     <option value="recently-published" >2</option>
+    <option value="recently-updated">4</option>
+     <option value="recently-published" selected>0.25</option>
+    <option value="recently-updated">None</option>
+
+  </select>
+</div>
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="sort-by">
+  Reference price adjustment
+  </label>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option value="recently-published" selected>0.25</option>
+    <option value="recently-updated">0.5</option>
+     <option value="recently-published" >2</option>
+    <option value="recently-updated">4</option>
+     <option value="recently-published" selected>0.25</option>
+    <option value="recently-updated">None</option>
+
+  </select>
+</div>
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="cost-pounds">
+    Reference price
+  </label>
+  <div class="nhsuk-input-wrapper">
+    <div class="nhsuk-input-wrapper__prefix" aria-hidden="true">£</div>
+    <input class="nhsuk-input nhsuk-input--width-5" id="cost-pounds" name="costPounds" type="text" spellcheck="false">
+  </div>
+</div>
+
+
+     <a href="ref-price-info-confirm" class="nhsuk-button">
+                Continue
+            </a>
+
+                 <a href="/v4/dhsc/product-details" class="nhsuk-button nhsuk-button--secondary">
+              Discard changes
+            </a>
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
