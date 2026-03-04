@@ -68,13 +68,12 @@
                         Choose column
                     </label>
 
-      <select class="nhsuk-select" id="sort-by" name="sortBy">
-            <option  selected>Choose column</option>
-    <option value="ATC">Virtual Therapeutic Moiety (VTM)</option>
-    <option value="VMP_NAME">Originator licensee</option>
-    <option value="VMPP_NAME">Originator brand</option>
-   
-  </select>
+<select class="nhsuk-select" id="sort-by" name="sortBy">
+  <option value="">Choose column</option>
+  <option value="0">Virtual Therapeutic Moiety (VTM)</option>
+  <option value="1">Originator licensee</option>
+  <option value="2">Originator brand</option>
+</select>
                 </div>
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label" for="full-name">
@@ -83,9 +82,9 @@
                     <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
                 </div>
 
-                <button class="nhsuk-button nhsuk-button--secondary" >
-Apply filter
-                </button>
+<button class="nhsuk-button nhsuk-button--secondary" type="button" id="apply-filter">
+  Apply filter
+</button>
             </div>
         </details>
         <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
@@ -110,67 +109,67 @@ Apply filter
 
   <tbody class="nhsuk-table__body">
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">febuxostat</td>
+      <td class="nhsuk-table__cell">Febuxostat</td>
       <td class="nhsuk-table__cell">Menarini</td>
       <td class="nhsuk-table__cell">Adenuric</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">amlodipine</td>
+      <td class="nhsuk-table__cell">Amlodipine</td>
       <td class="nhsuk-table__cell">Pfizer</td>
       <td class="nhsuk-table__cell">Norvasc</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">omeprazole</td>
+      <td class="nhsuk-table__cell">Omeprazole</td>
       <td class="nhsuk-table__cell">AstraZeneca</td>
       <td class="nhsuk-table__cell">Losec</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">montelukast</td>
+      <td class="nhsuk-table__cell">Montelukast</td>
       <td class="nhsuk-table__cell">Merck Sharp & Dohme</td>
       <td class="nhsuk-table__cell">Singulair</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">pregabalin</td>
+      <td class="nhsuk-table__cell">Pregabalin</td>
       <td class="nhsuk-table__cell">Pfizer</td>
       <td class="nhsuk-table__cell">Lyrica</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">cetirizine</td>
+      <td class="nhsuk-table__cell">Cetirizine</td>
       <td class="nhsuk-table__cell">UCB</td>
       <td class="nhsuk-table__cell">Zirtek</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">naproxen</td>
+      <td class="nhsuk-table__cell">Naproxen</td>
       <td class="nhsuk-table__cell">Roche</td>
       <td class="nhsuk-table__cell">Naprosyn</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">metformin</td>
+      <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Merck Santé</td>
       <td class="nhsuk-table__cell">Glucophage</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">salmeterol</td>
+      <td class="nhsuk-table__cell">Salmeterol</td>
       <td class="nhsuk-table__cell">GlaxoSmithKline</td>
       <td class="nhsuk-table__cell">Serevent</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">levothyroxine</td>
+      <td class="nhsuk-table__cell">Levothyroxine</td>
       <td class="nhsuk-table__cell">Aspen Pharma</td>
       <td class="nhsuk-table__cell">Eltroxin</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">atorvastatin</td>
+      <td class="nhsuk-table__cell">Atorvastatin</td>
       <td class="nhsuk-table__cell">Pfizer</td>
       <td class="nhsuk-table__cell">Lipitor</td>
     </tr>
@@ -212,4 +211,38 @@ Apply filter
 
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const filterButton = document.getElementById("apply-filter");
+  const columnSelect = document.getElementById("sort-by");
+  const searchInput = document.getElementById("full-name");
+  const tableRows = document.querySelectorAll(".nhsuk-table__body tr");
+
+  filterButton.addEventListener("click", function () {
+
+    const columnIndex = columnSelect.value;
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    if (columnIndex === "") {
+      alert("Please choose a column to filter.");
+      return;
+    }
+
+    tableRows.forEach(function (row) {
+      const cell = row.children[columnIndex];
+      const cellText = cell.textContent.toLowerCase();
+
+      if (cellText.includes(searchTerm)) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
+
+  });
+
+});
+</script>
 {% endblock %}
