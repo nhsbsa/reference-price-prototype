@@ -13,11 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const today = new Date();
   document.getElementById("date").textContent = formatDateDDMMYYYY(today);
 
-  function updateTime() {
-    const now = new Date();
-    const options = { hour: '2-digit', minute: '2-digit', hour12: true }; // no seconds
-    document.getElementById("time").textContent = now.toLocaleTimeString([], options);
-  }
+function updateTime() {
+  const now = new Date();
+
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  };
+
+  let timeString = now.toLocaleTimeString('en-US', options);
+
+  // Remove space and make am/pm lowercase and add fullstop
+  timeString = timeString.replace(' ', '').toLowerCase() + '.';
+
+  document.getElementById("time").textContent = timeString;
+}
 
   updateTime();
   setInterval(updateTime, 1000);
