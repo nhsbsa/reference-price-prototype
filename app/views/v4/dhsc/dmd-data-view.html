@@ -102,13 +102,13 @@
           </select>
         </div>
         <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="full-name">
+          <label class="nhsuk-label" for="search-term">
             Enter search term
           </label>
-          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
         </div>
 
-        <button class="nhsuk-button nhsuk-button--secondary">
+        <button id="apply-filter" class="nhsuk-button nhsuk-button--secondary">
           Apply filter
         </button>
       </div>
@@ -572,5 +572,33 @@
 
 </div>
 
+<script>
 
+document.getElementById("apply-filter").addEventListener("click", function () {
+
+    const columnIndex = document.getElementById("sort-by").selectedIndex - 1;
+    const searchValue = document.getElementById("search-term").value.toLowerCase();
+
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+
+        if (columnIndex < 0) {
+            row.style.display = "";
+            return;
+        }
+
+        const cell = row.cells[columnIndex];
+
+        if (!cell) return;
+
+        const text = cell.textContent.toLowerCase();
+
+        row.style.display = text.includes(searchValue) ? "" : "none";
+
+    });
+
+});
+
+</script>
 {% endblock %}
