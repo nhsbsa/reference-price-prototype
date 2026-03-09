@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Presentation Level Returns" %}
+{% set pageName = "PLR Details" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -33,10 +33,12 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/bm-portal/">Branded medicines data</a>
     </li>
- 
-   
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/bm-portal/plr-data">View presentation level returns</a>
+    </li>
+
   </ol>
-  
+
 
 
 </nav>
@@ -46,29 +48,26 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-full">
 
-        <h1>Download the latest presentation level returns</h1>
-        <div class="nhsuk-inset-text">
-            <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>This dataset was last updated on <span id="date"></span> at <span id="time"></span></p>
-        </div>
-   <p>Download the latest presentation level returns or <a href="/v4/dhsc/bm-portal/plr-data-view" class="nhsuk-link">view and filter this dataset</a>.</p>
+<div class="nhsuk-panel">
+  <h1 class="nhsuk-panel__title">
+    Your submitted returns status has been updated
+  </h1>
+  <div class="nhsuk-panel__body">
+    We have sent you a confirmation email
+  </div>
+</div>
+
+<br>
+
+<!--p>Go back to <a href="/v4/dhsc/bm-portal/plr-data">view presentation level returns</a></p-->
+<p>Go back to <a href="../../dhsc/notifications/index" >view notifications</a></p>
 
 
-    <a href="/Search-results-presentation-level-return-dataset.xlsx" 
-      class="nhsuk-button" 
-      download>
-      Download latest dataset
-    </a>
 
-           <a href="/v4/dhsc/bm-portal/plr-data-past" class="nhsuk-button nhsuk-button--secondary">
-                View historical dataset
-            </a>
+    <!-- End of content -->
 
-     
-        <!-- End of content -->
-
-    </div>
+  </div>
 </div>
 {% endblock %}
