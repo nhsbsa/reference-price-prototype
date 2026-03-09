@@ -22,7 +22,26 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/datasources">Data sources</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/bm-portal/">Branded medicines data</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/bm-portal/plr-data">View presentation level returns</a>
+    </li>
 
+  </ol>
+
+
+
+</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -42,9 +61,10 @@
 
 <br>
 
-<!--p>Go back to <a href="/v4/dhsc/bm-portal/plr-data">view presentation level returns</a></p-->
-<p>Go back to <a href="../../dhsc/notifications/index" >view notifications</a></p>
 
+<a href="../../dhsc/notifications/index" class="nhsuk-button" data-module="nhsuk-button" type="submit">Back to view notifications</a>
+<a href="/v4/dhsc" class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit">
+  Back to dashboard </a>  
 
 
     <!-- End of content -->
