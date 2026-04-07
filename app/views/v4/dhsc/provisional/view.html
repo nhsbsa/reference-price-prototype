@@ -50,7 +50,7 @@
         <h1>View all provisional products</h1>
 
   
-                <details class="nhsuk-details">
+          <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
                     Filter the data
@@ -58,40 +58,44 @@
             </summary>
             <div class="nhsuk-details__text">
                 <div class="nhsuk-form-group">
-                  <p>Filter this table by selecting a column and entering a search term.</p>  <label class="nhsuk-label" for="column-filter-select">
+                  <p>Filter this table by selecting a column and entering a search term.</p>  
+                  <label class="nhsuk-label" for="column-filter-select">
                         Choose column
                     </label>
 
-      <select class="nhsuk-select" id="sort-by" name="sortBy">
-            <option  selected>Choose column</option>
+  <select class="nhsuk-select" id="sort-by" name="sortBy">
+    <option  selected>Choose column</option>
     <option value="ATC">Company name</option>
-        <option value="ATC">Product name</option>
+    <option value="ATC">Product name</option>
     <option value="VMP_NAME">VTM</option>
     <option value="VMPP_NAME">Originator brand name</option>
-        <option value="VMPP_NAME">Originator status</option>
+    <option value="VMPP_NAME">Originator status</option>
     <option value="AMP_NAME">Date of loss of exclusivity</option>
     <option value="AMPP_NAME">Reference anchor date</option>
     <option value="AMP_NAME_COMPANY">Newer/older classificatiom</option>
-    <option value="COMPANY">Reference price</option>
-
-    
+    <option value="COMPANY">Reference price</option>    
   </select>
-                </div>
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="full-name">
-                        Enter search term
-                    </label>
-                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
-                </div>
+  </div>
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="search-term">
+      Enter search term
+    </label>
+    <input 
+    class="nhsuk-input nhsuk-u-width-two-thirds" 
+    id="search-term" name="searchTerm" type="text">
+  </div>
 
-                <button class="nhsuk-button nhsuk-button--secondary" >
-Apply filter
-                </button>
+        <button id="apply-filter" class="nhsuk-button nhsuk-button--secondary">
+          Apply filter
+        </button>
+
             </div>
         </details>
-        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download dataset
-        </button>
+    <a href="/View-all-provisional-products.xlsx" 
+      class="nhsuk-button" 
+      download>
+      Download dataset
+    </a>
 
             <div class="large-table-container">
       <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
@@ -249,4 +253,34 @@ Apply filter
 
     </div>
 </div>
+
+<script>
+
+document.getElementById("apply-filter").addEventListener("click", function () {
+
+    const columnIndex = document.getElementById("sort-by").selectedIndex - 1;
+    const searchValue = document.getElementById("search-term").value.toLowerCase();
+
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+
+        if (columnIndex < 0) {
+            row.style.display = "";
+            return;
+        }
+
+        const cell = row.cells[columnIndex];
+
+        if (!cell) return;
+
+        const text = cell.textContent.toLowerCase();
+
+        row.style.display = text.includes(searchValue) ? "" : "none";
+
+    });
+
+});
+
+</script>
 {% endblock %}

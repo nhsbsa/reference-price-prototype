@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Pseudo VTMs" %}
+{% set pageName = "PLR Details" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -33,8 +33,12 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/bm-portal/">Branded medicines data</a>
     </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v4/dhsc/bm-portal/plr-data">View presentation level returns</a>
+    </li>
+
   </ol>
-  
+
 
 
 </nav>
@@ -44,30 +48,24 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-full">
 
-        <h1>Download the latest pseudo Virtual Therapeutic Moiety (VTMs)</h1>
+<div class="nhsuk-panel">
+  <h1 class="nhsuk-panel__title">
+    Your submitted returns status has been updated
+  </h1>
+</div>
 
-        <!-- <div class="nhsuk-inset-text">
-  <span class="nhsuk-u-visually-hidden">Information: </span>
-        <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p>
-</div> -->
-
-
-         <p>You can <a href="/v4/dhsc/bm-portal/pseudovtm-data-view" class="nhsuk-link">view a list of pseudo VTMs</a> and the number of products associated with each pseudo VTM.</p>
+<br>
 
 
-    <a href="/View-Pseudo-vtm-id.xlsx" 
-      class="nhsuk-button" 
-      download>
-      Download latest dataset
-    </a>
+<a href="../../dhsc/notifications/index" class="nhsuk-button" data-module="nhsuk-button" type="submit">Back to view notifications</a>
+<a href="/v4/dhsc" class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit">
+  Back to dashboard </a>  
 
-<p>To create a new pseudo-vtm raise a support ticket with the team at xyz@abc.com</p>
 
-     
-        <!-- End of content -->
+    <!-- End of content -->
 
-    </div>
+  </div>
 </div>
 {% endblock %}

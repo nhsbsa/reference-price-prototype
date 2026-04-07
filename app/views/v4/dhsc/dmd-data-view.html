@@ -76,7 +76,7 @@
 
 
           <select class="nhsuk-select" id="sort-by" name="sortBy">
-                        <option  selected>Choose column</option>
+            <option  selected>Choose column</option>
             <option value="ATC">Anatomical Therapeutic Chemical (ATC) code</option>
             <option value="VMP_NAME">Virtual Medicinal Product (VMP)</option>
             <option value="VMPP_NAME">Virtual Medicinal Product Pack (VMPP)</option>
@@ -105,17 +105,23 @@
           <label class="nhsuk-label" for="search-term">
             Enter search term
           </label>
-          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
+          <input 
+          class="nhsuk-input nhsuk-u-width-two-thirds" 
+          id="search-term" 
+          type="text">
         </div>
 
         <button id="apply-filter" class="nhsuk-button nhsuk-button--secondary">
           Apply filter
         </button>
       </div>
+
     </details>
-    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+    <a href="/view-cdr-dataset.xlsx" 
+      class="nhsuk-button" 
+      download>
       Download dataset
-    </button>
+    </a>
 
     <div class="large-table-container">
       <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
