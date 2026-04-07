@@ -1,0 +1,201 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Pseudo VTMs" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Branded medicines data</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/pseudovtm-data-view">View pseudo-vtm list</a>
+    </li>
+   
+  </ol>
+  
+
+
+</nav>
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+
+
+   
+        <h1 class="nhsuk-heading-xl" id="pageHeading">
+          <span class="nhsuk-caption-l">Pseudo Virtual Therapeutic Moiety (VTM)</span>
+          <span class="nhsuk-u-visually-hidden"> - </span>
+          <span id="full-product-name">
+            <span id="product-name">PV677</span>
+          </span>
+        </h1>
+ 
+           <table id="productIngredientTable" class="nhsuk-table accessible-table--hidden">
+            <caption class="nhsuk-u-visually-hidden">Products liked to VTM</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header--sticky" scope="col">Name</th>
+                <th class="nhsuk-table__header--sticky" scope="col">VTM ID</th>
+                <th class="nhsuk-table__header--sticky" scope="col">Start date</th>
+                  <th class="nhsuk-table__header--sticky" scope="col">End date</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">PV677</td>
+                <td class="nhsuk-table__cell">346</td>
+                   <td class="nhsuk-table__cell">10/01/2018</td>
+                    <td class="nhsuk-table__cell">01/02/3456</td>
+              
+              </tr>
+
+             
+            </tbody>
+          </table>
+
+    <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+  <h2 class="nhsuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="nhsuk-tabs__list">
+    <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+      <a class="nhsuk-tabs__tab" href="#past-day">
+        Ingredients
+      </a>
+    </li>
+    <li class="nhsuk-tabs__list-item">
+      <a class="nhsuk-tabs__tab" href="#past-week">
+        Linked products
+      </a>
+    </li>
+
+  </ul>
+  <div class="nhsuk-tabs__panel" id="past-day">
+         <h2 class="nhsuk-heading-m">Ingredients and validity</h2>
+
+          <table id="vtm-ingredients-table" class="nhsuk-table accessible-table--hidden">
+            <caption class="nhsuk-u-visually-hidden">Pseudo VTM ingredients table</caption>
+            <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th class="nhsuk-table__header" scope="col">Name</th>
+              <th class="nhsuk-table__header" scope="col">Invalid</th>
+            </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+              Aspirin
+              </td>
+              <td class="nhsuk-table__cell">
+                
+              </td>
+            </tr>
+                    <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+             Metformin
+              </td>
+              <td class="nhsuk-table__cell">
+                
+              </td>
+            </tr>
+                    <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+              Insulin
+              </td>
+              <td class="nhsuk-table__cell">
+                
+              </td>
+            </tr>
+                    <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">
+             Coke
+              </td>
+              <td class="nhsuk-table__cell">
+                
+              </td>
+            </tr>
+
+
+            </tbody>
+          </table>
+  </div>
+  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="past-week">
+       <h2 class="nhsuk-heading-m">Linked products</h2>
+       <table id="productIngredientTable" class="nhsuk-table accessible-table--hidden">
+            <caption class="nhsuk-u-visually-hidden">Products liked to VTM</caption>
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header--sticky" scope="col">Name</th>
+                <th class="nhsuk-table__header--sticky" scope="col">Discontinued</th>
+                <th class="nhsuk-table__header--sticky" scope="col">Invalid</th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Provisional Med 1</td>
+                <td class="nhsuk-table__cell" style="text-align: center;">
+                  
+                </td>
+                <td class="nhsuk-table__cell" style="text-align: center;">
+                  
+                </td>
+              </tr>
+              <tr class="nhsuk-table__row">
+                <td class="nhsuk-table__cell">Provisional Med 2</td>
+                <td class="nhsuk-table__cell" style="text-align: center;">
+                  
+                </td>
+                <td class="nhsuk-table__cell" style="text-align: center;">
+                  
+                </td>
+              </tr>
+
+             
+            </tbody>
+          </table>
+  </div>
+
+</div>
+
+
+
+
+
+
+    <!-- End of content -->
+
+  </div>
+</div>
+{% endblock %}

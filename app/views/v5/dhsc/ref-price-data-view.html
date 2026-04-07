@@ -1,0 +1,544 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Reference Price Dataset" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Reference price datasets</a>
+        </li>
+        <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>View the latest reference price dataset</h1>
+        <p>This table contains the latest version of the reference price dataset.</p>
+          <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p>
+
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the data
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                  <p>Filter this table by selecting a column and entering a search term.</p>  <label class="nhsuk-label" for="column-filter-select">
+                        Choose column
+                    </label>
+
+                    <select class="nhsuk-select" id="column-filter-select" name="column-filter-select">
+                        <option value="companyName">Company Name</option>
+                        <option value="snomedCode">SNOMED Code</option>
+                        <option value="presentationName">Presentation Name</option>
+                        <option value="currentMaxPrice">Current Max Price (£)</option>
+                        <option value="vmpName">VMP Name</option>
+                        <option value="vtmName">VTM Name</option>
+                        <option value="spcExpiryDate">SPC expiry date</option>
+                        <option value="firstMaDate">First MA Date (VTM)</option>
+                        <option value="spcMaDetails">SPC/MA Details for RAD</option>
+                        <option value="spcNumbers">SPC number(s)</option>
+                        <option value="originatorPresentation">Originator Presentation Name</option>
+                        <option value="originatorClassification">Originator classification</option>
+                        <option value="medicineClassification">Medicine classification (Older/Newer)</option>
+                        <option value="olderMedicineDate">Date recategorised as older medicine</option>
+                        <option value="rad">Reference anchor date  (RAD)</option>
+                        <option value="referencePrice2024">Reference Price (Final 2024)</option>
+                        <option value="referencePriceType">Reference price type</option>
+                        <option value="comparatorsUsed">Comparators Used</option>
+                        <option value="comparatorPriceYear">Comparator Price Year</option>
+                        <option value="comparatorRawPrice">Comparator Raw Price (£)</option>
+                        <option value="packSizeAdjustment">Pack Size Adjustment</option>
+                        <option value="strengthAdjustment">Strength Adjustment</option>
+                        <option value="interFormulationAdjustment">Inter-Formulation Adjustment</option>
+                        <option value="flatPriceComparator">Flat Price Comparator</option>
+                        <option value="reasonForExclusion">Reason for Exclusion</option>
+                        <option value="changesToPhase1">Changes to Phase 1</option>
+                        <option value="changesAfterReview">Changes After Review</option>
+                    </select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Enter search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary">
+                    Apply filter
+                </button>
+            </div>
+        </details>
+
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download dataset
+        </button>
+
+
+        <div class="large-table-container">
+            <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+
+
+                <thead role="rowgroup" class="nhsuk-table__head">
+                    <tr role="row">
+                        <th role="columnheader" aria-sort="none">Company name <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">SNOMED code <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Presentation name <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Current max price (£) <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">VMP name <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">VTM name <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">SPC expiry date <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">First MA date (VTM) <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">SPC/MA details for RAD <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">SPC numbers <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Originator presentation name <span
+                                class="sort-indicator" aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Originator classification <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Medicine classification <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Date recategorised as older medicine <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Reference anchor date (RAD) <span
+                                class="sort-indicator" aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Reference price <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Reference price year <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Reference price type <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Comparators used <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Year of comparator price <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Comparator raw price (£) <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Pack size adjustment <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Strength adjustment <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Inter-formulation adjustment <span
+                                class="sort-indicator" aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Flat price comparator <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Reason for exclusion <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Changes for phase 1 <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Changes after review <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                    </tr>
+                </thead>
+
+                <tbody class="nhsuk-table__body">
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyA</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001104</td>
+                        <td class="nhsuk-table__cell">TestA 120mg tablets (TestCompanyA) 28 tablet 2 x 14 tablets</td>
+                        <td class="nhsuk-table__cell">12.12</td>
+                        <td class="nhsuk-table__cell">TestProductA 120mg tablets</td>
+                        <td class="nhsuk-table__cell">febuxostat</td>
+                        <td class="nhsuk-table__cell">22/04/2023</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">SPC 2010019</td>
+                        <td class="nhsuk-table__cell">Originator1</td>
+                        <td class="nhsuk-table__cell">Originator</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">22/04/2023</td>
+                        <td class="nhsuk-table__cell">01/01/2022</td>
+                        <td class="nhsuk-table__cell">£10.11</td>
+                        <td class="nhsuk-table__cell">2024</td>
+                        <td class="nhsuk-table__cell">Average selling price of comparator(s) subject to adjustments</td>
+                        <td class="nhsuk-table__cell">Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 x 14 tablets
+                        </td>
+                        <td class="nhsuk-table__cell">2021</td>
+                        <td class="nhsuk-table__cell">£10.34</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                        <td class="nhsuk-table__cell">No data</td>
+                    </tr>
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyE</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001108</td>
+                        <td class="nhsuk-table__cell">TestE 10mg tablets (TestCompanyE) 28 tablet</td>
+                        <td class="nhsuk-table__cell">4.20</td>
+                        <td class="nhsuk-table__cell">TestProductE 10mg tablets</td>
+                        <td class="nhsuk-table__cell">ramipril</td>
+                        <td class="nhsuk-table__cell">12/11/2026</td>
+                        <td class="nhsuk-table__cell">05/02/2010</td>
+                        <td class="nhsuk-table__cell">Valid SPC</td>
+                        <td class="nhsuk-table__cell">SPC 2011001</td>
+                        <td class="nhsuk-table__cell">Originator4</td>
+                        <td class="nhsuk-table__cell">Generic</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">12/11/2026</td>
+                        <td class="nhsuk-table__cell">01/01/2023</td>
+                        <td class="nhsuk-table__cell">£4.00</td>
+                        <td class="nhsuk-table__cell">2025</td>
+                        <td class="nhsuk-table__cell">Average selling price</td>
+                        <td class="nhsuk-table__cell">Tritace 10mg tablets</td>
+                        <td class="nhsuk-table__cell">2023</td>
+                        <td class="nhsuk-table__cell">£4.10</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">Phase 1 validated</td>
+                        <td class="nhsuk-table__cell">No changes</td>
+                    </tr>
+
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyF</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001109</td>
+                        <td class="nhsuk-table__cell">TestF 5mg tablets (TestCompanyF) 30 tablet</td>
+                        <td class="nhsuk-table__cell">3.10</td>
+                        <td class="nhsuk-table__cell">TestProductF 5mg tablets</td>
+                        <td class="nhsuk-table__cell">amlodipine</td>
+                        <td class="nhsuk-table__cell">01/03/2027</td>
+                        <td class="nhsuk-table__cell">14/07/2012</td>
+                        <td class="nhsuk-table__cell">SPC current</td>
+                        <td class="nhsuk-table__cell">SPC 2011002</td>
+                        <td class="nhsuk-table__cell">Originator5</td>
+                        <td class="nhsuk-table__cell">Generic</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">01/03/2027</td>
+                        <td class="nhsuk-table__cell">01/01/2024</td>
+                        <td class="nhsuk-table__cell">£3.00</td>
+                        <td class="nhsuk-table__cell">2026</td>
+                        <td class="nhsuk-table__cell">Flat comparator</td>
+                        <td class="nhsuk-table__cell">Norvasc 5mg tablets</td>
+                        <td class="nhsuk-table__cell">2024</td>
+                        <td class="nhsuk-table__cell">£3.05</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">Normalised</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">Yes</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">Comparator updated</td>
+                        <td class="nhsuk-table__cell">No changes</td>
+                    </tr>
+
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyG</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001110</td>
+                        <td class="nhsuk-table__cell">TestG 20mg capsules (TestCompanyG) 56 capsule</td>
+                        <td class="nhsuk-table__cell">7.85</td>
+                        <td class="nhsuk-table__cell">TestProductG 20mg capsules</td>
+                        <td class="nhsuk-table__cell">omeprazole</td>
+                        <td class="nhsuk-table__cell">09/08/2028</td>
+                        <td class="nhsuk-table__cell">22/01/2011</td>
+                        <td class="nhsuk-table__cell">MA valid</td>
+                        <td class="nhsuk-table__cell">SPC 2011003</td>
+                        <td class="nhsuk-table__cell">Originator6</td>
+                        <td class="nhsuk-table__cell">Generic</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">09/08/2028</td>
+                        <td class="nhsuk-table__cell">01/04/2024</td>
+                        <td class="nhsuk-table__cell">£7.60</td>
+                        <td class="nhsuk-table__cell">2026</td>
+                        <td class="nhsuk-table__cell">Average price</td>
+                        <td class="nhsuk-table__cell">Losec 20mg capsules</td>
+                        <td class="nhsuk-table__cell">2024</td>
+                        <td class="nhsuk-table__cell">£7.70</td>
+                        <td class="nhsuk-table__cell">Pack adjusted</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">No change</td>
+                        <td class="nhsuk-table__cell">Price aligned</td>
+                    </tr>
+
+                    <!-- 11 more simplified but consistent rows -->
+
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyH</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001111</td>
+                        <td class="nhsuk-table__cell">TestH 50mg tablets (TestCompanyH) 28 tablet</td>
+                        <td class="nhsuk-table__cell">11.40</td>
+                        <td class="nhsuk-table__cell">TestProductH 50mg tablets</td>
+                        <td class="nhsuk-table__cell">sertraline</td>
+                        <td class="nhsuk-table__cell">05/05/2027</td>
+                        <td class="nhsuk-table__cell">10/10/2013</td>
+                        <td class="nhsuk-table__cell">SPC valid</td>
+                        <td class="nhsuk-table__cell">SPC 2011004</td>
+                        <td class="nhsuk-table__cell">Originator7</td>
+                        <td class="nhsuk-table__cell">Generic</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">05/05/2027</td>
+                        <td class="nhsuk-table__cell">01/01/2025</td>
+                        <td class="nhsuk-table__cell">£11.00</td>
+                        <td class="nhsuk-table__cell">2026</td>
+                        <td class="nhsuk-table__cell">Average price</td>
+                        <td class="nhsuk-table__cell">Lustral 50mg tablets</td>
+                        <td class="nhsuk-table__cell">2024</td>
+                        <td class="nhsuk-table__cell">£11.10</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No adjustment</td>
+                        <td class="nhsuk-table__cell">No</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">No changes</td>
+                        <td class="nhsuk-table__cell">No changes</td>
+                    </tr>
+
+              <tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">TestCompanyB</td>
+    <td class="nhsuk-table__cell">SNOMED_17031011000001105</td>
+    <td class="nhsuk-table__cell">TestB 80mg tablets (TestCompanyB) 28 tablet</td>
+    <td class="nhsuk-table__cell">9.45</td>
+    <td class="nhsuk-table__cell">TestProductB 80mg tablets</td>
+    <td class="nhsuk-table__cell">febuxostat</td>
+    <td class="nhsuk-table__cell">15/09/2024</td>
+    <td class="nhsuk-table__cell">01/06/2018</td>
+    <td class="nhsuk-table__cell">Valid SPC until 2024</td>
+    <td class="nhsuk-table__cell">SPC 2010456</td>
+    <td class="nhsuk-table__cell">Originator1</td>
+    <td class="nhsuk-table__cell">Generic</td>
+    <td class="nhsuk-table__cell">Older medicine</td>
+    <td class="nhsuk-table__cell">15/09/2024</td>
+    <td class="nhsuk-table__cell">01/01/2022</td>
+    <td class="nhsuk-table__cell">£8.90</td>
+    <td class="nhsuk-table__cell">2024</td>
+    <td class="nhsuk-table__cell">Average selling price of comparator(s)</td>
+    <td class="nhsuk-table__cell">Adenuric 80mg tablets</td>
+    <td class="nhsuk-table__cell">2022</td>
+    <td class="nhsuk-table__cell">£9.10</td>
+    <td class="nhsuk-table__cell">Adjusted for smaller pack</td>
+    <td class="nhsuk-table__cell">No adjustment</td>
+    <td class="nhsuk-table__cell">No adjustment</td>
+    <td class="nhsuk-table__cell">No</td>
+    <td class="nhsuk-table__cell">None</td>
+    <td class="nhsuk-table__cell">Updated comparator year</td>
+    <td class="nhsuk-table__cell">No changes</td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">TestCompanyC</td>
+    <td class="nhsuk-table__cell">SNOMED_17031011000001106</td>
+    <td class="nhsuk-table__cell">TestC 40mg tablets (TestCompanyC) 30 tablet</td>
+    <td class="nhsuk-table__cell">6.75</td>
+    <td class="nhsuk-table__cell">TestProductC 40mg tablets</td>
+    <td class="nhsuk-table__cell">allopurinol</td>
+    <td class="nhsuk-table__cell">01/12/2025</td>
+    <td class="nhsuk-table__cell">12/03/2015</td>
+    <td class="nhsuk-table__cell">SPC extended</td>
+    <td class="nhsuk-table__cell">SPC 2010789</td>
+    <td class="nhsuk-table__cell">Originator2</td>
+    <td class="nhsuk-table__cell">Originator</td>
+    <td class="nhsuk-table__cell">New medicine</td>
+    <td class="nhsuk-table__cell">N/A</td>
+    <td class="nhsuk-table__cell">01/07/2023</td>
+    <td class="nhsuk-table__cell">£6.50</td>
+    <td class="nhsuk-table__cell">2025</td>
+    <td class="nhsuk-table__cell">Flat price comparator</td>
+    <td class="nhsuk-table__cell">Zyloric 40mg tablets</td>
+    <td class="nhsuk-table__cell">2023</td>
+    <td class="nhsuk-table__cell">£6.60</td>
+    <td class="nhsuk-table__cell">No adjustment</td>
+    <td class="nhsuk-table__cell">Strength normalised</td>
+    <td class="nhsuk-table__cell">Form adjusted</td>
+    <td class="nhsuk-table__cell">Yes</td>
+    <td class="nhsuk-table__cell">Outlier price excluded</td>
+    <td class="nhsuk-table__cell">Initial submission</td>
+    <td class="nhsuk-table__cell">Comparator revised</td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">TestCompanyD</td>
+    <td class="nhsuk-table__cell">SNOMED_17031011000001107</td>
+    <td class="nhsuk-table__cell">TestD 100mg capsules (TestCompanyD) 56 capsule</td>
+    <td class="nhsuk-table__cell">18.20</td>
+    <td class="nhsuk-table__cell">TestProductD 100mg capsules</td>
+    <td class="nhsuk-table__cell">colchicine</td>
+    <td class="nhsuk-table__cell">10/10/2026</td>
+    <td class="nhsuk-table__cell">21/08/2017</td>
+    <td class="nhsuk-table__cell">MA valid</td>
+    <td class="nhsuk-table__cell">SPC 2010999</td>
+    <td class="nhsuk-table__cell">Originator3</td>
+    <td class="nhsuk-table__cell">Generic</td>
+    <td class="nhsuk-table__cell">Older medicine</td>
+    <td class="nhsuk-table__cell">10/10/2026</td>
+    <td class="nhsuk-table__cell">01/01/2024</td>
+    <td class="nhsuk-table__cell">£17.80</td>
+    <td class="nhsuk-table__cell">2026</td>
+    <td class="nhsuk-table__cell">Average selling price</td>
+    <td class="nhsuk-table__cell">Colcrys 100mg capsules</td>
+    <td class="nhsuk-table__cell">2024</td>
+    <td class="nhsuk-table__cell">£18.00</td>
+    <td class="nhsuk-table__cell">Pack adjusted</td>
+    <td class="nhsuk-table__cell">No adjustment</td>
+    <td class="nhsuk-table__cell">No adjustment</td>
+    <td class="nhsuk-table__cell">No</td>
+    <td class="nhsuk-table__cell">None</td>
+    <td class="nhsuk-table__cell">No change</td>
+    <td class="nhsuk-table__cell">Price updated</td>
+</tr>
+
+
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyI</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001112</td>
+                        <td class="nhsuk-table__cell">TestI 25mg tablets</td>
+                        <td class="nhsuk-table__cell">5.60</td>
+                        <td class="nhsuk-table__cell">TestProductI</td>
+                        <td class="nhsuk-table__cell">losartan</td>
+                        <td class="nhsuk-table__cell">01/01/2028</td>
+                        <td class="nhsuk-table__cell">2014</td>
+                        <td class="nhsuk-table__cell">Valid</td>
+                        <td class="nhsuk-table__cell">SPC 2011005</td>
+                        <td class="nhsuk-table__cell">Originator8</td>
+                        <td class="nhsuk-table__cell">Generic</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">01/01/2028</td>
+                        <td class="nhsuk-table__cell">01/01/2025</td>
+                        <td class="nhsuk-table__cell">£5.40</td>
+                        <td class="nhsuk-table__cell">2026</td>
+                        <td class="nhsuk-table__cell">Average</td>
+                        <td class="nhsuk-table__cell">Cozaar</td>
+                        <td class="nhsuk-table__cell">2024</td>
+                        <td class="nhsuk-table__cell">£5.50</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">No</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                    </tr>
+
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">TestCompanyJ</td>
+                        <td class="nhsuk-table__cell">SNOMED_17031011000001113</td>
+                        <td class="nhsuk-table__cell">TestJ 75mg tablets</td>
+                        <td class="nhsuk-table__cell">13.75</td>
+                        <td class="nhsuk-table__cell">TestProductJ</td>
+                        <td class="nhsuk-table__cell">clopidogrel</td>
+                        <td class="nhsuk-table__cell">02/02/2029</td>
+                        <td class="nhsuk-table__cell">2012</td>
+                        <td class="nhsuk-table__cell">Valid</td>
+                        <td class="nhsuk-table__cell">SPC 2011006</td>
+                        <td class="nhsuk-table__cell">Originator9</td>
+                        <td class="nhsuk-table__cell">Generic</td>
+                        <td class="nhsuk-table__cell">Older medicine</td>
+                        <td class="nhsuk-table__cell">02/02/2029</td>
+                        <td class="nhsuk-table__cell">01/01/2025</td>
+                        <td class="nhsuk-table__cell">£13.40</td>
+                        <td class="nhsuk-table__cell">2026</td>
+                        <td class="nhsuk-table__cell">Average</td>
+                        <td class="nhsuk-table__cell">Plavix</td>
+                        <td class="nhsuk-table__cell">2024</td>
+                        <td class="nhsuk-table__cell">£13.50</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">No</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                        <td class="nhsuk-table__cell">None</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+        <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+            <ul class="nhsuk-list nhsuk-pagination__list">
+                <li class="nhsuk-pagination-item--previous">
+                    <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="#">
+                        <span class="nhsuk-pagination__title">Previous</span>
+                        <span class="nhsuk-u-visually-hidden">:</span>
+                        <span class="nhsuk-pagination__page">1 -15 results</span>
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                            <path
+                                d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nhsuk-pagination-item--next">
+                    <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
+                        <span class="nhsuk-pagination__title">Next</span>
+                        <span class="nhsuk-u-visually-hidden">:</span>
+                        <span class="nhsuk-pagination__page">15-30 results</span>
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                            <path
+                                d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+
+        <!-- End of content -->
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

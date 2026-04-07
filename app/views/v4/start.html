@@ -1,0 +1,77 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Upload your dataset" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+ 
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1 class="nhsuk-u-margin-bottom-3">Sign in to DHSC Medicines and Reporting</h1>
+
+
+<p>Sign in to this portal to access Branded Medicines, Quarterly Collections and Reference Price</p> 
+
+<h2>Branded Medicines</h2>
+<p>Use Branded Medicines to:
+    <ul>
+        <li>submit quarterly report sales</li>
+        <li>submit annual audited sales reports</li>
+        <li>submit annual unaudited presentation level data</li>
+        <li>provide the supporting documentation required for submission to the Department of Health and Social Care (DHSC) under both the Voluntary Scheme and Statutory Scheme</li>
+    </ul>
+</p>
+
+<h2>Quarterly Collections</h2>
+<p>Use Quarterly Collections to submit quarterly drug data to DHSC under the following schemes:</p>
+
+<ul>
+    <li>Generic medicines</li>
+    <li>Special medicines</li>
+    <li>Northern Ireland medicines</li>
+    <li>Category C medicines</li>
+</ul>
+
+<h2>Reference Price</h2>
+<p>Use the reference price portal to:</p>
+<ul>
+    <li>View and download data needed to calculate a reference price</li>
+    <li>View the reference price master data and audit logs</li>
+</ul>
+
+<h3>Before you start</h3>
+<p>You will need to install a multi-factor authenticator application to sign in securely.</p>
+<a href="#" id="continueBtn" class="nhsuk-button ">Sign in</a>
+
+
+    <!-- End of content -->
+
+  </div>
+</div>
+
+
+
+{% endblock %}

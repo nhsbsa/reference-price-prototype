@@ -1,0 +1,356 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Dictionary of Medicines + Devices" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/dmd-data">Common drug reference data</a>
+    </li> 
+      <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/dmd-data-past">Search historical common drug reference data</a>
+    </li> 
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>Search results for a historical Common Drug Reference dataset</h1>
+
+        <p>There are <strong>5</strong> search results for common drug reference data with the search terms:</p>
+        <div>
+            <!-- <div class="nhsuk-hint">
+                Delete during development: only fields populated will show up on this page. 
+            </div> -->
+
+
+                  <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1 nhsuk-u-margin-right-1">
+                Year: 2025
+            </strong>
+
+            <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1 nhsuk-u-margin-right-1">
+                Company name: Pain Relief Inc
+            </strong>
+
+            <!-- <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1 nhsuk-u-margin-right-1">
+                Company SNOMED code: 45678909
+            </strong> -->
+
+         
+        </div>
+<br>
+        <p>You can filter this dataset to view only the rows you want to see or <a href="/v5/dhsc/search" class="nhsuk-link">search again</a>.</p>
+
+ 
+                <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the data
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                  <p>Filter this table by selecting a column and entering a search term.</p>  <label class="nhsuk-label" for="column-filter-select">
+                        Choose column
+                    </label>
+
+<select class="nhsuk-select" id="sort-by" name="sortBy">
+  <option value="ATC">Anatomical Therapeutic Chemical (ATC) code</option>
+  <option value="VMP_NAME">Virtual Medicinal Product (VMP)</option>
+  <option value="VMPP_NAME">Virtual Medicinal Product Pack (VMPP)</option>
+  <option value="AMP_NAME">Actual Medicinal Product (AMP)</option>
+  <option value="AMPP_NAME">Actual Medicinal Product Pack (AMPP)</option>
+  <option value="AMP_NAME_COMPANY">Actual Medicinal Product (AMP) company name</option>
+  <option value="COMPANY">Company name</option>
+  <option value="COMPANY_CODE">Company code</option>
+  <option value="FORM">Form</option>
+  <option value="UNIT_DOSE">Unit dose (UOM)</option>
+  <option value="STRENGTH">Strength</option>
+  <option value="PACK_SIZE">Pack size</option>
+
+  <option value="PRICE">Price</option>
+  <option value="PRICE_DATE">Price date</option>
+  <option value="PRICE_PREVIOUS">Previous price</option>
+  <option value="PRICE_BASIS">Price basis</option>
+  <option value="DISCONTINUED">Discontinued</option>
+  <option value="DISCONTINUED_DATE">Discontinued date</option>
+  <option value="BNF_CODE">British National Formulary (BNF) code</option>
+  <option value="BNF_CHAPTER">British National Formulary (BNF) chapter</option>
+  <option value="COMBPACKCD">Combination pack code</option>
+</select>
+
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="search-term">
+                        Enter search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term"  type="text">
+                </div>
+
+                <button id="apply-filter" class="nhsuk-button nhsuk-button--secondary" >
+Apply filter
+                </button>
+            </div>
+        </details>
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download dataset
+        </button>
+
+      <div class="large-table-container">
+      <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" scope="col" aria-sort="none">ATC <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">VMP <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">VMPP <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">AMP <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">AMPP <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">AMP company name <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Company name <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Company code <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Form <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Unit dose <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Strength <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Pack size <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+
+            <th role="columnheader" scope="col" aria-sort="none">Price <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Price date <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Previous price <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Price basis <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Discontinued <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Discontinued date <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">BNF code <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">BNF chapter <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Combination pack <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+          </tr>
+        </thead>
+      <tbody class="nhsuk-table__body">
+
+
+  <tr role="row" class="nhsuk-table__row">
+    <td role="cell" class="nhsuk-table__cell">N02BA01</td>
+    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg</td>
+    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg tablets</td>
+    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg tablets</td>
+    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg 16 pack</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">PRI-098765</td>
+    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
+    <td role="cell" class="nhsuk-table__cell">tablet</td>
+    <td role="cell" class="nhsuk-table__cell">500 mg</td>
+    <td role="cell" class="nhsuk-table__cell">16</td>
+    <td role="cell" class="nhsuk-table__cell">£9.50</td>
+    <td role="cell" class="nhsuk-table__cell">2023-12-01</td>
+    <td role="cell" class="nhsuk-table__cell">£9.80</td>
+    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell">BNF_0401010</td>
+    <td role="cell" class="nhsuk-table__cell">BNF_04010100</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+  </tr>
+
+  <tr role="row" class="nhsuk-table__row">
+    <td role="cell" class="nhsuk-table__cell">J01CA04</td>
+    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg</td>
+    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg capsules</td>
+    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg capsules</td>
+    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg 21 pack</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">MC-112233</td>
+    <td role="cell" class="nhsuk-table__cell">Capsule</td>
+    <td role="cell" class="nhsuk-table__cell">capsule</td>
+    <td role="cell" class="nhsuk-table__cell">500 mg</td>
+    <td role="cell" class="nhsuk-table__cell">21</td>
+    <td role="cell" class="nhsuk-table__cell">£17.50</td>
+    <td role="cell" class="nhsuk-table__cell">2024-05-10</td>
+    <td role="cell" class="nhsuk-table__cell">£18.00</td>
+    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell">BNF_0501010</td>
+    <td role="cell" class="nhsuk-table__cell">BNF_05010100</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+  </tr>
+
+  <tr role="row" class="nhsuk-table__row">
+    <td role="cell" class="nhsuk-table__cell">C09AA05</td>
+    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg</td>
+    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg tablets</td>
+    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg tablets</td>
+    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg 30 pack</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">HC-223344</td>
+    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
+    <td role="cell" class="nhsuk-table__cell">tablet</td>
+    <td role="cell" class="nhsuk-table__cell">10 mg</td>
+    <td role="cell" class="nhsuk-table__cell">30</td>
+    <td role="cell" class="nhsuk-table__cell">£12.00</td>
+    <td role="cell" class="nhsuk-table__cell">2024-01-20</td>
+    <td role="cell" class="nhsuk-table__cell">£12.50</td>
+    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell">BNF_0207010</td>
+    <td role="cell" class="nhsuk-table__cell">BNF_02070100</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+  </tr>
+
+  <tr role="row" class="nhsuk-table__row">
+    <td role="cell" class="nhsuk-table__cell">R03AC02</td>
+    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg</td>
+    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg inhaler</td>
+    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg inhaler</td>
+    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg 200-dose inhaler</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">RS-334455</td>
+    <td role="cell" class="nhsuk-table__cell">Inhaler</td>
+    <td role="cell" class="nhsuk-table__cell">inhaler</td>
+    <td role="cell" class="nhsuk-table__cell">100 mcg</td>
+    <td role="cell" class="nhsuk-table__cell">200</td>
+    <td role="cell" class="nhsuk-table__cell">£19.50</td>
+    <td role="cell" class="nhsuk-table__cell">2024-07-18</td>
+    <td role="cell" class="nhsuk-table__cell">£20.00</td>
+    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell">BNF_0306010</td>
+    <td role="cell" class="nhsuk-table__cell">BNF_03060100</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+  </tr>
+
+  <tr role="row" class="nhsuk-table__row">
+    <td role="cell" class="nhsuk-table__cell">G03CA01</td>
+    <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30 mcg</td>
+    <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30 mcg tablets</td>
+    <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30 mcg tablets</td>
+    <td role="cell" class="nhsuk-table__cell">Contraceptive 21 pack</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
+    <td role="cell" class="nhsuk-table__cell">FC-445566</td>
+    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
+    <td role="cell" class="nhsuk-table__cell">tablet</td>
+    <td role="cell" class="nhsuk-table__cell">30 mcg</td>
+    <td role="cell" class="nhsuk-table__cell">21</td>
+    <td role="cell" class="nhsuk-table__cell">£22.00</td>
+    <td role="cell" class="nhsuk-table__cell">2023-11-05</td>
+    <td role="cell" class="nhsuk-table__cell">£22.50</td>
+    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+    <td role="cell" class="nhsuk-table__cell">BNF_0701010</td>
+    <td role="cell" class="nhsuk-table__cell">BNF_07010100</td>
+    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
+  </tr>
+
+
+
+
+</tbody>
+      </table>
+    </div>
+
+
+
+
+        <!-- End of content -->
+
+    </div>
+
+
+</div>
+
+<script>
+
+document.getElementById("apply-filter").addEventListener("click", function () {
+
+    const columnIndex = document.getElementById("sort-by").selectedIndex - 1;
+    const searchValue = document.getElementById("search-term").value.toLowerCase();
+
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+
+        if (columnIndex < 0) {
+            row.style.display = "";
+            return;
+        }
+
+        const cell = row.cells[columnIndex];
+
+        if (!cell) return;
+
+        const text = cell.textContent.toLowerCase();
+
+        row.style.display = text.includes(searchValue) ? "" : "none";
+
+    });
+
+});
+
+</script>
+{% endblock %}
+
