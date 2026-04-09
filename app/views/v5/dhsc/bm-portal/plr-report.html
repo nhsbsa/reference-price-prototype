@@ -1,0 +1,716 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Presentation Level Returns" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Branded medicines data</a>
+    </li>
+ 
+   
+  </ol>
+  
+
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>Download company presentation level returns </h1>
+<form method="post" action="/reports/queueReport"><input type="hidden" name="_csrf" value="vrJVVGLPGnfHSEtWaeCQJQb8CptMJoYHCh7jFxzKdDM7nOpGjIE3YluqKBXqfnNjX82kRzCaJ_p5R-MqOn_adX__QgsJ_tsk">
+
+
+                            <div>
+
+                                <input type="hidden" id="dispatcherParameters0.dispatcherName" name="dispatcherParameters[0].dispatcherName" value="companyIdentifier">
+                                <input type="hidden" id="dispatcherParameters0.type" name="dispatcherParameters[0].type" value="2">
+                                <input type="hidden" id="dispatcherParameters0.displayName" name="dispatcherParameters[0].displayName" value="Company identifier">
+                                <input type="hidden" id="dispatcherParameters0.dispatcherParameterOptions" name="dispatcherParameters[0].dispatcherParameterOptions" value="">
+
+                                
+
+                                
+
+                                
+
+
+<!--                                -&#45;&#45; label - -->
+
+
+
+                                
+
+
+
+
+
+
+
+                                <div class="nhsuk-grid-row nhsuk-u-padding-bottom-4">
+                                    <!-- Text -->
+                                    <div class="nhsuk-grid-column-full">
+
+                                        <div class="nhsuk-u-margin-botton-5 nhsuk-form-group">
+
+											<span class="nhsuk-form-group">
+												<!-- <h3 class="heading-small" id="textDisplayName" th:text="${parameter.displayName}"></h3> -->
+												<label class="nhsuk-label" for="textBox" id="identifier-label">Company identifier</label>
+
+                                                
+
+												<div class="nhsuk-hint" id="identifier-hint-text"></div>
+												<input type="text" name="dispatcherParameters[0].value" id="textBox" class="nhsuk-input filterInput nhsuk-input--width-20" value="">
+											</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+
+                            <div>
+
+                                <input type="hidden" id="dispatcherParameters1.dispatcherName" name="dispatcherParameters[1].dispatcherName" value="periodStartYear">
+                                <input type="hidden" id="dispatcherParameters1.type" name="dispatcherParameters[1].type" value="0">
+                                <input type="hidden" id="dispatcherParameters1.displayName" name="dispatcherParameters[1].displayName" value="Reporting start year">
+                                <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions" name="dispatcherParameters[1].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=2014, dispatcherValue=2014),DispatcherParameterOption(displayName=2015, dispatcherValue=2015),DispatcherParameterOption(displayName=2016, dispatcherValue=2016),DispatcherParameterOption(displayName=2017, dispatcherValue=2017),DispatcherParameterOption(displayName=2018, dispatcherValue=2018),DispatcherParameterOption(displayName=2019, dispatcherValue=2019),DispatcherParameterOption(displayName=2020, dispatcherValue=2020),DispatcherParameterOption(displayName=2021, dispatcherValue=2021),DispatcherParameterOption(displayName=2022, dispatcherValue=2022),DispatcherParameterOption(displayName=2023, dispatcherValue=2023),DispatcherParameterOption(displayName=2024, dispatcherValue=2024),DispatcherParameterOption(displayName=2025, dispatcherValue=2025),DispatcherParameterOption(displayName=2026, dispatcherValue=2026)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions0.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[0].displayName" value="2014">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[0].dispatcherValue" value="2014">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions1.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[1].displayName" value="2015">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[1].dispatcherValue" value="2015">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions2.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[2].displayName" value="2016">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[2].dispatcherValue" value="2016">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions3.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[3].displayName" value="2017">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[3].dispatcherValue" value="2017">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions4.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[4].displayName" value="2018">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions4.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[4].dispatcherValue" value="2018">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions5.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[5].displayName" value="2019">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions5.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[5].dispatcherValue" value="2019">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions6.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[6].displayName" value="2020">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions6.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[6].dispatcherValue" value="2020">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions7.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[7].displayName" value="2021">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions7.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[7].dispatcherValue" value="2021">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions8.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[8].displayName" value="2022">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions8.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[8].dispatcherValue" value="2022">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions9.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[9].displayName" value="2023">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions9.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[9].dispatcherValue" value="2023">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions10.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[10].displayName" value="2024">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions10.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[10].dispatcherValue" value="2024">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions11.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[11].displayName" value="2025">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions11.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[11].dispatcherValue" value="2025">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions12.displayName" name="dispatcherParameters[1].dispatcherParameterOptions[12].displayName" value="2026">
+                                    <input type="hidden" id="dispatcherParameters1.dispatcherParameterOptions12.dispatcherValue" name="dispatcherParameters[1].dispatcherParameterOptions[12].dispatcherValue" value="2026">
+                                </div>
+
+                                <div class="nhsuk-grid-row"> <!-- Dropdown -->
+                                    <div class="nhsuk-grid-column-full">
+                                        <div class="nhsuk-form-group">
+                                            <label class="nhsuk-label" for="periodStartYear" id="status-label1">Reporting start year</label>
+
+                                            
+
+
+                                            <select aria-describedby="status-label1" class="nhsuk-select nhsuk-input--width-20" id="periodStartYear" name="dispatcherParameters[1].value">
+                                                <option value="2014">2014</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026" selected="selected">2026</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+
+<!--                                -&#45;&#45; label - -->
+
+
+
+                                
+
+
+
+
+
+
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+
+                            <div>
+
+                                <input type="hidden" id="dispatcherParameters2.dispatcherName" name="dispatcherParameters[2].dispatcherName" value="periodStartMonth">
+                                <input type="hidden" id="dispatcherParameters2.type" name="dispatcherParameters[2].type" value="0">
+                                <input type="hidden" id="dispatcherParameters2.displayName" name="dispatcherParameters[2].displayName" value="Reporting start month">
+                                <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions" name="dispatcherParameters[2].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=January, dispatcherValue=01),DispatcherParameterOption(displayName=February, dispatcherValue=02),DispatcherParameterOption(displayName=March, dispatcherValue=03),DispatcherParameterOption(displayName=April, dispatcherValue=04),DispatcherParameterOption(displayName=May, dispatcherValue=05),DispatcherParameterOption(displayName=June, dispatcherValue=06),DispatcherParameterOption(displayName=July, dispatcherValue=07),DispatcherParameterOption(displayName=August, dispatcherValue=08),DispatcherParameterOption(displayName=September, dispatcherValue=09),DispatcherParameterOption(displayName=October, dispatcherValue=10),DispatcherParameterOption(displayName=November, dispatcherValue=11),DispatcherParameterOption(displayName=December, dispatcherValue=12)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions0.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[0].displayName" value="January">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[0].dispatcherValue" value="01">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions1.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[1].displayName" value="February">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[1].dispatcherValue" value="02">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions2.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[2].displayName" value="March">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[2].dispatcherValue" value="03">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions3.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[3].displayName" value="April">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[3].dispatcherValue" value="04">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions4.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[4].displayName" value="May">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions4.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[4].dispatcherValue" value="05">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions5.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[5].displayName" value="June">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions5.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[5].dispatcherValue" value="06">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions6.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[6].displayName" value="July">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions6.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[6].dispatcherValue" value="07">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions7.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[7].displayName" value="August">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions7.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[7].dispatcherValue" value="08">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions8.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[8].displayName" value="September">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions8.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[8].dispatcherValue" value="09">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions9.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[9].displayName" value="October">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions9.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[9].dispatcherValue" value="10">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions10.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[10].displayName" value="November">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions10.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[10].dispatcherValue" value="11">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions11.displayName" name="dispatcherParameters[2].dispatcherParameterOptions[11].displayName" value="December">
+                                    <input type="hidden" id="dispatcherParameters2.dispatcherParameterOptions11.dispatcherValue" name="dispatcherParameters[2].dispatcherParameterOptions[11].dispatcherValue" value="12">
+                                </div>
+
+                                <div class="nhsuk-grid-row"> <!-- Dropdown -->
+                                    <div class="nhsuk-grid-column-full">
+                                        <div class="nhsuk-form-group">
+                                            <label class="nhsuk-label" for="periodStartMonth" id="status-label2">Reporting start month</label>
+
+                                            
+
+
+                                            <select aria-describedby="status-label2" class="nhsuk-select nhsuk-input--width-20" id="periodStartMonth" name="dispatcherParameters[2].value">
+                                                <option value="01" selected="selected">January</option>
+                                                <option value="02">February</option>
+                                                <option value="03">March</option>
+                                                <option value="04">April</option>
+                                                <option value="05">May</option>
+                                                <option value="06">June</option>
+                                                <option value="07">July</option>
+                                                <option value="08">August</option>
+                                                <option value="09">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+
+<!--                                -&#45;&#45; label - -->
+
+
+
+                                
+
+
+
+
+
+
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+
+                            <div>
+
+                                <input type="hidden" id="dispatcherParameters3.dispatcherName" name="dispatcherParameters[3].dispatcherName" value="periodEndYear">
+                                <input type="hidden" id="dispatcherParameters3.type" name="dispatcherParameters[3].type" value="0">
+                                <input type="hidden" id="dispatcherParameters3.displayName" name="dispatcherParameters[3].displayName" value="Reporting end year">
+                                <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions" name="dispatcherParameters[3].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=2014, dispatcherValue=2014),DispatcherParameterOption(displayName=2015, dispatcherValue=2015),DispatcherParameterOption(displayName=2016, dispatcherValue=2016),DispatcherParameterOption(displayName=2017, dispatcherValue=2017),DispatcherParameterOption(displayName=2018, dispatcherValue=2018),DispatcherParameterOption(displayName=2019, dispatcherValue=2019),DispatcherParameterOption(displayName=2020, dispatcherValue=2020),DispatcherParameterOption(displayName=2021, dispatcherValue=2021),DispatcherParameterOption(displayName=2022, dispatcherValue=2022),DispatcherParameterOption(displayName=2023, dispatcherValue=2023),DispatcherParameterOption(displayName=2024, dispatcherValue=2024),DispatcherParameterOption(displayName=2025, dispatcherValue=2025),DispatcherParameterOption(displayName=2026, dispatcherValue=2026)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions0.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[0].displayName" value="2014">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[0].dispatcherValue" value="2014">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions1.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[1].displayName" value="2015">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[1].dispatcherValue" value="2015">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions2.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[2].displayName" value="2016">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[2].dispatcherValue" value="2016">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions3.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[3].displayName" value="2017">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[3].dispatcherValue" value="2017">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions4.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[4].displayName" value="2018">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions4.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[4].dispatcherValue" value="2018">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions5.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[5].displayName" value="2019">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions5.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[5].dispatcherValue" value="2019">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions6.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[6].displayName" value="2020">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions6.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[6].dispatcherValue" value="2020">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions7.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[7].displayName" value="2021">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions7.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[7].dispatcherValue" value="2021">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions8.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[8].displayName" value="2022">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions8.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[8].dispatcherValue" value="2022">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions9.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[9].displayName" value="2023">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions9.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[9].dispatcherValue" value="2023">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions10.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[10].displayName" value="2024">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions10.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[10].dispatcherValue" value="2024">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions11.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[11].displayName" value="2025">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions11.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[11].dispatcherValue" value="2025">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions12.displayName" name="dispatcherParameters[3].dispatcherParameterOptions[12].displayName" value="2026">
+                                    <input type="hidden" id="dispatcherParameters3.dispatcherParameterOptions12.dispatcherValue" name="dispatcherParameters[3].dispatcherParameterOptions[12].dispatcherValue" value="2026">
+                                </div>
+
+                                <div class="nhsuk-grid-row"> <!-- Dropdown -->
+                                    <div class="nhsuk-grid-column-full">
+                                        <div class="nhsuk-form-group">
+                                            <label class="nhsuk-label" for="periodEndYear" id="status-label3">Reporting end year</label>
+
+                                            
+
+
+                                            <select aria-describedby="status-label3" class="nhsuk-select nhsuk-input--width-20" id="periodEndYear" name="dispatcherParameters[3].value">
+                                                <option value="2014">2014</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026" selected="selected">2026</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+
+<!--                                -&#45;&#45; label - -->
+
+
+
+                                
+
+
+
+
+
+
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+
+                            <div>
+
+                                <input type="hidden" id="dispatcherParameters4.dispatcherName" name="dispatcherParameters[4].dispatcherName" value="periodEndMonth">
+                                <input type="hidden" id="dispatcherParameters4.type" name="dispatcherParameters[4].type" value="0">
+                                <input type="hidden" id="dispatcherParameters4.displayName" name="dispatcherParameters[4].displayName" value="Reporting end month">
+                                <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions" name="dispatcherParameters[4].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=January, dispatcherValue=01),DispatcherParameterOption(displayName=February, dispatcherValue=02),DispatcherParameterOption(displayName=March, dispatcherValue=03),DispatcherParameterOption(displayName=April, dispatcherValue=04),DispatcherParameterOption(displayName=May, dispatcherValue=05),DispatcherParameterOption(displayName=June, dispatcherValue=06),DispatcherParameterOption(displayName=July, dispatcherValue=07),DispatcherParameterOption(displayName=August, dispatcherValue=08),DispatcherParameterOption(displayName=September, dispatcherValue=09),DispatcherParameterOption(displayName=October, dispatcherValue=10),DispatcherParameterOption(displayName=November, dispatcherValue=11),DispatcherParameterOption(displayName=December, dispatcherValue=12)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions0.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[0].displayName" value="January">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[0].dispatcherValue" value="01">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions1.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[1].displayName" value="February">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[1].dispatcherValue" value="02">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions2.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[2].displayName" value="March">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions2.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[2].dispatcherValue" value="03">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions3.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[3].displayName" value="April">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions3.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[3].dispatcherValue" value="04">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions4.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[4].displayName" value="May">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions4.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[4].dispatcherValue" value="05">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions5.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[5].displayName" value="June">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions5.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[5].dispatcherValue" value="06">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions6.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[6].displayName" value="July">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions6.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[6].dispatcherValue" value="07">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions7.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[7].displayName" value="August">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions7.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[7].dispatcherValue" value="08">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions8.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[8].displayName" value="September">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions8.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[8].dispatcherValue" value="09">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions9.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[9].displayName" value="October">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions9.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[9].dispatcherValue" value="10">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions10.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[10].displayName" value="November">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions10.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[10].dispatcherValue" value="11">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions11.displayName" name="dispatcherParameters[4].dispatcherParameterOptions[11].displayName" value="December">
+                                    <input type="hidden" id="dispatcherParameters4.dispatcherParameterOptions11.dispatcherValue" name="dispatcherParameters[4].dispatcherParameterOptions[11].dispatcherValue" value="12">
+                                </div>
+
+                                <div class="nhsuk-grid-row"> <!-- Dropdown -->
+                                    <div class="nhsuk-grid-column-full">
+                                        <div class="nhsuk-form-group">
+                                            <label class="nhsuk-label" for="periodEndMonth" id="status-label4">Reporting end month</label>
+
+                                            
+
+
+                                            <select aria-describedby="status-label4" class="nhsuk-select nhsuk-input--width-20" id="periodEndMonth" name="dispatcherParameters[4].value">
+                                                <option value="01" selected="selected">January</option>
+                                                <option value="02">February</option>
+                                                <option value="03">March</option>
+                                                <option value="04">April</option>
+                                                <option value="05">May</option>
+                                                <option value="06">June</option>
+                                                <option value="07">July</option>
+                                                <option value="08">August</option>
+                                                <option value="09">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+
+<!--                                -&#45;&#45; label - -->
+
+
+
+                                
+
+
+
+
+
+
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+
+                            <div>
+
+                                <input type="hidden" id="dispatcherParameters5.dispatcherName" name="dispatcherParameters[5].dispatcherName" value="summaryLevel">
+                                <input type="hidden" id="dispatcherParameters5.type" name="dispatcherParameters[5].type" value="1">
+                                <input type="hidden" id="dispatcherParameters5.displayName" name="dispatcherParameters[5].displayName" value="Summary level">
+                                <input type="hidden" id="dispatcherParameters5.dispatcherParameterOptions" name="dispatcherParameters[5].dispatcherParameterOptions" value="DispatcherParameterOption(displayName=Summary, dispatcherValue=Summary),DispatcherParameterOption(displayName=Detailed, dispatcherValue=Detailed)">
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters5.dispatcherParameterOptions0.displayName" name="dispatcherParameters[5].dispatcherParameterOptions[0].displayName" value="Summary">
+                                    <input type="hidden" id="dispatcherParameters5.dispatcherParameterOptions0.dispatcherValue" name="dispatcherParameters[5].dispatcherParameterOptions[0].dispatcherValue" value="Summary">
+                                </div>
+
+                                <div>
+                                    <input type="hidden" id="dispatcherParameters5.dispatcherParameterOptions1.displayName" name="dispatcherParameters[5].dispatcherParameterOptions[1].displayName" value="Detailed">
+                                    <input type="hidden" id="dispatcherParameters5.dispatcherParameterOptions1.dispatcherValue" name="dispatcherParameters[5].dispatcherParameterOptions[1].dispatcherValue" value="Detailed">
+                                </div>
+
+                                
+
+                                <div class="nhsuk-grid-row"> <!-- Radio -->
+                                    <div class="nhsuk-grid-column-full">
+
+                                        <div class="nhsuk-u-margin-botton-5 nhsuk-form-group">
+                                            <fieldset class="nhsuk-fieldset">
+                                                <legend>
+                                                    <h3 class="nhsuk-fieldset__legend" id="radio5">Summary level</h3>
+                                                </legend>
+
+                                                
+
+                                                <div class="nhsuk-form-group">
+
+                                                    <div class="nhsuk-radios">
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="summaryLevel-Summary" class="nhsuk-radios__input" name="dispatcherParameters[5].value" value="Summary" type="radio" checked="checked">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="summaryLevel-Summary">Summary</label>
+                                                        </div>
+
+                                                        <div class="nhsuk-radios__item">
+                                                            <input id="summaryLevel-Detailed" class="nhsuk-radios__input" name="dispatcherParameters[5].value" value="Detailed" type="radio">
+                                                            <label class="nhsuk-label nhsuk-radios__label" for="summaryLevel-Detailed">Detailed</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+<!--                                -&#45;&#45; label - -->
+
+
+
+                                
+
+
+
+
+
+
+
+                                
+
+                                
+
+
+                                
+
+
+                                
+
+
+                            </div>
+
+                            
+                                <input type="hidden" id="repositoryName" name="repositoryName" value="VoluntaryCompanyPLRConsolidationExec.jasper">
+                                <input type="hidden" id="fileName" name="fileName" value="VoluntaryCompanyPLRConsolidation.xlsx">
+                                <input type="hidden" id="pageTitle" name="pageTitle" value="Voluntary Company PLR Consolidation Report">
+                                <input type="hidden" id="usesDispatcher" name="usesDispatcher" value="false">
+                                <input type="hidden" id="redirectUrl" name="redirectUrl" value="VoluntaryCompanyPLRConsolidationReport">
+                                <input type="hidden" id="queued" name="queued" value="true">
+                                <input type="hidden" id="format" name="format" value="XLSX">
+                            
+
+                             
+                        </form>
+
+ 
+
+      <a href="/v5/dhsc/queue" class="nhsuk-button">
+                Queue for download
+            </a>
+
+
+     
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

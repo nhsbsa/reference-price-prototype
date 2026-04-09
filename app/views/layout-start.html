@@ -17,43 +17,19 @@
 {% block header %}
 {{ header({
   logo: {
-    href: "/",
-    ariaLabel: "Reference Price "
+    href: "#"
   },
   service: {
-    text: "Reference Price ",
-    href: "/"
+    text:  "DHSC Medicines and Reporting",
+    href: "#"
   },
   account: {
     items: [
+      
       {
-        text: "Florence Nightingale (DHSC)",
-        icon: false
-      },
-    
-      {
-        text: "Log out",
+        text: "Sign in",
         href: "#"
       }
-    ]
-  },
-    navigation: {
-    items: [
-      {
-        text: "Reports",
-        href: "/v5/dhsc/reports"
-      },
-        {
-        text: "Download queue",
-        href: "/v5/dhsc/queue"
-      
-      },
-      {
-        text: "Help and support",
-        href: "/v5/help"
-      
-      }
-  
     ]
   }
 }) }}
@@ -84,8 +60,6 @@
 
 {% block bodyEnd %}
   <script src="/nhsuk-frontend/nhsuk-frontend.min.js" type="module"></script>
-
-
   <script type="module">
     import { initAll } from '/nhsuk-frontend/nhsuk-frontend.min.js'
     initAll()
