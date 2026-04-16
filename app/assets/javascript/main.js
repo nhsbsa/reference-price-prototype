@@ -118,3 +118,9 @@ sortIndicator.innerHTML = `
 
 
 
+//closable tag
+ document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('nhsuk-tag__close')) {
+      e.target.closest('.nhsuk-tag').remove();
+    }
+  });

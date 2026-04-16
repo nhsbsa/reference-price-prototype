@@ -48,17 +48,8 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>View the latest Market Authorisation (MA) dataset</h1>
+        <h1>View Supplementary Protection Certificate (SPC) data</h1>
 
-    
-
-        <p>This table contains the latest version of the Market Authorisation (MA) dataset.</p>
-  <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p>
-
-
-       
- 
-        <br>
                 <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
@@ -73,14 +64,15 @@
 
       <select class="nhsuk-select" id="sort-by" name="sortBy">
             <option  selected>Choose column</option>
-    <option value="ATC">ATC</option>
-    <option value="VMP_NAME">Virtual Therapeutic Moiety (VTM)</option>
-    <option value="VMPP_NAME">Market Authorisation (MA) date</option>
-    <option value="AMP_NAME">Market Authorisation (MA) number</option>
-    <option value="AMPP_NAME">Product name</option>
-    <option value="AMP_NAME_COMPANY">Company name</option>
-    <option value="COMPANY">dm+d matched company name</option>
-   
+
+    <option value="VMPP_NAME">VTM</option>
+    <option value="AMP_NAME">SPC date</option>
+    <option value="AMPP_NAME">SPC number</option>
+    <option value="AMP_NAME_COMPANY">Alternate SPC number</option>
+    <option value="COMPANY">Product description</option>
+    <option value="COMPANY_CODE">Product search key</option>
+    <option value="FORM">Applicant company name</option>
+    <option value="UNIT_DOSE">Matched company name</option>
 
   </select>
                 </div>
@@ -101,15 +93,17 @@ Apply filter
         </button>
 
         <div class="large-table-container">
-        <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
   <thead role="rowgroup" class="nhsuk-table__head">
     <tr role="row">
       <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">MA date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">MA number <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">Product name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">Company name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">dm+d matched company name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC date <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">SPC number <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Alternate SPC number <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product description <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Product search key <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Applicant (company) name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Matched company name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
     </tr>
   </thead>
 
@@ -117,8 +111,10 @@ Apply filter
     <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">febuxostat</td>
       <td class="nhsuk-table__cell">22/04/2023</td>
-      <td class="nhsuk-table__cell">MA/2010/019</td>
-      <td class="nhsuk-table__cell">TestA 120mg tablets</td>
+      <td class="nhsuk-table__cell">SPC 2010019</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">TestA 120mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">febuxostat 120mg tablets</td>
       <td class="nhsuk-table__cell">TestCompanyA</td>
       <td class="nhsuk-table__cell">TestCompanyA</td>
     </tr>
@@ -126,8 +122,10 @@ Apply filter
     <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">amlodipine</td>
       <td class="nhsuk-table__cell">12/09/2024</td>
-      <td class="nhsuk-table__cell">MA/2005/6453</td>
-      <td class="nhsuk-table__cell">Cardiovex 20mg tablets</td>
+      <td class="nhsuk-table__cell">SPC 20056453</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Cardiovex 20mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">amlodipine 20mg tablets</td>
       <td class="nhsuk-table__cell">HealthPharm Ltd</td>
       <td class="nhsuk-table__cell">HealthPharm Ltd</td>
     </tr>
@@ -135,8 +133,10 @@ Apply filter
     <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">omeprazole</td>
       <td class="nhsuk-table__cell">05/03/2022</td>
-      <td class="nhsuk-table__cell">MA/1999/2211</td>
-      <td class="nhsuk-table__cell">Gastroquel 40mg capsules</td>
+      <td class="nhsuk-table__cell">SPC 19992211</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Gastroquel 40mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">omeprazole 40mg capsules</td>
       <td class="nhsuk-table__cell">MedicaPlus</td>
       <td class="nhsuk-table__cell">MedicaPlus</td>
     </tr>
@@ -144,8 +144,10 @@ Apply filter
     <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">montelukast</td>
       <td class="nhsuk-table__cell">19/07/2023</td>
-      <td class="nhsuk-table__cell">MA/1998/9874</td>
-      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets</td>
+      <td class="nhsuk-table__cell">SPC 19989874</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets (56 tablets)</td>
+      <td class="nhsuk-table__cell">montelukast 5mg tablets</td>
       <td class="nhsuk-table__cell">Optima Healthcare</td>
       <td class="nhsuk-table__cell">Optima Healthcare</td>
     </tr>
@@ -153,8 +155,10 @@ Apply filter
     <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">pregabalin</td>
       <td class="nhsuk-table__cell">14/11/2024</td>
-      <td class="nhsuk-table__cell">MA/2004/3345</td>
-      <td class="nhsuk-table__cell">Neurocet 75mg capsules</td>
+      <td class="nhsuk-table__cell">SPC 20043345</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Neurocet 75mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">pregabalin 75mg capsules</td>
       <td class="nhsuk-table__cell">BioMedica UK</td>
       <td class="nhsuk-table__cell">BioMedica UK</td>
     </tr>
@@ -162,55 +166,12 @@ Apply filter
     <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">cetirizine</td>
       <td class="nhsuk-table__cell">01/02/2021</td>
-      <td class="nhsuk-table__cell">MA/1996/8871</td>
-      <td class="nhsuk-table__cell">Allergion 10mg tablets</td>
+      <td class="nhsuk-table__cell">SPC 19968871</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Allergion 10mg tablets (30 tablets)</td>
+      <td class="nhsuk-table__cell">cetirizine 10mg tablets</td>
       <td class="nhsuk-table__cell">NexThera</td>
       <td class="nhsuk-table__cell">NexThera</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">naproxen</td>
-      <td class="nhsuk-table__cell">10/09/2018</td>
-      <td class="nhsuk-table__cell">MA/1975/1144</td>
-      <td class="nhsuk-table__cell">Arthrex 500mg tablets</td>
-      <td class="nhsuk-table__cell">PrimeCure</td>
-      <td class="nhsuk-table__cell">PrimeCure</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">metformin</td>
-      <td class="nhsuk-table__cell">01/04/2020</td>
-      <td class="nhsuk-table__cell">MA/1958/0022</td>
-      <td class="nhsuk-table__cell">Diabrex 850mg tablets</td>
-      <td class="nhsuk-table__cell">Genex Pharma</td>
-      <td class="nhsuk-table__cell">Genex Pharma</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">salmeterol</td>
-      <td class="nhsuk-table__cell">10/06/2023</td>
-      <td class="nhsuk-table__cell">MA/1993/5541</td>
-      <td class="nhsuk-table__cell">Respiron 200mcg inhaler</td>
-      <td class="nhsuk-table__cell">Aurelia Pharma</td>
-      <td class="nhsuk-table__cell">Aurelia Pharma</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">levothyroxine</td>
-      <td class="nhsuk-table__cell">15/03/2022</td>
-      <td class="nhsuk-table__cell">MA/1955/0010</td>
-      <td class="nhsuk-table__cell">Thyroxalia 100mcg tablets</td>
-      <td class="nhsuk-table__cell">CoreMed</td>
-      <td class="nhsuk-table__cell">CoreMed</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">atorvastatin</td>
-      <td class="nhsuk-table__cell">07/09/2021</td>
-      <td class="nhsuk-table__cell">MA/1996/6652</td>
-      <td class="nhsuk-table__cell">Hypertor 80mg tablets</td>
-      <td class="nhsuk-table__cell">Theramed UK</td>
-      <td class="nhsuk-table__cell">Theramed UK</td>
     </tr>
   </tbody>
 </table>

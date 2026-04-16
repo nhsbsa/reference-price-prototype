@@ -294,3 +294,23 @@
   @include nhsuk-responsive-padding(4, "top");
 }
 
+//closable tags
+.nhsuk-tag--closable {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 6px;
+}
+
+.nhsuk-tag__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.nhsuk-tag__close:hover {
+  opacity: 0.7;
+}

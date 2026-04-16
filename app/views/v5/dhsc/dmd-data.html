@@ -48,21 +48,77 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1>Download the latest NHS Common Drug Reference (CDR) dataset</h1>
-        <div class="nhsuk-inset-text">
+        <h1>NHS Common Drug Reference (CDR) dataset</h1>
+        <!-- <div class="nhsuk-inset-text">
             <span class="nhsuk-u-visually-hidden">Information: </span>
              <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p>
 
+        </div> -->
+  <p>Search and filter this dataset using one or more of the fields below.</p>
+
+    <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+VTM (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+  
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+Product (AMPP) name (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+Product (AMPP) SNOMED code (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+Company name (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+VMPP (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+
+  <label class="nhsuk-label" for="three-quarters">
+Historic date (optional)
+  </label>
+  <div class="nhsuk-date-input" id="appointment-date">
+    
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-month">
+            Month
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="appointment-date-month" name="appointmentDate[month]" type="text" inputmode="numeric">
         </div>
-  <p>Download the latest Common Drug Reference (CDR) dataset or <a href="/v5/dhsc/dmd-data-view" class="nhsuk-link">view and filter this dataset</a>.</p>
+      </div>
+      <div class="nhsuk-date-input__item">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-year">
+            Year
+          </label>
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="appointment-date-year" name="appointmentDate[year]" type="text" inputmode="numeric">
+        </div>
+      </div>
+  </div>
+
+  <br>
 
 
-        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download latest dataset
-        </button>
-
-          <a href="/v5/dhsc/dmd-data-past" class="nhsuk-button nhsuk-button--secondary">
-            View historical dataset
+          <a href="/v5/dhsc/dmd-data-view" class="nhsuk-button">
+            Search
         </a> 
         <!-- End of content -->
 

@@ -51,13 +51,13 @@
 
     <h1>View the Common Drug Reference dataset</h1>
 
-    <p>This table contains the latest version of Common Drug Reference (CDR) dataset. This includes data from the NHS
-      Dictionary of medicines and devices (dm+d).</p>
+    <!-- <p>This table contains the latest version of Common Drug Reference (CDR) dataset. This includes data from the NHS
+      Dictionary of medicines and devices (dm+d).</p> -->
 
     <p>This dataset was last updated on <span id="date"></span> at <span id="time"></span></p>
 
 
-    <p>You can filter this dataset or <a href="/v5/dhsc/dmd-data-past" class="nhsuk-link">search for a product</a>.</p>
+    <p>You can filter this dataset or <a href="/v5/dhsc/product-details" class="nhsuk-link">search for a product</a>.</p>
 
     <br>
     <details class="nhsuk-details">
@@ -75,31 +75,32 @@
           </label>
 
 
-          <select class="nhsuk-select" id="sort-by" name="sortBy">
-                        <option  selected>Choose column</option>
-            <option value="ATC">Anatomical Therapeutic Chemical (ATC) code</option>
-            <option value="VMP_NAME">Virtual Medicinal Product (VMP)</option>
-            <option value="VMPP_NAME">Virtual Medicinal Product Pack (VMPP)</option>
-            <option value="AMP_NAME">Actual Medicinal Product (AMP)</option>
-            <option value="AMPP_NAME">Actual Medicinal Product Pack (AMPP)</option>
-            <option value="AMP_NAME_COMPANY">Actual Medicinal Product (AMP) company name</option>
-            <option value="COMPANY">Company name</option>
-            <option value="COMPANY_CODE">Company code</option>
-            <option value="FORM">Form</option>
-            <option value="UNIT_DOSE">Unit dose (UOM)</option>
-            <option value="STRENGTH">Strength</option>
-            <option value="PACK_SIZE">Pack size</option>
+         <select class="nhsuk-select" id="sort-by" name="sortBy">
+  <option value="" selected disabled>Choose column</option>
 
-            <option value="PRICE">Price</option>
-            <option value="PRICE_DATE">Price date</option>
-            <option value="PRICE_PREVIOUS">Previous price</option>
-            <option value="PRICE_BASIS">Price basis</option>
-            <option value="DISCONTINUED">Discontinued</option>
-            <option value="DISCONTINUED_DATE">Discontinued date</option>
-            <option value="BNF_CODE">British National Formulary (BNF) code</option>
-            <option value="BNF_CHAPTER">British National Formulary (BNF) chapter</option>
-            <option value="COMBPACKCD">Combination pack code</option>
-          </select>
+  <option value="AMPP">Actual Medicinal Product Pack (AMPP)</option>
+  <option value="AMPP_SNOMED_CODE">AMPP SNOMED code</option>
+  <option value="VTM">Virtual Therapeutic Moiety (VTM)</option>
+  <option value="PACK_SIZE">Pack size</option>
+  <option value="AMP">Actual Medicinal Product (AMP)</option>
+  <option value="ATC">Anatomical Therapeutic Chemical (ATC) code</option>
+  <option value="VMP">Virtual Medicinal Product (VMP)</option>
+  <option value="VMPP">Virtual Medicinal Product Pack (VMPP)</option>
+  <option value="AMP_DUP">Actual Medicinal Product (AMP)</option>
+  <option value="COMPANY_NAME">Company name</option>
+  <option value="COMPANY_CODE">Company code</option>
+  <option value="FORM">Form</option>
+  <option value="UNIT_DOSE">Unit dose</option>
+  <option value="STRENGTH">Strength</option>
+  <option value="PRICE">Latest list price</option>
+  <option value="PRICE_DATE">List price start date</option>
+  <option value="DISCONTINUED">Discontinued</option>
+  <option value="DISCONTINUED_DATE">Discontinued start date</option>
+  <option value="BNF_CODE">BNF code</option>
+  <option value="BNF_CHAPTER">BNF chapter</option>
+  <option value="COMBINATION_PACK">Combination pack</option>
+
+</select>
         </div>
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="search-term">
@@ -108,427 +109,360 @@
           <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
         </div>
 
-        <button id="apply-filter" class="nhsuk-button nhsuk-button--secondary">
+        <button id="apply-filter" class="nhsuk-button ">
           Apply filter
         </button>
+
+     <button id="reset-filter" type="button" class="nhsuk-button nhsuk-button--secondary">
+  Reset filters
+</button>
       </div>
     </details>
+
+    <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
+ metformin 
+  <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
+</strong>
+
+    <!-- <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
+1328111000001105 
+  <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
+</strong> -->
+
+
+<br>
+<br>
     <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
       Download dataset
     </button>
 
+
+
+
     <div class="large-table-container">
-      <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead>
+    <tr>
+      <th>AMPP</th>
+      <th>AMPP SNOMED CODE</th>
+      <th>VTM</th>
+      <th>PACK SIZE</th>
+      <th>AMP</th>
+      <th>ATC</th>
+      <th>VMP</th>
+      <th>VMPP</th>
+      <th>AMP</th>
+      <th>Company name</th>
+      <th>Company code</th>
+      <th>Form</th>
+      <th>Unit dose</th>
+      <th>Strength</th>
+      <th>Latest List Price</th>
+      <th>List Price Start date</th>
+      <th>Discontinued</th>
+      <th>Discontinued Start date</th>
+      <th>BNF Code</th>
+      <th>BNF Chapter</th>
+      <th>Combination pack</th>
+    </tr>
+  </thead>
 
-        <thead role="rowgroup" class="nhsuk-table__head">
-          <tr role="row">
-            <th role="columnheader" scope="col" aria-sort="none">ATC <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">VMP <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">VMPP <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">AMP <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">AMPP <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">AMP company name <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Company name <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Company code <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Form <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Unit dose <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Strength <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Pack size <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
+  <tbody>
 
-            <th role="columnheader" scope="col" aria-sort="none">Price <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Price date <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Previous price <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Price basis <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Discontinued <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Discontinued date <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">BNF code <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">BNF chapter <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-            <th role="columnheader" scope="col" aria-sort="none">Combination pack <span class="sort-indicator"
-                aria-hidden="true">⇅</span></th>
-          </tr>
-        </thead>
-      <tbody class="nhsuk-table__body">
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">C08DA01</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets 56 pack</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">31447010C</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">56</td>
-    <td role="cell" class="nhsuk-table__cell">£44.20</td>
-    <td role="cell" class="nhsuk-table__cell">06/06/2025</td>
-    <td role="cell" class="nhsuk-table__cell">£48.62</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0206020</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_02060200</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <!-- All rows SAME VMP, varied AMPs + pack sizes -->
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">C08DA01</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets 100 pack</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">31447010C</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">£4.61</td>
-    <td role="cell" class="nhsuk-table__cell">No Price Available</td>
-    <td role="cell" class="nhsuk-table__cell">Discontinued Flag</td>
-    <td role="cell" class="nhsuk-table__cell">05/08/2004</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0206020</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_02060200</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details">Metformin 1g MR tablets 28 (Teva)</a></td>
+      <td>610001</td>
+      <td>Metformin</td>
+      <td>28</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>28 tablet pack</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>Teva UK Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£2.10</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">C08DA01</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets 56 pack</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">31447010C</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">56</td>
-    <td role="cell" class="nhsuk-table__cell">£44.20</td>
-    <td role="cell" class="nhsuk-table__cell">06/06/2025</td>
-    <td role="cell" class="nhsuk-table__cell">£48.62</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0206020</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_02060200</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details">Metformin 1g MR tablets 28 (Accord)</a></td>
+      <td>610002</td>
+      <td>Metformin</td>
+      <td>28</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>28 tablet pack</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>Accord Healthcare Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£2.05</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">C08DA01</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Verapamil 160 mg tablets 100 pack</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">A A H Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">31447010C</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">160 mg</td>
-    <td role="cell" class="nhsuk-table__cell">100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">£4.61</td>
-    <td role="cell" class="nhsuk-table__cell">No Price Available</td>
-    <td role="cell" class="nhsuk-table__cell">Discontinued Flag</td>
-    <td role="cell" class="nhsuk-table__cell">05/08/2004</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0206020</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_02060200</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610003">Metformin 1g MR tablets 56 (Sandoz)</a></td>
+      <td>610003</td>
+      <td>Metformin</td>
+      <td>56</td>
+      <td>Metformin 1g MR tablets (Sandoz)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>56 tablet pack</td>
+      <td>Metformin 1g MR tablets (Sandoz)</td>
+      <td>Sandoz Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£3.40</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">A10BA02</td>
-    <td role="cell" class="nhsuk-table__cell">Metformin 500 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Metformin 500 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Metformin 500 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Metformin 500 mg 28 pack</td>
-    <td role="cell" class="nhsuk-table__cell">Generic Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">Generic Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">GP-123456</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">500 mg</td>
-    <td role="cell" class="nhsuk-table__cell">28</td>
-    <td role="cell" class="nhsuk-table__cell">£13.50</td>
-    <td role="cell" class="nhsuk-table__cell">15/03/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£14.00</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0601010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_06010100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details">Metformin 1g MR tablets 56 (Mylan)</a></td>
+      <td>610004</td>
+      <td>Metformin</td>
+      <td>56</td>
+      <td>Metformin 1g MR tablets (Mylan)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>56 tablet pack</td>
+      <td>Metformin 1g MR tablets (Mylan)</td>
+      <td>Mylan Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£3.30</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">N02BA01</td>
-    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Paracetamol 500 mg 16 pack</td>
-    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
-    <td role="cell" class="nhsuk-table__cell">Pain Relief Inc.</td>
-    <td role="cell" class="nhsuk-table__cell">PRI-098765</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">500 mg</td>
-    <td role="cell" class="nhsuk-table__cell">16</td>
-    <td role="cell" class="nhsuk-table__cell">£9.50</td>
-    <td role="cell" class="nhsuk-table__cell">01/12/2023</td>
-    <td role="cell" class="nhsuk-table__cell">£9.80</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0401010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_04010100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610005">Metformin 1g MR tablets 84 (Teva)</a></td>
+      <td>610005</td>
+      <td>Metformin</td>
+      <td>84</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>84 tablet pack</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>Teva UK Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£4.80</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">J01CA04</td>
-    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg capsules</td>
-    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg capsules</td>
-    <td role="cell" class="nhsuk-table__cell">Amoxicillin 500 mg 21 pack</td>
-    <td role="cell" class="nhsuk-table__cell">MediCare Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">MediCare Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">MC-112233</td>
-    <td role="cell" class="nhsuk-table__cell">Capsule</td>
-    <td role="cell" class="nhsuk-table__cell">capsule</td>
-    <td role="cell" class="nhsuk-table__cell">500 mg</td>
-    <td role="cell" class="nhsuk-table__cell">21</td>
-    <td role="cell" class="nhsuk-table__cell">£17.50</td>
-    <td role="cell" class="nhsuk-table__cell">10/05/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£18.00</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0501010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_05010100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610006">Metformin 1g MR tablets 84 (Zentiva)</a></td>
+      <td>610006</td>
+      <td>Metformin</td>
+      <td>84</td>
+      <td>Metformin 1g MR tablets (Zentiva)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>84 tablet pack</td>
+      <td>Metformin 1g MR tablets (Zentiva)</td>
+      <td>Zentiva Pharma UK</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£4.60</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">C09AA05</td>
-    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Ramipril 10 mg 30 pack</td>
-    <td role="cell" class="nhsuk-table__cell">HeartCare Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">HeartCare Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">HC-223344</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">10 mg</td>
-    <td role="cell" class="nhsuk-table__cell">30</td>
-    <td role="cell" class="nhsuk-table__cell">£12.00</td>
-    <td role="cell" class="nhsuk-table__cell">20/01/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£12.50</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0207010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_02070100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610007">Metformin 1g MR tablets 100 (Accord)</a></td>
+      <td>610007</td>
+      <td>Metformin</td>
+      <td>100</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>100 tablet pack</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>Accord Healthcare Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.20</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">R03AC02</td>
-    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">Salbutamol 100 mcg 200-dose inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">Respira Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">Respira Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">RS-334455</td>
-    <td role="cell" class="nhsuk-table__cell">Inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">100 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">200</td>
-    <td role="cell" class="nhsuk-table__cell">£19.50</td>
-    <td role="cell" class="nhsuk-table__cell">18/07/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£20.00</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0306010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_03060100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610008">Metformin 1g MR tablets 100 (Sun Pharma)</a></td>
+      <td>610008</td>
+      <td>Metformin</td>
+      <td>100</td>
+      <td>Metformin 1g MR tablets (Sun Pharma)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>100 tablet pack</td>
+      <td>Metformin 1g MR tablets (Sun Pharma)</td>
+      <td>Sun Pharmaceutical Industries</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.10</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">G03CA01</td>
-    <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30 mcg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Ethinylestradiol 30 mcg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Contraceptive 21 pack</td>
-    <td role="cell" class="nhsuk-table__cell">FemCare</td>
-    <td role="cell" class="nhsuk-table__cell">FemCare Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">FC-445566</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">30 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">21</td>
-    <td role="cell" class="nhsuk-table__cell">£22.00</td>
-    <td role="cell" class="nhsuk-table__cell">05/11/2023</td>
-    <td role="cell" class="nhsuk-table__cell">£22.50</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0701010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_07010100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <!-- continue to 15 -->
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">M01AE01</td>
-    <td role="cell" class="nhsuk-table__cell">Ibuprofen 200 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Ibuprofen 200 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Ibuprofen 200 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Ibuprofen 200 mg 24 pack</td>
-    <td role="cell" class="nhsuk-table__cell">ReliefPlus</td>
-    <td role="cell" class="nhsuk-table__cell">ReliefPlus Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">RP-556677</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">200 mg</td>
-    <td role="cell" class="nhsuk-table__cell">24</td>
-    <td role="cell" class="nhsuk-table__cell">£13.00</td>
-    <td role="cell" class="nhsuk-table__cell">25/02/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£13.50</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_1001010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_10010100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610009">Metformin 1g MR tablets 112 (Lupin)</a></td>
+      <td>610009</td>
+      <td>Metformin</td>
+      <td>112</td>
+      <td>Metformin 1g MR tablets (Lupin)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>112 tablet pack</td>
+      <td>Metformin 1g MR tablets (Lupin)</td>
+      <td>Lupin Healthcare</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.80</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">L01XE01</td>
-    <td role="cell" class="nhsuk-table__cell">Imatinib 100 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Imatinib 100 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Imatinib 100 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Imatinib 100 mg 30 pack</td>
-    <td role="cell" class="nhsuk-table__cell">OncoPharma</td>
-    <td role="cell" class="nhsuk-table__cell">OncoPharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">OP-667788</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">100 mg</td>
-    <td role="cell" class="nhsuk-table__cell">30</td>
-    <td role="cell" class="nhsuk-table__cell">£350.00</td>
-    <td role="cell" class="nhsuk-table__cell">12/06/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£360.00</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0802010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_08020100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610010">Metformin 1g MR tablets 112 (Dr Reddy’s)</a></td>
+      <td>610010</td>
+      <td>Metformin</td>
+      <td>112</td>
+      <td>Metformin 1g MR tablets (Dr Reddy’s)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>112 tablet pack</td>
+      <td>Metformin 1g MR tablets (Dr Reddy’s)</td>
+      <td>Dr Reddy's Laboratories</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.70</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">R03AK06</td>
-    <td role="cell" class="nhsuk-table__cell">Ipratropium bromide 20 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">Ipratropium 20 mcg inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">Ipratropium 20 mcg inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">Ipratropium 20 mcg 200-dose inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">BreatheRight Pharma</td>
-    <td role="cell" class="nhsuk-table__cell">BreatheRight Pharma Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">BR-778899</td>
-    <td role="cell" class="nhsuk-table__cell">Inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">inhaler</td>
-    <td role="cell" class="nhsuk-table__cell">20 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">200</td>
-    <td role="cell" class="nhsuk-table__cell">£22.00</td>
-    <td role="cell" class="nhsuk-table__cell">07/04/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£22.50</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0308010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_03080100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610011">Metformin 1g MR tablets 120 (Torrent)</a></td>
+      <td>610011</td>
+      <td>Metformin</td>
+      <td>120</td>
+      <td>Metformin 1g MR tablets (Torrent)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>120 tablet pack</td>
+      <td>Metformin 1g MR tablets (Torrent)</td>
+      <td>Torrent Pharma UK</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£6.20</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">C10AA05</td>
-    <td role="cell" class="nhsuk-table__cell">Atorvastatin 20 mg</td>
-    <td role="cell" class="nhsuk-table__cell">Atorvastatin 20 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Atorvastatin 20 mg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Atorvastatin 20 mg 28 pack</td>
-    <td role="cell" class="nhsuk-table__cell">CardioHealth</td>
-    <td role="cell" class="nhsuk-table__cell">CardioHealth Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">CH-889900</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">20 mg</td>
-    <td role="cell" class="nhsuk-table__cell">28</td>
-    <td role="cell" class="nhsuk-table__cell">£18.00</td>
-    <td role="cell" class="nhsuk-table__cell">15/08/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£18.50</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0208010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_02080100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
+    <tr>
+      <td><a href="product-details.html?ampp=610012">Metformin 1g MR tablets 120 (Glenmark)</a></td>
+      <td>610012</td>
+      <td>Metformin</td>
+      <td>120</td>
+      <td>Metformin 1g MR tablets (Glenmark)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>120 tablet pack</td>
+      <td>Metformin 1g MR tablets (Glenmark)</td>
+      <td>Glenmark Pharmaceuticals</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£6.10</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
 
-  <tr role="row" class="nhsuk-table__row">
-    <td role="cell" class="nhsuk-table__cell">H03AA01</td>
-    <td role="cell" class="nhsuk-table__cell">Levothyroxine 50 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">Levothyroxine 50 mcg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Levothyroxine 50 mcg tablets</td>
-    <td role="cell" class="nhsuk-table__cell">Levothyroxine 50 mcg 28 pack</td>
-    <td role="cell" class="nhsuk-table__cell">ThyroCare</td>
-    <td role="cell" class="nhsuk-table__cell">ThyroCare Ltd.</td>
-    <td role="cell" class="nhsuk-table__cell">TC-990011</td>
-    <td role="cell" class="nhsuk-table__cell">Oral tablet</td>
-    <td role="cell" class="nhsuk-table__cell">tablet</td>
-    <td role="cell" class="nhsuk-table__cell">50 mcg</td>
-    <td role="cell" class="nhsuk-table__cell">28</td>
-    <td role="cell" class="nhsuk-table__cell">£11.50</td>
-    <td role="cell" class="nhsuk-table__cell">01/09/2024</td>
-    <td role="cell" class="nhsuk-table__cell">£12.00</td>
-    <td role="cell" class="nhsuk-table__cell">NHS Indicative Price</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-    <td role="cell" class="nhsuk-table__cell">BNF_0603010</td>
-    <td role="cell" class="nhsuk-table__cell">BNF_06030100</td>
-    <td role="cell" class="nhsuk-table__cell"><div class="nhsuk-hint">Not available</div></td>
-  </tr>
-</tbody>
-      </table>
+  </tbody>
+</table>
     </div>
 
     <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
@@ -573,32 +507,57 @@
 </div>
 
 <script>
+  const applyBtn = document.getElementById("apply-filter");
+  const resetBtn = document.getElementById("reset-filter");
+  const columnSelect = document.getElementById("sort-by");
+  const searchInput = document.getElementById("search-term");
+  const pagination = document.querySelector(".nhsuk-pagination");
+  const rows = document.querySelectorAll("tbody tr");
 
-document.getElementById("apply-filter").addEventListener("click", function () {
+  function showAllRows() {
+    rows.forEach(row => {
+      row.style.display = "";
+    });
+  }
 
-    const columnIndex = document.getElementById("sort-by").selectedIndex - 1;
-    const searchValue = document.getElementById("search-term").value.toLowerCase();
+  function setPaginationVisible(visible) {
+    if (pagination) {
+      pagination.style.display = visible ? "" : "none";
+    }
+  }
 
-    const rows = document.querySelectorAll("tbody tr");
+  function applyFilter() {
+    const columnIndex = columnSelect.selectedIndex - 1;
+    const searchValue = searchInput.value.trim().toLowerCase();
+
+    const filterActive = columnIndex >= 0 && searchValue !== "";
+    setPaginationVisible(!filterActive);
+
+    if (!filterActive) {
+      showAllRows();
+      return;
+    }
 
     rows.forEach(row => {
+      const cell = row.cells[columnIndex];
+      if (!cell) {
+        row.style.display = "";
+        return;
+      }
 
-        if (columnIndex < 0) {
-            row.style.display = "";
-            return;
-        }
-
-        const cell = row.cells[columnIndex];
-
-        if (!cell) return;
-
-        const text = cell.textContent.toLowerCase();
-
-        row.style.display = text.includes(searchValue) ? "" : "none";
-
+      const text = cell.textContent.toLowerCase();
+      row.style.display = text.includes(searchValue) ? "" : "none";
     });
+  }
 
-});
+  function resetFilter() {
+    columnSelect.selectedIndex = 0;
+    searchInput.value = "";
+    showAllRows();
+    setPaginationVisible(true);
+  }
 
+  applyBtn.addEventListener("click", applyFilter);
+  resetBtn.addEventListener("click", resetFilter);
 </script>
 {% endblock %}

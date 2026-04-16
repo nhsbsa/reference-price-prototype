@@ -27,15 +27,15 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
-      <!-- <li class="nhsuk-breadcrumb__list-item">
+    <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/queries">View queries</a>
     </li>
    <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/query-details">Query details</a>
     </li>   -->
-    
+
   </ol>
-<!-- 
+  <!-- 
   <a class="nhsuk-back-link" href="#">
     <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
   </a> -->
@@ -47,43 +47,108 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-column-full">
 
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend">
-    <h1>
-      Search for a product
-    </h1>
-  </legend>
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend">
+        <h1>
+          Search for a product
+        </h1>
+      </legend>
 
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="address-line-1">
-     Enter product name
-    </label>
-    <div class="nhsuk-hint">For example, aspirin or aspirin 25mg capsules</div>
-    <input class="nhsuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-  </div>
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="address-line-1">
+          Enter product name
+        </label>
+        <div class="nhsuk-hint">For example, aspirin or aspirin 25mg capsules</div>
+        <input class="nhsuk-input nhsuk-u-width-one-half" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
 
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="address-line-2">
-      Company name (optional)
-    </label>
-    <input class="nhsuk-input" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
-  </div>
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="address-line-2">
+          Product SNOMED code (optional)
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-one-half" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="address-line-2">
+          VTM (optional)
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-one-half" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="address-line-2">
+          Company name (optional)
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-one-half" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+      </div>
 
 
-</fieldset>
+    </fieldset>
 
-  <a href="/v5/dhsc/search-result" class="nhsuk-button">
-           Search
-        </a>
+    <button id="toggleBtn" class="nhsuk-button">
+      Search
+    </button>
 
-          <a href="/v5/dhsc/" class="nhsuk-button nhsuk-button--secondary">
-           Back to dashboard
-        </a>
+    <a href="/v5/dhsc/" class="nhsuk-button nhsuk-button--secondary">
+      Back to dashboard
+    </a>
 
-        <!-- End of content -->
 
+    <div id="resultsSection" class="large-table-container" style="display: none;">
+      <div>
+        <p>There are <strong>1</strong> search results with the search terms: "Metabet".</p>
+      </div>
+      <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+        <caption class="nhsuk-table__caption">Search results</caption>
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <th role="columnheader" scope="col" aria-sort="none">Product name <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Pack size <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">VTM <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Company<span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+            <th role="columnheader" scope="col" aria-sort="none">Action <span class="sort-indicator"
+                aria-hidden="true">⇅</span></th>
+
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+
+            <td role="cell" class="nhsuk-table__cell">Metabet 1000mg SR</td>
+            <td role="cell" class="nhsuk-table__cell">28 pack</td>
+            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+            <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
+            <td role="cell" class="nhsuk-table__cell"><a href="product-details">View </a></td>
+
+          </tr>
+
+
+
+        </tbody>
+      </table>
     </div>
+    <!-- End of content -->
+
+  </div>
 </div>
+
+<script>
+  const btn = document.getElementById("toggleBtn");
+  const section = document.getElementById("resultsSection");
+
+  btn.addEventListener("click", function () {
+    if (section.style.display === "none") {
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  });
+</script>
 {% endblock %}
