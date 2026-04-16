@@ -48,12 +48,14 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
         <h1>View all provisional products</h1>
-
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download full dataset
+        </button>
   
                 <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
-                    Filter the data
+                    Filter the data in this table
                 </span>
             </summary>
             <div class="nhsuk-details__text">
@@ -62,20 +64,18 @@
                         Choose column
                     </label>
 
-      <select class="nhsuk-select" id="sort-by" name="sortBy">
-            <option  selected>Choose column</option>
-    <option value="ATC">Company name</option>
-        <option value="ATC">Product name</option>
-    <option value="VMP_NAME">VTM</option>
-    <option value="VMPP_NAME">Originator brand name</option>
-        <option value="VMPP_NAME">Originator status</option>
-    <option value="AMP_NAME">Date of loss of exclusivity</option>
-    <option value="AMPP_NAME">Reference anchor date</option>
-    <option value="AMP_NAME_COMPANY">Newer/older classificatiom</option>
-    <option value="COMPANY">Reference price</option>
-
-    
-  </select>
+<select class="nhsuk-select" id="column-filter">
+  <option value="">Choose column</option>
+  <option value="0">Company name</option>
+  <option value="1">Product name</option>
+  <option value="2">VTM</option>
+  <option value="3">Originator brand name</option>
+  <option value="4">Originator status</option>
+  <option value="5">Date of loss of exclusivity</option>
+  <option value="6">Reference anchor date</option>
+  <option value="7">Older/newer classification</option>
+  <option value="8">Reference price</option>
+</select>
                 </div>
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label" for="full-name">
@@ -84,15 +84,14 @@
                     <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
                 </div>
 
-                <button class="nhsuk-button nhsuk-button--secondary" >
-Apply filter
-                </button>
+<button id="apply-filter" class="nhsuk-button">Apply filter</button>
+<button id="reset-filter" class="nhsuk-button nhsuk-button--secondary">Reset filter</button>
             </div>
         </details>
-        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download dataset
-        </button>
 
+         <div id="results">
+  <p>There are <strong>13</strong> search results with the search terms: "Met" in VTM.</p>
+</div>
             <div class="large-table-container">
       <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
         <thead role="rowgroup" class="nhsuk-table__head">
@@ -249,4 +248,38 @@ Apply filter
 
     </div>
 </div>
+
+<script>
+document.getElementById('apply-filter').addEventListener('click', function () {
+  const select = document.getElementById('column-filter');
+  const columnIndex = select.value;
+  const selectedOptionText = select.options[select.selectedIndex].text;
+  const searchTerm = document.getElementById('full-name').value.toLowerCase();
+  const rows = document.querySelectorAll('.nhsuk-table__body tr');
+
+  let visibleCount = 0;
+
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+
+    if (columnIndex === "") {
+      row.style.display = '';
+      visibleCount++;
+      return;
+    }
+
+    const cellText = cells[columnIndex].textContent.toLowerCase();
+
+    if (cellText.includes(searchTerm)) {
+      row.style.display = '';
+      visibleCount++;
+    } else {
+      row.style.display = 'none';
+    }
+  });
+
+  document.getElementById('results').innerHTML =
+    `<p>There are <strong>${visibleCount}</strong> search results with the search terms: "${searchTerm}" in "${selectedOptionText}".</p>`;
+});
+</script>
 {% endblock %}
