@@ -12,7 +12,7 @@ router.post('/v5/dhsc/provisional/delete', function (req, res) {
   if (answer === 'yes') {
     res.redirect('/v5/dhsc/provisional/delete-confirm?status=deleted');
   } else {
-    res.redirect('/v5/dhsc/provisional/delete-confirm?status=blocked');
+    res.redirect('/v5/dhsc/provisional/single');
   }
 });
 

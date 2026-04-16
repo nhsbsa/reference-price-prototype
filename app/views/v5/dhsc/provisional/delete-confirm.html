@@ -49,25 +49,17 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-{% if status == "deleted" %}
+
   <div class="nhsuk-panel nhsuk-panel--interruption">
     <h1 class="nhsuk-panel__title nhsuk-panel__title--l">
       {{ productName }}
     </h1>
     <div class="nhsuk-panel__body">
-      <p>Provisional product deleted</p>
+      <p>This provisional product was deleted.</p>
     </div>
   </div>
-{% else %}
-  <div class="nhsuk-panel nhsuk-panel--interruption">
-    <h1 class="nhsuk-panel__title nhsuk-panel__title--l">
-      {{ productName }}
-    </h1>
-    <div class="nhsuk-panel__body">
-      <p>Provisional product cannot be deleted</p>
-    </div>
-  </div>
-{% endif %}
+
+
 
 
 <a href="/v5/dhsc/" class="nhsuk-button">Back to dashboard</a>
