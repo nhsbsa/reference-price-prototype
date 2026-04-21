@@ -1,0 +1,242 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Edit loss of exclusivity" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details">Product details</a>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Loss of exclusivity</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+        <div class="nhsuk-form-group">
+            <h2 id="field-heading" class="nhsuk-heading-m">Edit field</h2>
+        </div>
+
+        <form id="edit-form">
+            <div id="field-container"></div>
+
+            <div class="nhsuk-button-group">
+                <button class="nhsuk-button" type="submit">Save</button>
+                <button class="nhsuk-button nhsuk-button--secondary" type="button" onclick="window.location.href='/v5/dhsc/product-details'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<datalist id="company-names">
+    <option value="Morningside Healthcare Ltd"></option>
+    <option value="Morningside Incorporated"></option>
+    <option value="Test Pharma Ltd"></option>
+    <option value="Acme Medics Ltd"></option>
+    <option value="Northwind Therapeutics Ltd"></option>
+</datalist>
+
+<script>
+(function () {
+    const fields = {
+        "date-categorised-as-older-medicine": {
+            label: "Date categorised as older medicine",
+            type: "date",
+            value: "2009-10-12"
+        },
+        "medicine-classification": {
+            label: "Medicine clasiification",
+            type: "select",
+            options: ["Older medicine", "Newer medicine"],
+            value: "Older medicine"
+        },
+        "originator-status": {
+            label: "Originator status",
+            type: "select",
+            options: ["Originator product", "New entrant"],
+            value: "New entrant"
+        },
+        "reference-anchor-date": {
+            label: "Reference anchor date",
+            type: "date",
+            value: "2008-01-01"
+        },
+        "market-authorisation-number": {
+            label: "Market authorisation number",
+            type: "text",
+            value: "PL 20117/0184"
+        },
+        "ma-product-name": {
+            label: "MA Product name",
+            type: "text",
+            value: "Metabet SR"
+        },
+        "mhra-market-authorisation-holder": {
+            label: "(MHRA) Market authorisation holder",
+            type: "text",
+            value: "Morningside Incorporated"
+        },
+        "cdr-market-authorisation-holder": {
+            label: "(CDR) Market authorisation holder",
+            type: "autocomplete",
+            value: "Morningside Healthcare Ltd"
+        },
+        "market-authorisation-date": {
+            label: "Market authorisation date",
+            type: "date",
+            value: "2011-06-01"
+        },
+        "spc-expiry-date": {
+            label: "SPC expiry date",
+            type: "date",
+            value: "2011-06-01"
+        },
+        "spc-number": {
+            label: "SPC number",
+            type: "text",
+            value: "IPO456789"
+        },
+        "spc-number-alternative": {
+            label: "SPC number alternative",
+            type: "text",
+            value: ""
+        },
+        "spc-product-description": {
+            label: "SPC Product description",
+            type: "text",
+            value: "Metabet Ultra"
+        },
+        "cdr-spc-holder": {
+            label: "(CDR) SPC Holder",
+            type: "autocomplete",
+            value: "Morningside Healthcare Ltd"
+        },
+        "ipo-spc-holder": {
+            label: "(IPO) SPC Holder",
+            type: "text",
+            value: "Morningside Healthcare Ltd"
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const fieldKey = params.get("field") || "date-categorised-as-older-medicine";
+    const field = fields[fieldKey] || fields["date-categorised-as-older-medicine"];
+
+    const heading = document.getElementById("field-heading");
+    heading.textContent = `Edit ${field.label}`;
+
+    const container = document.getElementById("field-container");
+
+    function renderInput() {
+        if (field.type === "select") {
+            return `
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="field-input">${field.label}</label>
+                    <select class="nhsuk-select" id="field-input" name="field-input">
+                        ${field.options.map(option => `<option value="${option}" ${option === field.value ? "selected" : ""}>${option}</option>`).join("")}
+                    </select>
+                </div>
+            `;
+        }
+
+        if (field.type === "autocomplete") {
+            return `
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="field-input">${field.label}</label>
+                    <div class="nhsuk-hint">Start typing to see suggested company names.</div>
+                    <input class="nhsuk-input" id="field-input" name="field-input" type="text" list="company-names" value="${field.value}">
+                </div>
+            `;
+        }
+
+   if (field.type === "date") {
+    // Split YYYY-MM-DD into parts
+    let day = "", month = "", year = "";
+
+    if (field.value) {
+        const parts = field.value.split("-");
+        year = parts[0] || "";
+        month = parts[1] || "";
+        day = parts[2] || "";
+    }
+
+    return `
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" role="group">
+               
+
+                <div class="nhsuk-date-input">
+                    <div class="nhsuk-date-input__item">
+                        <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="field-day">
+                                Day
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                   id="field-day"
+                                   name="field-day"
+                                   type="text"
+                                   inputmode="numeric"
+                                   pattern="[0-9]*"
+                                   value="${parseInt(day, 10) || ""}">
+                        </div>
+                    </div>
+
+                    <div class="nhsuk-date-input__item">
+                        <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="field-month">
+                                Month
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                   id="field-month"
+                                   name="field-month"
+                                   type="text"
+                                   inputmode="numeric"
+                                   pattern="[0-9]*"
+                                   value="${parseInt(month, 10) || ""}">
+                        </div>
+                    </div>
+
+                    <div class="nhsuk-date-input__item">
+                        <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="field-year">
+                                Year
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
+                                   id="field-year"
+                                   name="field-year"
+                                   type="text"
+                                   inputmode="numeric"
+                                   pattern="[0-9]*"
+                                   value="${year}">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    `;
+}
+
+        return `
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="field-input">${field.label}</label>
+                <input class="nhsuk-input" id="field-input" name="field-input" type="text" value="${field.value}">
+            </div>
+        `;
+    }
+
+    container.innerHTML = renderInput();
+
+    document.getElementById("edit-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        window.location.href = "/v5/dhsc/product-details?saved=true";
+    });
+}());
+</script>
+{% endblock %}
