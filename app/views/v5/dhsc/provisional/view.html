@@ -28,7 +28,7 @@
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
       <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional products</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">View provisional products</a>
     </li>
 <!--   <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
@@ -47,7 +47,7 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-        <h1>View all provisional products</h1>
+        <h1>View provisional products</h1>
         <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
             Download full dataset
         </button>
@@ -71,16 +71,24 @@
   <option value="2">Active substance(s)</option>
   <option value="3">Originator brand name</option>
   <option value="4">Originator status</option>
-  <option value="5">Date becomes older</option>
+  <option value="5">Date product becomes older medicine</option>
   <option value="6">Reference anchor date</option>
   <option value="7">Older/newer classification</option>
-  <option value="8">Reference price</option>
+
 </select>
                 </div>
+               
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label" for="full-name">
-                        Enter search term
+                        Enter a search term of 3 characters or more
                     </label>
+                    <div class="nhsuk-hint">If searching for:
+                      <ul>
+                        <li>date - enter year only, for example 2024</li>
+                        <li>active substance(s) - separate each substance with a comma</li>
+                        <li>medicine classification - enter newer or older</li>
+                      </ul>
+                    </div>
                     <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
                 </div>
 
@@ -101,7 +109,7 @@
             <th role="columnheader" scope="col" aria-sort="none">Active substance(s)</th>
              <th role="columnheader" scope="col" aria-sort="none">Originator brand name</th>
                  <th role="columnheader" scope="col" aria-sort="none">Originator status</th>
-            <th role="columnheader" scope="col" aria-sort="none">Date becomes older</th>
+            <th role="columnheader" scope="col" aria-sort="none">Date product becomes older medicine</th>
              <th role="columnheader" scope="col" aria-sort="none">Reference anchor date</th>
           <th role="columnheader" scope="col" aria-sort="none">Medicine classification</th>
          <th role="columnheader" scope="col" aria-sort="none">Reference price</th>

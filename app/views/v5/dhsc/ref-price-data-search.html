@@ -17,24 +17,24 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Edit Provisional Products" %}
+{% set pageName = "Reference Price Data Table" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <!-- <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional product</a>
-        </li> -->
-         <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/">View provisional products</a>
-    </li>  
-    </ol>
-    <!-- 
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Reference price dataset</a>
+    </li>
+   <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+<!-- 
   <a class="nhsuk-back-link" href="#">
     <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
   </a> -->
@@ -47,47 +47,43 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+        <h1>Filter the reference price dataset</h1>
 
-   <span class="nhsuk-caption-l">Medication q 200mg tablets (2 x 24 tablets)</span>
-      <h1 class="nhsuk-heading-xl" id="pageHeading">
-          Edit originator details
-          
-        </h1>
-
-
-
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="two-thirds">
-   Originator brand name
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+VTM (optional)
   </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Abagna LTD">
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
 </div>
-
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="sort-by">
-    Originator status
-  </label>
-  <select class="nhsuk-select" id="sort-by" name="sortBy">
-    <option value="recently-published" >Select originator status</option>
-     <option value="recently-published" selected>Originator</option>
-    <option value="recently-updated">New entrant</option>
   
-  </select>
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+Product (AMPP) name (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+Product (AMPP) SNOMED code (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
+</div>
+
+  <div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="three-quarters">
+Company name (optional)
+  </label>
+  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="three-quarters" name="threeQuarters" type="text">
 </div>
 
 
-    <label class="nhsuk-label nhsuk-date-input__label">Date product becomes older medicine</label>
-<div class="nhsuk-date-input" id="appointment-date">
 
-      <div class="nhsuk-date-input__item">
-        <div class="nhsuk-form-group">
-        
-          <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-day">
-            Day
-          </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="appointment-date-day" name="appointmentDate[day]" type="text" inputmode="numeric">
-        </div>
-      </div>
+  <label class="nhsuk-label" for="three-quarters">
+Historic date (optional)
+  </label>
+  <div class="nhsuk-date-input" id="appointment-date">
+    
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-month">
@@ -104,12 +100,13 @@
           <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="appointment-date-year" name="appointmentDate[year]" type="text" inputmode="numeric">
         </div>
       </div>
-    </div>
+  </div>
 
-   <a href="/v5/dhsc/provisional/edit/review" class="nhsuk-button ">
-            Continue
+  <br>
+
+        <a href="/v5/dhsc/ref-price-data-search-view" class="nhsuk-button ">
+            Search
         </a>
-
         <!-- End of content -->
 
     </div>

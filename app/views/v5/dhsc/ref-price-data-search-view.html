@@ -1,0 +1,482 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Reference Price Dataset" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Reference price dataset</a>
+    </li>
+    <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+  </ol>
+  <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>View reference price dataset</h1>
+
+
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Filter the data in this table
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <div class="nhsuk-form-group">
+          <p>Filter this table by selecting a column and entering a search term.</p> <label class="nhsuk-label"
+            for="column-filter-select">
+            Choose column
+          </label>
+
+          <select class="nhsuk-select" id="column-filter-select" name="column-filter-select">
+            <option value="0">Company name</option>
+            <option value="1">AMPP SNOMED code</option>
+            <option value="2">AMPP</option>
+            <option value="3">VTM</option>
+            <option value="4">Originator classification</option>
+            <option value="5">Medicine classification</option>
+            <option value="6">Date recategorised as older medicine</option>
+
+          </select>
+        </div>
+        <div class="nhsuk-form-group">
+         <label class="nhsuk-label" for="full-name">
+                        Enter a search term of 3 characters or more
+                    </label>
+                    <div class="nhsuk-hint">If searching for:
+                      <ul>
+                        <li>date - enter year only, for example 2024</li>
+                        <li>VTMs - separate each substance with a comma</li>
+                        <li>medicine classification - enter newer or older</li>
+                      </ul>
+                    </div>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+        </div>
+
+        <button id="apply-filter" type="button" class="nhsuk-button">
+          Apply filter
+        </button>
+
+        <button id="reset-filter" type="button" class="nhsuk-button nhsuk-button--secondary">
+          Reset filters
+        </button>
+
+      </div>
+    </details>
+    <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
+ Morningside 
+  <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
+</strong>
+
+<br>
+<br>
+    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+      Download full dataset
+    </button>
+
+    <p id="results-message">
+       There are <strong>60</strong> results for search term: Morningside
+    </p>
+    <p>Use the horizontal scroll bar at the bottom of the table to view all the columns.</p>
+    <br>
+    <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">Company name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">AMPP SNOMED code <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">AMPP <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Originator classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Medicine classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Date recategorised as older medicine <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Reference price <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">48752111000001101</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/product-details">
+          Metabet SR 1000mg tablets (Morningside) 24 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/04/2023</td>
+      <td class="nhsuk-table__cell">£2.60</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">48752211000001103</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/metabet-sr-500mg-tablets-56">
+          Metabet SR 500mg tablets (Morningside) 56 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/04/2023</td>
+      <td class="nhsuk-table__cell">£1.95</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">48752311000001105</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/metformin-mr-750mg-tablets-56">
+          Metformin MR 750mg tablets (Morningside) 56 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/09/2022</td>
+      <td class="nhsuk-table__cell">£2.20</td>
+    </tr>
+
+    <!-- Remaining rows abbreviated explanation-wise, but full content below -->
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">48752411000001107</td>
+      <td class="nhsuk-table__cell"><a href="#">Metformin 500mg tablets (Morningside) 56 tablets</a></td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/01/2021</td>
+      <td class="nhsuk-table__cell">£0.99</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">48752511000001109</td>
+      <td class="nhsuk-table__cell"><a href="#">Metformin 850mg tablets (Morningside) 56 tablets</a></td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/01/2021</td>
+      <td class="nhsuk-table__cell">£1.05</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">48752611000001100</td>
+      <td class="nhsuk-table__cell"><a href="#">Metformin 1000mg tablets (Morningside) 56 tablets</a></td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/01/2021</td>
+      <td class="nhsuk-table__cell">£1.12</td>
+    </tr>
+
+ <tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48752711000001102</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metformin-500mg-tablets-84">
+      Metformin 500mg tablets (Morningside) 84 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/01/2021</td>
+  <td class="nhsuk-table__cell">£1.45</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48752811000001104</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metformin-850mg-tablets-84">
+      Metformin 850mg tablets (Morningside) 84 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/01/2021</td>
+  <td class="nhsuk-table__cell">£1.52</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48752911000001106</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metformin-1000mg-tablets-84">
+      Metformin 1000mg tablets (Morningside) 84 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/01/2021</td>
+  <td class="nhsuk-table__cell">£1.60</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48753011000001108</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metformin-mr-500mg-tablets-56">
+      Metformin MR 500mg tablets (Morningside) 56 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/09/2022</td>
+  <td class="nhsuk-table__cell">£1.85</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48753111000001100</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metformin-mr-1000mg-tablets-56">
+      Metformin MR 1000mg tablets (Morningside) 56 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/09/2022</td>
+  <td class="nhsuk-table__cell">£2.10</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48753211000001103</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metabet-sr-750mg-tablets-56">
+      Metabet SR 750mg tablets (Morningside) 56 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/04/2023</td>
+  <td class="nhsuk-table__cell">£2.30</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48753311000001105</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metabet-sr-1000mg-tablets-84">
+      Metabet SR 1000mg tablets (Morningside) 84 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/04/2023</td>
+  <td class="nhsuk-table__cell">£3.85</td>
+</tr>
+
+<tr class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+  <td class="nhsuk-table__cell">48753411000001107</td>
+  <td class="nhsuk-table__cell">
+    <a href="/v5/dhsc/ref-price-data/ampp/metformin-mr-500mg-tablets-112">
+      Metformin MR 500mg tablets (Morningside) 112 tablets
+    </a>
+  </td>
+  <td class="nhsuk-table__cell">Metformin</td>
+  <td class="nhsuk-table__cell">New entrant</td>
+  <td class="nhsuk-table__cell">Older medicine</td>
+  <td class="nhsuk-table__cell">01/09/2022</td>
+  <td class="nhsuk-table__cell">£3.40</td>
+</tr>
+
+  </tbody>
+</table>
+    </div>
+
+
+
+
+
+    <nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination"
+      style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <a href="#" class="nhsuk-pagination__previous" rel="prev">
+        <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16"
+          height="16" focusable="false" aria-hidden="true">
+          <path
+            d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+        </svg>
+        <span class="nhsuk-pagination__title">
+          Previous<span class="nhsuk-u-visually-hidden"> page</span>
+        </span>
+      </a>
+      <ul class="nhsuk-pagination__list">
+        <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+          <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+            1
+          </a>
+        </li>
+
+        <li class="nhsuk-pagination__item">
+          <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+            2
+          </a>
+        </li>
+        <li class="nhsuk-pagination__item">
+          <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+            3
+          </a>
+        </li>
+        <li class="nhsuk-pagination__item ">
+          <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+            4
+          </a>
+        </li>
+
+      </ul>
+      <a href="#" class="nhsuk-pagination__next" rel="next">
+        <span class="nhsuk-pagination__title">
+          Next<span class="nhsuk-u-visually-hidden"> page</span>
+        </span>
+        <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          width="16" height="16" focusable="false" aria-hidden="true">
+          <path
+            d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+        </svg>
+      </a>
+    </nav>
+
+
+
+
+    <!-- End of content -->
+
+
+  </div>
+
+
+</div>
+<script>
+  (function () {
+    const table = document.querySelector('table.nhsuk-table-responsive');
+    if (!table) return;
+
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    const columnSelect = document.getElementById('column-filter-select');
+    const searchInput = document.getElementById('full-name');
+    const applyButton = document.getElementById('apply-filter');
+    const resetButton = document.getElementById('reset-filter');
+    const resultsMessage = document.getElementById('results-message');
+
+    const totalRows = rows.length;
+
+    function applyFilter() {
+      const columnIndex = Number(columnSelect.value);
+      const columnName =
+        columnSelect.options[columnSelect.selectedIndex].text;
+      const searchTerm = searchInput.value.trim().toLowerCase();
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const cell = cells[columnIndex];
+
+        if (!cell) {
+          row.style.display = '';
+          visibleCount++;
+          return;
+        }
+
+        const cellText = cell.textContent.toLowerCase();
+        const isMatch =
+          searchTerm === '' || cellText.includes(searchTerm);
+
+        row.style.display = isMatch ? '' : 'none';
+
+        if (isMatch) visibleCount++;
+      });
+
+      updateResultsMessage(visibleCount, searchTerm, columnName);
+    }
+
+    function updateResultsMessage(count, term, column) {
+      if (!term) {
+        resultsMessage.textContent =
+          'Showing all reference price data';
+        return;
+      }
+
+      resultsMessage.textContent =
+        `There ${count === 1 ? 'is' : 'are'} ${count} result${count === 1 ? '' : 's'
+        } for the search term: "${term}" in "${column}"`;
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      columnSelect.selectedIndex = 0;
+
+      rows.forEach(row => (row.style.display = ''));
+
+      resultsMessage.textContent =
+        'Showing all reference price data';
+    }
+
+    applyButton.addEventListener('click', applyFilter);
+    resetButton.addEventListener('click', resetFilters);
+
+    // Allow Enter key to apply filter
+    searchInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        applyFilter();
+      }
+    });
+  })();
+</script>
+{% endblock %}

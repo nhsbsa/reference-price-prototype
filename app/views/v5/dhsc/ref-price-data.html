@@ -46,10 +46,10 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-full">
         <h1>Manage the reference price dataset</h1>
 
-      <p>To view reference price information, search for a product within the scheme to see reference price and other product details</p>
+    <!-- <p>To view reference price information, search for a product within the scheme to see reference price and other product details</p>
 
       <a href="/v5/dhsc/search" class="nhsuk-button ">
             View reference price information
@@ -60,7 +60,7 @@
         </a>
 
 
-        <!-- <a class="nhsuk-action-link" href="/v5/dhsc/upload-ref-price">
+         <a class="nhsuk-action-link" href="/v5/dhsc/upload-ref-price">
             <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
                 <path
@@ -69,6 +69,43 @@
 
             <span class="nhsuk-action-link__text">Upload new reference price data</span>
         </a> -->
+        
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="/v5/dhsc/ref-price-data-view">View full dataset</a>
+        </h2>
+      
+      </div>
+    </div>
+
+  </li>
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="/v5/dhsc/ref-price-data-search">Filter and search dataset</a>
+        </h2>
+      
+      </div>
+    </div>
+
+  </li>
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+          <a class="nhsuk-card__link" href="/v5/dhsc/upload-ref-price">Upload reference price data</a>
+        </h2>
+      
+      </div>
+    </div>
+
+  </li>
+</ul>
+
         <!-- End of content -->
 
     </div>
