@@ -21,7 +21,7 @@
         <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
         <div class="nhsuk-form-group">
-            <h2 id="field-heading" class="nhsuk-heading-m">Edit field</h2>
+            <h2 id="field-heading" class="nhsuk-heading-m nhsuk-u-visually-hidden">Edit field</h2>
         </div>
 
         <form id="edit-form">
@@ -44,9 +44,18 @@
 </datalist>
 
 <script>
-// Helper function to convert to sentence case
+// Helper function to convert to lower case
+// Helper function to convert to lowercase, preserving abbreviations
 function toLowercase(str) {
-    return str.toLowerCase();
+    return str
+        .split(/\s+/)
+        .map(word => {
+            if (word === word.toUpperCase() && word.length > 1) {
+                return word;
+            }
+            return word.toLowerCase();
+        })
+        .join(' ');
 }
 
 (function () {
@@ -65,7 +74,7 @@ function toLowercase(str) {
         "originator-status": {
             label: "Originator status",
             type: "select",
-            options: ["Originator product", "New entrant"],
+            options: ["Originator", "New entrant"],
             value: "New entrant"
         },
         "reference-anchor-date": {
@@ -148,7 +157,7 @@ function toLowercase(str) {
         if (field.type === "select") {
             return `
                 <div class="nhsuk-form-group">
-                    <p class="nhsuk-body"><strong>Edit ${lowercaseLabel}</strong></p>
+                 <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <select class="nhsuk-select" id="field-input" name="field-input">
                         ${field.options.map(option => `<option value="${option}" ${option === field.value ? "selected" : ""}>${option}</option>`).join("")}
                     </select>
@@ -159,7 +168,7 @@ function toLowercase(str) {
         if (field.type === "autocomplete") {
             return `
                 <div class="nhsuk-form-group">
-                    <p class="nhsuk-body"><strong>Edit ${lowercaseLabel}</strong></p>
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <div class="nhsuk-hint">Start typing to see suggested company names.</div>
                     <input class="nhsuk-input" id="field-input" name="field-input" type="text" list="company-names" value="${field.value}">
                 </div>
@@ -177,6 +186,7 @@ function toLowercase(str) {
             return `
                 <div class="nhsuk-form-group">
                     <fieldset class="nhsuk-fieldset" role="group">
+                        <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                         <div class="nhsuk-date-input">
                             <div class="nhsuk-date-input__item">
                                 <div class="nhsuk-form-group">
@@ -222,7 +232,7 @@ function toLowercase(str) {
 
         return `
             <div class="nhsuk-form-group">
-                <p class="nhsuk-body"><strong>Edit ${lowercaseLabel}</strong></p>
+               <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                 <input class="nhsuk-input" id="field-input" name="field-input" type="text" value="${field.value}">
             </div>
         `;

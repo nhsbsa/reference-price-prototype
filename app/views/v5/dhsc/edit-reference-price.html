@@ -21,7 +21,7 @@
         <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
         <form id="edit-form">
-            <h2 id="field-heading" class="nhsuk-heading-m">Edit field</h2>
+            <h2 id="field-heading" class="nhsuk-heading-m nhsuk-u-visually-hidden">Edit field</h2>
             <div id="field-container"></div>
             <div class="nhsuk-button-group">
                 <button class="nhsuk-button" type="submit">Save</button>
@@ -32,19 +32,24 @@
 </div>
 
 <script>
-// Helper function to convert to sentence case
-function toSentenceCase(str) {
+// Helper function to convert to lower case
+// Helper function to convert to lowercase, preserving abbreviations
+function toLowercase(str) {
     return str
-        .replace(/([A-Z])/g, ' $1') // Add space before capitals
-        .replace(/^./, char => char.toUpperCase()) // Capitalize first letter
-        .replace(/\s+/g, ' ') // Normalize spaces
-        .trim();
+        .split(/\s+/)
+        .map(word => {
+            if (word === word.toUpperCase() && word.length > 1) {
+                return word;
+            }
+            return word.toLowerCase();
+        })
+        .join(' ');
 }
 
 (function () {
     const fields = {
-        "date-correct-as-of": {
-            label: "Date correct as of",
+        "data-correct-as-of": {
+            label: "Data correct as of",
             type: "date",
             value: "2025-10-12"
         },
@@ -110,16 +115,16 @@ function toSentenceCase(str) {
     };
 
     const params = new URLSearchParams(window.location.search);
-    const fieldKey = params.get("field") || "date-correct-as-of";
-    const field = fields[fieldKey] || fields["date-correct-as-of"];
+    const fieldKey = params.get("field") || "data-correct-as-of";
+    const field = fields[fieldKey] || fields["data-correct-as-of"];
 
     // Store field key for later use in product-details
     sessionStorage.setItem('lastEditedField', fieldKey);
     sessionStorage.setItem('lastEditedFieldLabel', field.label);
 
-    const headingElement = document.getElementById("field-heading");
-    const sentenceCaseLabel = toSentenceCase(field.label);
-    headingElement.textContent = `Edit ${sentenceCaseLabel}`;
+   const headingElement = document.getElementById("field-heading");
+    const lowercaseLabel = toLowercase(field.label);
+    headingElement.textContent = `Edit ${lowercaseLabel}`;
     
     const container = document.getElementById("field-container");
 
@@ -127,7 +132,8 @@ function toSentenceCase(str) {
         if (field.type === "select") {
             return `
                 <div class="nhsuk-form-group">
-                    <p class="nhsuk-body"><strong>Edit ${sentenceCaseLabel}</strong></p>
+                  
+                     <label class="nhsuk-label" for="sort-by">Edit ${lowercaseLabel}</label>
                     <select class="nhsuk-select" id="field-input" name="field-input">
                         ${field.options.map(option => `<option value="${option}" ${option === field.value ? "selected" : ""}>${option}</option>`).join("")}
                     </select>
@@ -139,7 +145,7 @@ function toSentenceCase(str) {
             return `
                 <div class="nhsuk-form-group">
                     <fieldset class="nhsuk-fieldset" aria-describedby="field-hint">
-                        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">${sentenceCaseLabel}</legend>
+                        <legend class="nhsuk-fieldset__legend ">Edit ${lowercaseLabel}</legend>
                         <div id="field-hint" class="nhsuk-hint">Select yes or no.</div>
                         <div class="nhsuk-radios">
                             <div class="nhsuk-radios__item">
@@ -159,7 +165,7 @@ function toSentenceCase(str) {
         if (field.type === "textarea") {
             return `
                 <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="field-input">${sentenceCaseLabel}</label>
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <textarea class="nhsuk-textarea" id="field-input" name="field-input" rows="5">${field.value}</textarea>
                 </div>
             `;
@@ -168,7 +174,7 @@ function toSentenceCase(str) {
         if (field.type === "money") {
             return `
                 <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="field-input">${sentenceCaseLabel}</label>
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <div class="nhsuk-input__wrapper">
                         <div class="nhsuk-input__prefix" aria-hidden="true">£</div>
                         <input class="nhsuk-input nhsuk-input--width-10" id="field-input" name="field-input" type="text" inputmode="decimal" value="${field.value}">
@@ -180,71 +186,64 @@ function toSentenceCase(str) {
         if (field.type === "year") {
             return `
                 <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="field-input">${sentenceCaseLabel}</label>
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <input class="nhsuk-input nhsuk-input--width-4" id="field-input" name="field-input" type="text" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" value="${field.value}">
                 </div>
             `;
         }
 
         if (field.type === "date") {
-    let day = "", month = "", year = "";
-
-    if (field.value) {
-        const parts = field.value.split("-");
-        year = parts[0] || "";
-        month = parts[1] || "";
-        day = parts[2] || "";
-    }
-
-    return `
-        <div class="nhsuk-form-group">
-            <fieldset class="nhsuk-fieldset" role="group">
-              
-
-          
-
-                <div class="nhsuk-date-input">
-                    <div class="nhsuk-date-input__item">
-                        <label class="nhsuk-label nhsuk-date-input__label" for="field-day">Day</label>
-                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-                               id="field-day"
-                               name="field-day"
-                               type="text"
-                               inputmode="numeric"
-                               pattern="[0-9]*"
-                               value="${parseInt(day, 10) || ""}">
-                    </div>
-
-                    <div class="nhsuk-date-input__item">
-                        <label class="nhsuk-label nhsuk-date-input__label" for="field-month">Month</label>
-                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
-                               id="field-month"
-                               name="field-month"
-                               type="text"
-                               inputmode="numeric"
-                               pattern="[0-9]*"
-                               value="${parseInt(month, 10) || ""}">
-                    </div>
-
-                    <div class="nhsuk-date-input__item">
-                        <label class="nhsuk-label nhsuk-date-input__label" for="field-year">Year</label>
-                        <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
-                               id="field-year"
-                               name="field-year"
-                               type="text"
-                               inputmode="numeric"
-                               pattern="[0-9]*"
-                               value="${year}">
-                    </div>
+            let day = "", month = "", year = "";
+            if (field.value) {
+                const parts = field.value.split("-");
+                year = parts[0] || "";
+                month = parts[1] || "";
+                day = parts[2] || "";
+            }
+            return `
+                <div class="nhsuk-form-group">
+                    <fieldset class="nhsuk-fieldset" role="group">
+                            <label class="nhsuk-label" for="sort-by">Edit ${lowercaseLabel}</label>
+                        <div class="nhsuk-date-input">
+                            <div class="nhsuk-date-input__item">
+                                <label class="nhsuk-label nhsuk-date-input__label" for="field-day">Day</label>
+                                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                       id="field-day"
+                                       name="field-day"
+                                       type="text"
+                                       inputmode="numeric"
+                                       pattern="[0-9]*"
+                                       value="${parseInt(day, 10) || ""}">
+                            </div>
+                            <div class="nhsuk-date-input__item">
+                                <label class="nhsuk-label nhsuk-date-input__label" for="field-month">Month</label>
+                                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                       id="field-month"
+                                       name="field-month"
+                                       type="text"
+                                       inputmode="numeric"
+                                       pattern="[0-9]*"
+                                       value="${parseInt(month, 10) || ""}">
+                            </div>
+                            <div class="nhsuk-date-input__item">
+                                <label class="nhsuk-label nhsuk-date-input__label" for="field-year">Year</label>
+                                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
+                                       id="field-year"
+                                       name="field-year"
+                                       type="text"
+                                       inputmode="numeric"
+                                       pattern="[0-9]*"
+                                       value="${year}">
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
-            </fieldset>
-        </div>
-    `;
-}
+            `;
+        }
 
         return `
             <div class="nhsuk-form-group">
-                <label class="nhsuk-label" for="field-input">${sentenceCaseLabel}</label>
+                <label class="nhsuk-label" for="field-input">${lowercaseLabel}</label>
                 <input class="nhsuk-input" id="field-input" name="field-input" type="date" value="${field.value}">
             </div>
         `;

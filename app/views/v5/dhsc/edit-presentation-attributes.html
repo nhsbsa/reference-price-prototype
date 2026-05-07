@@ -1,0 +1,119 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Edit presentation attributes" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details">Product details</a>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Presentation attributes</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+        <div class="nhsuk-form-group">
+            <h2 id="field-heading" class="nhsuk-heading-m nhsuk-u-visually-hidden">Edit field</h2>
+        </div>
+
+        <form id="edit-form">
+            <div id="field-container"></div>
+
+            <div class="nhsuk-button-group">
+                <button class="nhsuk-button" type="submit">Save</button>
+                <button class="nhsuk-button nhsuk-button--secondary" type="button" onclick="window.location.href='/v5/dhsc/product-details'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+// Helper function to convert to lowercase, preserving abbreviations
+function toLowercase(str) {
+    return str
+        .split(/\s+/)
+        .map(word => {
+            if (word === word.toUpperCase() && word.length > 1) {
+                return word;
+            }
+            return word.toLowerCase();
+        })
+        .join(' ');
+}
+
+(function () {
+    const fields = {
+        "low-value-presentation": {
+            label: "Low value presentation",
+            type: "radio",
+            value: "No"
+        },
+        "vaccine": {
+            label: "Vaccine",
+            type: "radio",
+            value: "No"
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const fieldKey = params.get("field") || "low-value-presentation";
+    const field = fields[fieldKey] || fields["low-value-presentation"];
+
+    // Store field key for later use in product-details
+    sessionStorage.setItem('lastEditedField', fieldKey);
+    sessionStorage.setItem('lastEditedFieldLabel', field.label);
+
+    const heading = document.getElementById("field-heading");
+    const lowercaseLabel = toLowercase(field.label);
+    heading.textContent = `Edit ${lowercaseLabel}`;
+
+    const container = document.getElementById("field-container");
+
+    function renderInput() {
+        if (field.type === "radio") {
+            return `
+                <div class="nhsuk-form-group">
+                    <fieldset class="nhsuk-fieldset" aria-describedby="field-hint">
+                        <legend class="nhsuk-fieldset__legend ">Edit ${lowercaseLabel} attribute</legend>
+                        <div id="field-hint" class="nhsuk-hint">Select yes or no.</div>
+                        <div class="nhsuk-radios">
+                            <div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="field-input-yes" name="field-input" type="radio" value="Yes" ${field.value === "Yes" ? "checked" : ""}>
+                                <label class="nhsuk-label nhsuk-radios__label" for="field-input-yes">Yes</label>
+                            </div>
+                            <div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="field-input-no" name="field-input" type="radio" value="No" ${field.value === "No" ? "checked" : ""}>
+                                <label class="nhsuk-label nhsuk-radios__label" for="field-input-no">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="field-input">${lowercaseLabel}</label>
+                <input class="nhsuk-input" id="field-input" name="field-input" type="text" value="${field.value}">
+            </div>
+        `;
+    }
+
+    container.innerHTML = renderInput();
+
+    document.getElementById("edit-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        window.location.href = "/v5/dhsc/product-details?saved=true";
+    });
+}());
+</script>
+
+{% endblock %}

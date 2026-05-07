@@ -223,14 +223,18 @@
                                 <td class="nhsuk-table__cell">No</td>
                                 <td class="nhsuk-table__cell">Not applicable</td>
                                 <td class="nhsuk-table__cell">Not applicable</td>
-                                <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+                               <td class="nhsuk-table__cell">
+        <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-presentation-attributes?field=low-value-presentation">Edit</a>
+    </td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Vaccine</td>
                                 <td class="nhsuk-table__cell">No</td>
                                 <td class="nhsuk-table__cell">Not applicable</td>
                                 <td class="nhsuk-table__cell">Not applicable</td>
-                                <td class="nhsuk-table__cell"><a href="#">Edit</a></td>
+                                <td class="nhsuk-table__cell">
+        <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-presentation-attributes?field=vaccine">Edit</a>
+    </td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Small company</td>
@@ -358,7 +362,7 @@
                 </div>
 
                 <!-- Exemptions -->
-                <div id="exemptions">
+                <!-- <div id="exemptions">
                     <h2 class="nhsuk-heading-m">Exemptions</h2>
 
                     <table class="nhsuk-table-responsive" role="table">
@@ -370,10 +374,7 @@
                         </thead>
                         <tbody class="nhsuk-table__body">
 
-                            <tr class="nhsuk-table__row">
-                                <td class="nhsuk-table__cell">Plasma derived medicines product</td>
-                                <td class="nhsuk-table__cell">No</td>
-                            </tr>
+                         
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Small company</td>
                                 <td class="nhsuk-table__cell">Yes</td>
@@ -386,7 +387,7 @@
 
                         </tbody>
                     </table>
-                </div>
+                </div> -->
 
                 <!-- Additional information -->
                 <div id="additional-information">
@@ -400,15 +401,18 @@
                             </tr>
                         </thead>
                         <tbody class="nhsuk-table__body">
-
-                            <tr class="nhsuk-table__row">
+   <tr class="nhsuk-table__row">
+                                <td class="nhsuk-table__cell">Plasma derived medicines product</td>
+                                <td class="nhsuk-table__cell">No</td>
+                            </tr>
+                            <!-- <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Branded Medicine discontinued</td>
                                 <td class="nhsuk-table__cell">No</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Common Drug Reference (CDR) discontinued</td>
                                 <td class="nhsuk-table__cell">Yes</td>
-                            </tr>
+                            </tr> -->
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Prescribed item type (PIT)</td>
                                 <td class="nhsuk-table__cell">Generic Name AMP</td>
@@ -1049,7 +1053,7 @@
                             <tr class="nhsuk-table__row" role="row">
                                 <td class="nhsuk-table__cell" role="cell">
                                     <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Date correct as of
+                                    Data correct as of
                                 </td>
                                 <td class="nhsuk-table__cell" role="cell">
                                     <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
@@ -1911,9 +1915,18 @@
 
         <script>
             // Helper function to convert to lowercase
-            function toLowercase(str) {
-                return str.toLowerCase();
+  // Helper function to convert to lowercase, preserving abbreviations
+function toLowercase(str) {
+    return str
+        .split(/\s+/)
+        .map(word => {
+            if (word === word.toUpperCase() && word.length > 1) {
+                return word;
             }
+            return word.toLowerCase();
+        })
+        .join(' ');
+}
 
             const params = new URLSearchParams(window.location.search);
 
