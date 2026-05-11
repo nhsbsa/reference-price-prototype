@@ -1,0 +1,263 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Uploaded data" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/uploads/index">Uploaded data</a>
+    </li> 
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>View the Virtual Therapeutic Moiety (VTM) originator data</h1>
+
+    
+
+      
+ 
+        <br>
+                <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the data
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                  <p>Filter this table by selecting a column and entering a search term.</p>  <label class="nhsuk-label" for="column-filter-select">
+                        Choose column
+                    </label>
+
+<select class="nhsuk-select" id="sort-by" name="sortBy">
+  <option value="">Choose column</option>
+  <option value="0">Virtual Therapeutic Moiety (VTM)</option>
+  <option value="1">Originator licensee</option>
+  <option value="2">Originator brand</option>
+</select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Enter search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+<button class="nhsuk-button nhsuk-button--secondary" type="button" id="apply-filter">
+  Apply filter
+</button>
+            </div>
+        </details>
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download dataset
+        </button>
+
+        <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">
+        VTM <span class="sort-indicator" aria-hidden="true">⇅</span>
+      </th>
+      <th role="columnheader" aria-sort="none">
+        Originator licensee <span class="sort-indicator" aria-hidden="true">⇅</span>
+      </th>
+      <th role="columnheader" aria-sort="none">
+        Originator brand <span class="sort-indicator" aria-hidden="true">⇅</span>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Febuxostat</td>
+      <td class="nhsuk-table__cell">Menarini</td>
+      <td class="nhsuk-table__cell">Adenuric</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Amlodipine</td>
+      <td class="nhsuk-table__cell">Pfizer</td>
+      <td class="nhsuk-table__cell">Norvasc</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Omeprazole</td>
+      <td class="nhsuk-table__cell">AstraZeneca</td>
+      <td class="nhsuk-table__cell">Losec</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Montelukast</td>
+      <td class="nhsuk-table__cell">Merck Sharp & Dohme</td>
+      <td class="nhsuk-table__cell">Singulair</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Pregabalin</td>
+      <td class="nhsuk-table__cell">Pfizer</td>
+      <td class="nhsuk-table__cell">Lyrica</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Cetirizine</td>
+      <td class="nhsuk-table__cell">UCB</td>
+      <td class="nhsuk-table__cell">Zirtek</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Naproxen</td>
+      <td class="nhsuk-table__cell">Roche</td>
+      <td class="nhsuk-table__cell">Naprosyn</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">Merck Santé</td>
+      <td class="nhsuk-table__cell">Glucophage</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Salmeterol</td>
+      <td class="nhsuk-table__cell">GlaxoSmithKline</td>
+      <td class="nhsuk-table__cell">Serevent</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Levothyroxine</td>
+      <td class="nhsuk-table__cell">Aspen Pharma</td>
+      <td class="nhsuk-table__cell">Eltroxin</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Atorvastatin</td>
+      <td class="nhsuk-table__cell">Pfizer</td>
+      <td class="nhsuk-table__cell">Lipitor</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+
+
+<nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <a href="#" class="nhsuk-pagination__previous" rel="prev">
+    <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+    </svg>
+    <span class="nhsuk-pagination__title">
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+  </a>
+  <ul class="nhsuk-pagination__list">
+    <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item ">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+        4
+      </a>
+    </li>
+    
+  </ul>
+  <a href="#" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+    <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+    </svg>
+  </a>
+</nav>
+
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const filterButton = document.getElementById("apply-filter");
+  const columnSelect = document.getElementById("sort-by");
+  const searchInput = document.getElementById("full-name");
+  const tableRows = document.querySelectorAll(".nhsuk-table__body tr");
+
+  filterButton.addEventListener("click", function () {
+
+    const columnIndex = columnSelect.value;
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    if (columnIndex === "") {
+      alert("Please choose a column to filter.");
+      return;
+    }
+
+    tableRows.forEach(function (row) {
+      const cell = row.children[columnIndex];
+      const cellText = cell.textContent.toLowerCase();
+
+      if (cellText.includes(searchTerm)) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
+
+  });
+
+});
+</script> -->
+{% endblock %}

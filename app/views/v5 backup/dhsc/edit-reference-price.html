@@ -114,25 +114,19 @@ function toLowercase(str) {
         }
     };
 
-
     const params = new URLSearchParams(window.location.search);
     const fieldKey = params.get("field") || "data-correct-as-of";
     const field = fields[fieldKey] || fields["data-correct-as-of"];
 
-    const headingElement = document.getElementById("field-heading");
-    const lowercaseLabel = toLowercase(field.label);
-
-    // If the label contains "adjustment" add the word "status" for the success message
-    const savedLabel = field.label.toLowerCase().includes('adjustment') ? `${lowercaseLabel} status` : field.label;
-
-    // Store field key and the label to use in product-details notification
+    // Store field key for later use in product-details
     sessionStorage.setItem('lastEditedField', fieldKey);
-    sessionStorage.setItem('lastEditedFieldLabel', savedLabel);
+    sessionStorage.setItem('lastEditedFieldLabel', field.label);
 
+   const headingElement = document.getElementById("field-heading");
+    const lowercaseLabel = toLowercase(field.label);
     headingElement.textContent = `Edit ${lowercaseLabel}`;
     
     const container = document.getElementById("field-container");
-
 
     function renderField() {
         if (field.type === "select") {

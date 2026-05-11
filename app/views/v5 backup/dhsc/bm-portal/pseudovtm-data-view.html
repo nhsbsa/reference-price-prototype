@@ -1,0 +1,320 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Pseudo VTMs" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Branded medicines data</a>
+    </li>
+
+
+  </ol>
+
+
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>View the pseudo Virtual Therapeutic Moiety (VTM) dataset</h1>
+
+    <!-- <p>This table contains the latest version of the pseudo VTM dataset.</p> -->
+
+    <!-- <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p> -->
+
+    <br>
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Filter the data
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <div class="nhsuk-form-group">
+          <p>Search for a pseudovtm</p>
+      
+
+        </div>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="full-name">
+            Enter search term
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+        </div>
+
+  <button id="apply-filter" class="nhsuk-button">
+  Apply filter
+</button>
+
+<button id="reset-filter" type="button" class="nhsuk-button nhsuk-button--secondary">
+  Reset filter
+</button>
+      </div>
+    </details>
+    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+      Download dataset
+    </button>
+
+    <div class="large-table-container">
+      <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+        <thead role="rowgroup" class="nhsuk-table__head">
+          <tr role="row">
+            <!-- <th role="columnheader" scope="col" aria-sort="none">VTM ID</th> -->
+            <th role="columnheader" scope="col" aria-sort="none">VTM</th>
+            <th role="columnheader" scope="col" aria-sort="none">Number of ingredients</th>
+            <th role="columnheader" scope="col" aria-sort="none">Number of products</th>
+            <th role="columnheader" scope="col" aria-sort="hidden">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+
+          <tr role="row" class="nhsuk-table__row">
+            <!-- <td class="nhsuk-table__cell">678</td> -->
+            <td class="nhsuk-table__cell">PV899</td>
+                      <td class="nhsuk-table__cell">7</td>
+            <td class="nhsuk-table__cell">6</td>
+            <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+
+          </tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV900</td>
+  <td class="nhsuk-table__cell">12</td>
+  <td class="nhsuk-table__cell">9</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV901</td>
+  <td class="nhsuk-table__cell">5</td>
+  <td class="nhsuk-table__cell">3</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV902</td>
+  <td class="nhsuk-table__cell">18</td>
+  <td class="nhsuk-table__cell">11</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV903</td>
+  <td class="nhsuk-table__cell">9</td>
+  <td class="nhsuk-table__cell">4</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV904</td>
+  <td class="nhsuk-table__cell">14</td>
+  <td class="nhsuk-table__cell">10</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV905</td>
+  <td class="nhsuk-table__cell">3</td>
+  <td class="nhsuk-table__cell">2</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV906</td>
+  <td class="nhsuk-table__cell">20</td>
+  <td class="nhsuk-table__cell">15</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV907</td>
+  <td class="nhsuk-table__cell">11</td>
+  <td class="nhsuk-table__cell">7</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV908</td>
+  <td class="nhsuk-table__cell">6</td>
+  <td class="nhsuk-table__cell">5</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV909</td>
+  <td class="nhsuk-table__cell">17</td>
+  <td class="nhsuk-table__cell">12</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV910</td>
+  <td class="nhsuk-table__cell">8</td>
+  <td class="nhsuk-table__cell">6</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV911</td>
+  <td class="nhsuk-table__cell">13</td>
+  <td class="nhsuk-table__cell">9</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV912</td>
+  <td class="nhsuk-table__cell">4</td>
+  <td class="nhsuk-table__cell">2</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td class="nhsuk-table__cell">PV913</td>
+  <td class="nhsuk-table__cell">16</td>
+  <td class="nhsuk-table__cell">11</td>
+  <td class="nhsuk-table__cell"><a href="/v5/dhsc/bm-portal/pseudovtm-single">View</a></td>
+</tr>
+        </tbody>
+
+
+
+
+      </table>
+    </div>
+
+
+<nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <a href="#" class="nhsuk-pagination__previous" rel="prev">
+    <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+    </svg>
+    <span class="nhsuk-pagination__title">
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+  </a>
+  <ul class="nhsuk-pagination__list">
+    <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item ">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+        4
+      </a>
+    </li>
+    
+  </ul>
+  <a href="#" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+    <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+    </svg>
+  </a>
+</nav>
+
+
+
+
+    <!-- End of content -->
+
+  </div>
+</div>
+
+<script>
+  const applyBtn = document.getElementById("apply-filter");
+  const resetBtn = document.getElementById("reset-filter");
+  const searchInput = document.getElementById("full-name");
+  const rows = document.querySelectorAll("tbody tr");
+  const pagination = document.querySelector(".nhsuk-pagination");
+
+  function setPaginationVisible(visible) {
+    if (pagination) {
+      pagination.style.display = visible ? "" : "none";
+    }
+  }
+
+  function applyFilter() {
+    const searchValue = searchInput.value.trim().toLowerCase();
+    const filterActive = searchValue !== "";
+
+    setPaginationVisible(!filterActive);
+
+    if (!filterActive) {
+      rows.forEach(row => row.style.display = "");
+      return;
+    }
+
+    rows.forEach(row => {
+      const cell = row.cells[0]; // VTM name column
+
+      if (!cell) return;
+
+      const text = cell.textContent.toLowerCase();
+      row.style.display = text.includes(searchValue) ? "" : "none";
+    });
+  }
+
+  function resetFilter() {
+    searchInput.value = "";
+    rows.forEach(row => row.style.display = "");
+    setPaginationVisible(true);
+  }
+
+  applyBtn.addEventListener("click", applyFilter);
+  resetBtn.addEventListener("click", resetFilter);
+
+  // Optional: press Enter to filter
+  searchInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      applyFilter();
+    }
+  });
+</script>
+{% endblock %}

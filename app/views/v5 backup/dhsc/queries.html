@@ -1,0 +1,253 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Queries Home" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+     <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/queries">View queries</a>
+    </li>
+   <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/query-details">Query details</a>
+    </li>  -->
+    
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>View all queries</h1>
+
+
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter queries
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                  <p>Filter this table by selecting a column and entering a search term.</p>  <label class="nhsuk-label" for="column-filter-select">
+                        Choose column
+                    </label>
+
+                    <select class="nhsuk-select" id="column-filter-select" name="column-filter-select">
+                         <option value=" " selected>Choose column</option>
+                         <option value="companyName">Query ID</option>
+                        <option value="snomedCode">Company</option>
+                        <option value="presentationName">Query type</option>
+                        <option value="currentMaxPrice">Date</option>
+                        <option value="vmpName">Status</option>
+                        <option value="vtmName">Action</option>
+                       
+                    </select>
+                </div>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="full-name">
+                        Enter search term
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+                <button class="nhsuk-button nhsuk-button--secondary" >
+Apply filter
+                </button>
+            </div>
+        </details>
+
+        <div class="large-table-container">
+            <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+              
+
+                <thead role="rowgroup" class="nhsuk-table__head">
+                    <tr role="row">
+                        <th role="columnheader" aria-sort="none">Query ID<span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Company<span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Query type<span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Date <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Status <span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                        <th role="columnheader" aria-sort="none">Action<span class="sort-indicator"
+                                aria-hidden="true">⇅</span></th>
+                    </tr>
+                </thead>
+
+                <tbody class="nhsuk-table__body">
+                    <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">Q13455</td>
+                        <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
+                        <td class="nhsuk-table__cell">Data query</td>
+                        <td class="nhsuk-table__cell">19/11/2025</td>
+                        <td class="nhsuk-table__cell">Active</td>
+                         <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+                    </tr>
+
+                       <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">Q15455</td>
+                        <td class="nhsuk-table__cell">AAH Medical</td>
+                        <td class="nhsuk-table__cell">Policy query</td>
+                        <td class="nhsuk-table__cell">18/11/2025</td>
+                        <td class="nhsuk-table__cell">Active</td>
+                        <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+                    </tr>
+
+                     <tr role="row" class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">Q00047</td>
+                        <td class="nhsuk-table__cell">Philosophy Medical</td>
+                        <td class="nhsuk-table__cell">Data query</td>
+                        <td class="nhsuk-table__cell">18/07/2025</td>
+                        <td class="nhsuk-table__cell">Inactive</td>
+                        <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+                        <tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Q23891</td>
+    <td class="nhsuk-table__cell">Alliance Healthcare</td>
+    <td class="nhsuk-table__cell">Data query</td>
+    <td class="nhsuk-table__cell">17/11/2025</td>
+    <td class="nhsuk-table__cell">Active</td>
+    <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Q76421</td>
+    <td class="nhsuk-table__cell">Crescent Pharma Ltd</td>
+    <td class="nhsuk-table__cell">Compliance query</td>
+    <td class="nhsuk-table__cell">12/11/2025</td>
+    <td class="nhsuk-table__cell">Awaiting response</td>
+    <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Q88910</td>
+    <td class="nhsuk-table__cell">Tillomed Laboratories</td>
+    <td class="nhsuk-table__cell">Policy query</td>
+    <td class="nhsuk-table__cell">05/10/2025</td>
+    <td class="nhsuk-table__cell">Active</td>
+    <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Q55742</td>
+    <td class="nhsuk-table__cell">Dexcel Pharma</td>
+    <td class="nhsuk-table__cell">Pricing query</td>
+    <td class="nhsuk-table__cell">27/09/2025</td>
+    <td class="nhsuk-table__cell">Closed</td>
+    <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Q44931</td>
+    <td class="nhsuk-table__cell">Kent Pharma</td>
+    <td class="nhsuk-table__cell">Data query</td>
+    <td class="nhsuk-table__cell">03/09/2025</td>
+    <td class="nhsuk-table__cell">Inactive</td>
+    <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+    <td class="nhsuk-table__cell">Q99214</td>
+    <td class="nhsuk-table__cell">Wockhardt UK</td>
+    <td class="nhsuk-table__cell">Compliance query</td>
+    <td class="nhsuk-table__cell">22/08/2025</td>
+    <td class="nhsuk-table__cell">Active</td>
+    <td class="nhsuk-table__cell"><a href="/v5/dhsc/query-details">View</a></td>
+</tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+<nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <a href="#" class="nhsuk-pagination__previous" rel="prev">
+    <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+    </svg>
+    <span class="nhsuk-pagination__title">
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+  </a>
+  <ul class="nhsuk-pagination__list">
+    <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item ">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+        4
+      </a>
+    </li>
+    
+  </ul>
+  <a href="#" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+    <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+    </svg>
+  </a>
+</nav>
+
+
+
+       
+        <!-- End of content -->
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

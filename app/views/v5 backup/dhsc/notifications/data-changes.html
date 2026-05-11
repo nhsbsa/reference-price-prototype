@@ -1,0 +1,314 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Data changes Page" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+      <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/notifications">Notifications</a>
+    </li>
+   <!--<li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/uploads/index">Uploaded data</a>
+    </li>  -->
+  </ol>
+<!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+<h1>View all data update notifications</h1>
+     <p>This data was last updated on <span id="date"></span> at <span id="time"></span></p>
+        <p>
+  View and resolve individual notifications or select multiple notifications and mark them as resolved using this page.
+        </p>
+
+    <a href="/v5/dhsc/notifications/all-empty" class="nhsuk-button ">
+            Mark as resolved
+        </a>
+
+<div class="large-table-container">
+  <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+
+    <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">
+      Change history audit table
+    </caption>
+
+    <thead role="rowgroup" class="nhsuk-table__head">
+      <tr role="row">
+        <th role="columnheader" scope="col">
+          <span class="nhsuk-u-visually-hidden">Select row</span>
+        </th>
+        <th role="columnheader" scope="col" aria-sort="none">
+          Source <span class="sort-indicator" aria-hidden="true">⇅</span>
+        </th>
+        <th role="columnheader" scope="col" aria-sort="none">
+          Date <span class="sort-indicator" aria-hidden="true">⇅</span>
+        </th>
+        <th role="columnheader" scope="col" aria-sort="none">
+          Updated column <span class="sort-indicator" aria-hidden="true">⇅</span>
+        </th>
+        <th role="columnheader" scope="col" aria-sort="none">
+          Previous value <span class="sort-indicator" aria-hidden="true">⇅</span>
+        </th>
+        <th role="columnheader" scope="col" aria-sort="none">
+          Updated value <span class="sort-indicator" aria-hidden="true">⇅</span>
+        </th>
+        <th role="columnheader" scope="col" aria-sort="none">
+          Action <span class="sort-indicator" aria-hidden="true">⇅</span>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody class="nhsuk-table__body">
+      <tr role="row" class="nhsuk-table__row">
+        <td role="cell" class="nhsuk-table__cell">
+            <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="care home">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+         
+        </label>
+      </div>
+        </td>
+        <td role="cell" class="nhsuk-table__cell">CDR database</td>
+        <td role="cell" class="nhsuk-table__cell">10/10/2025</td>
+        <td role="cell" class="nhsuk-table__cell">Supplier</td>
+        <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
+        <td role="cell" class="nhsuk-table__cell">AAH Medicals</td>
+        <td role="cell" class="nhsuk-table__cell">
+          <a href="/v5/dhsc/notifications/details" class="nhsuk-link">View and resolve</a>
+        </td>
+      </tr>
+      <tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox" value="row3">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-3"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">11/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Brighton Pharma</td>
+  <td role="cell" class="nhsuk-table__cell">MediSupply Ltd</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-4" name="example" type="checkbox" value="row4">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-4"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">12/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Wellness Pharma</td>
+  <td role="cell" class="nhsuk-table__cell">HealthFirst</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-5" name="example" type="checkbox" value="row5">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-5"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">13/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">GreenMed Ltd</td>
+  <td role="cell" class="nhsuk-table__cell">PharmaDirect</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-6" name="example" type="checkbox" value="row6">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-6"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">14/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Sunrise Pharma</td>
+  <td role="cell" class="nhsuk-table__cell">MediTrust</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-7" name="example" type="checkbox" value="row7">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-7"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">15/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Northern Meds</td>
+  <td role="cell" class="nhsuk-table__cell">CarePlus</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-8" name="example" type="checkbox" value="row8">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-8"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">16/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">EastMed Supplies</td>
+  <td role="cell" class="nhsuk-table__cell">PharmaLink</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-9" name="example" type="checkbox" value="row9">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-9"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">17/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Westside Pharma</td>
+  <td role="cell" class="nhsuk-table__cell">MediCorp</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-10" name="example" type="checkbox" value="row10">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-10"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">18/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Central Health Ltd</td>
+  <td role="cell" class="nhsuk-table__cell">MediPlus</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-11" name="example" type="checkbox" value="row11">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-11"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">19/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">NorthCare Pharma</td>
+  <td role="cell" class="nhsuk-table__cell">HealthMeds</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+<tr role="row" class="nhsuk-table__row">
+  <td role="cell" class="nhsuk-table__cell">
+    <div class="nhsuk-checkboxes__item">
+      <input class="nhsuk-checkboxes__input" id="example-12" name="example" type="checkbox" value="row12">
+      <label class="nhsuk-label nhsuk-checkboxes__label" for="example-12"></label>
+    </div>
+  </td>
+  <td role="cell" class="nhsuk-table__cell">CDR database</td>
+  <td role="cell" class="nhsuk-table__cell">20/10/2025</td>
+  <td role="cell" class="nhsuk-table__cell">Supplier</td>
+  <td role="cell" class="nhsuk-table__cell">Southern Med Ltd</td>
+  <td role="cell" class="nhsuk-table__cell">CareMed</td>
+  <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link">View and resolve</a></td>
+</tr>
+
+    </tbody>
+
+  </table>
+</div>
+<nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <a href="#" class="nhsuk-pagination__previous" rel="prev">
+    <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+    </svg>
+    <span class="nhsuk-pagination__title">
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+  </a>
+  <ul class="nhsuk-pagination__list">
+    <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item ">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+        4
+      </a>
+    </li>
+    
+  </ul>
+  <a href="#" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+    <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+    </svg>
+  </a>
+</nav>
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,581 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Dictionary of Medicines + Devices" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/dmd-data">Common drug reference data</a>
+    </li>
+  </ol>
+  <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1>View the Common Drug Reference dataset</h1>
+
+    <!-- <p>This table contains the latest version of Common Drug Reference (CDR) dataset. This includes data from the NHS
+      Dictionary of medicines and devices (dm+d).</p> -->
+
+
+    <p>You can filter this dataset or <a href="/v5/dhsc/product-details" class="nhsuk-link">search for a product</a>.</p>
+
+    <br>
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Filter the data in this table
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <div class="nhsuk-form-group">
+          <p>Filter this table by selecting a column and entering a search term.</p> 
+          <label class="nhsuk-label"
+            for="column-filter-select">
+            Choose column
+          </label>
+
+
+         <select class="nhsuk-select" id="sort-by" name="sortBy">
+  <option value="" selected disabled>Choose column</option>
+
+  <option value="AMPP">Actual Medicinal Product Pack (AMPP)</option>
+  <option value="AMPP_SNOMED_CODE">AMPP SNOMED code</option>
+  <option value="VTM">Virtual Therapeutic Moiety (VTM)</option>
+  <option value="PACK_SIZE">Pack size</option>
+  <option value="AMP">Actual Medicinal Product (AMP)</option>
+  <option value="ATC">Anatomical Therapeutic Chemical (ATC) code</option>
+  <option value="VMP">Virtual Medicinal Product (VMP)</option>
+  <option value="VMPP">Virtual Medicinal Product Pack (VMPP)</option>
+  <option value="AMP_DUP">Actual Medicinal Product (AMP)</option>
+  <option value="COMPANY_NAME">Company name</option>
+  <option value="COMPANY_CODE">Company code</option>
+  <option value="FORM">Form</option>
+  <option value="UNIT_DOSE">Unit dose</option>
+  <option value="STRENGTH">Strength</option>
+  <option value="PRICE">Latest list price</option>
+  <option value="PRICE_DATE">List price start date</option>
+  <option value="DISCONTINUED">Discontinued</option>
+  <option value="DISCONTINUED_DATE">Discontinued start date</option>
+  <option value="BNF_CODE">BNF code</option>
+  <option value="BNF_CHAPTER">BNF chapter</option>
+  <option value="COMBINATION_PACK">Combination pack</option>
+
+</select>
+        </div>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="search-term">
+            Enter search term
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
+        </div>
+
+        <button id="apply-filter" class="nhsuk-button ">
+          Apply filter
+        </button>
+
+     <button id="reset-filter" type="button" class="nhsuk-button nhsuk-button--secondary">
+  Reset filter
+</button>
+      </div>
+    </details>
+
+    <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
+ metformin 
+  <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
+</strong>
+
+    <!-- <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
+1328111000001105 
+  <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
+</strong> -->
+
+
+<br>
+
+<br>
+    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+      Download dataset
+    </button>
+<p>Use the horizontal scroll bar at the bottom of the table to view all the columns.</p>
+
+
+<p id="results-message" >
+  There are <strong>30</strong> results for the search term: 'metformin' in 'VTM'
+</p>
+    <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead>
+    <tr>
+      <th>AMPP</th>
+      <th>AMPP SNOMED CODE</th>
+      <th>VTM</th>
+      <th>PACK SIZE</th>
+      <th>AMP</th>
+      <th>ATC</th>
+      <th>VMP</th>
+      <th>VMPP</th>
+      <th>AMP</th>
+      <th>Company name</th>
+      <th>Company code</th>
+      <th>Form</th>
+      <th>Unit dose</th>
+      <th>Strength</th>
+      <th>Latest List Price</th>
+      <th>List Price Start date</th>
+      <th>Discontinued</th>
+      <th>Discontinued Start date</th>
+      <th>BNF Code</th>
+      <th>BNF Chapter</th>
+      <th>Combination pack</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <!-- All rows SAME VMP, varied AMPs + pack sizes -->
+
+    <tr>
+      <td><a href="product-details">Metformin 1g MR tablets 28 (Teva)</a></td>
+      <td>610001</td>
+      <td>Metformin</td>
+      <td>28</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>28 tablet pack</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>Teva UK Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£2.10</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details">Metformin 1g MR tablets 28 (Accord)</a></td>
+      <td>610002</td>
+      <td>Metformin</td>
+      <td>28</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>28 tablet pack</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>Accord Healthcare Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£2.05</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610003">Metformin 1g MR tablets 56 (Sandoz)</a></td>
+      <td>610003</td>
+      <td>Metformin</td>
+      <td>56</td>
+      <td>Metformin 1g MR tablets (Sandoz)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>56 tablet pack</td>
+      <td>Metformin 1g MR tablets (Sandoz)</td>
+      <td>Sandoz Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£3.40</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details">Metformin 1g MR tablets 56 (Mylan)</a></td>
+      <td>610004</td>
+      <td>Metformin</td>
+      <td>56</td>
+      <td>Metformin 1g MR tablets (Mylan)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>56 tablet pack</td>
+      <td>Metformin 1g MR tablets (Mylan)</td>
+      <td>Mylan Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£3.30</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610005">Metformin 1g MR tablets 84 (Teva)</a></td>
+      <td>610005</td>
+      <td>Metformin</td>
+      <td>84</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>84 tablet pack</td>
+      <td>Metformin 1g MR tablets (Teva)</td>
+      <td>Teva UK Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£4.80</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610006">Metformin 1g MR tablets 84 (Zentiva)</a></td>
+      <td>610006</td>
+      <td>Metformin</td>
+      <td>84</td>
+      <td>Metformin 1g MR tablets (Zentiva)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>84 tablet pack</td>
+      <td>Metformin 1g MR tablets (Zentiva)</td>
+      <td>Zentiva Pharma UK</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£4.60</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610007">Metformin 1g MR tablets 100 (Accord)</a></td>
+      <td>610007</td>
+      <td>Metformin</td>
+      <td>100</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>100 tablet pack</td>
+      <td>Metformin 1g MR tablets (Accord)</td>
+      <td>Accord Healthcare Ltd</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.20</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610008">Metformin 1g MR tablets 100 (Sun Pharma)</a></td>
+      <td>610008</td>
+      <td>Metformin</td>
+      <td>100</td>
+      <td>Metformin 1g MR tablets (Sun Pharma)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>100 tablet pack</td>
+      <td>Metformin 1g MR tablets (Sun Pharma)</td>
+      <td>Sun Pharmaceutical Industries</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.10</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <!-- continue to 15 -->
+
+    <tr>
+      <td><a href="product-details.html?ampp=610009">Metformin 1g MR tablets 112 (Lupin)</a></td>
+      <td>610009</td>
+      <td>Metformin</td>
+      <td>112</td>
+      <td>Metformin 1g MR tablets (Lupin)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>112 tablet pack</td>
+      <td>Metformin 1g MR tablets (Lupin)</td>
+      <td>Lupin Healthcare</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.80</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610010">Metformin 1g MR tablets 112 (Dr Reddy’s)</a></td>
+      <td>610010</td>
+      <td>Metformin</td>
+      <td>112</td>
+      <td>Metformin 1g MR tablets (Dr Reddy’s)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>112 tablet pack</td>
+      <td>Metformin 1g MR tablets (Dr Reddy’s)</td>
+      <td>Dr Reddy's Laboratories</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£5.70</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610011">Metformin 1g MR tablets 120 (Torrent)</a></td>
+      <td>610011</td>
+      <td>Metformin</td>
+      <td>120</td>
+      <td>Metformin 1g MR tablets (Torrent)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>120 tablet pack</td>
+      <td>Metformin 1g MR tablets (Torrent)</td>
+      <td>Torrent Pharma UK</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£6.20</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+    <tr>
+      <td><a href="product-details.html?ampp=610012">Metformin 1g MR tablets 120 (Glenmark)</a></td>
+      <td>610012</td>
+      <td>Metformin</td>
+      <td>120</td>
+      <td>Metformin 1g MR tablets (Glenmark)</td>
+      <td>A10BA02</td>
+      <td>Metformin 1 g modified-release tablets</td>
+      <td>120 tablet pack</td>
+      <td>Metformin 1g MR tablets (Glenmark)</td>
+      <td>Glenmark Pharmaceuticals</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>Modified-release tablet</td>
+      <td>tablet</td>
+      <td>1000 mg</td>
+      <td>£6.10</td>
+      <td>01/01/2025</td>
+      <td>No</td>
+      <td><div class="nhsuk-hint">No data available</div></td>
+      <td>0601022</td>
+      <td>06010200</td>
+      <td>No</td>
+    </tr>
+
+  </tbody>
+</table>
+    </div>
+
+
+
+
+
+<nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <a href="#" class="nhsuk-pagination__previous" rel="prev">
+    <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+    </svg>
+    <span class="nhsuk-pagination__title">
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+  </a>
+  <ul class="nhsuk-pagination__list">
+    <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item ">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+        4
+      </a>
+    </li>
+    
+  </ul>
+  <a href="#" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+    <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+    </svg>
+  </a>
+</nav>
+
+
+
+
+
+    <!-- End of content -->
+
+  </div>
+
+
+</div>
+
+<script>
+  const applyBtn = document.getElementById("apply-filter");
+  const resetBtn = document.getElementById("reset-filter");
+  const columnSelect = document.getElementById("sort-by");
+  const searchInput = document.getElementById("search-term");
+  const pagination = document.querySelector(".nhsuk-pagination");
+  const rows = document.querySelectorAll("tbody tr");
+
+  function showAllRows() {
+    rows.forEach(row => {
+      row.style.display = "";
+    });
+  }
+
+  function setPaginationVisible(visible) {
+    if (pagination) {
+      pagination.style.display = visible ? "" : "none";
+    }
+  }
+
+  function applyFilter() {
+    const columnIndex = columnSelect.selectedIndex - 1;
+    const searchValue = searchInput.value.trim().toLowerCase();
+
+    const filterActive = columnIndex >= 0 && searchValue !== "";
+    setPaginationVisible(!filterActive);
+
+    if (!filterActive) {
+      showAllRows();
+      return;
+    }
+
+    rows.forEach(row => {
+      const cell = row.cells[columnIndex];
+      if (!cell) {
+        row.style.display = "";
+        return;
+      }
+
+      const text = cell.textContent.toLowerCase();
+      row.style.display = text.includes(searchValue) ? "" : "none";
+    });
+  }
+
+  function resetFilter() {
+    columnSelect.selectedIndex = 0;
+    searchInput.value = "";
+    showAllRows();
+    setPaginationVisible(true);
+  }
+
+  applyBtn.addEventListener("click", applyFilter);
+  resetBtn.addEventListener("click", resetFilter);
+</script>
+{% endblock %}

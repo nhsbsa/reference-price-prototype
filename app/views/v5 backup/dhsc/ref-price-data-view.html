@@ -1,0 +1,481 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Reference Price Dataset" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Reference price dataset</a>
+        </li>
+        <!-- <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
+    </li>  -->
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>View reference price dataset</h1>
+       
+         
+
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter the data in this table
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <div class="nhsuk-form-group">
+                  <p>Filter this table by selecting a column and entering a search term.</p>  <label class="nhsuk-label" for="column-filter-select">
+                        Choose column
+                    </label>
+
+              <select class="nhsuk-select" id="column-filter-select" name="column-filter-select">
+            <option value="0">Company name</option>
+            <option value="1">AMPP SNOMED code</option>
+            <option value="2">AMPP</option>
+            <option value="3">VTM</option>
+            <option value="4">Originator classification</option>
+            <option value="5">Medicine classification</option>
+            <option value="6">Date recategorised as older medicine</option>
+      
+          </select>
+                </div>
+                <div class="nhsuk-form-group">
+               <label class="nhsuk-label" for="full-name">
+                        Enter a search term of 3 characters or more
+                    </label>
+                    <div class="nhsuk-hint">If searching for:
+                      <ul>
+                        <li>date - enter year only, for example 2024</li>
+                        <li>VTMs - separate each substance with a comma</li>
+                        <li>medicine classification - enter newer or older</li>
+                      </ul>
+                    </div>
+                    <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
+                </div>
+
+<button id="apply-filter" type="button" class="nhsuk-button">
+  Apply filter
+</button>
+
+<button id="reset-filter" type="button" class="nhsuk-button nhsuk-button--secondary">
+  Reset filter
+</button>
+
+            </div>
+        </details>
+
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download full dataset
+        </button>
+
+<p id="results-message" >
+  Showing all reference price data
+</p>
+<p>Use the horizontal scroll bar at the bottom of the table to view all the columns.</p>
+<br>
+        <div class="large-table-container">
+<table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
+  <thead role="rowgroup" class="nhsuk-table__head">
+    <tr role="row">
+      <th role="columnheader" aria-sort="none">Company name <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">AMPP SNOMED code <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">AMPP <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Originator classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Medicine classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Date recategorised as older medicine <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Reference price <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+    </tr>
+  </thead>
+
+  <tbody class="nhsuk-table__body">
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Tillomed Laboratories Ltd</td>
+      <td class="nhsuk-table__cell">38900411000001105</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/febuxostat-120mg-tablets-28">
+          Febuxostat 120mg tablets (Tillomed) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Febuxostat</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">24/10/2023</td>
+      <td class="nhsuk-table__cell">£21.92</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Amarox Ltd</td>
+      <td class="nhsuk-table__cell">45278211000001106</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/amlodipine-5mg-tablets-28">
+          Amlodipine 5mg tablets (Amarox) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Amlodipine</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">23/06/2025</td>
+      <td class="nhsuk-table__cell">£1.15</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Crescent Pharma Ltd</td>
+      <td class="nhsuk-table__cell">30542311000001109</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/amlodipine-10mg-tablets-28">
+          Amlodipine 10mg tablets (Crescent) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Amlodipine</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/02/2024</td>
+      <td class="nhsuk-table__cell">£1.48</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Wockhardt UK Ltd</td>
+      <td class="nhsuk-table__cell">27719111000001104</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/ramipril-10mg-capsules-28">
+          Ramipril 10mg capsules (Wockhardt) 28 capsules
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Ramipril</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">15/01/2022</td>
+      <td class="nhsuk-table__cell">£1.62</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Sandoz Ltd</td>
+      <td class="nhsuk-table__cell">25987111000001103</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/omeprazole-20mg-capsules-56">
+          Omeprazole 20mg capsules (Sandoz) 56 capsules
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Omeprazole</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/04/2021</td>
+      <td class="nhsuk-table__cell">£2.97</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Accord Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">31590011000001108</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/sertraline-50mg-tablets-28">
+          Sertraline 50mg tablets (Accord) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Sertraline</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">10/06/2022</td>
+      <td class="nhsuk-table__cell">£1.32</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Teva UK Ltd</td>
+      <td class="nhsuk-table__cell">34177811000001107</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/losartan-50mg-tablets-28">
+          Losartan 50mg tablets (Teva) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Losartan</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/09/2022</td>
+      <td class="nhsuk-table__cell">£1.68</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Pfizer Ltd</td>
+      <td class="nhsuk-table__cell">22869011000001109</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/atorvastatin-20mg-tablets-28">
+          Atorvastatin 20mg tablets (Pfizer) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Atorvastatin</td>
+      <td class="nhsuk-table__cell">Originator</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/07/2020</td>
+      <td class="nhsuk-table__cell">£1.85</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">AstraZeneca UK Ltd</td>
+      <td class="nhsuk-table__cell">19874611000001102</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/metformin-500mg-tablets-56">
+          Metformin 500mg tablets (AstraZeneca) 56 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">Originator</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/01/2019</td>
+      <td class="nhsuk-table__cell">£0.98</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">New entrants UK Ltd</td>
+      <td class="nhsuk-table__cell">36100211000001104</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/clopidogrel-75mg-tablets-28">
+          Clopidogrel 75mg tablets (New entrants UK) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Clopidogrel</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/03/2021</td>
+      <td class="nhsuk-table__cell">£2.14</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Zentiva UK Ltd</td>
+      <td class="nhsuk-table__cell">37461511000001101</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/bisoprolol-5mg-tablets-28">
+          Bisoprolol 5mg tablets (Zentiva) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Bisoprolol</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/06/2021</td>
+      <td class="nhsuk-table__cell">£1.05</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Mylan UK Healthcare Ltd</td>
+      <td class="nhsuk-table__cell">39011811000001100</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/furosemide-40mg-tablets-28">
+          Furosemide 40mg tablets (Mylan) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Furosemide</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/11/2020</td>
+      <td class="nhsuk-table__cell">£0.92</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Waymade Healthcare Plc</td>
+      <td class="nhsuk-table__cell">40271611000001103</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/levothyroxine-100mcg-tablets-28">
+          Levothyroxine 100 microgram tablets (Waymade) 28 tablets
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Levothyroxine</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/05/2021</td>
+      <td class="nhsuk-table__cell">£1.10</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Brown & Burk UK Ltd</td>
+      <td class="nhsuk-table__cell">41790211000001106</td>
+      <td class="nhsuk-table__cell">
+        <a href="/v5/dhsc/ref-price-data/ampp/gabapentin-300mg-capsules-100">
+          Gabapentin 300mg capsules (Brown & Burk) 100 capsules
+        </a>
+      </td>
+      <td class="nhsuk-table__cell">Gabapentin</td>
+      <td class="nhsuk-table__cell">New entrant</td>
+      <td class="nhsuk-table__cell">Older medicine</td>
+      <td class="nhsuk-table__cell">01/08/2022</td>
+      <td class="nhsuk-table__cell">£6.45</td>
+    </tr>
+
+  </tbody>
+</table>
+        </div>
+
+
+
+
+
+<nav class="nhsuk-pagination nhsuk-pagination--numbered" role="navigation" aria-label="Pagination" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <a href="#" class="nhsuk-pagination__previous" rel="prev">
+    <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z" />
+    </svg>
+    <span class="nhsuk-pagination__title">
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+  </a>
+  <ul class="nhsuk-pagination__list">
+    <li class="nhsuk-pagination__item nhsuk-pagination__item--current">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+    <li class="nhsuk-pagination__item ">
+      <a class="nhsuk-pagination__link" href="#" aria-label="Page 4" aria-current="page">
+        4
+      </a>
+    </li>
+    
+  </ul>
+  <a href="#" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    </span>
+    <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
+    </svg>
+  </a>
+</nav>
+
+
+
+
+        <!-- End of content -->
+
+
+    </div>
+
+
+</div>
+<script>
+  (function () {
+    const table = document.querySelector('table.nhsuk-table-responsive');
+    if (!table) return;
+
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    const columnSelect = document.getElementById('column-filter-select');
+    const searchInput = document.getElementById('full-name');
+    const applyButton = document.getElementById('apply-filter');
+    const resetButton = document.getElementById('reset-filter');
+    const resultsMessage = document.getElementById('results-message');
+
+    const totalRows = rows.length;
+
+    function applyFilter() {
+      const columnIndex = Number(columnSelect.value);
+      const columnName =
+        columnSelect.options[columnSelect.selectedIndex].text;
+      const searchTerm = searchInput.value.trim().toLowerCase();
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const cell = cells[columnIndex];
+
+        if (!cell) {
+          row.style.display = '';
+          visibleCount++;
+          return;
+        }
+
+        const cellText = cell.textContent.toLowerCase();
+        const isMatch =
+          searchTerm === '' || cellText.includes(searchTerm);
+
+        row.style.display = isMatch ? '' : 'none';
+
+        if (isMatch) visibleCount++;
+      });
+
+      updateResultsMessage(visibleCount, searchTerm, columnName);
+    }
+
+    function updateResultsMessage(count, term, column) {
+      if (!term) {
+        resultsMessage.textContent =
+          'Showing all reference price data';
+        return;
+      }
+
+      resultsMessage.textContent =
+        `There ${count === 1 ? 'is' : 'are'} ${count} result${
+          count === 1 ? '' : 's'
+        } for the search term: "${term}" in "${column}"`;
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      columnSelect.selectedIndex = 0;
+
+      rows.forEach(row => (row.style.display = ''));
+
+      resultsMessage.textContent =
+        'Showing all reference price data';
+    }
+
+    applyButton.addEventListener('click', applyFilter);
+    resetButton.addEventListener('click', resetFilters);
+
+    // Allow Enter key to apply filter
+    searchInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        applyFilter();
+      }
+    });
+  })();
+</script>
+{% endblock %}
