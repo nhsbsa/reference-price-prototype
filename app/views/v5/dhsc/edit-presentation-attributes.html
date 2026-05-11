@@ -109,10 +109,11 @@ function toLowercase(str) {
 
     container.innerHTML = renderInput();
 
-    document.getElementById("edit-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        window.location.href = "/v5/dhsc/product-details?saved=true";
-    });
+document.getElementById("edit-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const activeTab = sessionStorage.getItem('activeTab') || '#product-information';
+    window.location.href = "/v5/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
+});
 }());
 </script>
 
