@@ -61,7 +61,7 @@ function toLowercase(str) {
 (function () {
     const fields = {
         "date-categorised-as-older-medicine": {
-            label: "Date categorised as older medicine",
+            label: "Date presentation becomes an older medicine",
             type: "date",
             value: "2009-10-12"
         },
@@ -74,8 +74,8 @@ function toLowercase(str) {
         "originator-status": {
             label: "Originator status",
             type: "select",
-            options: ["Originator", "New entrant"],
-            value: "New entrant"
+            options: ["Originator", "Newer entrant", "Unclassified"],
+            value: "Newer entrant"
         },
         "reference-anchor-date": {
             label: "Reference anchor date",
