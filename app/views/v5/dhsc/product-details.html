@@ -106,6 +106,7 @@
                     </a>
                 </li> -->
             </ul>
+
             <div class="nhsuk-tabs__panel" id="product-information">
 
 
@@ -437,6 +438,7 @@
                 </div>
 
             </div>
+
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="pricing-information">
                 <!--List price-->
                 <div id="list-price">
@@ -568,6 +570,7 @@
 
 
             </div>
+
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="sales-information">
                 <!--Sales information-->
                 <div id="sales-info">
@@ -1057,6 +1060,7 @@
                     </table>
                 </div>
             </div>
+
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ref-price-information">
                 <div id="ref-price-info">
                     <h2 class="nhsuk-heading-m">
@@ -1842,6 +1846,7 @@
     const initialParams = new URLSearchParams(window.location.search);
     const wasSaved = initialParams.get('saved') === 'true';
     const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
+    const initialHash = window.location.hash;
 
     if (wasSaved) {
         const banner = document.getElementById('success-banner');
@@ -1854,6 +1859,15 @@
             banner.style.display = 'block';
         }
     }
+
+  else if (initialHash) {
+    const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
+    if (tabLink) {
+        setTimeout(function () {
+            tabLink.click();
+        }, 200);
+    }
+}
 
     // Remove querystring from the URL now that we've captured values
     window.history.replaceState({}, document.title, window.location.pathname);
