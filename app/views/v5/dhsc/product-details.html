@@ -236,7 +236,7 @@
                                 <td class="nhsuk-table__cell">Not applicable</td>
                                 <td class="nhsuk-table__cell">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-presentation-attributes?field=vaccine">Edit</a>
+                                        href=""> </a>
                                 </td>
                             </tr>
                             <tr class="nhsuk-table__row">
@@ -1860,28 +1860,23 @@
             }
 
     // Capture the original query parameters once (before we replaceState)
-    const initialParams = new URLSearchParams(window.location.search);
-    const wasSaved = initialParams.get('saved') === 'true';
-    const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
-    const initialHash = window.location.hash;
-            // Capture the original query parameters once (before we replaceState)
-            const initialParams = new URLSearchParams(window.location.search);
-            const wasSaved = initialParams.get('saved') === 'true';
-            const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
+// Capture the original query parameters once (before we replaceState)
+const initialParams = new URLSearchParams(window.location.search);
+const wasSaved = initialParams.get('saved') === 'true';
+const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
+const initialHash = window.location.hash;
 
-            if (wasSaved) {
-                const banner = document.getElementById('success-banner');
-                const bannerMessage = document.getElementById('banner-message');
+if (wasSaved) {
+    const banner = document.getElementById('success-banner');
+    const bannerMessage = document.getElementById('banner-message');
 
-        if (banner) {
-            const fieldLabel = sessionStorage.getItem('lastEditedFieldLabel') || 'field';
-            const lowercaseLabel = toLowercase(fieldLabel);
-            bannerMessage.textContent = `The ${lowercaseLabel} has been updated`;
-            banner.style.display = 'block';
-        }
+    if (banner) {
+        const fieldLabel = sessionStorage.getItem('lastEditedFieldLabel') || 'field';
+        const lowercaseLabel = toLowercase(fieldLabel);
+        bannerMessage.textContent = `The ${lowercaseLabel} has been updated`;
+        banner.style.display = 'block';
     }
-
-  else if (initialHash) {
+} else if (initialHash) {
     const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
     if (tabLink) {
         setTimeout(function () {
@@ -1889,13 +1884,6 @@
         }, 200);
     }
 }
-                if (banner) {
-                    const fieldLabel = sessionStorage.getItem('lastEditedFieldLabel') || 'field';
-                    const lowercaseLabel = toLowercase(fieldLabel);
-                    bannerMessage.textContent = `The ${lowercaseLabel} has been updated`;
-                    banner.style.display = 'block';
-                }
-            }
 
             // Remove querystring from the URL now that we've captured values
             window.history.replaceState({}, document.title, window.location.pathname);
