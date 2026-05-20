@@ -7,6 +7,9 @@
         <li class="nhsuk-breadcrumb__list-item">
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
+          <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
+        </li>
         <li class="nhsuk-breadcrumb__list-item">
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details">Product details</a>
         </li>
@@ -17,7 +20,7 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <span class="nhsuk-caption-l">Presentation attributes</span>
+        <span class="nhsuk-caption-l">Product details</span>
         <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
         <div class="nhsuk-form-group">
@@ -82,8 +85,8 @@ function toLowercase(str) {
             return `
                 <div class="nhsuk-form-group">
                     <fieldset class="nhsuk-fieldset" aria-describedby="field-hint">
-                        <legend class="nhsuk-fieldset__legend ">Edit ${lowercaseLabel} attribute</legend>
-                        <div id="field-hint" class="nhsuk-hint">Select yes or no.</div>
+                        <legend class="nhsuk-fieldset__legend ">Is this product a ${lowercaseLabel}? </legend>
+                      
                         <div class="nhsuk-radios">
                             <div class="nhsuk-radios__item">
                                 <input class="nhsuk-radios__input" id="field-input-yes" name="field-input" type="radio" value="Yes" ${field.value === "Yes" ? "checked" : ""}>
