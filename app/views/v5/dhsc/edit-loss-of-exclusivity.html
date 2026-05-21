@@ -156,6 +156,32 @@ function toLowercase(str) {
 
     const container = document.getElementById("field-container");
 
+    // show warning for most fields but NOT these keys
+    const calloutExcluded = [
+        "date-categorised-as-older-medicine",
+        "medicine-classification",
+        "originator-status",
+        "reference-anchor-date"
+    ];
+
+    const warningCalloutHtml = `
+      <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">
+            <span role="text">
+              <span class="nhsuk-u-visually-hidden">Important:</span> Editing VTM: Metformin
+            </span>
+          </h3>
+          <p class="nhsuk-card__description">Editing ${lowercaseLabel} will affect all products with linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'</p>
+        </div>
+      </div>
+    `;
+
+    if (!calloutExcluded.includes(fieldKey)) {
+        // insert the warning callout above the field container
+        container.insertAdjacentHTML('beforebegin', warningCalloutHtml);
+    }
+
     function renderInput() {
         if (field.type === "select") {
             return `
@@ -250,6 +276,8 @@ document.getElementById("edit-form").addEventListener("submit", function (event)
     window.location.href = "/v5/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
 });
 }());
+
+
 </script>
 
 {% endblock %}
