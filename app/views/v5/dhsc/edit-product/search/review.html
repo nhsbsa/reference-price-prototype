@@ -1,6 +1,26 @@
-{% extends 'layout-dhsc.html' %}
-{% set pageName = "Edit loss of exclusivity" %}
+<!-- Use this page as the index for your project -->
 
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Provisional Products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
     <ol class="nhsuk-breadcrumb__list">
@@ -8,70 +28,43 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional product</a>
         </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#exclusivity-information">Product details</a>
-        </li>
+        <!-- <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/view">View provisional products</a>
+        </li> -->
     </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
 </nav>
 {% endblock %}
 
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <span class="nhsuk-caption-l">Loss of exclusivity</span>
-        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
-        <div class="nhsuk-form-group">
-            <h2 id="field-heading" class="nhsuk-heading-m nhsuk-u-visually-hidden">Edit field</h2>
-        </div>
+            <h1 class="nhsuk-heading-xl" id="pageHeading">
+           Edit market authorisation holder
+            </h1>
 
-        <form id="edit-form">
-            <div id="field-container"></div>
+            <p>Review your answers before creating this provisional product</p>
 
-            <div class="nhsuk-button-group">
-                <button class="nhsuk-button" type="submit">Save</button>
-                <button class="nhsuk-button nhsuk-button--secondary" type="button" onclick="window.location.href='/v5/dhsc/product-details'">Cancel</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<datalist id="company-names">
-    <option value="Morningside Healthcare Ltd"></option>
-    <option value="Morningside Incorporated"></option>
-    <option value="Test Pharma Ltd"></option>
-    <option value="Acme Medics Ltd"></option>
-    <option value="Northwind Therapeutics Ltd"></option>
-</datalist>
 
 <script>
+// Helper function to convert to lower case
+// Helper function to convert to lowercase, preserving abbreviations
 function toLowercase(str) {
-    const exceptions = [
-        "Supplementary Protection Certificate",
-        "Market Authorisation",
-        "Virtual Therapeutic Moiety"
-    ];
-
-    for (const phrase of exceptions) {
-        if (str.startsWith(phrase)) {
-            const rest = str.slice(phrase.length);
-            const lowercaseRest = rest
-                .split(/\s+/)
-                .map(word => {
-                    if (word === word.toUpperCase() && word.length > 1) return word;
-                    return word.toLowerCase();
-                })
-                .join(' ');
-            return phrase + lowercaseRest;
-        }
-    }
-
     return str
         .split(/\s+/)
         .map(word => {
-            if (word === word.toUpperCase() && word.length > 1) return word;
+            if (word === word.toUpperCase() && word.length > 1) {
+                return word;
+            }
             return word.toLowerCase();
         })
         .join(' ');
@@ -102,92 +95,59 @@ function toLowercase(str) {
             value: "2008-01-01"
         },
         "market-authorisation-number": {
-            label: "Market Authorisation number",
+            label: "Market authorisation number",
             type: "text",
-            value: "PL 20117/0184",
-            labelPrefix: "the",
-            calloutHeading: "Changing the market authorisation number",
-            calloutContent: "Changing the market authorisation number will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            value: "PL 20117/0184"
         },
         "ma-product-name": {
-            label: "Market Authorisation product name",
+            label: "Market authorisation product name",
             type: "text",
-            value: "Metabet SR",
-            labelPrefix: "the",
-            calloutHeading: "Changing the market authorisation product name",
-            calloutContent: "Changing the market authorisation product name will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            value: "Metabet SR"
         },
         "mhra-market-authorisation-holder": {
-            label: "(MHRA) Market Authorisation holder",
+            label: "(MHRA) Market authorisation holder",
             type: "text",
-            value: "Morningside Incorporated",
-            labelPrefix: "the",
-            calloutHeading: "Changing the (MHRA) market authorisation holder",
-            calloutContent: "Changing the (MHRA) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            value: "Morningside Incorporated"
         },
         "cdr-market-authorisation-holder": {
-            label: "(CDR) Market Authorisation holder",
+            label: "(CDR) Market authorisation holder",
             type: "autocomplete",
-            value: "Morningside Healthcare Ltd",
-            labelPrefix: "the",
-            calloutHeading: "Changing the (CDR) market authorisation holder",
-            calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            value: "Morningside Healthcare Ltd"
         },
         "market-authorisation-date": {
-            label: "Market Authorisation date",
+            label: "Market authorisation date",
             type: "date",
-            value: "2011-06-01",
-            labelPrefix: "the",
-            calloutHeading: "Changing the market authorisation date",
-            calloutContent: "Changing the market authorisation date will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            value: "2011-06-01"
         },
         "spc-expiry-date": {
             label: "Supplementary Protection Certificate (SPC) expiry date",
             type: "date",
-            value: "2011-06-01",
-            labelPrefix: "the",
-            calloutHeading: "Changing the SPC expiry date",
-            calloutContent: "Changing the SPC expiry date for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            value: "2011-06-01"
         },
         "spc-number": {
             label: "Supplementary Protection Certificate (SPC) number",
             type: "text",
-            value: "IPO456789",
-            labelPrefix: "the",
-            calloutHeading: "Changing the SPC number",
-            calloutContent: "Changing the SPC number for SPC product description: [product description] will affect all products linked to the VTM 'Metformin'."
+            value: "IPO456789"
         },
         "spc-number-alternative": {
             label: "Supplementary Protection Certificate (SPC) number alternative",
             type: "text",
-            value: "",
-            labelPrefix: "the",
-            calloutHeading: "Changing the SPC number alternative",
-            calloutContent: "Changing the SPC number alternative for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            value: ""
         },
         "spc-product-description": {
             label: "Supplementary Protection Certificate (SPC) product description",
             type: "text",
-            value: "Metabet Ultra",
-            labelPrefix: "the",
-            calloutHeading: "Changing the SPC product description",
-            calloutContent: "Changing the SPC product description for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            value: "Metabet Ultra"
         },
         "cdr-spc-holder": {
-            label: "Supplementary Protection Certificate (SPC) holder",
+            label: "(CDR) Supplementary Protection Certificate (SPC) holder",
             type: "autocomplete",
-            value: "Morningside Healthcare Ltd",
-            labelPrefix: "the (CDR)",
-            calloutHeading: "Changing the (CDR) SPC holder",
-            calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            value: "Morningside Healthcare Ltd"
         },
         "ipo-spc-holder": {
-            label: "Supplementary Protection Certificate (SPC) holder",
+            label: "(IPO) Supplementary Protection Certificate (SPC) holder",
             type: "text",
-            value: "Morningside Healthcare Ltd",
-            labelPrefix: "the (IPO)",
-            calloutHeading: "Changing the (IPO) SPC holder",
-            calloutContent: "Changing the (IPO) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            value: "Morningside Healthcare Ltd"
         }
     };
 
@@ -195,22 +155,17 @@ function toLowercase(str) {
     const fieldKey = params.get("field") || "date-categorised-as-older-medicine";
     const field = fields[fieldKey] || fields["date-categorised-as-older-medicine"];
 
+    // Store field key for later use in product-details
     sessionStorage.setItem('lastEditedField', fieldKey);
     sessionStorage.setItem('lastEditedFieldLabel', field.label);
 
-    const heading = document.getElementById("field-heading");
+   const heading = document.getElementById("field-heading");
     const lowercaseLabel = toLowercase(field.label);
-
-    // Sentence-case the label (capitalise first letter) then prepend "Edit" and optional "the"
-    const sentenceCaseLabel = lowercaseLabel.charAt(0).toUpperCase() + lowercaseLabel.slice(1);
-    const displayLabel = field.labelPrefix
-        ? `Edit ${field.labelPrefix} ${lowercaseLabel}`
-        : `Edit ${sentenceCaseLabel}`;
-
-    heading.textContent = displayLabel;
+    heading.textContent = `Edit ${lowercaseLabel}`;
 
     const container = document.getElementById("field-container");
 
+    // show warning for most fields but NOT these keys
     const calloutExcluded = [
         "date-categorised-as-older-medicine",
         "medicine-classification",
@@ -218,23 +173,21 @@ function toLowercase(str) {
         "reference-anchor-date"
     ];
 
-    const calloutHeading = field.calloutHeading || `Editing VTM: Metformin`;
-    const calloutContent = field.calloutContent || `Editing ${lowercaseLabel} will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'.`;
-
     const warningCalloutHtml = `
       <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
         <div class="nhsuk-card__content">
           <h3 class="nhsuk-card__heading">
             <span role="text">
-              <span class="nhsuk-u-visually-hidden">Important:</span> ${calloutHeading}
+              <span class="nhsuk-u-visually-hidden">Important:</span> Editing VTM: Metformin
             </span>
           </h3>
-          <p class="nhsuk-card__description">${calloutContent}</p>
+          <p class="nhsuk-card__description">Editing ${lowercaseLabel} will affect all products with linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'</p>
         </div>
       </div>
     `;
 
     if (!calloutExcluded.includes(fieldKey)) {
+        // insert the warning callout above the field container
         container.insertAdjacentHTML('beforebegin', warningCalloutHtml);
     }
 
@@ -242,7 +195,7 @@ function toLowercase(str) {
         if (field.type === "select") {
             return `
                 <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                 <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <select class="nhsuk-select" id="field-input" name="field-input">
                         ${field.options.map(option => `<option value="${option}" ${option === field.value ? "selected" : ""}>${option}</option>`).join("")}
                     </select>
@@ -253,7 +206,7 @@ function toLowercase(str) {
         if (field.type === "autocomplete") {
             return `
                 <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                     <div class="nhsuk-hint">Start typing to see suggested company names</div>
                     <input class="nhsuk-input" id="field-input" name="field-input" type="text" list="company-names" value="${field.value}">
                 </div>
@@ -271,7 +224,7 @@ function toLowercase(str) {
             return `
                 <div class="nhsuk-form-group">
                     <fieldset class="nhsuk-fieldset" role="group">
-                        <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                        <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                         <div class="nhsuk-date-input">
                             <div class="nhsuk-date-input__item">
                                 <div class="nhsuk-form-group">
@@ -317,7 +270,7 @@ function toLowercase(str) {
 
         return `
             <div class="nhsuk-form-group">
-                <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+               <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
                 <input class="nhsuk-input" id="field-input" name="field-input" type="text" value="${field.value}">
             </div>
         `;
@@ -325,13 +278,72 @@ function toLowercase(str) {
 
     container.innerHTML = renderInput();
 
-    document.getElementById("edit-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const activeTab = sessionStorage.getItem('activeTab') || '#exclusivity-information';
-        console.log('Redirecting with tab:', activeTab);
-        window.location.href = "/v5/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
-    });
+document.getElementById("edit-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const activeTab = sessionStorage.getItem('activeTab') || '#exclusivity-information';
+     console.log('Redirecting with tab:', activeTab); // Debug log
+    window.location.href = "/v5/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
+});
 }());
+
+
 </script>
 
+
+
+            <div id="productDetails">
+                <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-1">
+                    Product details
+                </h2>
+                <ul class="nhsuk-card__actions">
+                    <li class="nhsuk-card__action">
+                        <a class="nhsuk-link" href="/v5/dhsc/provisional/add/index">Edit<span
+                                class="nhsuk-u-visually-hidden"> product details</span></a>
+                    </li>
+
+                </ul>
+            </div>
+            <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Product name
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        AAH Medical
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Virtual Therapeutic Moiety (VTM) (optional)
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Medication q 200mg tablets (2 x 24)
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Company name (optional)
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Metsulin
+                    </dd>
+
+                </div>
+
+            </dl>
+
+
+        <a href="/v5/dhsc/provisional/add/confirm" class="nhsuk-button ">
+            Confirm 
+        </a>
+        <a href="/v5/dhsc/provisional/" class="nhsuk-button nhsuk-button--secondary">
+           Cancel
+        </a>
+    </div>
+    <!-- End of content -->
+
+</div>
+</div>
 {% endblock %}
