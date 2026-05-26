@@ -54,7 +54,6 @@
 
             <p>Review your answers before creating this provisional product</p>
 
-
 <script>
 // Helper function to convert to lower case
 // Helper function to convert to lowercase, preserving abbreviations
@@ -335,9 +334,17 @@ document.getElementById("edit-form").addEventListener("submit", function (event)
             </dl>
 
 
-        <a href="/v5/dhsc/provisional/add/confirm" class="nhsuk-button ">
-            Confirm 
-        </a>
+<!-- With this: -->
+<button class="nhsuk-button" onclick="handleConfirm()">
+    Confirm
+</button>
+
+<script>
+function handleConfirm() {
+    const activeTab = sessionStorage.getItem('activeTab') || '#exclusivity-information';
+    window.location.href = "/v5/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
+}
+</script>
         <a href="/v5/dhsc/provisional/" class="nhsuk-button nhsuk-button--secondary">
            Cancel
         </a>
