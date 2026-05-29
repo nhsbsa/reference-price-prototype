@@ -29,11 +29,11 @@
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">View, download and upload data</a>
     </li>
-    <li class="nhsuk-breadcrumb__list-item">
+    <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/dmd-data">Common drug reference data</a>
-    </li>
+    </li> -->
   </ol>
   <!-- 
   <a class="nhsuk-back-link" href="#">
@@ -55,9 +55,8 @@
       Dictionary of medicines and devices (dm+d).</p> -->
 
 
-    <p>You can filter this dataset or <a href="/v5/dhsc/product-details" class="nhsuk-link">search for a product</a>.</p>
+    <!--p>You can filter this dataset or <a href="/v5/dhsc/product-details" class="nhsuk-link">search for a product</a>.</p-->
 
-    <br>
     <details class="nhsuk-details">
       <summary class="nhsuk-details__summary">
         <span class="nhsuk-details__summary-text">
@@ -102,8 +101,11 @@
         </div>
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="search-term">
-            Enter search term
+            Enter a search term
           </label>
+          <div class="nhsuk-hint">
+Enter a search term of 3 characters or more. If searching for:- date - enter year only, for example 2024- VTMs - separate each substance with a comma.</div>
+
           <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
         </div>
 
@@ -117,10 +119,10 @@
       </div>
     </details>
 
-    <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
+    <!--strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
  metformin 
   <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
-</strong>
+</strong-->
 
     <!-- <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
 1328111000001105 
@@ -130,40 +132,39 @@
 
 <br>
 
-<br>
     <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-      Download dataset
+      Download full dataset
     </button>
-<p>Use the horizontal scroll bar at the bottom of the table to view all the columns.</p>
-
 
 <p id="results-message" >
-  There are <strong>30</strong> results for the search term: 'metformin' in 'VTM'
+  There are <strong>30</strong> results for the search term: 'metformin' in 'VTM'.
 </p>
+    
+<p>Use the horizontal scroll bar at the bottom of the table to view all the columns.</p>
+
     <div class="large-table-container">
 <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
   <thead>
     <tr>
       <th>AMPP</th>
-      <th>AMPP SNOMED CODE</th>
+      <th>AMPP SNOMED Code</th>
       <th>VTM</th>
-      <th>PACK SIZE</th>
+      <th>Pack size</th>
       <th>AMP</th>
       <th>ATC</th>
       <th>VMP</th>
       <th>VMPP</th>
-      <th>AMP</th>
       <th>Company name</th>
       <th>Company code</th>
       <th>Form</th>
       <th>Unit dose</th>
       <th>Strength</th>
-      <th>Latest List Price</th>
-      <th>List Price Start date</th>
+      <th>Latest list price</th>
+      <th>List price start date</th>
       <th>Discontinued</th>
-      <th>Discontinued Start date</th>
-      <th>BNF Code</th>
-      <th>BNF Chapter</th>
+      <th>Discontinued start date</th>
+      <th>BNF code</th>
+      <th>BNF chapter</th>
       <th>Combination pack</th>
     </tr>
   </thead>
@@ -181,7 +182,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>28 tablet pack</td>
-      <td>Metformin 1g MR tablets (Teva)</td>
+
       <td>Teva UK Ltd</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -205,7 +206,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>28 tablet pack</td>
-      <td>Metformin 1g MR tablets (Accord)</td>
+
       <td>Accord Healthcare Ltd</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -229,7 +230,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>56 tablet pack</td>
-      <td>Metformin 1g MR tablets (Sandoz)</td>
+
       <td>Sandoz Ltd</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -253,7 +254,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>56 tablet pack</td>
-      <td>Metformin 1g MR tablets (Mylan)</td>
+
       <td>Mylan Ltd</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -277,7 +278,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>84 tablet pack</td>
-      <td>Metformin 1g MR tablets (Teva)</td>
+
       <td>Teva UK Ltd</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -301,7 +302,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>84 tablet pack</td>
-      <td>Metformin 1g MR tablets (Zentiva)</td>
+
       <td>Zentiva Pharma UK</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -325,7 +326,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>100 tablet pack</td>
-      <td>Metformin 1g MR tablets (Accord)</td>
+
       <td>Accord Healthcare Ltd</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -349,7 +350,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>100 tablet pack</td>
-      <td>Metformin 1g MR tablets (Sun Pharma)</td>
+
       <td>Sun Pharmaceutical Industries</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -375,7 +376,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>112 tablet pack</td>
-      <td>Metformin 1g MR tablets (Lupin)</td>
+
       <td>Lupin Healthcare</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -399,7 +400,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>112 tablet pack</td>
-      <td>Metformin 1g MR tablets (Dr Reddy’s)</td>
+
       <td>Dr Reddy's Laboratories</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -423,7 +424,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>120 tablet pack</td>
-      <td>Metformin 1g MR tablets (Torrent)</td>
+
       <td>Torrent Pharma UK</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>
@@ -447,7 +448,7 @@
       <td>A10BA02</td>
       <td>Metformin 1 g modified-release tablets</td>
       <td>120 tablet pack</td>
-      <td>Metformin 1g MR tablets (Glenmark)</td>
+
       <td>Glenmark Pharmaceuticals</td>
       <td><div class="nhsuk-hint">No data available</div></td>
       <td>Modified-release tablet</td>

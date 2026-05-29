@@ -28,10 +28,10 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">View, download and upload data</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Branded medicines data</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Data from Branded Medicines</a>
         </li>
 
 
@@ -66,69 +66,61 @@
             Select start of report
         </h2>
 
-        <div>
-            <div class="nhsuk-form-group nhsuk-u-width-one-half">
-                <label class="nhsuk-label" for="sort-by">
-                    Month
-                </label>
-                <select class="nhsuk-select" id="sort-by" name="sortBy">
-                    <option value="recently-published" selected>Select month</option>
-                    <option value="recently-updated">January</option>
-                    <option value="most-views">February</option>
-                    <option value="most-comments">March</option>
-                </select>
-            </div>
+        <div style="display: flex; gap: 5px;">
+    <div class="nhsuk-form-group nhsuk-u-width-one-half">
+        <label class="nhsuk-label" for="month-select">
+            Month
+        </label>
+        <select class="nhsuk-select" id="month-select" name="month">
+            <option value="" selected>Select month</option>
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+        </select>
+    </div>
 
-
-            <div class="nhsuk-form-group nhsuk-u-width-one-half">
-                <label class="nhsuk-label" for="sort-by">
-                    Year
-                </label>
-                <select class="nhsuk-select" id="sort-by" name="sortBy">
-                    <option value="recently-published" selected>Select year</option>
-                    <option value="recently-updated">2026</option>
-                    <option value="most-views">2025</option>
-                    <option value="most-comments">2024</option>
-                </select>
-            </div>
-
-
-
-        </div>
+    <div class="nhsuk-form-group nhsuk-u-width-one-half">
+        <label class="nhsuk-label" for="year-select">
+            Year
+        </label>
+        <select class="nhsuk-select" id="year-select" name="year">
+            <option value="" selected>Select year</option>
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+        </select>
+    </div>
+</div>
 
         <h2 class="nhsuk-heading-m">
             Select end of report
         </h2>
 
-        <div>
-            <div class="nhsuk-form-group nhsuk-u-width-one-half">
-                <label class="nhsuk-label" for="sort-by">
-                    Month
-                </label>
-                <select class="nhsuk-select" id="sort-by" name="sortBy">
-                    <option value="recently-published" selected>Select month</option>
-                    <option value="recently-updated">January</option>
-                    <option value="most-views">February</option>
-                    <option value="most-comments">March</option>
-                </select>
-            </div>
+<div style="display: flex; gap: 5px;">
+    <div class="nhsuk-form-group nhsuk-u-width-one-half">
+        <label class="nhsuk-label" for="month-select">
+            Month
+        </label>
+        <select class="nhsuk-select" id="month-select" name="month">
+            <option value="" selected>Select month</option>
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+        </select>
+    </div>
 
-
-            <div class="nhsuk-form-group nhsuk-u-width-one-half">
-                <label class="nhsuk-label" for="sort-by">
-                    Year
-                </label>
-                <select class="nhsuk-select" id="sort-by" name="sortBy">
-                    <option value="recently-published" selected>Select year</option>
-                    <option value="recently-updated">2026</option>
-                    <option value="most-views">2025</option>
-                    <option value="most-comments">2024</option>
-                </select>
-            </div>
-
-
-
-        </div>
+    <div class="nhsuk-form-group nhsuk-u-width-one-half">
+        <label class="nhsuk-label" for="year-select">
+            Year
+        </label>
+        <select class="nhsuk-select" id="year-select" name="year">
+            <option value="" selected>Select year</option>
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+        </select>
+    </div>
+</div>
 
         <h2 class="nhsuk-heading-m">
             Select type of report
