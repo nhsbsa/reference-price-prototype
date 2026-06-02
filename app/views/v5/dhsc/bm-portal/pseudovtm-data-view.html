@@ -28,10 +28,10 @@
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources"> View, download and upload data</a>
     </li>
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Branded medicines data</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/bm-portal/">Data from Branded Medicines</a>
     </li>
 
 
@@ -48,29 +48,34 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
 
-    <h1>View the pseudo Virtual Therapeutic Moiety (VTM) dataset</h1>
+    <h1>View the pseudo virtual therapeutic moiety (VTM) dataset</h1>
 
     <!-- <p>This table contains the latest version of the pseudo VTM dataset.</p> -->
-
+    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+      Download full dataset
+    </button>
     <!-- <p>This dataset was last updated on  <span id="date"></span> at <span id="time"></span></p> -->
 
     <br>
     <details class="nhsuk-details">
       <summary class="nhsuk-details__summary">
         <span class="nhsuk-details__summary-text">
-          Filter the data
+          Filter the data in this table
         </span>
       </summary>
       <div class="nhsuk-details__text">
-        <div class="nhsuk-form-group">
+        <!-- <div class="nhsuk-form-group">
           <p>Search for a pseudovtm</p>
       
 
-        </div>
+        </div> -->
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="full-name">
-            Enter search term
+            Enter a pseudo VTM
           </label>
+          <div class="nhsuk-hint">
+ Enter 3 characters or more</div>
+
           <input class="nhsuk-input nhsuk-u-width-two-thirds" id="full-name" name="fullName" type="text">
         </div>
 
@@ -83,9 +88,7 @@
 </button>
       </div>
     </details>
-    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-      Download dataset
-    </button>
+
 
     <div class="large-table-container">
       <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
