@@ -28,7 +28,7 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Reference price dataset</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Manage reference price dataset</a>
         </li>
         <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
@@ -48,9 +48,11 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>View reference price dataset</h1>
-       
-         
+        <h1>View the reference price dataset</h1>       
+        
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Download full dataset
+        </button> 
 
         <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
@@ -69,9 +71,9 @@
             <option value="1">AMPP SNOMED code</option>
             <option value="2">AMPP</option>
             <option value="3">VTM</option>
-            <option value="4">Originator classification</option>
+            <option value="4">Originator status</option>
             <option value="5">Medicine classification</option>
-            <option value="6">Date recategorised as older medicine</option>
+            <option value="6">Date older presentation</option>
       
           </select>
                 </div>
@@ -100,13 +102,8 @@
             </div>
         </details>
 
-        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download full dataset
-        </button>
 
-<p id="results-message" >
-  Showing all reference price data
-</p>
+<p id="results-message">There are 13 results with the search term: '[search term]' in '[column name]'.</p>
 <p>Use the horizontal scroll bar at the bottom of the table to view all the columns.</p>
 <br>
         <div class="large-table-container">
@@ -117,9 +114,9 @@
       <th role="columnheader" aria-sort="none">AMPP SNOMED code <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">AMPP <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">Originator classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Originator status <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">Medicine classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">Date recategorised as older medicine <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Date older presentation <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">Reference price <span class="sort-indicator" aria-hidden="true">⇅</span></th>
     </tr>
   </thead>
@@ -341,6 +338,66 @@
         </div>
 
 
+        <script>
+  (function () {
+    const table = document.querySelector('table.nhsuk-table-responsive');
+    if (!table) return;
+
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const columnSelect = document.getElementById('column-filter-select');
+    const searchInput = document.getElementById('full-name');
+    const applyButton = document.getElementById('apply-filter');
+    const resetButton = document.getElementById('reset-filter');
+    const resultsMessage = document.getElementById('results-message');
+
+    function applyFilter() {
+      const columnIndex = Number(columnSelect.value);
+      const columnName = columnSelect.options[columnSelect.selectedIndex].text;
+      const searchTerm = searchInput.value.trim();
+      const lowerTerm = searchTerm.toLowerCase();
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const cell = cells[columnIndex];
+        const cellText = cell ? cell.textContent.toLowerCase() : '';
+
+        const matches = searchTerm === '' || cellText.includes(lowerTerm);
+        row.style.display = matches ? '' : 'none';
+
+        if (matches) visibleCount++;
+      });
+
+      if (!searchTerm) {
+        resultsMessage.textContent = 'Showing all reference price data';
+      } else {
+        resultsMessage.textContent =
+          `There ${visibleCount === 1 ? 'is' : 'are'} ${visibleCount} ` +
+          `result${visibleCount === 1 ? '' : 's'} for the search term: "${searchTerm}" ` +
+          `in "${columnName}".`;
+      }
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      columnSelect.selectedIndex = 0;
+      rows.forEach(row => (row.style.display = ''));
+      resultsMessage.textContent = 'Showing all reference price data';
+    }
+
+    applyButton.addEventListener('click', applyFilter);
+    resetButton.addEventListener('click', resetFilters);
+
+    searchInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        applyFilter();
+      }
+    });
+  })();
+</script>
+
 
 
 
@@ -417,7 +474,8 @@
       const columnIndex = Number(columnSelect.value);
       const columnName =
         columnSelect.options[columnSelect.selectedIndex].text;
-      const searchTerm = searchInput.value.trim().toLowerCase();
+      const searchTerm = searchInput.value.trim();
+      const searchTermLower = searchTerm.toLowerCase();
 
       let visibleCount = 0;
 
@@ -433,7 +491,7 @@
 
         const cellText = cell.textContent.toLowerCase();
         const isMatch =
-          searchTerm === '' || cellText.includes(searchTerm);
+          searchTerm === '' || cellText.includes(searchTermLower);
 
         row.style.display = isMatch ? '' : 'none';
 
@@ -453,7 +511,7 @@
       resultsMessage.textContent =
         `There ${count === 1 ? 'is' : 'are'} ${count} result${
           count === 1 ? '' : 's'
-        } for the search term: "${term}" in "${column}"`;
+        } for the search term: "${term}" in "${column}".`;
     }
 
     function resetFilters() {

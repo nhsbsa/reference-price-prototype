@@ -1,0 +1,75 @@
+{% extends 'layout-dhsc.html' %}
+
+{% set pageName = "Presentation Level Returns" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/reports">Generated reports</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+ <form action="/v5/dhsc/reports/QueuedReportsRemove/remove-confirmation" method="post">
+
+      <h1 class="nhsuk-u-margin-bottom-5">Confirm you want to remove this report</h1>
+
+      <h3 class="nhsuk-heading-m">
+        Confirm you want to remove the report Voluntary Company PLR Consolidation report for the period January 2025 to December 2025.
+      </h3>
+
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-u-visually-hidden">
+            Confirm whether you want to remove this report
+          </legend>
+
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input
+                class="nhsuk-radios__input"
+                id="remove-report-yes"
+                name="remove-report"
+                type="radio"
+                value="yes">
+              <label class="nhsuk-label nhsuk-radios__label" for="remove-report-yes">
+                Yes, I want to delete this report
+              </label>
+            </div>
+
+
+            <div class="nhsuk-radios__item">
+              <input
+                class="nhsuk-radios__input"
+                id="remove-report-no"
+                name="remove-report"
+                type="radio"
+                value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="remove-report-no">
+                No, I do not want to delete this report
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="nhsuk-button" type="submit">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

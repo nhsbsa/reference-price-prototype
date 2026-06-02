@@ -28,7 +28,7 @@
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Reference price dataset</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Manage reference price dataset</a>
     </li>
     <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
@@ -50,7 +50,9 @@
 
     <h1>View reference price dataset</h1>
 
-
+    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+      Download full dataset
+    </button>
 
     <details class="nhsuk-details">
       <summary class="nhsuk-details__summary">
@@ -72,7 +74,7 @@
             <option value="3">VTM</option>
             <option value="4">Originator classification</option>
             <option value="5">Medicine classification</option>
-            <option value="6">Date recategorised as older medicine</option>
+            <option value="6"> Date presentation becomes an older medicine</option>
 
           </select>
         </div>
@@ -100,16 +102,9 @@
 
       </div>
     </details>
-    <strong class="nhsuk-tag nhsuk-tag--green nhsuk-tag--closable">
- Morningside 
-  <button class="nhsuk-tag__close" aria-label="Remove tag">&times;</button>
-</strong>
+
 
 <br>
-<br>
-    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-      Download full dataset
-    </button>
 
     <p id="results-message">
        There are <strong>60</strong> results for search term: Morningside
@@ -125,8 +120,8 @@
       <th role="columnheader" aria-sort="none">AMPP <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">VTM <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">Originator classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">Medicine classification <span class="sort-indicator" aria-hidden="true">⇅</span></th>
-      <th role="columnheader" aria-sort="none">Date recategorised as older medicine <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Originator status <span class="sort-indicator" aria-hidden="true">⇅</span></th>
+      <th role="columnheader" aria-sort="none">Date becomes older <span class="sort-indicator" aria-hidden="true">⇅</span></th>
       <th role="columnheader" aria-sort="none">Reference price <span class="sort-indicator" aria-hidden="true">⇅</span></th>
     </tr>
   </thead>

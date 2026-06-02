@@ -49,12 +49,14 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
 
-    <h1>View the Common Drug Reference dataset</h1>
+    <h1>View the NHS Common Drug Reference (CDR) dataset</h1>
 
     <!-- <p>This table contains the latest version of Common Drug Reference (CDR) dataset. This includes data from the NHS
       Dictionary of medicines and devices (dm+d).</p> -->
 
-
+    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+      Download full dataset
+    </button>
     <!--p>You can filter this dataset or <a href="/v5/dhsc/product-details" class="nhsuk-link">search for a product</a>.</p-->
 
     <details class="nhsuk-details">
@@ -72,7 +74,7 @@
           </label>
 
 
-         <select class="nhsuk-select" id="sort-by" name="sortBy">
+<select class="nhsuk-select" id="sort-by" name="sortBy">
   <option value="" selected disabled>Choose column</option>
 
   <option value="AMPP">Actual Medicinal Product Pack (AMPP)</option>
@@ -101,10 +103,15 @@
         </div>
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="search-term">
-            Enter a search term
+            Enter a search term of 3 characters or more
           </label>
           <div class="nhsuk-hint">
-Enter a search term of 3 characters or more. If searching for:- date - enter year only, for example 2024- VTMs - separate each substance with a comma.</div>
+If searching for:- 
+<ul>
+<li>date - enter year only, for example 2024</li>
+<li>VTMs - separate each substance with a comma</li>
+</ul>
+</div>
 
           <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
         </div>
@@ -132,9 +139,6 @@ Enter a search term of 3 characters or more. If searching for:- date - enter yea
 
 <br>
 
-    <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-      Download full dataset
-    </button>
 
 <p id="results-message" >
   There are <strong>30</strong> results for the search term: 'metformin' in 'VTM'.
@@ -147,7 +151,7 @@ Enter a search term of 3 characters or more. If searching for:- date - enter yea
   <thead>
     <tr>
       <th>AMPP</th>
-      <th>AMPP SNOMED Code</th>
+      <th>AMPP SNOMED code</th>
       <th>VTM</th>
       <th>Pack size</th>
       <th>AMP</th>
