@@ -49,8 +49,11 @@
     <div class="nhsuk-grid-column-full">
 <h1>Older medicines without a reference price</h1>
   
+<button class="nhsuk-button">
+  Download full dataset
+</button>
 
-<details class="nhsuk-details">
+<!-- <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
       Filter the data in this table
@@ -58,8 +61,8 @@
   </summary>
   <div class="nhsuk-details__text">
     <form class="nhsuk-grid-row nhsuk-form-group" style="gap: 1rem; align-items: flex-end;">
-       <p>Filter this table by selecting a column and entering a search term</p>
-      <!-- Column select -->
+       <p>Filter this table by selecting a column and entering a search term.</p>
+      Column select 
       <div class="nhsuk-grid-column-one-quarter">
         <label class="nhsuk-label" for="column-filter-select">
           Choose column
@@ -73,17 +76,17 @@
           <option value="currentMaxPrice">Supplier</option>
           <option value="vmpName">Loss of exclusivity</option>
         </select>
-      </div>
+      </div> -->
 
-      <!-- Search input -->
+      <!-- Search input 
       <div class="nhsuk-grid-column-three-quarters">
         <label class="nhsuk-label" for="search-term">
           Enter search term
         </label>
         <input class="nhsuk-input" id="search-term" name="searchTerm" type="text" style="width: 100%;" >
-      </div>
+      </div> -->
 
-      <!-- Filter button -->
+      <!-- Filter button 
       <div  class="nhsuk-grid-column-full" style="margin-top: 0.5rem;">
         <button class="nhsuk-button ">
           Apply filter
@@ -96,11 +99,128 @@
 
     </form>
   </div>
-</details>
+</details> -->
 
-<button class="nhsuk-button">
-  Download dataset
-</button>
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Filter the data in this table
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <div class="nhsuk-form-group">
+          <p>Filter this table by selecting a column and entering a search term.</p> 
+          <label class="nhsuk-label"
+            for="column-filter-select">
+            Choose column
+          </label>
+
+
+<select class="nhsuk-select" id="column-filter-select" name="sortBy">
+ 
+          <option value="" selected>Choose column</option>
+          <option value="companyName">Product name</option>
+          <option value="snomedCode">Pack size</option>
+          <option value="presentationName">VTM</option>
+          <option value="currentMaxPrice">Supplier</option>
+          <option value="vmpName">Loss of exclusivity</option>
+
+</select>
+        </div>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="search-term">
+            Enter a search term of 3 characters or more
+          </label>
+          <div class="nhsuk-hint">
+If searching for:- 
+<ul>
+<li>date - enter year only, for example 2024</li>
+<li>VTMs - separate each substance with a comma</li>
+</ul>
+</div>
+
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="search-term" type="text">
+        </div>
+
+        <button id="apply-filter" class="nhsuk-button ">
+          Apply filter
+        </button>
+
+     <button id="reset-filter" type="button" class="nhsuk-button nhsuk-button--secondary">
+       Reset filter
+    </button>
+    </div>
+    </details>
+
+<br>
+
+<p id="results-message" >
+  There are <strong>30</strong> results for the search term: 'metformin' in 'VTM'.
+</p>
+    
+
+<script>
+  (function () {
+    const table = document.querySelector('table.nhsuk-table-responsive');
+    if (!table) return;
+
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const columnSelect = document.getElementById('column-filter-select');
+    const searchInput = document.getElementById('search-term');
+    const applyButton = document.getElementById('apply-filter');
+    const resetButton = document.getElementById('reset-filter');
+    const resultsMessage = document.getElementById('results-message');
+
+    function applyFilter() {
+      const columnIndex = Number(columnSelect.value);
+      const columnName = columnSelect.options[columnSelect.selectedIndex].text;
+      const searchTerm = searchInput.value.trim();
+      const lowerTerm = searchTerm.toLowerCase();
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const cell = cells[columnIndex];
+        const cellText = cell ? cell.textContent.toLowerCase() : '';
+
+        const matches = searchTerm === '' || cellText.includes(lowerTerm);
+        row.style.display = matches ? '' : 'none';
+
+        if (matches) visibleCount++;
+      });
+
+      if (!searchTerm) {
+        resultsMessage.textContent = 'Showing all reference price data';
+      } else {
+        resultsMessage.textContent =
+          `There ${visibleCount === 1 ? 'is' : 'are'} ${visibleCount} ` +
+          `result${visibleCount === 1 ? '' : 's'} for the search term: "${searchTerm}" ` +
+          `in "${columnName}".`;
+      }
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      columnSelect.selectedIndex = 0;
+      rows.forEach(row => (row.style.display = ''));
+      resultsMessage.textContent = 'Showing all reference price data';
+    }
+
+    applyButton.addEventListener('click', applyFilter);
+    resetButton.addEventListener('click', resetFilters);
+
+    searchInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        applyFilter();
+      }
+    });
+  })();
+</script>
+
+
+
 
 <div class="large-table-container">
 <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
@@ -258,4 +378,87 @@
 
     </div>
 </div>
+
+<script>
+  (function () {
+    const table = document.querySelector('table.nhsuk-table-responsive');
+    if (!table) return;
+
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    const columnSelect = document.getElementById('column-filter-select');
+    const searchInput = document.getElementById('search-term');
+    const applyButton = document.getElementById('apply-filter');
+    const resetButton = document.getElementById('reset-filter');
+    const resultsMessage = document.getElementById('results-message');
+
+    const totalRows = rows.length;
+
+    function applyFilter() {
+      const columnIndex = Number(columnSelect.value);
+      const columnName =
+        columnSelect.options[columnSelect.selectedIndex].text;
+      const searchTerm = searchInput.value.trim();
+      const searchTermLower = searchTerm.toLowerCase();
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const cell = cells[columnIndex];
+
+        if (!cell) {
+          row.style.display = '';
+          visibleCount++;
+          return;
+        }
+
+        const cellText = cell.textContent.toLowerCase();
+        const isMatch =
+          searchTerm === '' || cellText.includes(searchTermLower);
+
+        row.style.display = isMatch ? '' : 'none';
+
+        if (isMatch) visibleCount++;
+      });
+
+      updateResultsMessage(visibleCount, searchTerm, columnName);
+    }
+
+    function updateResultsMessage(count, term, column) {
+      if (!term) {
+        resultsMessage.textContent =
+          'Showing all reference price data';
+        return;
+      }
+
+      resultsMessage.textContent =
+        `There ${count === 1 ? 'is' : 'are'} ${count} result${
+          count === 1 ? '' : 's'
+        } for the search term: "${term}" in "${column}".`;
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      columnSelect.selectedIndex = 0;
+
+      rows.forEach(row => (row.style.display = ''));
+
+      resultsMessage.textContent =
+        'Showing all reference price data';
+    }
+
+    applyButton.addEventListener('click', applyFilter);
+    resetButton.addEventListener('click', resetFilters);
+
+    // Allow Enter key to apply filter
+    searchInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        applyFilter();
+      }
+    });
+  })();
+</script>
 {% endblock %}

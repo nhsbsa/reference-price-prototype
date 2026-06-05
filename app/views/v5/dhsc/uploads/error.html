@@ -28,10 +28,7 @@
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/uploads/index">Uploaded data</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">View, download and upload data</a>
     </li>
   </ol>
   <!-- 
@@ -47,6 +44,26 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
+
+<div class="nhsuk-error-summary" data-module="nhsuk-error-summary">
+  <div role="alert">
+    <h2 class="nhsuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="nhsuk-error-summary__body">
+      <p>
+        Describe the errors and how to correct them
+      </p>
+      <ul class="nhsuk-list nhsuk-error-summary__list">
+        <li>
+          <a href="#file-upload-11-error">The selected file must be an Excel file</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
     <h1>Upload your dataset</h1>
 
     <details class="nhsuk-details">
@@ -90,12 +107,12 @@
               </label>
             </h1>
             <p id="file-upload-11-error" class="nhsuk-error-message">
-              <span class="nhsuk-u-visually-hidden">Error:</span> The selected file has more than 5 errors, review and upload again
+              <span class="nhsuk-u-visually-hidden">Error:</span> The selected file must be an Excel file
             </p>
             <div class="nhsuk-file-upload__drop-zone"><button class="nhsuk-file-upload__drop-button nhsuk-file-upload__drop-button--empty" type="button" id="file-upload-6" aria-labelledby="file-upload-6-label file-upload-6-comma file-upload-6"><span class="nhsuk-body nhsuk-file-upload__status" aria-live="polite">No file chosen</span><span class="nhsuk-u-visually-hidden" id="file-upload-6-comma">, </span><span class="nhsuk-file-upload__drop-button-group"><span class="nhsuk-button nhsuk-file-upload__choose-files-button nhsuk-button--secondary">Choose file</span> <span class="nhsuk-body nhsuk-file-upload__drop-instruction">or drop file</span></span></button><input class="nhsuk-file-upload__input" id="file-upload-6-input" name="file-upload-6" type="file" hidden="" tabindex="-1" aria-hidden="true"></div><span class="nhsuk-file-upload__announcements nhsuk-u-visually-hidden" aria-live="assertive"></span>
           </div>
           
-          <p>Review the <a href="/v5/dhsc/upload-guidance" target="_blank">guidance page</a> to see what could be wrong</p>
+          <!--<p>Review the <a href="/v5/dhsc/upload-guidance" target="_blank">guidance page</a> to see what could be wrong</p>-->
 
     <a href="#" class="nhsuk-button">
       Continue
