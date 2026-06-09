@@ -63,7 +63,7 @@ function toLowercase(str) {
         },
         "reference-price-type": {
             label: "Reference price type",
-            type: "select",
+            type: "radio",
             options: [
                 "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments",
                 "Average selling price"
@@ -151,6 +151,21 @@ function toLowercase(str) {
         }
 
         if (field.type === "radio") {
+            if (field.options && field.options.length) {
+                return `
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
+                    <div style="margin-top:1rem"></div>
+                    <div class="nhsuk-radios">
+                        ${field.options.map((option, idx) => `<div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="field-input-${idx}" name="field-input" type="radio" value="${option}" ${field.value === option ? "checked" : ""}>
+                                <label class="nhsuk-label nhsuk-radios__label" for="field-input-${idx}">${option}</label>
+                            </div>`).join("")}
+                    </div>
+                </div>
+            `;
+            }
+
             return `
                 <div class="nhsuk-form-group">
                     <fieldset class="nhsuk-fieldset" aria-describedby="field-hint">
