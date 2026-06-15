@@ -1,0 +1,135 @@
+{% extends 'layout-dhsc.html' %}
+
+{% set pageName = "Edit Comparator" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#ref-price-information">Product details</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+<span class="nhsuk-caption-l" id="comparator-name">Edit comparator</span>
+    <h1 >Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+    <form method="POST" action="/v5/dhsc/edit-product/comparator-details" id="edit-comparator-form">
+      
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="comparator-product-name">
+          Comparator product name
+        </label>
+        <input class="nhsuk-input" id="comparator-product-name" name="comparatorProductName" type="text" readonly>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="year-of-price">
+          Year of comparator price
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-one-third" id="year-of-price" name="yearOfPrice" type="text" required>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="comparator-price">
+          Comparator price
+        </label>
+        <div class="nhsuk-input-wrapper">
+          <div class="nhsuk-input-wrapper__prefix" aria-hidden="true">£</div>
+          <input class="nhsuk-input nhsuk-input--width-5" id="comparator-price" name="comparatorPrice" type="text" spellcheck="false" required>
+        </div>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend">
+            <p class="nhsuk-fieldset__heading">
+              Is this a comparator flat price?
+            </p>
+          </legend>
+          <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="flat-price-yes" name="flatPrice" type="radio" value="yes">
+              <label class="nhsuk-label nhsuk-radios__label" for="flat-price-yes">
+                Yes
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="flat-price-no" name="flatPrice" type="radio" value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="flat-price-no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="button" id="save-compare" class="nhsuk-button">
+        Save changes
+      </button>
+
+      <a href="/v5/dhsc/product-details#ref-price-information" class="nhsuk-button nhsuk-button--secondary">
+        Cancel
+      </a>
+    </form>
+
+    <form method="GET" action="/v5/dhsc/edit-product/comparator-delete-confirm" id="remove-form">
+      <input type="hidden" id="comparator-id-input" name="id" value="">
+      <button type="submit" class="nhsuk-button nhsuk-button--secondary" id="remove-btn">
+        Remove this comparator
+      </button>
+    </form>
+
+    <script>
+      // Comparator data
+      const comparatorData = {
+        1: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2023', price: '6.30', flatPrice: 'yes' },
+        2: { name: 'Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets', year: '2016', price: '6.30', flatPrice: 'no' },
+        3: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2025', price: '8.30', flatPrice: 'yes' },
+        4: { name: 'Migard 2.5mg tablets (TestCompanyA) 6 tablet', year: '2011', price: '9.30', flatPrice: 'no' },
+        5: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2020', price: '8.30', flatPrice: 'yes' }
+      };
+
+      // Get the ID from query parameters
+      const params = new URLSearchParams(window.location.search);
+      const comparatorId = params.get('id');
+
+      if (comparatorId && comparatorData[comparatorId]) {
+        const data = comparatorData[comparatorId];
+        
+        // Populate form fields
+        document.getElementById('comparator-product-name').value = data.name;
+        document.getElementById('year-of-price').value = data.year;
+        document.getElementById('comparator-price').value = data.price;
+        document.getElementById(`flat-price-${data.flatPrice}`).checked = true;
+        document.getElementById('comparator-name').textContent = `Edit comparator: ${data.name}`;
+        document.getElementById('comparator-id-input').value = comparatorId;
+      }
+
+       (function () {
+        const saveBtn = document.getElementById('save-compare');
+        if (!saveBtn) return;
+
+        saveBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          // label used by product-details to render the success banner
+          sessionStorage.setItem('lastEditedFieldLabel', 'Comparator information');
+
+          // prefer any stored activeTab, otherwise default to ref-price-information
+          const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';
+          window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(activeTab);
+        });
+      }());
+    </script>
+  </div>
+</div>
+{% endblock %}

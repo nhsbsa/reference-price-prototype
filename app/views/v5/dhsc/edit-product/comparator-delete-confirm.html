@@ -1,0 +1,106 @@
+{% extends 'layout-dhsc.html' %}
+
+{% set pageName = "Remove Comparator" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#ref-price-information">Product details</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+  <span class="nhsuk-caption-l" >Remove comparator</span>
+    <h1 class="nhsuk-heading-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+          <dl class="nhsuk-summary-list">
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Product name
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)
+    </dd>
+  
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+     Comparator name
+    </dt>
+    <dd class="nhsuk-summary-list__value" id="comparator-summary-name">
+       
+    </dd>
+   
+  </div>
+</dl>
+      <p>
+        Do you want to remove this comparator from the reference price calculation?
+      </p>
+      <p>This action cannot be undone. The comparator will be permanently removed from the reference price calculation.</p>
+    
+
+    <!-- <p id="comparator-name-display"></p> -->
+
+    <form method="POST" action="/v5/dhsc/product-details#ref-price-information" style="display: inline;" id="delete-form">
+      <input type="hidden" id="comparator-id-hidden" name="id" value="">
+      <button type="button" id="save-compare" class="nhsuk-button nhsuk-button--warning">
+        Yes, remove this comparator
+      </button>
+    </form>
+
+    <a href="" id="cancel-link" class="nhsuk-button nhsuk-button--secondary" style="margin-left: 10px;">
+      No, keep it
+    </a>
+
+ 
+  </div>
+</div>
+
+  <script>
+      const comparatorData = {
+        1: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets' },
+        2: { name: 'Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets' },
+        3: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets' },
+        4: { name: 'Migard 2.5mg tablets (TestCompanyA) 6 tablet' },
+        5: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets' }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const comparatorId = params.get('id');
+
+      if (comparatorId && comparatorData[comparatorId]) {
+        const name = comparatorData[comparatorId].name;
+        document.getElementById('comparator-summary-name').textContent = name;
+        document.getElementById('comparator-id-hidden').value = comparatorId;
+      }
+
+      // Set cancel link to go back to edit page
+      document.getElementById('cancel-link').href = `/v5/dhsc/edit-product/comparator-details?id=${comparatorId}`;
+
+      (function () {
+        const saveBtn = document.getElementById('save-compare');
+        if (!saveBtn) return;
+
+        saveBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          // label used by product-details to render the success banner
+          sessionStorage.setItem('lastEditedFieldLabel', 'Comparator information');
+
+          // prefer any stored activeTab, otherwise default to ref-price-information
+          const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';
+          window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(activeTab);
+        });
+      }());
+    </script>
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Search company" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#exclusivity-information">Product details</a>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Loss of exclusivity</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+        <div id="warning-callout"></div>
+
+        <div class="nhsuk-form-group">
+            <h2 class="nhsuk-heading-m">
+                Editing: <span id="field-label-display"></span>
+            </h2>
+            <p class="nhsuk-body">
+                Current value: <strong id="current-value-display"></strong>
+            </p>
+        </div>
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="company-search">Search for company</label>
+            <input class="nhsuk-input" id="company-search" name="company-search" type="text" placeholder="Enter company name">
+            <!-- <div class="nhsuk-hint">Click Search to show matching companies</div> -->
+            <div class="nhsuk-u-margin-top-2">
+                <button id="search-btn" class="nhsuk-button" type="button">Search</button>
+                <button id="clear-btn" class="nhsuk-button nhsuk-button--secondary" type="button">Clear</button>
+            </div>
+        </div>
+
+        <div id="results-container" style="display:none; margin-top:1rem;">
+            <h2 class="nhsuk-heading-m">Search results</h2>
+            <table class="nhsuk-table-responsive" role="table" id="results-table">
+                <thead class="nhsuk-table__head">
+                    <tr>
+                        <th class="nhsuk-table__header">Company name</th>
+                        <th class="nhsuk-table__header">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="nhsuk-table__body" id="results-body">
+                    <!-- filled dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    // Field metadata
+    const fieldMetadata = {
+        "cdr-market-authorisation-holder": {
+            label: "(CDR) Market Authorisation holder",
+            currentValue: "Morningside Healthcare Ltd",
+            calloutHeading: "Changing the (CDR) market authorisation holder",
+            calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+        },
+        "cdr-spc-holder": {
+            label: "Supplementary Protection Certificate (SPC) holder",
+            currentValue: "Morningside Healthcare Ltd",
+            calloutHeading: "Changing the (CDR) SPC holder",
+            calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const fieldKey = params.get('field') || 'cdr-market-authorisation-holder';
+    const metadata = fieldMetadata[fieldKey] || fieldMetadata['cdr-market-authorisation-holder'];
+
+    // Display field info and callout
+    document.getElementById('field-label-display').textContent = metadata.label;
+    document.getElementById('current-value-display').textContent = metadata.currentValue;
+
+    const calloutHtml = `
+      <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">
+            <span role="text">
+              <span class="nhsuk-u-visually-hidden">Important:</span> ${metadata.calloutHeading}
+            </span>
+          </h3>
+          <p class="nhsuk-card__description">${metadata.calloutContent}</p>
+        </div>
+      </div>
+      <br>
+    `;
+    document.getElementById('warning-callout').insertAdjacentHTML('afterbegin', calloutHtml);
+
+    // Store for use in select handler
+    sessionStorage.setItem('lastEditedField', fieldKey);
+    sessionStorage.setItem('lastEditedFieldLabel', metadata.label);
+
+    // Sample company list
+    const companies = [
+        "Morningside Healthcare Ltd",
+        "Morningside Incorporated",
+        "Test Pharma Ltd",
+        "Acme Medics Ltd",
+        "Northwind Therapeutics Ltd",
+        "TestCompanyA",
+        "Example Pharmaceuticals Ltd"
+    ];
+
+    const searchInput = document.getElementById('company-search');
+    const searchBtn = document.getElementById('search-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const resultsContainer = document.getElementById('results-container');
+    const resultsBody = document.getElementById('results-body');
+
+    function renderResults(list) {
+        resultsBody.innerHTML = '';
+        list.forEach(name => {
+            const tr = document.createElement('tr');
+            tr.className = 'nhsuk-table__row';
+            const tdName = document.createElement('td');
+            tdName.className = 'nhsuk-table__cell';
+            tdName.textContent = name;
+            const tdAction = document.createElement('td');
+            tdAction.className = 'nhsuk-table__cell';
+            const btn = document.createElement('button');
+            btn.className = 'nhsuk-button nhsuk-button--secondary nhsuk-button--small';
+            btn.type = 'button';
+            btn.textContent = 'Select';
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Store selected value and redirect to confirmation page
+                sessionStorage.setItem('selectedCompanyValue', name);
+                window.location.href = '/v5/dhsc/cdr-company-confirm?field=' + encodeURIComponent(fieldKey) + '&value=' + encodeURIComponent(name);
+            });
+            tdAction.appendChild(btn);
+            tr.appendChild(tdName);
+            tr.appendChild(tdAction);
+            resultsBody.appendChild(tr);
+        });
+        resultsContainer.style.display = list.length ? 'block' : 'none';
+    }
+
+    searchBtn.addEventListener('click', function () {
+        const q = (searchInput.value || '').trim().toLowerCase();
+        const matched = q ? companies.filter(c => c.toLowerCase().includes(q)) : companies.slice(0, 10);
+        renderResults(matched);
+    });
+
+    clearBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        resultsContainer.style.display = 'none';
+        resultsBody.innerHTML = '';
+    });
+
+    // Allow enter key to run search
+    searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchBtn.click();
+        }
+    });
+}());
+</script>
+
+{% endblock %}

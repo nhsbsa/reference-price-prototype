@@ -1,0 +1,116 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Confirm change" %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#exclusivity-information">Product details</a>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Loss of exclusivity</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+        <div id="confirmation-content"></div>
+
+        <div class="nhsuk-button-group">
+            <button id="confirm-btn" class="nhsuk-button" type="button">Save</button>
+            <button id="cancel-btn" class="nhsuk-button nhsuk-button--secondary" type="button">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    const fieldMetadata = {
+        "cdr-market-authorisation-holder": {
+            label: "(CDR) Market Authorisation holder",
+            calloutHeading: "Changing the (CDR) market authorisation holder",
+            calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+        },
+        "cdr-spc-holder": {
+            label: "Supplementary Protection Certificate (SPC) holder",
+            calloutHeading: "Changing the (CDR) SPC holder",
+            calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const fieldKey = params.get('field') || 'cdr-market-authorisation-holder';
+    const newValue = params.get('value') || '';
+    const metadata = fieldMetadata[fieldKey] || fieldMetadata['cdr-market-authorisation-holder'];
+
+    // Build confirmation content
+    const calloutHtml = `
+      <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">
+            <span role="text">
+              <span class="nhsuk-u-visually-hidden">Important:</span> ${metadata.calloutHeading}
+            </span>
+          </h3>
+          <p class="nhsuk-card__description">${metadata.calloutContent}</p>
+        </div>
+      </div>
+    `;
+
+    const confirmationHtml = `
+      
+  <div class="nhsuk-u-margin-top-4">
+        <h2 class="nhsuk-heading-m">Confirm change</h2>
+        <p>You are about to change <strong>${metadata.label}</strong> for all products linked to the VTM 'Metformin'.</p>
+        
+       
+        <dl class="nhsuk-summary-list">
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Previous value
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      Morningside Healthcare Ltd
+    </dd>
+  
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      New value
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      ${newValue}
+    </dd>
+   
+  </div>
+</dl>
+
+      </div>
+    `;
+
+    document.getElementById('confirmation-content').insertAdjacentHTML('afterbegin', confirmationHtml);
+
+    // Save button handler
+    document.getElementById('confirm-btn').addEventListener('click', function () {
+        sessionStorage.setItem('lastEditedFieldLabel', metadata.label);
+        const tab = '#exclusivity-information';
+        window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(tab);
+    });
+
+    // Cancel button handler - go back to search
+    document.getElementById('cancel-btn').addEventListener('click', function () {
+        window.location.href = '/v5/dhsc/cdr-company-edit?field=' + encodeURIComponent(fieldKey);
+    });
+}());
+</script>
+
+{% endblock %}
