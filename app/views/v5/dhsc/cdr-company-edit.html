@@ -46,6 +46,7 @@
 
         <div id="results-container" style="display:none; margin-top:1rem;">
             <h2 class="nhsuk-heading-m">Search results</h2>
+            <p>There are <span id="results-count">0</span> results with the search terms: '<span id="search-terms"></span>' </p>
             <table class="nhsuk-table-responsive" role="table" id="results-table">
                 <thead class="nhsuk-table__head">
                     <tr>
@@ -123,7 +124,9 @@
     const resultsContainer = document.getElementById('results-container');
     const resultsBody = document.getElementById('results-body');
 
-    function renderResults(list) {
+    function renderResults(list, searchQuery) {
+    document.getElementById('results-count').textContent = list.length;
+    document.getElementById('search-terms').textContent = searchQuery;
         resultsBody.innerHTML = '';
         list.forEach(name => {
             const tr = document.createElement('tr');
@@ -151,17 +154,19 @@
         resultsContainer.style.display = list.length ? 'block' : 'none';
     }
 
-    searchBtn.addEventListener('click', function () {
-        const q = (searchInput.value || '').trim().toLowerCase();
-        const matched = q ? companies.filter(c => c.toLowerCase().includes(q)) : companies.slice(0, 10);
-        renderResults(matched);
-    });
+searchBtn.addEventListener('click', function () {
+    const q = (searchInput.value || '').trim().toLowerCase();
+    const matched = q ? companies.filter(c => c.toLowerCase().includes(q)) : companies.slice(0, 10);
+    renderResults(matched, searchInput.value.trim());
+});
 
-    clearBtn.addEventListener('click', function () {
-        searchInput.value = '';
-        resultsContainer.style.display = 'none';
-        resultsBody.innerHTML = '';
-    });
+  clearBtn.addEventListener('click', function () {
+    searchInput.value = '';
+    resultsContainer.style.display = 'none';
+    resultsBody.innerHTML = '';
+    document.getElementById('results-count').textContent = '0';
+    document.getElementById('search-terms').textContent = '';
+});
 
     // Allow enter key to run search
     searchInput.addEventListener('keydown', function (e) {
