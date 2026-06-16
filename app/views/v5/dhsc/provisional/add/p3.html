@@ -91,18 +91,25 @@
     </div>
   </fieldset>
 </div>
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="sort-by">
-    Medicine classification
-  </label>
-  <select class="nhsuk-select" id="sort-by" name="sortBy">
-    <option value="recently-published" selected>Select classification</option>
-        <option value="recently-published" >Newer medicine</option>
-    <option value="recently-updated">Older medicine</option>
-
-
-  </select>
-</div>
+    <div class="nhsuk-form-group">
+      <label class="nhsuk-label" for="sort-by">
+        Medicine classification
+      </label>
+      <div class="nhsuk-radios " data-module="nhsuk-radios">
+        <div class="nhsuk-radios__item">
+          <input class="nhsuk-radios__input" id="example-hints" name="exampleHints" type="radio" value="email">
+          <label class="nhsuk-label nhsuk-radios__label" for="example-hints">
+            Newer medicine
+          </label>
+        </div>
+        <div class="nhsuk-radios__item">
+          <input class="nhsuk-radios__input" id="example-hints-2" name="exampleHints" type="radio" value="phone">
+          <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+            Older medicine
+          </label>
+        </div>
+      </div>
+    </div>
 
 {{ input({
   label: {
