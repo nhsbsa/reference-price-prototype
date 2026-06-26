@@ -1,6 +1,6 @@
 {% extends 'layout-dhsc.html' %}
 
-{% set pageName = "Remove Comparator" %}
+{% set pageName = "Confirm you want to remove comparator" %}
 
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
@@ -44,10 +44,8 @@
    
   </div>
 </dl>
-      <p>
-        Do you want to remove this comparator from the reference price calculation?
-      </p>
-      <p>This action cannot be undone. The comparator will be permanently removed from the reference price calculation.</p>
+
+      <p>Removing this comparator will permanently remove it from the reference price calculation. This action cannot be undone.</p>
     
 
     <!-- <p id="comparator-name-display"></p> -->
@@ -55,12 +53,12 @@
     <form method="POST" action="/v5/dhsc/product-details#ref-price-information" style="display: inline;" id="delete-form">
       <input type="hidden" id="comparator-id-hidden" name="id" value="">
       <button type="button" id="save-compare" class="nhsuk-button nhsuk-button--warning">
-        Yes, remove this comparator
+        Remove comparator
       </button>
     </form>
 
     <a href="" id="cancel-link" class="nhsuk-button nhsuk-button--secondary" style="margin-left: 10px;">
-      No, keep it
+      Cancel
     </a>
 
  
