@@ -30,19 +30,52 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
         <div class="nhsuk-notification-banner" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title">
-  <div class="nhsuk-notification-banner__header">
-    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
-     Upload error
-    </h2>
-  </div>
-  <div class="nhsuk-notification-banner__content">
-    <h3 >
-      There was a problem uploading your dataset</h3>
-      <a class="nhsuk-notification-banner__link" href="error">View error details</a>.
-  
-  </div>
-</div>
+        <div class="nhsuk-notification-banner__header">
+            <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+            Upload complete
+            </h2>
+        </div>
+        <div class="nhsuk-notification-banner__content" >
+            <h3 class="nhsuk-notification-banner__heading">Your file has finished processing</h3>
+                <p><strong>50</strong> rows have been successfully imported.</p>
 
+                <p>
+                    <strong>3</strong> rows could not be imported because they contain errors.
+                  </p>
+                  
+                  <p>
+                    Download the file report to see the errors, fix the rows and upload the corrected rows again.
+                  </p>
+
+                  <p>
+                    You must download the file report before closing this notification.
+                  </p>
+
+                <div class="nhsuk-button-group">
+                <a class="nhsuk-notification-banner__link" href="#">Download file report</a>
+                <a class="nhsuk-notification-banner__link js-close-banner" href="cancel">Close</a>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <style>
+        .nhsuk-notification-banner__content p {
+            max-width: 48em;
+        }
+    </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.js-close-banner').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          this.closest('.nhsuk-notification-banner').style.display = 'none';
+        });
+      });
+    });
+  </script>
 
         <h1>Dashboard</h1>
 
