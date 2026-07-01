@@ -48,17 +48,45 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <span class="nhsuk-caption-l">Provisional product</span>
         <h1 class="nhsuk-heading-xl" id="pageHeading">
-          Enter the details of the provisional product
+          Enter product details
           
         </h1>
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="two-thirds">
+
+<div class="nhsuk-form-group nhsuk-search-input">
+  <label class="nhsuk-label" for="example">
     Company name
   </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text">
+  <div class="nhsuk-hint" id="example-hint">
+    Search for an existing company name or use a new one
+  </div>
+  <div class="nhsuk-input-wrapper nhsuk-search-input__wrapper">
+    <input class="nhsuk-input nhsuk-search-input__input nhsuk-u-width-two-thirds" id="company-search" name="company-search" type="search" aria-describedby="example-hint" autocomplete="off">
+    <button class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-search-input__button" id="search-btn" data-module="nhsuk-button" type="submit" aria-label="Search">
+      <span class="nhsuk-button__content">Search <span class="nhsuk-u-visually-hidden">company name</span></span>    </button>
+  </div>
 </div>
+
+<!-- Inline results block -->
+<div id="company-results" class="nhsuk-form-group" hidden>
+
+  <fieldset class="nhsuk-fieldset">
+
+    <legend
+      id="results-count-legend"
+      class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+    </legend>
+
+    <p id="results-count" class="nhsuk-hint nhsuk-u-margin-bottom-2"></p>
+
+    <div class="nhsuk-radios nhsuk-radios--small" id="results-list"></div>
+
+  </fieldset>
+
+</div>
+
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="two-thirds">
@@ -71,15 +99,149 @@
   <label class="nhsuk-label" for="two-thirds">
  Active substance(s)
   </label>
-    <div class="nhsuk-hint">Separate active substances with a comma</div>
   <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text">
 </div>
 
 
 
-   <a href="/v5/dhsc/provisional/add/p2" class="nhsuk-button ">
-            Continue
-        </a>
+   <a href="/v5/dhsc/provisional/add/p2" class="nhsuk-button ">Continue</a>
+
+
+   <script>
+    const searchBtn = document.getElementById('search-btn');
+    const input = document.getElementById('company-search');
+    const resultsContainer = document.getElementById('company-results');
+    const resultsList = document.getElementById('results-list');
+    const resultsCount = document.getElementById('results-count');
+    const legend = document.getElementById('results-count-legend');
+  
+    // Fake data (replace with API response)
+    const mockResults = [
+      "Morningside Healthcare Ltd",
+      "Morningside Incorporated",
+      "Northwind Therapeutics Ltd"
+    ];
+  
+    searchBtn.addEventListener('click', () => {
+      const query = input.value.trim();
+      resultsList.innerHTML = '';
+
+      if (!query) return;
+
+      resultsContainer.hidden = false;
+
+      // 1. Filter results
+      const filteredResults = mockResults.filter(company =>
+        company.toLowerCase().includes(query.toLowerCase())
+      );
+
+      // 2. No results found
+      if (filteredResults.length === 0) {
+        legend.textContent = 'No matching companies found';
+        resultsCount.textContent = 'You can use a new company name or try searching again';
+
+        resultsList.innerHTML = `
+          <div class="nhsuk-radios__item">
+            <input
+              class="nhsuk-radios__input"
+              id="company-free-text"
+              name="company-choice"
+              type="radio"
+              value="${query}"
+            >
+            <label class="nhsuk-label nhsuk-radios__label" for="company-free-text">
+              Use new company name: "${query}"
+            </label>
+          </div>
+        `;
+
+        return;
+      }
+
+      // 3. Results exist
+      legend.textContent = 'Select a company';
+      resultsCount.textContent = 'Select from the matching company names or use a new company name';
+
+      // Render filtered results
+      filteredResults.forEach((company, index) => {
+        resultsList.innerHTML += `
+          <div class="nhsuk-radios__item">
+            <input
+              class="nhsuk-radios__input"
+              id="company-${index}"
+              name="company-choice"
+              type="radio"
+              value="${company}"
+            >
+            <label class="nhsuk-label nhsuk-radios__label" for="company-${index}">
+              ${company}
+            </label>
+          </div>
+        `;
+      });
+
+      // 4. Fallback (always shown when there ARE results)
+      resultsList.innerHTML += `
+        <div class="nhsuk-radios__divider">or</div>
+
+        <div class="nhsuk-radios__item">
+          <input
+            class="nhsuk-radios__input"
+            id="company-free-text"
+            name="company-choice"
+            type="radio"
+            value="${query}"
+          >
+          <label class="nhsuk-label nhsuk-radios__label" for="company-free-text">
+            Use new company name: "${query}"
+          </label>
+        </div>
+      `;
+    });
+
+  </script>
+
+<script>
+  resultsList.addEventListener('change', (e) => {
+    if (e.target.name === 'company-choice') {
+      const selectedValue = e.target.value;
+
+      // Replace input + button with selected state
+      const wrapper = document.querySelector('.nhsuk-input-wrapper');
+
+      wrapper.innerHTML = `
+        <input
+          class="nhsuk-input nhsuk-u-width-two-thirds"
+          value="${selectedValue}"
+          readonly
+        >
+
+        <button
+          class="nhsuk-button nhsuk-button--secondary nhsuk-button--small"
+          type="button"
+          id="change-btn"
+        >
+          Change
+        </button>
+      `;
+
+      // Hide results
+      resultsContainer.hidden = true;
+
+      // Re-enable editing
+      document.getElementById('change-btn').addEventListener('click', () => {
+        location.reload(); // or reset state properly
+      });
+    }
+  });
+</script>
+
+<style>
+  #company-results { 
+    margin-bottom: 24px;
+  }
+
+</style>
 
         <!-- End of content -->
 

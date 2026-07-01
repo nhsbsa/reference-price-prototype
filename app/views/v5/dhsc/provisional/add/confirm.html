@@ -22,49 +22,182 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional product</a>
-        </li>
-        <!-- <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/view">View provisional products</a>
-        </li> -->
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
 {% endblock %}
 
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-full">
 
 <div class="nhsuk-panel">
   <h1 class="nhsuk-panel__title">
-    Medication q 200mg tablets (2 x 24 tablets)
+    Provisional product created
   </h1>
-
-  <p>This provisional product was created.</p>
-  
+  <div class="nhsuk-panel__body">
+    Medication q 200mg tablets (2 x 24)
+  </div>
+    
 </div>
 
-      <a href="/v5/dhsc/provisional/view" class="nhsuk-button ">
-            View provisional products
-        </a>
+<div class="nhsuk-tabs" data-module="nhsuk-tabs">
+  <h2 class="nhsuk-tabs__title">
+      Contents
+  </h2>
+  <ul class="nhsuk-tabs__list">
+      <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+          <a class="nhsuk-tabs__tab" href="#product-details">
+              Product details
+          </a>
+      </li>
+      <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#originator-details">
+              Originator details
+          </a>
+      </li>
+      <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#ref-price-details">
+              Reference price details
+          </a>
+      </li>
 
-          <a href="/v5/dhsc/" class="nhsuk-button nhsuk-button--secondary">
-            Back to dashboard
-        </a>
+  </ul>
+  <div class="nhsuk-tabs__panel" id="product-details">
+      <div id="productDetails">
+          <h2 class="nhsuk-heading-m">
+              Product details
+          </h2>
+      </div>
 
+      <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                  Company name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  AAH Medical
+              </dd>
+
+          </div>
+          <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                  Product name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  Medication q 200mg tablets (2 x 24)
+              </dd>
+
+          </div>
+          <div class="nhsuk-summary-list__row nhsuk-summary-list__row--no-border">
+              <dt class="nhsuk-summary-list__key">
+                  Active substance(s)
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  Metsulin
+              </dd>
+
+          </div>
+
+      </dl>
+  </div>
+  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="originator-details">
+      <div id="originatorDetails">
+          <h2 class="nhsuk-heading-m">
+              Originator details
+          </h2>
+      </div>
+
+
+      <dl class="nhsuk-summary-list ">
+
+          <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                  Originator brand name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  Abagna LTD
+              </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                  Originator status
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  Unknown
+              </dd>
+
+          </div>
+          <div class="nhsuk-summary-list__row nhsuk-summary-list__row--no-border">
+              <dt class="nhsuk-summary-list__key">
+                  Date presentation becomes an older medicine
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  19/12/2026
+              </dd>
+
+          </div>
+
+      </dl>
+  </div>
+  <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ref-price-details">
+      <div id="refpriceDetails">
+          <h2 class="nhsuk-heading-m">
+              Reference price details
+          </h2>
+      </div>
+
+
+      <dl class="nhsuk-summary-list ">
+
+          <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                  Reference anchor date
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  01/01/2025
+              </dd>
+
+          </div>
+          <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                  Medicine classification
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  Newer entrant
+              </dd>
+
+          </div>
+          <div class="nhsuk-summary-list__row nhsuk-summary-list__row--no-border">
+              <dt class="nhsuk-summary-list__key">
+                  Reference price
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                  £7.32
+              </dd>
+
+          </div>
+      </dl>
+  </div>
+
+</div>
+
+
+  <div class="nhsuk-button-group">
+    <a href="/v5/dhsc/provisional/view" class="nhsuk-button ">
+          View all provisional products
+      </a>
+
+    <a href="/v5/dhsc/provisional/add" class="nhsuk-button nhsuk-button--secondary">
+        Add another provisional product
+    </a>
+
+    <a href="/v5/dhsc/" class="nhsuk-button nhsuk-button--secondary">
+        Back to dashboard
+    </a>
+  </div>
     <!-- End of content -->
 
 </div>
