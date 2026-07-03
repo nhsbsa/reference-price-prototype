@@ -23,17 +23,23 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional product</a>
-        </li>
-         <!-- <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/view">View provisional products</a>
-    </li>   -->
-    </ol>
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional product</a>
+    </li>
+     <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/add/search">Search for a company</a>
+    </li>  
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/add/p1">Enter product details</a>
+    </li>  
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/add/p2">Enter originator details</a>
+    </li>  
+</ol>
     <!-- 
   <a class="nhsuk-back-link" href="#">
     <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
@@ -94,9 +100,10 @@
 </div>
 
 <div class="nhsuk-form-group">
-  <span class="nhsuk-label">Medicine classification</span>
+  <span class="nhsuk-label nhsuk-label--s">Medicine classification</span>
   <p class="nhsuk-body">Newer entrant</p>
 </div>
+
 
 {{ input({
   label: {

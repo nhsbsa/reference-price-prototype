@@ -1,0 +1,292 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Add Provisional Products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional product</a>
+        </li> 
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l">Provisional product</span>
+        <h1 class="nhsuk-heading-xl" id="pageHeading">
+          Search for a company
+          
+        </h1>
+
+
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="company-name">
+    Company name
+  </label>
+  <input class="nhsuk-input nhsuk-u-margin-bottom-3" id="company-search" name="companyName" type="text">
+  <button id="search-btn" class="nhsuk-button" data-module="nhsuk-button" type="button">
+    Find company
+  </button>
+  <button id="reset-btn" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-2" type="button">
+    Reset search
+  </button>
+</div>
+
+
+
+<div id="search-results" hidden>
+
+<hr>
+
+
+    <h2 class="nhsuk-heading-m">
+      157 companies found
+    </h2>
+
+  <p class="nhsuk-body nhsuk-u-margin-bottom-5">Searched all companies with the word "Morningside" in the name</p>
+
+
+    <p class="nhsuk-hint nhsuk-u-margin-bottom-2">
+      Select a company name to continue
+    </p>
+    
+      {{ table({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Company name"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Healthcare Ltd</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Pharmaceuticals Ltd</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside UK Ltd</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Medical Services Ltd</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Biologics Ltd</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Pharma Holdings Ltd</a>'
+            }
+          ],
+          [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Therapeutics Ltd</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Healthcare UK Ltd</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Medical Products Ltd</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningside Clinical Research Ltd</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningstar Medical Ltd</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningview Pharmaceuticals Ltd</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Mornington Healthcare Ltd</a>'
+          }
+        ],
+        [
+        {
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningwell Therapeutics Ltd</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morning Labs Ltd</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morning Health Technologies Ltd</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morning Diagnostics Ltd</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningfield Pharma Ltd</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morning Peak Healthcare Ltd</a>'
+        }
+      ],
+      [
+      {
+        html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p1">Morningbridge Medical Ltd</a>'
+      }
+    ]
+    ]
+  }) }}
+
+      {{ pagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: "#",
+            current: true
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            number: 9,
+            href: "#"
+          },
+          {
+            number: 10,
+            href: "#"
+          }
+        ]
+      }) }}
+
+
+
+  <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Can't find the company you're looking for?</p>
+  
+  {{ button({
+    text: "Continue with a new company name",
+    classes: "nhsuk-button--secondary",
+    href: "/v5/dhsc/provisional/add/index"
+  }) }}
+
+</div>
+
+  </div>
+</div>
+
+<!-- End of content -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  
+    const searchButton = document.getElementById('search-btn');
+    const resultsSection = document.getElementById('search-results');
+    const searchInput = document.getElementById('company-search');
+    const resetButton = document.getElementById('reset-btn');
+
+    searchInput.addEventListener('input', function() {
+      if (searchInput.value.trim() === '') {
+        resultsSection.hidden = true;
+      }
+    });
+  
+    searchButton.addEventListener('click', function (event) {
+  
+      // Prevent form submission for prototype purposes
+      event.preventDefault();
+
+      if (searchInput.value.trim() === '') {
+        resultsSection.hidden = true;
+      }
+
+      resultsSection.hidden = false;
+    
+  
+    });
+
+    resetButton.addEventListener('click', function () {
+
+      // Clear search field
+      searchInput.value = '';
+
+      // Hide results
+      resultsSection.hidden = true;
+
+    });
+  
+  });
+  </script>
+
+{% endblock %}
