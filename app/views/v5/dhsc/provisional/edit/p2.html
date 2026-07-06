@@ -28,14 +28,11 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional product</a>
+          <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/">Provisional products</a>
-        </li> 
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single#originator-details">Product details</a>
-        </li>     
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
+        </li>    
     </ol>
     <!-- 
   <a class="nhsuk-back-link" href="#">
@@ -51,7 +48,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-   <span class="nhsuk-caption-l">Medication q 200mg tablets (2 x 24 tablets)</span>
+   <span class="nhsuk-caption-l">Provisional product</span>
       <h1 class="nhsuk-heading-xl" id="pageHeading">
           Edit originator details
           
@@ -110,9 +107,18 @@
       </div>
     </div>
 
-   <a href="/v5/dhsc/provisional/edit/review" class="nhsuk-button ">
-            Continue
-        </a>
+    <div class="nhsuk-button-group">
+      {{ button({
+        text: "Save changes",
+        href: "/v5/dhsc/provisional/single?saved=true"
+      }) }}
+    
+      {{ button({
+        text: "Discard changes",
+        classes: "nhsuk-button--secondary",
+        href: "/v5/dhsc/provisional/single?saved=false"
+      }) }}
+    </div>
 
         <!-- End of content -->
 

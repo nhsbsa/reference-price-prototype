@@ -23,18 +23,20 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
-        </li> 
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
+  <ol class="nhsuk-breadcrumb__list">
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
+    </li>
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
+    </li>  
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/edit/index">Product details</a>
+    </li>   
+</ol>
 
 </nav>
 {% endblock %}
@@ -91,102 +93,102 @@
         rows: [
           [
             {
-                html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Healthcare Ltd">Morningside Healthcare Ltd</a>'
+                html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Healthcare Ltd">Morningside Healthcare Ltd</a>'
             }
           ],
             [
             {
-              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Pharmaceuticals Ltd">Morningside Pharmaceuticals Ltd</a>'
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Pharmaceuticals Ltd">Morningside Pharmaceuticals Ltd</a>'
             }
             ],
             [
             {
-              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside UK Ltd">Morningside UK Ltd</a>'
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside UK Ltd">Morningside UK Ltd</a>'
             }
             ],
             [
             {
-              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Medical Services Ltd">Morningside Medical Services Ltd</a>'
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Medical Services Ltd">Morningside Medical Services Ltd</a>'
             }
             ],
             [
             {
-              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Biologics Ltd">Morningside Biologics Ltd</a>'
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Biologics Ltd">Morningside Biologics Ltd</a>'
             }
             ],
             [
             {
-              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Pharma Holdings Ltd">Morningside Pharma Holdings Ltd</a>'
+              html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Pharma Holdings Ltd">Morningside Pharma Holdings Ltd</a>'
             }
             ],
             [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Therapeutics Ltd">Morningside Therapeutics Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Therapeutics Ltd">Morningside Therapeutics Ltd</a>'
             }
           ],
           [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Healthcare UK Ltd">Morningside Healthcare UK Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Healthcare UK Ltd">Morningside Healthcare UK Ltd</a>'
             }
           ],
           [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Medical Products Ltd">Morningside Medical Products Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Medical Products Ltd">Morningside Medical Products Ltd</a>'
             }
           ],
           [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningside Clinical Research Ltd">Morningside Clinical Research Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningside Clinical Research Ltd">Morningside Clinical Research Ltd</a>'
             }
           ],
           [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningstar Medical Ltd">Morningstar Medical Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningstar Medical Ltd">Morningstar Medical Ltd</a>'
             }
           ],
           [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningview Pharmaceuticals Ltd">Morningview Pharmaceuticals Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningview Pharmaceuticals Ltd">Morningview Pharmaceuticals Ltd</a>'
             }
           ],
           [
             {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Mornington Healthcare Ltd">Mornington Healthcare Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Mornington Healthcare Ltd">Mornington Healthcare Ltd</a>'
             }
           ],
           [
           {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningwell Therapeutics Ltd">Morningwell Therapeutics Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningwell Therapeutics Ltd">Morningwell Therapeutics Ltd</a>'
           }
           ],
           [
           {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morning Labs Ltd">Morning Labs Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morning Labs Ltd">Morning Labs Ltd</a>'
           }
           ],
           [
           {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morning Health Technologies Ltd">Morning Health Technologies Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morning Health Technologies Ltd">Morning Health Technologies Ltd</a>'
           }
           ],
           [
           {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morning Diagnostics Ltd">Morning Diagnostics Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morning Diagnostics Ltd">Morning Diagnostics Ltd</a>'
           }
           ],
           [
           {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningfield Pharma Ltd">Morningfield Pharma Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningfield Pharma Ltd">Morningfield Pharma Ltd</a>'
           }
           ],
           [
           {
-            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morning Peak Healthcare Ltd">Morning Peak Healthcare Ltd</a>'
+            html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morning Peak Healthcare Ltd">Morning Peak Healthcare Ltd</a>'
           }
           ],
           [
           {
-          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?companyName=Morningbridge Medical Ltd">Morningbridge Medical Ltd</a>'
+          html: '<a class="nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index?companyName=Morningbridge Medical Ltd">Morningbridge Medical Ltd</a>'
           }
     ]
     ]
@@ -236,7 +238,7 @@
   {{ button({
     text: "Continue with a new company name",
     classes: "nhsuk-button--secondary",
-    href: "/v5/dhsc/provisional/add/index?companyName="
+    href: "/v5/dhsc/provisional/edit/index#company-name"
   }) }}
 
 </div>

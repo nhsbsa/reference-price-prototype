@@ -47,11 +47,43 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-        <h1>Manage provisional products</h1>
-<p>View and make changes to existing provisional products or add new ones.</p>
+    <div class="nhsuk-grid-column-full">
+
+    
+      {% if data['deleted'] == 'true' %}
+
+      {% set html %}
+          <h3 class="nhsuk-notification-banner__heading">
+          Provisional product deleted
+          </h3>
+          <p>Medication q 200mg tablets (2 x 24 tablets) has been deleted.</p>
+
+          <a class="nhsuk-notification-banner__link js-close-banner" href="cancel">Close</a>
+      {% endset %}
+
+      {{ notificationBanner({
+          html: html,
+          type: "success"
+      }) }}
+
+  {% endif %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.js-close-banner').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          this.closest('.nhsuk-notification-banner').style.display = 'none';
+        });
+      });
+    });
+  </script>
+  
+  <h1>Manage provisional products</h1>
+    <p>View and make changes to existing provisional products or add new ones.</p>
       
 
+  <div class="nhsuk-button-group">
       <a href="/v5/dhsc/provisional/view" class="nhsuk-button ">
             View provisional products
         </a>
@@ -59,6 +91,7 @@
           <a href="/v5/dhsc/provisional/add/search" class="nhsuk-button nhsuk-button--secondary">
             Add a provisional product
         </a>
+    </div>
 
 
         <!-- <a class="nhsuk-action-link" href="/v5/dhsc/provisional/upload">

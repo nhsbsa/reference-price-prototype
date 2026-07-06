@@ -27,12 +27,12 @@
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
-    <!-- <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional product</a>
-        </li> -->
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/">View provisional products</a>
+      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
     </li>
+    <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
+    </li>  
   </ol>
   <!-- 
   <a class="nhsuk-back-link" href="#">
@@ -47,7 +47,7 @@
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-    <span class="nhsuk-caption-l">Medication q 200mg tablets (2 x 24 tablets)</span>
+    <span class="nhsuk-caption-l">Provisional product</span>
     <h1 class="nhsuk-heading-xl" id="pageHeading">
       Edit reference price details
 
@@ -93,24 +93,11 @@
         </div>
       </fieldset>
     </div>
+
+    
     <div class="nhsuk-form-group">
-      <label class="nhsuk-label" for="sort-by">
-        Medicine classification
-      </label>
-      <div class="nhsuk-radios nhsuk-radios--small " data-module="nhsuk-radios">
-        <div class="nhsuk-radios__item">
-          <input class="nhsuk-radios__input" id="example-hints" name="exampleHints" type="radio" value="email">
-          <label class="nhsuk-label nhsuk-radios__label" for="example-hints">
-            Newer medicine
-          </label>
-        </div>
-        <div class="nhsuk-radios__item">
-          <input class="nhsuk-radios__input" id="example-hints-2" name="exampleHints" type="radio" value="phone">
-          <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
-            Older medicine
-          </label>
-        </div>
-      </div>
+      <span class="nhsuk-label nhsuk-label--s">Medicine classification</span>
+      <p class="nhsuk-body">Newer entrant</p>
     </div>
 
     {{ input({
@@ -124,11 +111,20 @@
     value: 7.32,
     spellcheck: false
     }) }}
+    
+    <div class="nhsuk-button-group">
+      {{ button({
+        text: "Save changes",
+        href: "/v5/dhsc/provisional/single?saved=true"
+      }) }}
+    
+      {{ button({
+        text: "Discard changes",
+        classes: "nhsuk-button--secondary",
+        href: "/v5/dhsc/provisional/single?saved=false"
+      }) }}
+    </div>
 
-    <br>
-    <a href="/v5/dhsc/provisional/edit/review" class="nhsuk-button ">
-      Continue
-    </a>
 
     <!-- End of content -->
 

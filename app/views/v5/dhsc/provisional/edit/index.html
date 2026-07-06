@@ -31,11 +31,8 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single">Provisional products</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
         </li>  
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="">Product details</a>
-        </li>    
     </ol>
     <!-- 
   <a class="nhsuk-back-link" href="#">
@@ -50,18 +47,23 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <span class="nhsuk-caption-l">Medication q 200mg tablets (2 x 24 tablets)</span>
+      <span class="nhsuk-caption-l">Provisional product</span>
       <h1 class="nhsuk-heading-xl" id="pageHeading">
-          Edit provisional product
+          Edit product details
           
         </h1>
 
-<div class="nhsuk-form-group">
+<div class="nhsuk-form-group nhsuk-u-margin-bottom-3">
   <label class="nhsuk-label" for="two-thirds">
     Company name
   </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="AAH Medical">
+  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="company-name" name="companyName" type="text" value="{{ data['companyName'] }}">
 </div>
+{{ button({
+  text: "Find another company",
+  classes: "nhsuk-button--secondary nhsuk-button--small",
+  href: "/v5/dhsc/provisional/edit/search"
+}) }}
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="two-thirds">
@@ -79,9 +81,18 @@
 
 
 
-   <a href="/v5/dhsc/provisional/edit/review" class="nhsuk-button ">
-            Continue
-        </a>
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Save changes",
+            href: "/v5/dhsc/provisional/single?saved=true"
+          }) }}
+        
+          {{ button({
+            text: "Discard changes",
+            classes: "nhsuk-button--secondary",
+            href: "/v5/dhsc/provisional/single?saved=false"
+          }) }}
+        </div>
 
         <!-- End of content -->
 
