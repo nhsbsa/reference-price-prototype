@@ -28,7 +28,7 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Add a provisional product</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
         </li>
          <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/view">View provisional products</a>
@@ -61,7 +61,8 @@
           },
           classes: "nhsuk-u-width-two-thirds",
           id: "company-name",
-          name: "companyName"
+          name: "companyName",
+          value: data.companyName
         }) }}
 
 
@@ -83,144 +84,6 @@
 
    <a href="/v5/dhsc/provisional/add/p2" class="nhsuk-button ">Continue</a>
 
-
-   <script>
-    const searchBtn = document.getElementById('search-btn');
-    const input = document.getElementById('company-search');
-    const resultsContainer = document.getElementById('company-results');
-    const resultsList = document.getElementById('results-list');
-    const resultsCount = document.getElementById('results-count');
-    const legend = document.getElementById('results-count-legend');
-  
-    // Fake data (replace with API response)
-    const mockResults = [
-      "Morningside Healthcare Ltd",
-      "Morningside Incorporated",
-      "Northwind Therapeutics Ltd",
-      "AAH Medical",
-      "Pfizer Inc.",
-    ];
-  
-    searchBtn.addEventListener('click', () => {
-      const query = input.value.trim();
-      resultsList.innerHTML = '';
-
-      if (!query) return;
-
-      resultsContainer.hidden = false;
-
-      // 1. Filter results
-      const filteredResults = mockResults.filter(company =>
-        company.toLowerCase().includes(query.toLowerCase())
-      );
-
-      // 2. No results found
-      if (filteredResults.length === 0) {
-        legend.textContent = 'No matching companies found';
-        resultsCount.textContent = 'You can use a new company name or try searching again';
-
-        resultsList.innerHTML = `
-          <div class="nhsuk-radios__item">
-            <input
-              class="nhsuk-radios__input"
-              id="company-free-text"
-              name="company-choice"
-              type="radio"
-              value="${query}"
-            >
-            <label class="nhsuk-label nhsuk-radios__label" for="company-free-text">
-              Use new company name: "${query}"
-            </label>
-          </div>
-        `;
-
-        return;
-      }
-
-      // 3. Results exist
-      legend.textContent = 'Select a company';
-      resultsCount.textContent = 'Select from the matching company names or use a new company name';
-
-      // Render filtered results
-      filteredResults.forEach((company, index) => {
-        resultsList.innerHTML += `
-          <div class="nhsuk-radios__item">
-            <input
-              class="nhsuk-radios__input"
-              id="company-${index}"
-              name="company-choice"
-              type="radio"
-              value="${company}"
-            >
-            <label class="nhsuk-label nhsuk-radios__label" for="company-${index}">
-              ${company}
-            </label>
-          </div>
-        `;
-      });
-
-      // 4. Fallback (always shown when there ARE results)
-      resultsList.innerHTML += `
-        <div class="nhsuk-radios__divider">or</div>
-
-        <div class="nhsuk-radios__item">
-          <input
-            class="nhsuk-radios__input"
-            id="company-free-text"
-            name="company-choice"
-            type="radio"
-            value="${query}"
-          >
-          <label class="nhsuk-label nhsuk-radios__label" for="company-free-text">
-            Use new company name: "${query}"
-          </label>
-        </div>
-      `;
-    });
-
-  </script>
-
-<script>
-  resultsList.addEventListener('change', (e) => {
-    if (e.target.name === 'company-choice') {
-      const selectedValue = e.target.value;
-
-      // Replace input + button with selected state
-      const wrapper = document.querySelector('.nhsuk-input-wrapper');
-
-      wrapper.innerHTML = `
-        <input
-          class="nhsuk-input nhsuk-u-width-two-thirds"
-          value="${selectedValue}"
-          readonly
-        >
-
-        <button
-          class="nhsuk-button nhsuk-button--secondary nhsuk-button--small"
-          type="button"
-          id="change-btn"
-        >
-          Change <span class="nhsuk-u-visually-hidden">company name</span>
-        </button>
-      `;
-
-      // Hide results
-      resultsContainer.hidden = true;
-
-      // Re-enable editing
-      document.getElementById('change-btn').addEventListener('click', () => {
-        location.reload(); // or reset state properly
-      });
-    }
-  });
-</script>
-
-<style>
-  #company-results { 
-    margin-bottom: 24px;
-  }
-
-</style>
 
         <!-- End of content -->
 
