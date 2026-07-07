@@ -28,7 +28,7 @@
         <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
     </li>
     <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
+        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
     </li> 
   </ol>
 
@@ -76,7 +76,7 @@
       {{ button({
         text: "Continue with a new company name",
         classes: "nhsuk-button--secondary",
-        href: "/v5/dhsc/provisional/add/index"
+        href: "/v5/dhsc/provisional/add/index?manualCompany=true&companyName="
       }) }}
 
     </div>

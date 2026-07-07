@@ -28,7 +28,7 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
@@ -52,18 +52,31 @@
           Edit product details
           
         </h1>
+        
+        <div class="nhsuk-form-group nhsuk-u-margin-bottom-3">
+          <label class="nhsuk-label nhsuk-label--s">
+            Company name
+          </label>
+        
+          {% if data.manualCompany == 'true' %}
+            <input
+              class="nhsuk-input nhsuk-u-width-two-thirds"
+              id="company-name"
+              name="companyName"
+              type="text"
+              value="{{ data.companyName or 'AAH Medical' }}">
+          {% else %}
+            <p class="nhsuk-body nhsuk-u-margin-bottom-1">
+              {{ data.companyName or 'AAH Medical' }}
+            </p>
+          {% endif %}
+        </div>
 
-<div class="nhsuk-form-group nhsuk-u-margin-bottom-3">
-  <label class="nhsuk-label" for="two-thirds">
-    Company name
-  </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="company-name" name="companyName" type="text" value="{{ data['companyName'] or 'AAH Medical' }}">
-</div>
-{{ button({
-  text: "Find another company",
-  classes: "nhsuk-button--secondary nhsuk-button--small",
-  href: "/v5/dhsc/provisional/edit/search"
-}) }}
+      {{ button({
+        text: "Use a different company name",
+        classes: "nhsuk-button--secondary nhsuk-button--small",
+        href: "/v5/dhsc/provisional/edit/search"
+      }) }}
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="two-thirds">

@@ -28,7 +28,7 @@
             <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
         </li>
         <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index">Manage provisional products</a>
+            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
         </li>
          <!-- <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/view">View provisional products</a>
@@ -55,15 +55,22 @@
         </h1>
 
 
-        {{ input({
-          label: {
-            text: "Company name"
-          },
-          classes: "nhsuk-u-width-two-thirds",
-          id: "company-name",
-          name: "companyName",
-          value: data.companyName
-        }) }}
+        {% if data.manualCompany == 'true' %}
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="company-name">
+            Company name
+          </label>
+      
+          <input
+            class="nhsuk-input nhsuk-u-width-two-thirds"
+            id="company-name"
+            name="companyName"
+            type="text"
+            value="{{ data.companyName }}">
+        </div>
+      {% else %}
+        <input type="hidden" name="companyName" value="{{ data.companyName }}">
+      {% endif %}
 
 
 <div class="nhsuk-form-group">
