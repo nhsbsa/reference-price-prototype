@@ -36,7 +36,7 @@
 (function () {
     const fieldMetadata = {
         "cdr-market-authorisation-holder": {
-            label: "(CDR) Market Authorisation holder",
+            label: "(CDR) market authorisation holder",
             calloutHeading: "Changing the (CDR) market authorisation holder",
             calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
         },
@@ -49,7 +49,7 @@
 
     const params = new URLSearchParams(window.location.search);
     const fieldKey = params.get('field') || 'cdr-market-authorisation-holder';
-    const newValue = params.get('value') || '';
+    const newValue = params.get('companyName') || '';
     const metadata = fieldMetadata[fieldKey] || fieldMetadata['cdr-market-authorisation-holder'];
 
     // Build confirmation content
@@ -66,36 +66,44 @@
       </div>
     `;
 
-    const confirmationHtml = `
-      
-  <div class="nhsuk-u-margin-top-4">
-        <h2 class="nhsuk-heading-m">Confirm change</h2>
-        <p>You are about to change <strong>${metadata.label}</strong> for all products linked to the VTM 'Metformin'.</p>
-        
-       
-        <dl class="nhsuk-summary-list">
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Previous value
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      Morningside Healthcare Ltd
-    </dd>
-  
-  </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      New value
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      ${newValue}
-    </dd>
-   
-  </div>
-</dl>
+    const manualCompany = params.get('manualCompany') === 'true';
 
+const confirmationHtml = manualCompany ? `
+  <div class="nhsuk-u-margin-top-4">
+    <h2 class="nhsuk-heading-m">Enter a new company name</h2>
+    <p>You are about to change <strong>${metadata.label}</strong> for all products linked to the VTM 'Metformin'.</p>
+    <p>Current value: <strong>Morningside Healthcare Ltd</strong></p>
+
+    <div class="nhsuk-form-group">
+      <label class="nhsuk-label" for="company-name">
+        New value
+      </label>
+      <input
+        class="nhsuk-input nhsuk-u-width-two-thirds"
+        id="company-name"
+        name="companyName"
+        type="text"
+        value="${newValue}">
+    </div>
+  </div>
+` : `
+  <div class="nhsuk-u-margin-top-4">
+    <h2 class="nhsuk-heading-m">Confirm change</h2>
+    <p>You are about to change <strong>${metadata.label}</strong> for all products linked to the VTM 'Metformin'.</p>
+
+    <dl class="nhsuk-summary-list">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Previous value</dt>
+        <dd class="nhsuk-summary-list__value">Morningside Healthcare Ltd</dd>
       </div>
-    `;
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">New value</dt>
+        <dd class="nhsuk-summary-list__value">${newValue}</dd>
+      </div>
+    </dl>
+  </div>
+`;
 
     document.getElementById('confirmation-content').insertAdjacentHTML('afterbegin', confirmationHtml);
 

@@ -81,7 +81,7 @@
       Select a company name to continue
     </p>
     
-      {{ table({
+      <!-- {{ table({
         firstCellIsHeader: true,
         head: [
           {
@@ -190,7 +190,143 @@
           }
     ]
     ]
-  }) }}
+  }) }} -->
+
+
+  {{ table({
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Company name"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Healthcare Ltd</p>'
+        },
+        {
+          html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Healthcare Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Pharmaceuticals Ltd</p>'
+        },
+        {
+            html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Pharmaceuticals Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside UK Ltd</p>'
+        },
+        {
+            html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside UK Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Medical Services Ltd</p>'
+        },
+        {
+            html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Medical Services Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Biologics Ltd</p>'
+        },
+        {
+            html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Biologics Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Pharma Holdings Ltd</p>'
+        },
+        {
+            html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Pharma Holdings Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Therapeutics Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Therapeutics Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Healthcare UK Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Healthcare UK Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Medical Products Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Medical Products Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningside Clinical Research Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningside Clinical Research Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningstar Medical Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningstar Medical Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningview Pharmaceuticals Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningview Pharmaceuticals Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Mornington Healthcare Ltd</p>'
+        },
+        {
+        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Mornington Healthcare Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morningwell Therapeutics Ltd</p>'
+        },
+        {
+          html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morningwell Therapeutics Ltd&manualCompany=false">Select</a>'
+        }
+      ],
+      [
+        {
+          html: '<p class="nhsuk-body">Morning Labs Ltd</p>'
+        },
+        {
+            html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/provisional/add/index?companyName=Morning Labs Ltd&manualCompany=false">Select</a>'
+        }
+      ]
+      ]
+    }) }}
+
 
       {{ pagination({
         next: {
