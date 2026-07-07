@@ -46,15 +46,34 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-    {% if data['saved'] == 'true' %}
+        <!-- Product details notification banner -->
+        {% if data['saved'] == 'product-details' %}
+
+        {% set html %}
+          <h3 class="nhsuk-notification-banner__heading">
+            Provisional product updated
+          </h3>
+          <p>Your product details have been saved.</p>
+          <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+          </a>
+        {% endset %}
+      
+        {{ notificationBanner({
+          html: html,
+          type: "success"
+        }) }}
+      
+      {% endif %}
+
+      <!-- Origiinator details notification banner -->
+      {% if data['saved'] == 'originator-details' %}
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-                Provisional product updated
+            Provisional product updated
             </h3>
-            <p>Your changes have been saved.</p>
-            <a class="nhsuk-notification-banner__link js-close-banner" href="cancel">Close</a>
-
+            <p>Your originator details have been saved.</p>
+            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
@@ -62,7 +81,26 @@
             type: "success"
         }) }}
 
-    {% endif %}
+        {% endif %}
+
+        <!-- Reference price details notification banner -->
+        {% if data['saved'] == 'reference-price-details' %}
+
+        {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+            Provisional product updated
+            </h3>
+            <p>Your reference price details have been saved.</p>
+
+            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+        {% endset %}
+
+        {{ notificationBanner({
+            html: html,
+            type: "success"
+        }) }}
+
+        {% endif %}
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

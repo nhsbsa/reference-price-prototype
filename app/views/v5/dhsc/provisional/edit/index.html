@@ -57,7 +57,7 @@
   <label class="nhsuk-label" for="two-thirds">
     Company name
   </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="company-name" name="companyName" type="text" value="{{ data['companyName'] }}">
+  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="company-name" name="companyName" type="text" value="{{ data['companyName'] or 'AAH Medical' }}">
 </div>
 {{ button({
   text: "Find another company",
@@ -84,7 +84,7 @@
         <div class="nhsuk-button-group">
           {{ button({
             text: "Save changes",
-            href: "/v5/dhsc/provisional/single?saved=true"
+            href: "/v5/dhsc/provisional/single?saved=product-details"
           }) }}
         
           {{ button({
