@@ -22,37 +22,19 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional product</a>
-    </li>
-     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/add/search">Search for a company</a>
-    </li>  
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/add/p1">Enter product details</a>
-    </li>  
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/add/p2">Enter originator details</a>
-    </li>  
-</ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+  {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-full">
 
       <span class="nhsuk-caption-l">Provisional product</span>
         <h1 class="nhsuk-heading-xl" id="pageHeading">
@@ -118,9 +100,18 @@
 
 
 
-   <a href="/v5/dhsc/provisional/add/review" class="nhsuk-button ">
-            Continue
-        </a>
+    <div class="nhsuk-button-group">
+      {{ button({
+        text: "Continue",
+        href: '/v5/dhsc/provisional/add/review'
+      }) }}
+    
+      {{ button({
+        text: "Cancel",
+        classes: "nhsuk-button--secondary",
+        href: '/v5/dhsc'
+      }) }}
+    </div>
 
         <!-- End of content -->
 

@@ -22,21 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
-        </li> 
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+    href: '/v5/dhsc/provisional/view',
+    text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -150,7 +141,7 @@
                     </h2>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
-                            <a class="nhsuk-link" href="/v5/dhsc/provisional/edit/index">Edit<span
+                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/index">Edit<span
                                     class="nhsuk-u-visually-hidden"> product details</span></a>
                         </li>
 
@@ -195,7 +186,7 @@
                     </h2>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
-                            <a class="nhsuk-link" href="/v5/dhsc/provisional/edit/p2">Edit<span
+                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/p2">Edit<span
                                     class="nhsuk-u-visually-hidden"> originator details</span></a>
                         </li>
 
@@ -243,7 +234,7 @@
                     </h2>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
-                            <a class="nhsuk-link" href="/v5/dhsc/provisional/edit/p3">Edit<span
+                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/edit/p3">Edit<span
                                     class="nhsuk-u-visually-hidden"> reference price details</span></a>
                         </li>
 

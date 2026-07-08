@@ -22,23 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
-    </li>  
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/edit/index">Product details</a>
-    </li>   
-</ol>
 
-</nav>
+  {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -60,12 +49,19 @@
     Company name
   </label>
   <input class="nhsuk-input nhsuk-u-margin-bottom-3" id="company-search" name="companyName" type="text">
+  <div class="nhsuk-button-group">
   <button id="search-btn" class="nhsuk-button" data-module="nhsuk-button" type="button">
     Find company
   </button>
-  <button id="reset-btn" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-2" type="button">
+  <button id="reset-btn" class="nhsuk-button nhsuk-button--secondary" type="button">
     Reset search
   </button>
+  {{ button({
+    text: "Cancel",
+    classes: "nhsuk-button--secondary",
+    href: '/v5/dhsc'
+  }) }}
+  </div>
 </div>
 
 

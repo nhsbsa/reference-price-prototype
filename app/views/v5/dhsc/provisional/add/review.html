@@ -22,14 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-    </ol>
 
-</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -52,7 +45,7 @@
                 </h2>
                 <ul class="nhsuk-card__actions">
                     <li class="nhsuk-card__action">
-                        <a class="nhsuk-link" href="/v5/dhsc/provisional/add/search">Edit<span
+                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/index?manualCompany=false&returnUrl=/v5/dhsc/provisional/add/review">Edit<span
                                 class="nhsuk-u-visually-hidden"> product details</span></a>
                     </li>
 
@@ -64,7 +57,7 @@
                         Company name
                     </dt>
                     <dd class="nhsuk-summary-list__value">
-                        AAH Medical
+                        {{ data.companyName or 'AAH Medical' }}
                     </dd>
 
                 </div>
@@ -96,7 +89,7 @@
                 </h2>
                 <ul class="nhsuk-card__actions">
                     <li class="nhsuk-card__action">
-                        <a class="nhsuk-link" href="/v5/dhsc/provisional/add/p2">Edit<span
+                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p2?returnUrl=/v5/dhsc/provisional/add/review">Edit<span
                                 class="nhsuk-u-visually-hidden"> originator details</span></a>
                     </li>
 
@@ -145,7 +138,7 @@
                 </h2>
                 <ul class="nhsuk-card__actions">
                     <li class="nhsuk-card__action">
-                        <a class="nhsuk-link" href="/v5/dhsc/provisional/add/p3">Edit<span
+                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/provisional/add/p3?returnUrl=/v5/dhsc/provisional/add/review">Edit<span
                                 class="nhsuk-u-visually-hidden"> reference price details</span></a>
                     </li>
 
@@ -187,14 +180,20 @@
 
         </div>
 
+
     <div class="nhsuk-button-group">
-        <a href="/v5/dhsc/provisional/add/confirm" class="nhsuk-button">
-            Confirm 
-        </a>
-        <a href="/v5/dhsc/provisional/" class="nhsuk-button nhsuk-button--secondary">
-           Cancel
-        </a>
+        {{ button({
+          text: "Continue",
+          href: '/v5/dhsc/provisional/add/confirm'
+        }) }}
+      
+        {{ button({
+          text: "Cancel",
+          classes: "nhsuk-button--secondary",
+          href: '/v5/dhsc'
+        }) }}
     </div>
+
     <!-- End of content -->
 
 </div>

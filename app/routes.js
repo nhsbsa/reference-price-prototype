@@ -33,4 +33,16 @@ router.get('/v5/dhsc/provisional/delete-confirm', function (req, res) {
     productName: 'Medication q 200mg tablets (2 x 24 tablets)'
   });
 });
+
+//Clear return URL when navigating to add a new provisional product
+router.get('/v5/dhsc/provisional/add/index', function (req, res) {
+  delete req.session.data.returnUrl;
+  res.render('v5/dhsc/provisional/add/index');
+});
+
+router.get('/v5/dhsc/provisional/add/review', function (req, res) {
+  delete req.session.data.returnUrl;
+  res.render('v5/dhsc/provisional/add/review');
+});
+
 module.exports = router

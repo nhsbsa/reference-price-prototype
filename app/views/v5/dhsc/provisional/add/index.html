@@ -22,24 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
-        </li>
-         <!-- <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/view">View provisional products</a>
-    </li>   -->
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -69,7 +57,17 @@
             value="{{ data.companyName }}">
         </div>
       {% else %}
-        <input type="hidden" name="companyName" value="{{ data.companyName }}">
+      <label class="nhsuk-label nhsuk-label--s">
+        Company name
+      </label>
+        <p class="nhsuk-body nhsuk-u-margin-bottom-3">
+          {{ data.companyName or 'AAH Medical' }}
+        </p>
+        {{ button({
+          text: "Use a different company name",
+          classes: "nhsuk-button--secondary nhsuk-button--small",
+          href: "/v5/dhsc/provisional/add/search"
+        }) }}
       {% endif %}
 
 
@@ -89,7 +87,18 @@
 
 
 
-   <a href="/v5/dhsc/provisional/add/p2" class="nhsuk-button ">Continue</a>
+   <div class="nhsuk-button-group">
+    {{ button({
+      text: "Continue",
+      href: data.returnUrl or '/v5/dhsc/provisional/add/p2'
+    }) }}
+  
+    {{ button({
+      text: "Cancel",
+      classes: "nhsuk-button--secondary",
+      href: '/v5/dhsc'
+    }) }}
+  </div>
 
 
         <!-- End of content -->

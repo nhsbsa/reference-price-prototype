@@ -22,24 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/index?deleted=false">Manage provisional products</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-        <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/provisional/single?saved=false">Provisional product</a>
-    </li>  
-  </ol>
-  <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+  {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -114,14 +102,14 @@
     
     <div class="nhsuk-button-group">
       {{ button({
-        text: "Save changes",
+        text: "Save",
         href: "/v5/dhsc/provisional/single?saved=reference-price-details"
       }) }}
     
       {{ button({
-        text: "Discard changes",
+        text: "Cancel",
         classes: "nhsuk-button--secondary",
-        href: "/v5/dhsc/provisional/single?saved=false"
+        href: "/v5/dhsc"
       }) }}
     </div>
 
