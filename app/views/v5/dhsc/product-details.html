@@ -22,25 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-        </li>
-        <!--   <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/query-details">Query details</a>
-    </li>   -->
 
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
+{{ backLink({
+    href: '/v5/dhsc/search',
+    text: 'Back'
+}) }}
 
-</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -48,6 +35,56 @@
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
+
+        <!-- Reference price information notification banner -->
+        {% if data['saved'] == 'reference-price-details' %}
+
+        {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+            Reference price information updated
+            </h3>
+            <p>Your reference price details have been saved.</p>
+
+            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+        {% endset %}
+
+        {{ notificationBanner({
+            html: html,
+            type: "success"
+        }) }}
+
+        {% endif %}
+
+        <!-- Reference price deleted notification banner -->
+        {% if data['deleted'] == 'true' %}
+
+        {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+            Reference price deleted
+            </h3>
+            <p>Your reference price has been deleted.</p>
+
+            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+        {% endset %}
+
+        {{ notificationBanner({
+            html: html,
+            type: "success"
+        }) }}
+
+        {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.js-close-banner').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.closest('.nhsuk-notification-banner').style.display = 'none';
+            });
+            });
+        });
+    </script>
+    
         <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
 
@@ -1077,205 +1114,141 @@
                     <h2 class="nhsuk-heading-m">
                         Reference price information
                     </h2>
+                    <ul class="nhsuk-card__actions">
+                        <!-- <li class="nhsuk-card__action">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a>
+                        </li> -->
+                        <li class="nhsuk-card__action">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">
+                                Add a new reference price</a>
+                        </li>
+
+                    </ul>
+
                     <h3 class="nhsuk-heading-s">
-                        Reference price for 01/10/2024 to 01/02/2036
+                        Reference price for 1 October 2024 to 1 February 2036
                     </h3>
+                    <ul class="nhsuk-card__actions">
+                        <li class="nhsuk-card__action">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                href="/v5/dhsc/edit-product/reference-price-info">Edit reference price</a>
+                        </li>
 
-                    <table class="nhsuk-table-responsive" role="table">
+                        <li class="nhsuk-card__action">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                href="/v5/dhsc/edit-product/reference-price-delete">Delete reference price</a>
+                        </li>
 
-                        <thead class="nhsuk-table__head" role="rowgroup">
-                            <tr role="row">
-                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
-                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
-                                <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
-                            </tr>
-                        </thead>
-
-                        <tbody class="nhsuk-table__body">
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Data correct as of
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    12/10/2025
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=date-correct-as-of">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Reference price start year
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    2024
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=reference-price-start-year">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Reference price type
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    List price of comparator(s) according to dm+d minus 12.5% subject to adjustments
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=reference-price-type">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Reference price start date
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    15/10/2025
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=reference-price-start-date">Edit</a>
-                                </td>
-                            </tr>
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Reference price end date
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    15/10/2028
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=reference-price-end-date">Edit</a>
-                                </td>
-                            </tr>
+                    </ul>
 
 
+                    {{ summaryList({
+                        rows: [
+                            {
+                            key: {
+                                text: "Date correct as of"
+                            },
+                            value: {
+                                text: "12 October 2025"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Reference price start year"
+                            },
+                            value: {
+                                text: "2024"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Reference price type"
+                            },
+                            value: {
+                                text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Reference price start date"
+                            },
+                            value: {
+                                html: "<p>15 October 2025</p>"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Reference price end date"
+                            },
+                            value: {
+                                text: "14 October 2028"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Interformulation adjustment"
+                            },
+                            value: {
+                                text: "Yes"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Pack size adjustment"
+                            },
+                            value: {
+                                text: "No"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Retrospective adjustment"
+                            },
+                            value: {
+                                text: "Yes"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Prospective adjustment"
+                            },
+                            value: {
+                                text: "Yes"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Reference price adjustment"
+                            },
+                            value: {
+                                text: "Yes"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Reference price"
+                            },
+                            value: {
+                                text: "£6.41"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Change following review"
+                            },
+                            value: {
+                                text: "No data available"
+                            }
+                            }
+                        ]
+                    }) }}
 
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Interformulation adjustment
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    Yes
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=interformulation-adjustment">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Pack size adjustment
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    No
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=pack-size-adjustment">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Retrospective adjustment
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    Yes
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=retrospective-adjustment">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Prospective adjustment
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    Yes
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=prospective-adjustment">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Reference price adjustment
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    Yes
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=reference-price-adjustment">Edit</a>
-                                </td>
-                            </tr>
-
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell nhsuk-u-font-weight-bold" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Reference price
-                                </td>
-                                <td class="nhsuk-table__cell nhsuk-u-font-weight-bold" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    £6.41
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=reference-price">Edit</a>
-                                </td>
-                            </tr>
-                            <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Name </span>
-                                    Change following review
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Value </span>
-                                    No data available
-                                </td>
-                                <td class="nhsuk-table__cell" role="cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-reference-price?field=change-following-review">Edit</a>
-                                </td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
+                    <style>
+                    .nhsuk-summary-list__key {
+                        width: 35%;
+                    }
+                    </style>
 
                     <div id="comparator-info">
 
