@@ -23,10 +23,10 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
-  {{ backLink({
+  <!-- {{ backLink({
     href: 'javascript:history.go(-1)',
     text: 'Back'
-  }) }}
+  }) }} -->
 
 {% endblock %}
 
@@ -109,7 +109,7 @@
       {{ button({
         text: "Cancel",
         classes: "nhsuk-button--secondary",
-        href: "/v5/dhsc"
+        href: "/v5/dhsc/provisional/single?saved=false"
       }) }}
     </div>
 

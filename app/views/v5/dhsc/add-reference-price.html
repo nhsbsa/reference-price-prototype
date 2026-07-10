@@ -1,5 +1,5 @@
 {% extends 'layout-dhsc.html' %}
-{% set pageName = "Edit reference price" %}
+{% set pageName = "Add reference price" %}
 
 {% block beforeContent %}
 
@@ -15,7 +15,7 @@
     <div class="nhsuk-grid-column-full">
 
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
-        <h1 id="product-name" class="nhsuk-heading-xl">Edit reference price</h1>
+        <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
 
           {{ summaryList({
             rows: [
@@ -27,9 +27,9 @@
                     html:  dateInput({
                         id: "reference-price-calculation-date",
                         items: [
-                            { name: "day", classes: "nhsuk-input--width-2", value: "12" },
-                            { name: "month", classes: "nhsuk-input--width-2", value: "10" },
-                            { name: "year", classes: "nhsuk-input--width-4", value: "2025" }
+                            { name: "day", classes: "nhsuk-input--width-2" },
+                            { name: "month", classes: "nhsuk-input--width-2" },
+                            { name: "year", classes: "nhsuk-input--width-4" }
                         ]
                     })                
                 }
@@ -42,7 +42,7 @@
                     html:  dateInput({
                         id: "reference-price-start-year",
                         items: [
-                          { name: "year", classes: "nhsuk-input--width-4", value: "2024" }
+                          { name: "year", classes: "nhsuk-input--width-4" }
                         ]
                     })                  
                 }
@@ -58,8 +58,7 @@
                     items: [
                       {
                         value: "list-price-minus-12.5",
-                        text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments",
-                        checked: true
+                        text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
                       },
                       {
                         value: "average-selling-price",
@@ -80,18 +79,15 @@
                     items: [
                       {
                         name: "day",
-                        classes: "nhsuk-input--width-2",
-                        value: "15"
+                        classes: "nhsuk-input--width-2"
                       },
                       {
                         name: "month",
-                        classes: "nhsuk-input--width-2",
-                        value: "10"
+                        classes: "nhsuk-input--width-2"
                       },
                       {
                         name: "year",
-                        classes: "nhsuk-input--width-4",
-                        value: "2025"
+                        classes: "nhsuk-input--width-4"
                       }
                     ]
                   })
@@ -108,18 +104,15 @@
                     items: [
                       {
                         name: "day",
-                        classes: "nhsuk-input--width-2",
-                        value: "14"
+                        classes: "nhsuk-input--width-2"
                       },
                       {
                         name: "month",
-                        classes: "nhsuk-input--width-2",
-                        value: "10"
+                        classes: "nhsuk-input--width-2"
                       },
                       {
                         name: "year",
-                        classes: "nhsuk-input--width-4",
-                        value: "2028"
+                        classes: "nhsuk-input--width-4"
                       }
                     ]
                   })
@@ -131,13 +124,15 @@
                 },
                 value: {
                     html: checkboxes({
+                    hint: {
+                      text: "Select all options that apply"
+                    },
                     idPrefix: "adjustments",
                     name: "adjustments",
                     items: [
                         {
                         value: "interformulation-adjustment",
-                        text: "Interformulation adjustment",
-                        checked: true
+                        text: "Interformulation adjustment"
                         },
                         {
                         value: "pack-size-adjustment",
@@ -145,18 +140,15 @@
                         },
                         {
                         value: "retrospective-adjustment",
-                        text: "Retrospective adjustment",
-                        checked: true
+                        text: "Retrospective adjustment"
                         },
                         {
                         value: "prospective-adjustment",
-                        text: "Prospective adjustment",
-                        checked: true
+                        text: "Prospective adjustment"
                         },
                         {
                         value: "reference-price-adjustment",
-                        text: "Reference price adjustment",
-                        checked: true
+                        text: "Reference price adjustment"
                         }
                     ]
                     })   
@@ -168,11 +160,13 @@
                 },
                 value: {
                     html: input({
+                        hint: {
+                          text: "Enter the reference price in pounds and pence"
+                        },
                         id: "reference-price",
                         name: "referencePrice",
                         prefix: "£",
-                        classes: "nhsuk-input--width-5",
-                        value: "6.41"
+                        classes: "nhsuk-input--width-5"
                     })   
                 }
               },
@@ -183,9 +177,11 @@
                 },
                 value: {
                     html:  textarea({
+                      hint: {
+                        text: "If you are changing the reference price, please provide a reason for the change"
+                      },
                         name: "changeFollowingReview",
-                        id: "changeFollowingReview",
-                        value: "No data available"
+                        id: "changeFollowingReview"
                     })                  
                 }
               }
@@ -194,8 +190,8 @@
 
           <div class="nhsuk-button-group">
             {{ button({
-              text: "Save",
-              href: "/v5/dhsc/product-details?saved=reference-price-details&deleted=false"
+              text: "Confirm and save",
+              href: "/v5/dhsc/product-details?saved=reference-price&deleted=false"
             }) }}
           
             {{ button({

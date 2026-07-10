@@ -23,10 +23,10 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
-  {{ backLink({
+  <!-- {{ backLink({
     href: 'javascript:history.go(-1)',
     text: 'Back'
-  }) }}
+  }) }} -->
 
 {% endblock %}
 
@@ -40,9 +40,10 @@
     <span class="nhsuk-caption-l">Provisional product</span>
   <h1>Delete provisional product</h1>
 
-  <p>Are you sure you want to delete?
-  </p>
   <p>Product name: <strong>Medication q 200mg tablets (2 x 24 tablets)</strong></p>
+
+  <p>Are you sure you want to delete?</p>
+
   <p>This action cannot be undone.</p>
 <!-- 
   <div class="nhsuk-radios" data-module="nhsuk-radios">
@@ -73,7 +74,7 @@
   {{ button({
     text: "Cancel",
     classes: "nhsuk-button--secondary",
-    href: "/v5/dhsc"
+    href: "/v5/dhsc/provisional/single?saved=false"
   }) }}
 </div>
        

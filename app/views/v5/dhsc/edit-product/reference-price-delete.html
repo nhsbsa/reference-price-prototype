@@ -3,25 +3,60 @@
 
 {% block beforeContent %}
 
-{{ backLink({
+<!-- {{ backLink({
     href: 'javascript:history.go(-1)',
     text: 'Back'
-  }) }}
+  }) }} -->
 
 {% endblock %}
 
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-grid-column-two-thirds">
 
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
         <h1 id="product-name" class="nhsuk-heading-xl">Delete reference price</h1>
 
+        <h2 class="nhsuk-heading-m">Reference price details</h2>
+
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Type"
+              },
+              value: {
+                text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+              }
+            },
+            {
+              key: {
+                text: "Reference price"
+              },
+              value: {
+                html: "£6.41"
+              }
+            },
+            {
+              key: {
+                text: "Start date"
+              },
+              value: {
+                text: "15 October 2025"
+              }
+            },
+            {
+              key: {
+                text: "End date"
+              },
+              value: {
+                text: "14 October 2028"
+              }
+            }
+          ]
+        }) }}
+
         <p>Are you sure you want to delete?</p>
-        <p>Reference price: <strong>£6.41</strong></p>
-        <p>Reference price type: <strong>	List price of comparator(s) according to dm+d minus 12.5% subject to adjustments</strong></p>
-        <p>Reference price start date: <strong>15 October 2025</strong></p>
-        <p>Reference price end date: <strong>14 October 2028</strong></p>
 
         <p>This action cannot be undone.</p>
       
@@ -36,7 +71,7 @@
         {{ button({
           text: "Cancel",
           classes: "nhsuk-button--secondary",
-          href: "/v5/dhsc"
+          href: "/v5/dhsc/product-details?saved=false&deleted=false"
         }) }}
       </div>
     </div>

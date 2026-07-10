@@ -36,7 +36,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <!-- Reference price information notification banner -->
+        <!-- Edit reference price information notification banner -->
         {% if data['saved'] == 'reference-price-details' %}
 
         {% set html %}
@@ -44,6 +44,25 @@
             Reference price information updated
             </h3>
             <p>Your reference price details have been saved.</p>
+
+            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+        {% endset %}
+
+        {{ notificationBanner({
+            html: html,
+            type: "success"
+        }) }}
+
+        {% endif %}
+
+        <!-- Add reference price notification banner -->
+        {% if data['saved'] == 'reference-price' %}
+
+        {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+            Reference price added
+            </h3>
+            <p>Your new reference price has been saved.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -1116,7 +1135,7 @@
                     </h2>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
-                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/add-reference-price">
                                 Add a new reference price</a>
                         </li>
 
