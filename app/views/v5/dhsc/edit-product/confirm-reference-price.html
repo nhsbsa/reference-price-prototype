@@ -1,0 +1,185 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Check your answers before adding this reference price" %}
+
+{% block beforeContent %}
+
+<!-- {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 id="product-name" class="nhsuk-heading-xl">Check your answers before adding this reference price</h1>
+
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Reference price calculation date"
+                },
+                value: {
+                  text: "12 October 2025"               
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-calculation-date-day",
+                      text: "Change",
+                      visuallyHiddenText: "reference price calculation date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price start year"
+                },
+                value: {
+                  text: "2024"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-start-year-year",
+                      text: "Change",
+                      visuallyHiddenText: "reference price start year"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price type"
+                },
+                value: {
+                  text: "	List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-type",
+                      text: "Change",
+                      visuallyHiddenText: "reference price type"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price start date"
+                },
+                value: {
+                  text: "15 October 2025"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-start-date-day",
+                      text: "Change",
+                      visuallyHiddenText: "reference price start date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price end date"
+                },
+                value: {
+                  text: "14 October 2028"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-end-date-day",
+                      text: "Change",
+                      visuallyHiddenText: "reference price end date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Adjustments"
+                },
+                value: {
+                    html: "Interformulation adjustment<br>
+                            Retrospective adjustment<br>
+                            Prospective adjustment<br>
+                            Reference price adjustment"      
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#adjustments",
+                      text: "Change",
+                      visuallyHiddenText: "reference price adjustments"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price"
+                },
+                value: {
+                  text: "£6.41"  
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price",
+                      text: "Change",
+                      visuallyHiddenText: "reference price"
+                    }
+                  ]
+                }
+              },
+              {
+                classes: "nhsuk-summary-list__row--no-border",
+                key: {
+                  text: "Change following review of previous version (optional)"
+                },
+                value: {
+                  text: "No data available"                 
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#changeFollowingReview",
+                      text: "Change",
+                      visuallyHiddenText: "notes"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          <div class="nhsuk-button-group">
+            {{ button({
+              text: "Confirm and save",
+              href: "/v5/dhsc/product-details?saved=reference-price&deleted=false"
+            }) }}
+          
+            {{ button({
+              text: "Cancel",
+              classes: "nhsuk-button--secondary",
+              href: "/v5/dhsc/product-details?saved=false&deleted=false"
+            }) }}
+          </div>
+
+        <style>
+          .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+            padding-top: 12px;
+            padding-bottom: 12px;
+          }
+        </style>
+    </div>
+</div>
+{% endblock %}

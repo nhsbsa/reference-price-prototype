@@ -43,7 +43,7 @@
             <h3 class="nhsuk-notification-banner__heading">
             Reference price information updated
             </h3>
-            <p>Your reference price details have been saved.</p>
+            <p>Your reference price for [start date] to [end date] has been updated.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -62,7 +62,7 @@
             <h3 class="nhsuk-notification-banner__heading">
             Reference price added
             </h3>
-            <p>Your new reference price has been saved.</p>
+            <p>Your new reference price for [start date] to [end date] has been saved.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -1135,7 +1135,7 @@
                     </h2>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
-                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/add-reference-price">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-product/add-reference-price">
                                 Add a new reference price</a>
                         </li>
 
@@ -1145,7 +1145,7 @@
 
                 <div class="heading-with-actions">
                     <h3 class="nhsuk-heading-s">
-                        Reference price for 1 October 2024 to 1 February 2036
+                        Reference price for 15 October 2025 to 14 October 2028
                     </h3>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
@@ -1748,6 +1748,10 @@
 
             .heading-with-actions .nhsuk-card__actions {
                 margin: 0;
+            }
+
+            .nhsuk-notification-banner__content p {
+                max-width: 48em;
             }
         </style>
 
