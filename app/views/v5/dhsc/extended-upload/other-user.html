@@ -22,21 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">View, download and upload data</a>
-    </li>
-  </ol>
-  <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+    href: '/v5/dhsc/ref-price-data',
+    text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -115,7 +106,7 @@
     </div>
 
     <button class="nhsuk-button" data-module="nhsuk-button" type="submit" disabled>
-      Continue
+      Upload file
     </button>
     
 
