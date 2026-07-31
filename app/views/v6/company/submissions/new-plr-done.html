@@ -1,0 +1,287 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Presentation level report done" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<!-- {{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }} -->
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+            <h1 class="nhsuk-heading-l">Presentation level report done</h1>
+
+              <section id="submission-details">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Done
+                  </h2>
+                
+                  <ul class="nhsuk-list nhsuk-list--tick" role="list">
+                    <li>
+                      <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                      </svg>
+                      Test Product 100mg tablets product submission complete
+                    </li>
+                  </ul>
+                </div>
+              </section>
+          
+
+            <p class="nhsuk-heading-m">7 outstanding submissions (total number outstanding)</p>
+            
+            <p>Once all of your product submissions are complete, you can submit your product level returns report for approval via your dashboard.</p>
+
+            <section id="summary">
+              <div class="nhsuk-table__panel-with-heading-tab">
+                <h2 class="nhsuk-table__heading-tab">
+                  Outstanding products
+                </h2>
+    
+                <div class="nhsuk-table-responsive">
+                  {{ table({
+                    head: [
+                      {
+                          text: "Product name"
+                      },
+                      {
+                          text: "Pack size"
+                      },
+                      {
+                          text: "Max price"
+                      },
+                      {
+                          text: "Start date"
+                      },
+                      {
+                          text: "End date"
+                      },
+                      {
+                          text: "Legal category"
+                      },
+                      {
+                          text: "Actions"
+                      }
+                    ],
+                    rows: [
+                      [
+                        {
+                          text: "Atenolol 100mg tablets Oral tablet"
+                        },
+                        {
+                          text: "28.0"
+                        },
+                        {
+                          text: "£1364.00"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ],
+                      [
+                        {
+                          text: "Cordilox 160mg tablets Oral tablet"
+                        },
+                        {
+                          text: "56.0"
+                        },
+                        {
+                          text: "£10.00"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ],
+                      [
+                        {
+                          text: "Glucophage 500mg tablets Modified-release tablet"
+                        },
+                        {
+                          text: "84.0"
+                        },
+                        {
+                          text: "£111.11"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ],
+                      [
+                        {
+                          text: "Glucophage 850mg tablets Modified-release tablet"
+                        },
+                        {
+                          text: "56.0"
+                        },
+                        {
+                          text: "£111.11"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ],
+                      [
+                        {
+                          text: "Solpadeine Plus capsules Oral capsule"
+                        },
+                        {
+                          text: "16.0"
+                        },
+                        {
+                          text: "£1.50"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ],
+                      [
+                        {
+                          text: "Tramulief SR 100mg tablets Oral tablet"
+                        },
+                        {
+                          text: "60.0"
+                        },
+                        {
+                          text: "£111.11"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ],
+                      [
+                        {
+                          text: "Verapamil 160mg tablets Oral tablet"
+                        },
+                        {
+                          text: "56.0"
+                        },
+                        {
+                          text: "£1,430.00"
+                        },
+                        {
+                          text: "01/01/2025"
+                        },
+                        {
+                          text: "31/12/2025"
+                        },
+                        {
+                          text: "POM"
+                        },
+                        {
+                          html: "<p><a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/submissions/submit-plr'>Submit</a></p>"
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </div>
+            </section>
+
+          {{ button({
+            text: "Return to dashboard",
+            href: "/v6/company/submissions/create-plr-submission"
+          }) }}
+
+
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+
+            .nhsuk-grid-column-one-third {
+              margin-bottom: 20px;
+            }
+
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,444 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Products" %}
+
+{% set activeNav = "products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">Product details</h1>
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Company details
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "Company"
+                },
+                {
+                    text: "Snomed"
+                },
+                {
+                    text: "Reference"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "Aspire Pharma Ltd"
+                  },
+                  {
+                    text: "22"
+                  },
+                  {
+                    text: "419"
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+          </style>
+
+
+
+        {{ table({
+          head: [
+            {
+              text: "Presentation"
+            },
+            {
+              text: "Form"
+            },
+            {
+              text: "Pack size",
+              format: "numeric"
+            },
+            {
+              text: "Max price",
+              format: "numeric"
+            },
+            {
+              text: "Historical price"
+            },
+            {
+              text: "Temporary price"
+            },
+            {
+              text: "Published"
+            },
+            {
+              text: "View"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Atenix 100 tablets"
+              },
+              {
+                text: "Oral tablet"
+              },
+              {
+                text: "28.0",
+                format: "numeric"
+              },
+              {
+                text: "£111.11",
+                format: "numeric"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "Yes"
+              },
+              {
+              html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Atenix 100 tablets</a>"
+              }
+            ],
+            [
+              {
+                text: "Glucophage 500mg tablets"
+              },
+              {
+                text: "Oral tablet"
+              },
+              {
+                text: "84.0",
+                format: "numeric"
+              },
+              {
+                text: "£111.11",
+                format: "numeric"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Glucophage 500mg tablets</a>"
+              }
+            ],
+            [
+              {
+                text: "Glucophage 850mg tablets"
+              },
+              {
+                text: "Oral tablet"
+              },
+              {
+                text: "56.0",
+                format: "numeric"
+              },
+              {
+                text: "£111.11",
+                format: "numeric"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Glucophage 850mg tablets</a>"
+              }
+            ],
+            [
+              {
+                text: "Solpadeine Plus capsules"
+              },
+              {
+                text: "Oral capsule"
+              },
+              {
+                text: "16.0",
+                format: "numeric"
+              },
+              {
+                text: "£1.50",
+                format: "numeric"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "Yes"
+              },
+              {
+              html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Solpadeine Plus capsules</a>"
+              }
+            ],
+            [
+              {
+                text: "Tramulief SR 100mg tablets"
+              },
+              {
+                text: "Modified release tablet"
+              },
+              {
+                text: "60.0",
+                format: "numeric"
+              },
+              {
+                text: "£111.11",
+                format: "numeric"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "No"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Tramulief SR 100mg tablets</a>"
+              }
+            ],
+            [
+            {
+              text: "Atenix 100 tablets"
+            },
+            {
+              text: "Oral tablet"
+            },
+            {
+              text: "28.0",
+              format: "numeric"
+            },
+            {
+              text: "£111.11",
+              format: "numeric"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            },
+            {
+            html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Atenix 100 tablets</a>"
+            }
+          ],
+          [
+            {
+              text: "Glucophage 500mg tablets"
+            },
+            {
+              text: "Oral tablet"
+            },
+            {
+              text: "84.0",
+              format: "numeric"
+            },
+            {
+              text: "£111.11",
+              format: "numeric"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Glucophage 500mg tablets</a>"
+            }
+          ],
+          [
+            {
+              text: "Glucophage 850mg tablets"
+            },
+            {
+              text: "Oral tablet"
+            },
+            {
+              text: "56.0",
+              format: "numeric"
+            },
+            {
+              text: "£111.11",
+              format: "numeric"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "No"
+            },
+            {
+              text: "Yes"
+            },
+            {
+              html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Glucophage 850mg tablets</a>"
+            }
+          ],
+          [
+          {
+            text: "Solpadeine Plus capsules"
+          },
+          {
+            text: "Oral capsule"
+          },
+          {
+            text: "16.0",
+            format: "numeric"
+          },
+          {
+            text: "£1.50",
+            format: "numeric"
+          },
+          {
+            text: "Yes"
+          },
+          {
+            text: "No"
+          },
+          {
+            text: "Yes"
+          },
+          {
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Solpadeine Plus capsules</a>"
+          }
+        ],
+        [
+          {
+            text: "Tramulief SR 100mg tablets"
+          },
+          {
+            text: "Modified release tablet"
+          },
+          {
+            text: "60.0",
+            format: "numeric"
+          },
+          {
+            text: "£111.11",
+            format: "numeric"
+          },
+          {
+            text: "No"
+          },
+          {
+            text: "No"
+          },
+          {
+            text: "Yes"
+          },
+          {
+            html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v6/company/products/view-product'>View Tramulief SR 100mg tablets</a>"
+          }
+        ]
+          ]
+        }) }}
+        {% from "pagination/macro.njk" import pagination %}
+
+        {{ pagination({
+          previous: {
+            href: "#"
+          },
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              href: "#"
+            },
+            {
+              ellipsis: true
+            },
+            {
+              number: 8,
+              href: "#"
+            },
+            {
+              number: 9,
+              href: "#"
+            },
+            {
+              number: 10,
+              href: "#",
+              current: true
+            },
+            {
+              number: 11,
+              href: "#"
+            },
+            {
+              number: 12,
+              href: "#"
+            },
+            {
+              ellipsis: true
+            },
+            {
+              number: 42,
+              href: "#"
+            }
+          ]
+        }) }}
+        
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "HCP Report" %}
+
+{% set activeNav = "reports" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <span class="nhsuk-caption-l">Reports</span>
+        <h1 class="nhsuk-heading-l">HCP Report</h1>
+
+            <h2 class="nhsuk-heading-m">Report parameters</h2>
+          
+            {{ select({
+              label: {
+                text: "Reporting start year"
+              },
+              id: "reporting-start-year",
+              name: "reportingStartYear",
+              value: "reporting-start-year",
+              items: [
+                {
+                  value: "2026",
+                  text: "2026",
+                  selected: true
+                },
+                {
+                  value: "2025",
+                  text: "2025"
+                },
+                {
+                  value: "2024",
+                  text: "2024"
+                },
+                {
+                  value: "2023",
+                  text: "2023"
+                },
+                {
+                  value: "2022",
+                  text: "2022"
+                },
+                {
+                  value: "2021",
+                  text: "2021"
+                },
+                {
+                  value: "2020",
+                  text: "2020"
+                },
+                {
+                  value: "2019",
+                  text: "2019"
+                },
+                {
+                  value: "2018",
+                  text: "2018"
+                },
+                {
+                  value: "2017",
+                  text: "2017"
+                }
+              ]
+            }) }}
+
+
+            {{ button({
+              text: "Download (Excel)"
+            }) }}
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

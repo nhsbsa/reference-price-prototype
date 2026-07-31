@@ -1,0 +1,94 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Reports" %}
+
+{% set activeNav = "reports" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">Reports</h1>
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Company details
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "Company"
+                },
+                {
+                    text: "Snomed"
+                },
+                {
+                    text: "Reference"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "Aspire Pharma Ltd"
+                  },
+                  {
+                    text: "22"
+                  },
+                  {
+                    text: "419"
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+
+
+          <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v6/company/reports/2024-voluntary-payment">2024 Voluntary payment</a></p>
+
+          <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v6/company/reports/2019-voluntary-payment">2019 Voluntary payment</a></p>
+
+          <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v6/company/reports/voluntary-quarters">2019 Voluntary quarters</a></p>
+
+          <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v6/company/reports/voluntary-company-plr">2024 Voluntary PLR consolidation report</a></p>
+
+          <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v6/company/reports/hcp-report">Historic cash payments</a></p>
+
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+          </style>
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

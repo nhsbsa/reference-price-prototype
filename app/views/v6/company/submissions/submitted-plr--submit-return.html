@@ -1,0 +1,469 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Voluntary presentation level submission page" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<!-- {{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }} -->
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+          <div class="app-pane">
+
+            <aside class="app-pane__side-bar">
+              <nav class="app-side-nav">
+          
+                <h2 class="app-side-nav__heading">Navigation</h2>
+          
+                <ul class="nhsuk-list app-side-nav__list">
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/view-plr-submission">
+                      Outstanding products
+                    </a>
+                  </li>
+          
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--submitted-products">
+                      Submitted products
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--zero-returns">
+                      Zero returns
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--summary-and-reporting">
+                      Summary and reporting
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--clear-submission">
+                      Clear submission
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--file-upload--plr">
+                      File upload
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--bulk-submission">
+                      Bulk submission
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/submitted-plr--download-template">
+                      Download template
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item app-side-nav__item--current">
+                    <a class="app-side-nav__link">
+                      Submit return
+                    </a>
+                  </li>
+                </ul>
+          
+              </nav>
+            </aside>
+          
+            <div class="app-pane__main-content">
+          
+              <h1 class="nhsuk-heading-l">
+                Voluntary presentation level submission page
+              </h1>
+              
+              </div>
+            </div>
+          
+              <section id="submission-details">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Submission details
+                  </h2>
+                
+                  {{ table({
+                    head: [
+                      {
+                          text: "Company"
+                      },
+                      {
+                          text: "Period"
+                      },
+                      {
+                          text: "Submission type"
+                      },
+                      {
+                          text: "Status"
+                      }
+                      ],
+                    rows: [
+                      [
+                        {
+                          text: "Aspire Pharma Ltd"
+                        },
+                        {
+                          text: "01/Jan/2025 - 31/Dec/2025"
+                        },
+                        {
+                          text: "Unaudited PLR - Voluntary"
+                        },
+                        {
+                        html: '<span class="nhsuk-tag nhsuk-tag--blue">Submitted</span>'
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </section>
+          
+
+        <section id="summary">
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Quarterly submissions
+            </h2>
+
+            <div class="nhsuk-table-responsive">
+              {{ table({
+                head: [
+                  {
+                      text: "Start date"
+                  },
+                  {
+                      text: "End date"
+                  },
+                  {
+                      text: "Status"
+                  },
+                  {
+                      text: "Valid"
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                        text: "01-01-2025"
+                    },
+                    {
+                      text: "31-12-2025"
+                    },
+                      {
+                      html: '<span class="nhsuk-tag nhsuk-tag--green">Acknowledged</span>'
+                    },
+                    {
+                      html: '<span class="nhsuk-list nhsuk-list--tick">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                      <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg>
+                  </span>'
+                    }
+                  ]
+                ]
+              }) }}
+            </div>
+          </div>
+        </section>
+
+
+        <section id="summary">
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              5% tolerance
+            </h2>
+
+            <div class="nhsuk-table-responsive">
+              {{ table({
+                head: [
+                  {
+                      text: "Field"
+                  },
+                  {
+                      text: "PLR total"
+                  },
+                  {
+                      text: "Quarterly total"
+                  },
+                  {
+                      text: "Percent difference"
+                  },
+                  {
+                      text: "Valid"
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                        text: "Exceptional Central Procurements (ECP)"
+                    },
+                    {
+                      text: "3000.00"
+                    },
+                    {
+                      text: "2000"
+                    },
+                    {
+                      text: "-50.0000000"
+                    },
+                    {
+                      html: '<span class="nhsuk-list nhsuk-list--tick">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                      <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg>
+                  </span>'
+                    }
+                  ],
+                  [
+                    {
+                        text: "New Active Substances (NAS)"
+                    },
+                    {
+                      text: "3000.00"
+                    },
+                    {
+                      text: "2000"
+                    },
+                    {
+                      text: "-50.0000000"
+                    },
+                    {
+                      html: '<span class="nhsuk-list nhsuk-list--tick">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                      <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg>
+                  </span>'
+                    }
+                  ],
+                  [
+                    {
+                        text: "Low Value Sales (LV)"
+                    },
+                    {
+                      text: "3000.00"
+                    },
+                    {
+                      text: "2000"
+                    },
+                    {
+                      text: "-50.0000000"
+                    },
+                    {
+                      html: '<span class="nhsuk-list nhsuk-list--tick">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                      <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg>
+                  </span>'
+                    }
+                  ],
+                  [
+                    {
+                        text: "Centrally Procured Vaccines (CPV)"
+                    },
+                    {
+                      text: "3000.00"
+                    },
+                    {
+                      text: "2000"
+                    },
+                    {
+                      text: "-50.0000000"
+                    },
+                    {
+                      html: '<span class="nhsuk-list nhsuk-list--tick">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                      <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg>
+                  </span>'
+                    }
+                  ],
+                  [
+                    {
+                        text: "Total Sales of Scheme Products (NAS)"
+                    },
+                    {
+                      text: "4506000.00"
+                    },
+                    {
+                      text: "3080000"
+                    },
+                    {
+                      text: "-49.8000532"
+                    },
+                    {
+                      html: '<span class="nhsuk-list nhsuk-list--tick">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                      <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg>
+                  </span>'
+                    }
+                  ]
+                ]
+              }) }}
+            </div>
+          </div>
+        </section>
+
+
+        <section id="submission-details">
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Pre submission checklist
+            </h2>
+          
+            <ul class="nhsuk-list nhsuk-list--tick" role="list">
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                  <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                </svg>
+                Quarterly submissions acknowledged (0 outstanding)
+              </li>
+            </ul>
+
+            <ul class="nhsuk-list nhsuk-list--tick" role="list">
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                  <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                </svg>
+                Products are submitted (7 outstanding)
+              </li>
+            </ul>
+
+            <ul class="nhsuk-list nhsuk-list--tick" role="list">
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                  <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                </svg>
+                Quarterly data within 5% of this submission
+              </li>
+            </ul>
+          </div>
+        </section>
+
+
+        <p>This return is already submitted.</p>
+
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+
+            .app-pane {
+              display: flex;
+            }
+
+            .app-pane__side-bar {
+              flex: 0 0 240px;
+            }
+
+            .app-pane__main-content {
+              flex: 1;
+              min-width: 0;
+            }
+
+            .app-side-nav {
+              top: 20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__heading {
+              margin-bottom: 12px;
+              font-size: 1.1rem;
+            }
+
+            .app-side-nav__list {
+              margin-bottom: 0;
+            }
+
+            .app-side-nav__item {
+              margin-bottom: 8px;
+            }
+
+            .app-side-nav__link {
+              text-decoration: none;
+            }
+
+            .app-side-nav__item--current {
+              border-left: 4px solid #005eb8;
+              margin-left: -20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__item--current .app-side-nav__link {
+              font-weight: 700;
+              color: #005eb8;
+            }
+
+            .nhsuk-table-responsive {
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            .nhsuk-table-responsive table {
+              width: 100%;
+              border-collapse: collapse;
+            }
+
+
+            @media (max-width: 768px) {
+              .app-pane {
+                display: block;
+              }
+
+              .app-pane__side-bar {
+                margin-bottom: 24px;
+              }
+
+              .app-side-nav {
+                position: static;
+              }
+
+              .nhsuk-table__heading-tab {
+                font-size: 1.2rem;
+              }
+            }
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

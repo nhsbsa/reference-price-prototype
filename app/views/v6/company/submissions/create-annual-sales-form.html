@@ -1,0 +1,636 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Sales report - unaudited annual" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<!-- {{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }} -->
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+          <div class="app-pane">
+
+            <aside class="app-pane__side-bar">
+              <nav class="app-side-nav">
+          
+                <h2 class="app-side-nav__heading">Navigation</h2>
+          
+                <ul class="nhsuk-list app-side-nav__list">
+                  <li class="app-side-nav__item app-side-nav__item--current">
+                    <a class="app-side-nav__link">
+                      Submission
+                    </a>
+                  </li>
+          
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v6/company/submissions/file-upload--create-annual-sales">
+                      File upload
+                    </a>
+                  </li>
+                </ul>
+          
+              </nav>
+            </aside>
+          
+            <div class="app-pane__main-content">
+          
+              <h1 class="nhsuk-heading-l">
+                Sales report - unaudited annual
+              </h1>
+
+
+          </div>
+        </div>
+          
+              <section id="submission-details">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Submission details
+                  </h2>
+                
+                  {{ table({
+                    head: [
+                      {
+                          text: "Company"
+                      },
+                      {
+                          text: "Submission type"
+                      },
+                      {
+                          text: "Status"
+                      }
+                      ],
+                    rows: [
+                      [
+                        {
+                          text: "Aspire Pharma Ltd"
+                        },
+                        {
+                          text: "VA"
+                        },
+                          {
+                          html: '<span class="nhsuk-tag nhsuk-tag--white">In progress</span>'
+                          }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </section>
+
+
+        <section id="summary">
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Summary
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "Reference"
+                },
+                {
+                    text: "Percentage"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "VA-2025-1-17"
+                  },
+                  {
+                    text: "0.0%"
+                  }
+                ]
+              ]
+            }) }}
+
+
+            {{ table({
+              head: [
+                {
+                    text: "Medium-sized exemption brought forward"
+                },
+                {
+                    text: "Medium-size exemption used"
+                },
+                {
+                    text: "Medium-size exemption carried forward"
+                }
+                ],
+              rows: [
+
+              ]
+            }) }}
+
+
+          </div>
+        </section>
+    
+        <section id="accounting-period">
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Accounting period
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "From"
+                },
+                {
+                    text: "To"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "01/01/2025"
+                  },
+                  {
+                    text: "31/12/2025"
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+        </section>
+
+
+        {% set instructionsCardDescriptionHtml %}
+          <p>Enter values below in £'000s.</p>
+          <p>Fields marked by an asterisk(*) are calculated on the following page.</p>
+        {% endset %}
+
+        {{ card({
+          clickable: false,
+          heading: "Instructions",
+          headingSize: "m",
+          descriptionHtml: instructionsCardDescriptionHtml
+        }) }}
+
+
+
+        {% set editsCardDescriptionHtml %}
+        {{ input({
+          label: {
+            classes: "nhsuk-label--s",
+            text: "1. Turnover per statutory accounts"
+          },
+            hint: {
+            text: "(net of any Scheme Payments and Historic Cash Payments if appropriate)"
+          },
+          id: "example-with-hint-text",
+          name: "exampleWithHintText",
+          classes: "nhsuk-input--width-10",
+          inputmode: "numeric"
+        }) }}
+
+        {{ input({
+          label: {
+            classes: "nhsuk-label--s",
+            text: "2. Sales of unlicensed medicines (specials) in the UK"
+          },
+            hint: {
+            text: "Note: Sales of Special Medicinal Products (within the meaning of regulation 167 of The Human Medicines Regulations 2012) in the UK."
+          },
+          id: "example-with-hint-text",
+          name: "exampleWithHintText",
+          classes: "nhsuk-input--width-10",
+            inputmode: "numeric"
+        }) }}
+
+        {{ input({
+          label: {
+            classes: "nhsuk-label--s",
+            text: "3. Less non-pharmaceutical sales"
+          },
+            hint: {
+            text: "Note: Sales of products other than licensed medicines and specials sold in the UK."
+          },
+          id: "example-with-hint-text",
+          name: "exampleWithHintText",
+          classes: "nhsuk-input--width-10",
+            inputmode: "numeric"
+        }) }}
+
+        {{ input({
+          label: {
+            classes: "nhsuk-label--s",
+            text: "4. Add back scheme payment (as appropriate)"
+          },
+            hint: {
+            text: "Note: The Scheme Payment is rounded to the nearest £1,000. Where a Scheme Payment has been netted off of Turnover (line 1) in this period, only the netted off amount should be added back at line 4."
+          },
+          id: "example-with-hint-text",
+          name: "exampleWithHintText",
+          classes: "nhsuk-input--width-10",
+            inputmode: "numeric"
+        }) }}
+
+        <p><strong>5. Pharmaceutical turnover (Line 1 - Line 2 - Line 3 + Line 4)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: editsCardDescriptionHtml
+      }) }}
+
+
+
+
+      {% set lessExclusions %}
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "6. Customer exclusions"
+        },
+          hint: {
+          html: "<p>For example: private medicine sales (see note), sales to the MOD; sales used for clinical trials; non-prescription OTC sales</p>
+          <p>Note: Adjustments that rely on third party information and an agreed method to be disclosed separately.</p>"
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+
+      <p><strong>7. Total customer exclusions (Line 6)*</strong></p>
+
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "8. Product exclusions"
+        },
+          hint: {
+          text: "Unbranded generic medicines; dental anaesthetics"
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "9. Parallel import sales"
+        },
+          hint: {
+          text: "Note: Definitions are contained in the Scheme Glossary."
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      <p><strong>10. Total product exclusions (Line 8 + Line 9)*</strong></p>
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "11. Non-UK sales of branded POMs"
+        },
+          hint: {
+          html: "<p>For example: Sales in markets outside the UK via direct exports, parallel exports</p>
+          <p>Note: Adjustments that rely on third party information and an agreed method to be disclosed separately.</p>"
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      <p><strong>12. Total non-UK sales of branded POMs (Line 11)*</strong></p>
+
+      <p><strong>13. Total exclusions (Line 7 + Line 10 + Line 12)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        heading: "Less exclusions",
+        headingSize: "m",
+        descriptionHtml: lessExclusions
+      }) }}
+
+
+
+      {% set singleHtml %}
+
+      <p><strong>14. Total sales of Scheme Products (Line 5 - Line 13)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: singleHtml
+      }) }}
+
+
+
+      {% set lessExemptions %}
+
+      <p><strong>Exemptions from Voluntary Scheme measured sales (and eligible sales)</strong></p>
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "15. Sales of scheme products relating to exeprional central procurements"
+        },
+          hint: {
+          text: "Note: Definitions are contained in the Scheme Glossary"
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "16. Sales of scheme products relating to exceptional central procurements"
+        },
+          hint: {
+          text: "Note: Definitions are contained in the Scheme Glossary"
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "17. Low value sales"
+        },
+          hint: {
+          text: "Note: Definitions are contained in the Scheme Glossary."
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      <p><strong>18. Total exemptions from Voluntary Scheme measured sales (and eligible sales) (Line 15 + Line 16 + Line 17)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        heading: "Less exemptions",
+        headingSize: "m",
+        descriptionHtml: lessExemptions
+      }) }}
+
+
+
+      {% set voluntaryScheme %}
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "19. Voluntary Scheme measured sales (Line 14 - Line 18)*"
+        },
+          hint: {
+          text: "Note: means a Scheme Product that meet the requirements of paragraphs 4.8 to 4.12 to be a newer medicine."
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: voluntaryScheme
+      }) }}
+
+
+
+      {% set NAS %}
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "20. New active substance sales"
+        },
+        hint: {
+          text: "Note: Definitions are contained in the Scheme Glossary."
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      <p><strong>21. Medium-sized company exemption*</strong></p>
+
+      <p><strong>22. Total exemption from eligbile sales (Line 20 + Line 21)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        heading: "Exemptions from eligible sales",
+        headingSize: "m",
+        descriptionHtml: NAS
+      }) }}
+
+
+
+      {% set eligibleSales %}
+
+      <p><strong>23. Eligbile sales (Line 19 - Line 22)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: eligibleSales
+      }) }}
+
+
+      {% set schemePaymentRequired %}
+
+      <p><strong>24. Scheme payment required on eligbile sales at line 23*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: schemePaymentRequired
+      }) }}
+
+
+
+      {% set dhscAdjustment %}
+
+      {{ input({
+        label: {
+          classes: "nhsuk-label--s",
+          text: "25. Department of Health and Social Care adjustment"
+        },
+        id: "example-with-hint-text",
+        name: "exampleWithHintText",
+        classes: "nhsuk-input--width-10",
+        inputmode: "numeric"
+      }) }}
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: dhscAdjustment
+      }) }}
+
+
+
+      {% set totalSchemePayment %}
+
+      <p><strong>26. Total scheme payment (Line 24 + Line 25)*</strong></p>
+
+      {% endset %}
+
+      {{ card({
+        clickable: false,
+        descriptionHtml: totalSchemePayment
+      }) }}
+
+
+
+      {{ textarea({
+        name: "example",
+        id: "example",
+        label: {
+          text: "Comments",
+          size: "s"
+        }
+      }) }}
+
+
+      <div class="nhsuk-button-group">
+        {{ button({
+        text: "Calculate",
+        href: "/v6/company/submissions/annual-sales-form-calculation"
+        }) }}
+      </div>
+      
+      <div>
+        <p><a href="/v6/company/submissions/index" class="nhsuk-link nhsuk-link--no-visited-state">Cancel</a><p>
+      </div>
+
+
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+
+            .app-pane {
+              display: flex;
+            }
+
+            .app-pane__side-bar {
+              flex: 0 0 200px;
+            }
+
+            .app-pane__main-content {
+              flex: 1;
+              min-width: 0;
+            }
+
+            .app-side-nav {
+              top: 20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__heading {
+              margin-bottom: 12px;
+              font-size: 1.1rem;
+            }
+
+            .app-side-nav__list {
+              margin-bottom: 0;
+            }
+
+            .app-side-nav__item {
+              margin-bottom: 8px;
+            }
+
+            .app-side-nav__link {
+              text-decoration: none;
+            }
+
+            .app-side-nav__item--current {
+              border-left: 4px solid #005eb8;
+              margin-left: -20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__item--current .app-side-nav__link {
+              font-weight: 700;
+              color: #005eb8;
+            }
+
+            @media (max-width: 768px) {
+              .app-pane {
+                display: block;
+              }
+
+              .app-pane__side-bar {
+                margin-bottom: 24px;
+              }
+
+              .app-side-nav {
+                position: static;
+              }
+            }
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

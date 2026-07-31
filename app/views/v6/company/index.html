@@ -1,0 +1,95 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v6/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Home Page" %}
+
+{% set activeNav = "home" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">Branded Medicines</h1>
+
+        <h2 class="nhsuk-heading-m">Introduction</h2>
+        <p>This portal allows companies to submit their quarterly sales reports, annual audited sales reports, and the annual unaudited presentation level data, which supports a payment company's quarterly sales reports.</p>
+        <p>This portal also allows companies to provide supporting documentation required for submission to the Department under both the Voluntary Scheme and Statutory Scheme.</p>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">Contact</h2>
+        <p>For any queries/clarification, please email your Branded Medicines Operations contact at the Department or alternatively email the Branded Medicines Mailbox <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">dh.brandedmedicines@dhsc.gov.uk</a></p>
+        <p>For more information on the 2024 Voluntary Scheme, 2019 Voluntary Scheme and Statutory Scheme, visit the <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Branded Medicines Information Site (opens in new tab)</a>.</p>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">Guidance documents for the 2024 Voluntary Scheme</h2>
+        <ul>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Presentation Level Sales Report Submission FAQs - 2024 VPAG.pdf (PDF only, 392KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Presentation Level Sales Report Portal User Guide - 2024 VPAG.pdf (PDF only, 2.38MB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Guide for completing the Quarterly & Annual Sales Reports & Associated Documents.pdf (PDF only, 640KB)</a></li>
+        </ul>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">2024 Voluntary Scheme documents</h2>
+        <ul>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Annex 8 - Company Declaration for Unaudited Presentation Level Sales Report.docx (Word, 23KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Appendix 2 - Company Declaration Quarterly and Annual Sales Reports.docx (Word, 16KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Appendix 4 - Independent auditor’s report.docx (Word, 36KB)</a></li>
+        </ul>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">Guidance documents for the 2019 Voluntary Scheme and Statutory Scheme</h2>
+        <ul>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Guide for submitting the quarterly and annual sales reports and associated documents (PDF only, 223KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Guide for preparing and submitting the unaudited presentation level data (PDF only, 395KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Presentation level reports - portal QA (PDF only, 233KB)</a></li>
+        </ul>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">2019 Voluntary Scheme documents</h2>
+        <p>For the 2019 Voluntary Scheme, refer to the <a class="nhsuk-link nhsuk-link--no-visited-state" href="#">document templates (opens in new tab)</a></p>
+
+        <br>
+
+        <h2 class="nhsuk-heading-m">Statutory Scheme documents</h2>
+        <ul>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Presentation level sales report requirements (PDF only, 103KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Annex A - written declaration of approval for unaudited presentation report (Word, 16KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Quarterly sales report - written declaration of approval (Word, 16KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Branded Medicines Updated Audit Report - Statutory Regulations (Word, 36KB)</a></li>
+            <li><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Company declaration for annual audited sales report (Word, 16KB)</a></li>
+        </ul>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
