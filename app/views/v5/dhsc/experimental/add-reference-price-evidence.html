@@ -1,0 +1,62 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Add supporting evidence" %}
+
+{% block beforeContent %}
+
+<!-- {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Add supporting evidence</h1>
+
+        <p class="nhsuk-hint">Upload files related to this reference price. These files can be reviewed later when investigating queries or identifying errors.</p>
+
+        <br>
+
+        {% from "file-upload/macro.njk" import fileUpload %}
+
+        {{ fileUpload({
+          label: {
+            text: "Upload a file",
+            size: "m"
+          },
+          hint: {
+            text: "You can upload these supported file types: .docx, .xlsx, .pdf, .msg, .eml"
+          },
+          name: "file-hint"
+        }) }}
+
+        <br>
+
+        {{ textarea({
+          name: "example",
+          id: "example",
+          label: {
+            text: "Add note (optional)"
+          }
+        }) }}
+        
+          <div class="nhsuk-button-group">
+            {{ button({
+              text: "Upload evidence",
+               href: "/v5/dhsc/experimental/product-details?saved=ref-price-information#ref-price-information"
+            }) }}
+          
+            {{ button({
+              text: "Cancel",
+              classes: "nhsuk-button--secondary",
+              href: "/v5/dhsc/experimental/product-details?saved=false#ref-price-information"
+            }) }}
+          </div>
+
+    </div>
+</div>
+{% endblock %}

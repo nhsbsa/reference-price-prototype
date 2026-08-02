@@ -1,0 +1,234 @@
+{% extends 'layout-dhsc.html' %}
+{% set pageName = "Add reference price" %}
+
+{% block beforeContent %}
+
+<!-- {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
+
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Reference price calculation date"
+                },
+                value: {
+                    html:  dateInput({
+                        id: "reference-price-calculation-date",
+                        items: [
+                            { name: "day", classes: "nhsuk-input--width-2" },
+                            { name: "month", classes: "nhsuk-input--width-2" },
+                            { name: "year", classes: "nhsuk-input--width-4" }
+                        ]
+                    })                
+                }
+              },
+              {
+                key: {
+                  text: "Reference price start year"
+                },
+                value: {
+                    html:  dateInput({
+                        id: "reference-price-start-year",
+                        items: [
+                          { name: "year", classes: "nhsuk-input--width-4" }
+                        ]
+                    })                  
+                }
+              },
+              {
+                key: {
+                  text: "Reference price type"
+                },
+                value: {
+                  html: radios({
+                    idPrefix: "reference-price-type",
+                    name: "referencePriceType",
+                    items: [
+                      {
+                        value: "list-price-minus-12.5",
+                        text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                      },
+                      {
+                        value: "average-selling-price",
+                        text: "Average selling price"
+                      }
+                    ]
+                  })
+                }
+              },
+              {
+                key: {
+                  text: "Reference price start date"
+                },
+                value: {
+                  html: dateInput({
+                    id: "reference-price-start-date",
+                    namePrefix: "startDate",
+                    items: [
+                      {
+                        name: "day",
+                        classes: "nhsuk-input--width-2"
+                      },
+                      {
+                        name: "month",
+                        classes: "nhsuk-input--width-2"
+                      },
+                      {
+                        name: "year",
+                        classes: "nhsuk-input--width-4"
+                      }
+                    ]
+                  })
+                }
+              },
+              {
+                key: {
+                  text: "Reference price end date"
+                },
+                value: {
+                  html: dateInput({
+                    id: "reference-price-end-date",
+                    namePrefix: "endDate",
+                    items: [
+                      {
+                        name: "day",
+                        classes: "nhsuk-input--width-2"
+                      },
+                      {
+                        name: "month",
+                        classes: "nhsuk-input--width-2"
+                      },
+                      {
+                        name: "year",
+                        classes: "nhsuk-input--width-4"
+                      }
+                    ]
+                  })
+                }
+              },
+              {
+                key: {
+                  text: "Adjustments"
+                },
+                value: {
+                    html: checkboxes({
+                    hint: {
+                      text: "Select all options that apply"
+                    },
+                    idPrefix: "adjustments",
+                    name: "adjustments",
+                    items: [
+                        {
+                        value: "interformulation-adjustment",
+                        text: "Interformulation adjustment"
+                        },
+                        {
+                        value: "pack-size-adjustment",
+                        text: "Pack size adjustment"
+                        },
+                        {
+                        value: "retrospective-adjustment",
+                        text: "Retrospective adjustment"
+                        },
+                        {
+                        value: "prospective-adjustment",
+                        text: "Prospective adjustment"
+                        },
+                        {
+                        value: "reference-price-adjustment",
+                        text: "Reference price adjustment"
+                        }
+                    ]
+                    })   
+                }
+              },
+              {
+                key: {
+                  text: "Reference price"
+                },
+                value: {
+                    html: input({
+                        hint: {
+                          text: "Enter the reference price in pounds and pence"
+                        },
+                        id: "reference-price",
+                        name: "referencePrice",
+                        prefix: "£",
+                        classes: "nhsuk-input--width-5"
+                    })   
+                }
+              },
+              {
+                key: {
+                  text: "Change following review of previous version (optional)"
+                },
+                value: {
+                    html:  textarea({
+                      hint: {
+                        text: "If you are changing the reference price, please provide a reason for the change"
+                      },
+                        name: "changeFollowingReview",
+                        id: "changeFollowingReview"
+                    })                  
+                }
+              },
+              {
+                classes: "nhsuk-summary-list__row--no-border",
+                key: {
+                  text: "Supporting evidence (optional)"
+                },
+                value: {
+                  text: "No evidence added"
+                },
+                actions: {
+                  items: [
+                    {
+                      classes: "nhsuk-link nhsuk-link--no-visited-state",
+                      text: "Add supporting evidence",
+                      id: "supportingEvidence",
+                      name: "supportingEvidence"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          <div class="nhsuk-button-group">
+            {{ button({
+              text: "Continue",
+               href: "/v5/dhsc/experimental/confirm-reference-price"
+            }) }}
+          
+            {{ button({
+              text: "Cancel",
+              classes: "nhsuk-button--secondary",
+              href: "/v5/dhsc/experimental/product-details?saved=false&deleted=false#ref-price-information"
+            }) }}
+          </div>
+
+        <style>
+          .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+            padding-top: 16px;
+            padding-bottom: 16px;
+          }
+
+          .nhsuk-summary-list__actions {
+            white-space: nowrap;
+          }
+        </style>
+    </div>
+</div>
+{% endblock %}
