@@ -22,24 +22,12 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/ref-price-data">Manage reference price dataset</a>
-    </li>
-    <!-- <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/calculate-pack">Join table</a>
-    </li>  -->
-  </ol>
-  <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+  href: '/v5/dhsc/ref-price-data-search',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -54,7 +42,7 @@
       Download full dataset
     </button>
 
-    <details class="nhsuk-details">
+  <!-- <details class="nhsuk-details">
       <summary class="nhsuk-details__summary">
         <span class="nhsuk-details__summary-text">
           Filter the data in this table
@@ -104,7 +92,7 @@
     </details>
 
 
-<br>
+<br> -->
 
     <p id="results-message">
        There are <strong>60</strong> results with search term: "[search term]" in "[column name]".
@@ -139,7 +127,7 @@
       <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Newer entrant</td>
       <td class="nhsuk-table__cell">Older medicine</td>
-      <td class="nhsuk-table__cell">01/04/2023</td>
+      <td class="nhsuk-table__cell">1 April 2023</td>
       <td class="nhsuk-table__cell">£2.60</td>
     </tr>
 
@@ -154,7 +142,7 @@
       <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Newer entrant</td>
       <td class="nhsuk-table__cell">Older medicine</td>
-      <td class="nhsuk-table__cell">01/04/2023</td>
+      <td class="nhsuk-table__cell">1 April 2023</td>
       <td class="nhsuk-table__cell">£1.95</td>
     </tr>
 
@@ -169,7 +157,7 @@
       <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Newer entrant</td>
       <td class="nhsuk-table__cell">Older medicine</td>
-      <td class="nhsuk-table__cell">01/09/2022</td>
+      <td class="nhsuk-table__cell">1 September 2022</td>
       <td class="nhsuk-table__cell">£2.20</td>
     </tr>
 
@@ -182,7 +170,7 @@
       <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Newer entrant</td>
       <td class="nhsuk-table__cell">Older medicine</td>
-      <td class="nhsuk-table__cell">01/01/2021</td>
+      <td class="nhsuk-table__cell">1 January 2021</td>
       <td class="nhsuk-table__cell">£0.99</td>
     </tr>
 
@@ -193,7 +181,7 @@
       <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Newer entrant</td>
       <td class="nhsuk-table__cell">Older medicine</td>
-      <td class="nhsuk-table__cell">01/01/2021</td>
+      <td class="nhsuk-table__cell">1 January 2021</td>
       <td class="nhsuk-table__cell">£1.05</td>
     </tr>
 
@@ -204,7 +192,7 @@
       <td class="nhsuk-table__cell">Metformin</td>
       <td class="nhsuk-table__cell">Newer entrant</td>
       <td class="nhsuk-table__cell">Older medicine</td>
-      <td class="nhsuk-table__cell">01/01/2021</td>
+      <td class="nhsuk-table__cell">1 January 2021</td>
       <td class="nhsuk-table__cell">£1.12</td>
     </tr>
 
@@ -219,7 +207,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/01/2021</td>
+  <td class="nhsuk-table__cell">1 January 2021</td>
   <td class="nhsuk-table__cell">£1.45</td>
 </tr>
 
@@ -234,7 +222,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/01/2021</td>
+  <td class="nhsuk-table__cell">1 January 2021</td>
   <td class="nhsuk-table__cell">£1.52</td>
 </tr>
 
@@ -249,7 +237,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/01/2021</td>
+  <td class="nhsuk-table__cell">1 January 2021</td>
   <td class="nhsuk-table__cell">£1.60</td>
 </tr>
 
@@ -264,7 +252,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/09/2022</td>
+  <td class="nhsuk-table__cell">1 September 2022</td>
   <td class="nhsuk-table__cell">£1.85</td>
 </tr>
 
@@ -279,7 +267,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/09/2022</td>
+  <td class="nhsuk-table__cell">1 September 2022</td>
   <td class="nhsuk-table__cell">£2.10</td>
 </tr>
 
@@ -294,7 +282,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/04/2023</td>
+  <td class="nhsuk-table__cell">1 April 2023</td>
   <td class="nhsuk-table__cell">£2.30</td>
 </tr>
 
@@ -309,7 +297,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/04/2023</td>
+  <td class="nhsuk-table__cell">1 April 2023</td>
   <td class="nhsuk-table__cell">£3.85</td>
 </tr>
 
@@ -324,7 +312,7 @@
   <td class="nhsuk-table__cell">Metformin</td>
   <td class="nhsuk-table__cell">Newer entrant</td>
   <td class="nhsuk-table__cell">Older medicine</td>
-  <td class="nhsuk-table__cell">01/09/2022</td>
+  <td class="nhsuk-table__cell">1 September 2022</td>
   <td class="nhsuk-table__cell">£3.40</td>
 </tr>
 
