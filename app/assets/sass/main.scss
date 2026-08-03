@@ -314,3 +314,8 @@
 .nhsuk-tag__close:hover {
   opacity: 0.7;
 }
+
+.nhsuk-card--grey {
+  /*background-color: #d8dde0;*/
+  background-color: nhsuk-colour("grey-5");
+}

@@ -1,0 +1,410 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Submissions" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">Submissions</h1>
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Company details
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "Company"
+                },
+                {
+                    text: "Year"
+                },
+                {
+                    text: "Reference"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "Aspire Pharma Ltd"
+                  },
+                  {
+                    text: "2025"
+                  },
+                  {
+                    text: "419"
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+
+
+          {{ select({
+            classes: "nhsuk-u-width-full",
+            label: {
+              classes: "nhsuk-label--m",
+              text: "Select a year"
+            },
+            id: "select-year",
+            name: "selectYear",
+            items: [
+              {
+                value: "2026",
+                text: "2026"
+              },
+              {
+                value: "2025",
+                text: "2025",
+                selected: true
+              },
+              {
+                value: "2024",
+                text: "2024"
+              },
+              {
+                value: "2023",
+                text: "2023"
+              },
+              {
+                value: "2022",
+                text: "2022"
+              },
+              {
+                value: "2021",
+                text: "2021"
+              },
+              {
+                value: "2020",
+                text: "2020"
+              },
+              {
+                value: "2019",
+                text: "2019"
+              },
+              {
+                value: "2018",
+                text: "2018"
+              },
+              {
+                value: "2017",
+                text: "2017"
+              },
+              {
+                value: "2016",
+                text: "2016"
+              },
+              {
+                value: "2015",
+                text: "2015"
+              },
+              {
+                value: "2014",
+                text: "2014"
+              }
+            ]
+          }) }}
+
+          {{ button({
+            text: "Choose year"
+          }) }}
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Annual PLR submissions
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "ID"
+                },
+                {
+                    text: "Submission type"
+                },
+                {
+                    text: "Submission date"
+                },
+                {
+                  text: "Status"
+                },
+                {
+                    text: "Action"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "28"
+                  },
+                  {
+                    text: "Unaudited PLR - Voluntary"
+                  },
+                  {
+                    text: "01/Jan/2025 - 31/Dec/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--grey">Missing</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/create-plr-submission">Create</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "33"
+                  },
+                  {
+                    text: "Unaudited PLR - Voluntary"
+                  },
+                  {
+                    text: "01/Apr/2025 - 31/Dec/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--white">In progress</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/create-plr-submission">Edit</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "35"
+                  },
+                  {
+                    text: "Audited PLR - Voluntary"
+                  },
+                  {
+                    text: "01/Jan/2025 - 31/Mar/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--blue">Submitted</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/view-plr-submission">View</a>'
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Annual sales reports
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "ID"
+                },
+                {
+                    text: "Submission type"
+                },
+                {
+                    text: "Submission date"
+                },
+                {
+                  text: "Status"
+                },
+                {
+                    text: "Action"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "15"
+                  },
+                  {
+                    text: "VA"
+                  },
+                  {
+                    text: "01/Jan/2025 - 31/Mar/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--grey">Missing</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/create-annual-sales-form">Create</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "18"
+                  },
+                  {
+                    text: "VA"
+                  },
+                  {
+                    text: "01/Apr/2025 - 31/Jul/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--white">In progress</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/edit-annual-sales-form">Edit</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "20"
+                  },
+                  {
+                    text: "VA"
+                  },
+                  {
+                    text: "01/Aug/2025 - 31/Dec/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--blue">Submitted</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/view-submission--annual-sales">View</a>'
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Quarterly sales reports
+            </h2>
+          
+            <p>No quarterly sales reports have been added to this period</p>
+
+
+            <!-- {{ table({
+              head: [
+                {
+                    text: "ID"
+                },
+                {
+                    text: "Submission type"
+                },
+                {
+                    text: "Submission date"
+                },
+                {
+                  text: "Status"
+                },
+                {
+                    text: "Action"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "16"
+                  },
+                  {
+                    text: "VQ"
+                  },
+                  {
+                    text: "01/Jan/2025 - 31/Mar/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--white">In progress</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/edit-quarterly-sales-form">Edit</a>'
+                  }
+                ],
+                [
+                  {
+                    text: "17"
+                  },
+                  {
+                    text: "VQ"
+                  },
+                  {
+                    text: "01/Apr/2025 - 30/Jun/2025"
+                  },
+                  {
+                  html: '<span class="nhsuk-tag nhsuk-tag--blue">Submitted</span>'
+                  },
+                  {
+                  html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/view-submission--quarterly-sales">View</a>'
+                  }
+                ],
+                [
+                {
+                  text: "16"
+                },
+                {
+                  text: "VQ"
+                },
+                {
+                  text: "01/Jul/2025 - 30/Sep/2025"
+                },
+                {
+                html: '<span class="nhsuk-tag nhsuk-tag--green">Acknowledged</span>'
+                },
+                {
+                html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="#">View</a>'
+                }
+              ],
+              [
+                {
+                  text: "19"
+                },
+                {
+                  text: "VQ"
+                },
+                {
+                  text: "01/Oct/2025 - 31/Dec/2025"
+                },
+                {
+                html: '<span class="nhsuk-tag nhsuk-tag--green">Acknowledged</span>'
+                },
+                {
+                html: '<a class="nhsuk-link nhsuk-link--no-visited-state" href="#">View</a>'
+                }
+              ]
+              ]
+            }) }} -->
+          </div>
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

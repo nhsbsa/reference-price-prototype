@@ -1,0 +1,627 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Submit your zero return" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<!-- {{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }} -->
+
+{{ breadcrumb({
+  items: [
+    {
+      href: "/v7/company/submissions/create-plr-submission",
+      text: "Dashboard"
+    },
+    {
+      href: "/v7/company/submissions/zero-returns",
+      text: "Zero returns"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+          
+              <h1 class="nhsuk-heading-l">
+                Submit your zero return
+              </h1>
+          
+              <section id="submission-details">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Submission details
+                  </h2>
+                
+                  {{ table({
+                    head: [
+                      {
+                          text: "Company"
+                      },
+                      {
+                          text: "Period"
+                      },
+                      {
+                          text: "Submission type"
+                      },
+                      {
+                          text: "Status"
+                      }
+                      ],
+                    rows: [
+                      [
+                        {
+                          text: "Aspire Pharma Ltd"
+                        },
+                        {
+                          text: "01/Jan/2025 - 31/Dec/2025"
+                        },
+                        {
+                          text: "Unaudited PLR - Voluntary"
+                        },
+                        {
+                        html: '<span class="nhsuk-tag nhsuk-tag--white">In progress</span>'
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </section>
+          
+
+
+          <h2 class="nhsuk-heading-m">Quick submit zero returns</h2>
+          <section id="atenix">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Atenix 100mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "atenix",
+                  name: "atenix",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments" name="zero-returns-comments" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          <section id="atenolol">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Atenolol 100mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "atenolol",
+                  name: "atenolol",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments-1">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments-1" name="zero-returns-comments-1" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          <section id="cordilox">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Cordilox 160mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "cordilox",
+                  name: "cordilox",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments-2">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments-2" name="zero-returns-comments-2" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          <section id="glucophage">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Glucophage 500mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "glucophage",
+                  name: "glucophage",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments-3">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments-3" name="zero-returns-comments-3" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          <section id="glucophage2">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Glucophage 850mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "glucophage2",
+                  name: "glucophage2",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments-4">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments-4" name="zero-returns-comments-4" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          <section id="solpadeine">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Solpadeine 850mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "solpadeine",
+                  name: "solpadeine",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments-5">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments-5" name="zero-returns-comments-5" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          <section id="tramulief">
+            <div class="nhsuk-table__panel-with-heading-tab">
+              <h2 class="nhsuk-table__heading-tab">
+                Tramulief SR 100mg tablets
+              </h2>
+
+              <div class="nhsuk-table-responsive">
+                {{ summaryList({
+                  classes: "nhsuk-summary-list--no-border",
+                  rows: [
+                  {
+                    key: {
+                    text: "Pack size"
+                    },
+                    value: {
+                    text: "28.0"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Max price"
+                    },
+                    value: {
+                    text: "£111.11"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "Start date"
+                    },
+                    value: {
+                    text: "01/01/2025"
+                    }
+                  },
+                  {
+                    key: {
+                    text: "End date"
+                    },
+                    value: {
+                    text: "31/12/2025"
+                    }
+                  }
+                  ]
+                }) }}
+
+                {{ checkboxes({
+                  idPrefix: "tramulief",
+                  name: "tramulief",
+                  items: [
+                  {
+                    value: "zero-returns",
+                    html: "<p><strong>Zero return / sales comments</strong></p>",
+                    conditional: {
+                    html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="zero-returns-comments-6">Enter the reason for the zero sales (e.g. discontinuation; divestment) and include relevant dates where discontinued or divested.</label><textarea class="nhsuk-textarea" id="zero-returns-comments-6" name="zero-returns-comments-6" rows="5"></textarea></div>'
+                    }
+                  }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </section>
+
+          {{ button({
+            text: "Submit zero returns",
+            href: "/v7/company/submissions/zero-returns"
+          }) }}
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+
+            .app-pane {
+              display: flex;
+            }
+
+            .app-pane__side-bar {
+              flex: 0 0 240px;
+            }
+
+            .app-pane__main-content {
+              flex: 1;
+              min-width: 0;
+            }
+
+            .app-side-nav {
+              top: 20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__heading {
+              margin-bottom: 12px;
+              font-size: 1.1rem;
+            }
+
+            .app-side-nav__list {
+              margin-bottom: 0;
+            }
+
+            .app-side-nav__item {
+              margin-bottom: 8px;
+            }
+
+            .app-side-nav__link {
+              text-decoration: none;
+            }
+
+            .app-side-nav__item--current {
+              border-left: 4px solid #005eb8;
+              margin-left: -20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__item--current .app-side-nav__link {
+              font-weight: 700;
+              color: #005eb8;
+            }
+
+            .nhsuk-table-responsive {
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            .nhsuk-table-responsive table {
+              width: 100%;
+              border-collapse: collapse;
+            }
+
+
+            @media (max-width: 768px) {
+              .app-pane {
+                display: block;
+              }
+
+              .app-pane__side-bar {
+                margin-bottom: 24px;
+              }
+
+              .app-side-nav {
+                position: static;
+              }
+
+              .nhsuk-table__heading-tab {
+                font-size: 1.2rem;
+              }
+            }
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

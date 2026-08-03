@@ -1,0 +1,524 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "View product" %}
+
+{% set activeNav = "products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+{{ breadcrumb({
+  items: [
+    {
+      href: "/v7/company/products/index",
+      text: "Product portfolio"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">Atenix 100 tablets</h1>
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Product information
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Presentation</h3>
+              <p>Atenix 100 tablets</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Form</h3>
+              <p>Oral tablet</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Pack size</h3>
+              <p>28.0</p>
+            </div>
+        
+          </div>
+        
+          <!-- Row 2 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Organisation</h3>
+              <p>Aspire Pharma Ltd</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Link start date</h3>
+              <p>31/12/2020</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Link end date</h3>
+              <p>31/12/9999</p>
+            </div>
+        
+          </div>
+
+          <!-- Row 3 -->
+          <div class="nhsuk-grid-row">
+
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Membership</h3>
+              <p>Voluntary</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">SNOMED</h3>
+              <p>1329011000001104</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Legal category</h3>
+              <p>POM</p>
+            </div>
+        
+          </div>
+
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Maximum price information
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Max price</h3>
+              <p>£151.00</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Date from</h3>
+              <p>31/12/2020</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Date to</h3>
+              <p>31/12/9999</p>
+            </div>
+        
+          </div>
+        
+          <!-- Row 2 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Publish on maximum price list</h3>
+              <p>No</p>
+            </div>
+        
+          </div>
+
+        </div>
+
+
+        <h2 class="nhsuk-heading-m">Comments</h2>
+        <hr class="nhsuk-u-margin-top-0">
+        <p><strong>This product has no comments.</strong></p>
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Percentage attributes
+          </h2>
+        
+          {{ table({
+            head: [
+              {
+                  text: "Percentage attribute"
+              },
+              {
+                  text: "Start date"
+              },
+              {
+                  text: "End date"
+              },
+              {
+                text: "Delete"
+              },
+              {
+                  text: "Action"
+              }
+            ]
+          }) }}
+        
+        </div>
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Reference anchor date
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Reference anchor date</h3>
+              <p>No date value present</p>
+            </div>
+        
+          </div>
+
+          {% call details({
+            summaryText: "What does this mean?",
+            classes: "nhsuk-u-margin-top-2"
+          }) %}
+            <p>A Reference Anchor Date (RAD) is a date used within the reference pricing methodology.</p>
+            <p>RADs help establish and maintain reference pricing information and may be displayed for products and Virtual Therapeutic Moieties (VTMs).</p>
+            <p>Some products may not have an available RAD. Where this occurs, the value may be shown as Unknown.</p>
+            <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-rad">Read the full guidance</a></p>
+          {% endcall %}
+
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Reference price information
+          </h2>
+        
+          {{ table({
+            head: [
+              {
+                  text: "Start date"
+              },
+              {
+                  text: "End date"
+              },
+              {
+                  text: "Reference price"
+              },
+              {
+                text: "Reference price type"
+              },
+              {
+                text: "Delete"
+              },
+              {
+                  text: "Action"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "31/12/2020"
+                },
+                {
+                  text: "31/12/9999"
+                },
+                {
+                  text: "£151.00"
+                },
+                {
+                  text: "Average selling price"
+                },
+                {
+                  text: ""
+                },
+                {
+                  text: ""
+                }
+              ]
+            ]
+          }) }}
+
+          {% call details({
+            summaryText: "What does this mean?",
+            classes: "nhsuk-u-margin-top-4"
+          }) %}
+            <p>A reference price is used within the VPAG reference pricing methodology and may be displayed alongside products within the portal.</p>
+            <p>Reference prices may be reviewed and updated over time as additional information becomes available.</p>
+            <p>The reference price shown reflects the most recent information available for this product.</p>
+            <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p>
+          {% endcall %}
+        
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Older/newer presentation
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Classification</h3>
+              <p>Awaiting classification</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Date presentation became older medicine</h3>
+              <p>No date value present</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Type</h3>
+              <p>Unclassified</p>
+            </div>
+        
+          </div>
+
+          {% call details({
+            summaryText: "What does this mean?",
+            classes: "nhsuk-u-margin-top-2"
+          }) %}
+            <p>Products are classified as either Older or Newer presentations as part of the reference pricing process.</p>
+            <p>This classification helps determine how products are considered within the wider reference pricing methodology.</p>
+            <p>Classifications may be reviewed and updated when additional information becomes available.</p>
+            <p>If a classification is unavailable, the product may be shown as awaiting classification.</p>
+            <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/provisional-ref-price-guidance">Read the full guidance</a></p>
+          {% endcall %}
+
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Plasma Derived Medicine Product (PDMP)
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">PDMP</h3>
+              <p>No</p>
+            </div>
+        
+          </div>
+
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            £1.5 million exemption
+          </h2>
+        
+          {{ table({
+            head: [
+              {
+                  text: "Start date"
+              },
+              {
+                  text: "End date"
+              },
+              {
+                text: "Delete"
+              },
+              {
+                  text: "Action"
+              }
+            ]
+          }) }}
+        
+        </div>
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            New Active Substance (NAS)
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">NAS</h3>
+              <p>Yes</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Date of marketing authorisation</h3>
+              <p>31/12/2020</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Expiry date of NAS (calculated)</h3>
+              <p>31/12/2023</p>
+            </div>
+        
+          </div>
+
+        </div>
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Temporary price
+          </h2>
+        
+          {{ table({
+            head: [
+              {
+                  text: "Temporary price"
+              },
+              {
+                  text: "Effective date"
+              },
+              {
+                  text: "End date"
+              },
+              {
+                text: "Delete"
+              },
+              {
+                  text: "Action"
+              }
+            ]
+          }) }}
+        
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Historic Cash Payment (HCP)
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Subject to HCP</h3>
+              <p>No</p>
+            </div>
+        
+          </div>
+
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            Other information
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Over the counter payment</h3>
+              <p>No</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Discountinued</h3>
+              <p>No</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">CDR discontinued</h3>
+              <p>Yes</p>
+            </div>
+        
+          </div>
+
+        </div>
+
+
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+          <h2 class="nhsuk-table__heading-tab">
+            VTM
+          </h2>
+        
+          <!-- Row 1 -->
+          <div class="nhsuk-grid-row">
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">VTM ID</h3>
+              <p></p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">VTM name</h3>
+              <p>N/A</p>
+            </div>
+        
+            <div class="nhsuk-grid-column-one-third">
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">VTM type</h3>
+              <p>None</p>
+            </div>
+        
+          </div>
+
+          {% call details({
+            summaryText: "What does this mean?",
+            classes: "nhsuk-u-margin-top-2"
+          }) %}
+            <p>A Virtual Therapeutic Moiety (VTM) groups products that share the same active substance or therapeutic moiety.</p>
+            <p>VTMs are used within reference pricing to help identify related products and establish reference pricing information.</p>
+            <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/search-vtm">search VTMs</a> within the portal.</p>
+            <p>If a classification is unavailable, the product may be shown as awaiting classification.</p>
+            <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/index">Read the full guidance</a></p>
+          {% endcall %}
+
+        </div>
+
+
+        <style>
+          .nhsuk-table__heading-tab {
+            font-size: 1.3rem;
+          }
+
+          .nhsuk-grid-column-one-third {
+            margin-bottom: 20px;
+          }
+        </style>
+
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

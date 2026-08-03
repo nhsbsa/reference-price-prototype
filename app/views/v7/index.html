@@ -1,0 +1,90 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+{{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: "Back"
+}) }}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Branded Medicines</h1>
+
+      <h2 class="nhsuk-heading-l">Company journeys</h2>
+
+      <h2 class="nhsuk-heading-m">Version 1 (July 2026)</h2>
+      <p>This includes designs that align with the existing Branded Medicines portal</p>
+
+      {{ button({
+        text: "Begin full company journey v1",
+        href: "/v7/company/index"
+      }) }}
+
+
+      <!-- <h2 class="nhsuk-heading-m">Company journey v1 (July 2026)</h2>
+      <p>This includes: </p>
+
+      <ul>
+        <li>designs that align with the existing Branded Medicines portal</li>
+        <li>designs for the minimum viable product (MVP) contained in Share version 10 requirements</li>
+      </ul>
+
+      {{ button({
+        text: "Begin full company journey v1",
+        href: "/v7/company/index"
+      }) }} -->
+            
+
+
+       
+    
+      <!-- End of content -->
+
+    </div>
+</div>
+
+<!-- <script>
+function goPage() {
+    const value = document.getElementById("direction").value.toLowerCase();
+
+    if (value === "dhsc") {
+        window.location.href = "/v5/dhsc/";   
+    } 
+    else if (value === "company") {
+        window.location.href = "/v5/company"; 
+    } 
+    else {
+        alert("Invalid input");
+    }
+}
+</script> -->
+
+{% endblock %}

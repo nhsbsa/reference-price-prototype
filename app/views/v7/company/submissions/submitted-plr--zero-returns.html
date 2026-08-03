@@ -1,0 +1,259 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Voluntary presentation level zero returns" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<!-- {{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }} -->
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+          <div class="app-pane">
+
+            <aside class="app-pane__side-bar">
+              <nav class="app-side-nav">
+          
+                <h2 class="app-side-nav__heading">Navigation</h2>
+          
+                <ul class="nhsuk-list app-side-nav__list">
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/view-plr-submission">
+                      Outstanding products
+                    </a>
+                  </li>
+          
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--submitted-products">
+                      Submitted products
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item app-side-nav__item--current">
+                    <a class="app-side-nav__link">
+                      Zero returns
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--summary-and-reporting">
+                      Summary and reporting
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--clear-submission">
+                      Clear submission
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--file-upload--plr">
+                      File upload
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--bulk-submission">
+                      Bulk submission
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--download-template">
+                      Download template
+                    </a>
+                  </li>
+
+                  <li class="app-side-nav__item">
+                    <a class="app-side-nav__link" href="/v7/company/submissions/submitted-plr--submit-return">
+                      Submit return
+                    </a>
+                  </li>
+                </ul>
+          
+              </nav>
+            </aside>
+          
+            <div class="app-pane__main-content">
+          
+              <h1 class="nhsuk-heading-l">
+                Voluntary presentation level zero returns
+              </h1>
+              
+              </div>
+            </div>
+          
+              <section id="submission-details">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Submission details
+                  </h2>
+                
+                  {{ table({
+                    head: [
+                      {
+                          text: "Company"
+                      },
+                      {
+                          text: "Period"
+                      },
+                      {
+                          text: "Submission type"
+                      },
+                      {
+                          text: "Status"
+                      }
+                      ],
+                    rows: [
+                      [
+                        {
+                          text: "Aspire Pharma Ltd"
+                        },
+                        {
+                          text: "01/Jan/2025 - 31/Dec/2025"
+                        },
+                        {
+                          text: "Unaudited PLR - Voluntary"
+                        },
+                        {
+                        html: '<span class="nhsuk-tag nhsuk-tag--blue">Submitted</span>'
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </section>
+          
+
+              <p class="nhsuk-heading-m">You have no zero returns</p>
+
+              <p>You can submit all of your zero returns by <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/submitted-plr--submit-zero-returns">visiting our zero returns submissions page</a>.</p>
+
+
+        <section id="summary">
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Zero returns
+            </h2>
+
+          </div>
+        </section>
+
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+
+            .app-pane {
+              display: flex;
+            }
+
+            .app-pane__side-bar {
+              flex: 0 0 240px;
+            }
+
+            .app-pane__main-content {
+              flex: 1;
+              min-width: 0;
+            }
+
+            .app-side-nav {
+              top: 20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__heading {
+              margin-bottom: 12px;
+              font-size: 1.1rem;
+            }
+
+            .app-side-nav__list {
+              margin-bottom: 0;
+            }
+
+            .app-side-nav__item {
+              margin-bottom: 8px;
+            }
+
+            .app-side-nav__link {
+              text-decoration: none;
+            }
+
+            .app-side-nav__item--current {
+              border-left: 4px solid #005eb8;
+              margin-left: -20px;
+              padding-left: 16px;
+            }
+
+            .app-side-nav__item--current .app-side-nav__link {
+              font-weight: 700;
+              color: #005eb8;
+            }
+
+            .nhsuk-table-responsive {
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            .nhsuk-table-responsive table {
+              width: 100%;
+              border-collapse: collapse;
+            }
+
+
+            @media (max-width: 768px) {
+              .app-pane {
+                display: block;
+              }
+
+              .app-pane__side-bar {
+                margin-bottom: 24px;
+              }
+
+              .app-side-nav {
+                position: static;
+              }
+
+              .nhsuk-table__heading-tab {
+                font-size: 1.2rem;
+              }
+            }
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

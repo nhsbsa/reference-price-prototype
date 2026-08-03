@@ -1,0 +1,332 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Product updates" %}
+
+{% set activeNav = "products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <div class="app-pane">
+
+          <aside class="app-pane__side-bar">
+            <nav class="app-side-nav">
+        
+              <h2 class="app-side-nav__heading">Navigation</h2>
+        
+              <ul class="nhsuk-list app-side-nav__list">
+                <li class="app-side-nav__item">
+                  <a class="app-side-nav__link" href="/v7/company/products/index">
+                    Product portfolio
+                  </a>
+                </li>
+        
+                <li class="app-side-nav__item app-side-nav__item--current">
+                  <a class="app-side-nav__link">
+                    Product updates
+                  </a>
+                </li>
+
+                <li class="app-side-nav__item">
+                  <a class="app-side-nav__link" href="/v7/company/products/search-vtm">
+                    Search VTMs
+                  </a>
+                </li>
+              </ul>
+        
+            </nav>
+          </aside>
+        
+          <div class="app-pane__main-content">
+        
+            <h1 class="nhsuk-heading-l">
+              Product updates
+            </h1>
+          </div>
+        </div>
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Company details
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "Company"
+                },
+                {
+                    text: "Snomed"
+                },
+                {
+                    text: "Reference"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "Aspire Pharma Ltd"
+                  },
+                  {
+                    text: "22"
+                  },
+                  {
+                    text: "419"
+                  }
+                ]
+              ]
+            }) }}
+          </div>
+
+
+        {{ table({
+          head: [
+            {
+              text: "Date"
+            },
+            {
+              text: "Product"
+            },
+            {
+              text: "Update"
+            },
+            {
+              text: "From"
+            },
+            {
+              text: "To"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "5/8/2026"
+              },
+              {
+                text: "Atenix 100g tablets Oral tablets"
+              },
+              {
+                text: "Reference price updated"
+              },
+              {
+                text: "£25.00"
+              },
+              {
+                text: "£30.00"
+              }
+            ],
+            [
+              {
+                text: "2/8/2026"
+              },
+              {
+                text: "Atenix 100g tablets Oral tablets"
+              },
+              {
+                text: "Pack size updated"
+              },
+              {
+                text: "15.00"
+              },
+              {
+                text: "28.00"
+              }
+            ],
+            [
+              {
+                text: "1/8/2026"
+              },
+              {
+                text: "Glucophage 500mg tablets Oral tablets"
+              },
+              {
+                text: "Classification updated"
+              },
+              {
+                text: "Awaiting classification"
+              },
+              {
+                text: "Newer classification"
+              }
+            ],
+            [
+              {
+                text: "15/7/2026"
+              },
+              {
+                text: "Glucophage 850mg tablets Oral tablets"
+              },
+              {
+                text: "Reference price added"
+              },
+              {
+                text: "£0.00"
+              },
+              {
+                text: "£25.00"
+              }
+            ],
+            [
+              {
+                text: "3/6/2026"
+              },
+              {
+                text: "Solpadeine Plus capsules Oral capsules"
+              },
+              {
+                text: "Date presentation became older medicine updated"
+              },
+              {
+                text: "No date value present"
+              },
+              {
+                text: "3/6/2026"
+              }
+            ],
+            [
+              {
+                text: "18/2/2026"
+              },
+              {
+                text: "Tramulief SR 100mg tablets Modified release tablets"
+              },
+              {
+                text: "Max price updated"
+              },
+              {
+                text: "£150.00"
+              },
+              {
+                text: "£230.00"
+              }
+            ]
+          ]
+        }) }}
+        {% from "pagination/macro.njk" import pagination %}
+
+        {{ pagination({
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              href: "#",
+              current: true
+            },
+            {
+              number: 2,
+              href: "#"
+            },
+            {
+              number: 3,
+              href: "#"
+            },
+            {
+              ellipsis: true
+            },
+            {
+              number: 7,
+              href: "#"
+            }
+          ]
+        }) }}
+        
+
+        <style>
+          .nhsuk-table__heading-tab {
+              font-size: 1.3rem;
+          }
+
+          .app-pane {
+            display: flex;
+          }
+
+          .app-pane__side-bar {
+            flex: 0 0 240px;
+          }
+
+          .app-pane__main-content {
+            flex: 1;
+            min-width: 0;
+          }
+
+          .app-side-nav {
+            top: 20px;
+            padding-left: 16px;
+          }
+
+          .app-side-nav__heading {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+          }
+
+          .app-side-nav__list {
+            margin-bottom: 0;
+          }
+
+          .app-side-nav__item {
+            margin-bottom: 8px;
+          }
+
+          .app-side-nav__link {
+            text-decoration: none;
+          }
+
+          .app-side-nav__item--current {
+            border-left: 4px solid #005eb8;
+            margin-left: -20px;
+            padding-left: 16px;
+          }
+
+          .app-side-nav__item--current .app-side-nav__link {
+            font-weight: 700;
+            color: #005eb8;
+          }
+
+          @media (max-width: 768px) {
+            .app-pane {
+              display: block;
+            }
+
+            .app-pane__side-bar {
+              margin-bottom: 24px;
+            }
+
+            .app-side-nav {
+              position: static;
+            }
+          }
+        </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

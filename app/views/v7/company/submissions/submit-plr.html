@@ -1,0 +1,392 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Submit your presentation level report" %}
+
+{% set activeNav = "submissions" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+<!-- {{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }} -->
+
+{{ breadcrumb({
+  items: [
+    {
+      href: "/v7/company/submissions/create-plr-submission",
+      text: "Dashboard"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <span class="nhsuk-caption-l">Atenix 100mg tablets</span>
+            <h1 class="nhsuk-heading-l">Submit your presentation level report</h1>
+
+              <section id="submission-details">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Submission details
+                  </h2>
+                
+                  {{ table({
+                    head: [
+                      {
+                          text: "Company"
+                      },
+                      {
+                          text: "Period"
+                      },
+                      {
+                          text: "Submission type"
+                      },
+                      {
+                          text: "Status"
+                      }
+                      ],
+                    rows: [
+                      [
+                        {
+                          text: "Aspire Pharma Ltd"
+                        },
+                        {
+                          text: "01/Jan/2025 - 31/Dec/2025"
+                        },
+                        {
+                          text: "Unaudited PLR - Voluntary"
+                        },
+                        {
+                        html: '<span class="nhsuk-tag nhsuk-tag--white">In progress</span>'
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </section>
+
+
+
+              <section id="product-information">
+                <div class="nhsuk-table__panel-with-heading-tab">
+                  <h2 class="nhsuk-table__heading-tab">
+                    Product information
+                  </h2>
+                
+                  {{ table({
+                    head: [
+                      {
+                          text: "Pack size"
+                      },
+                      {
+                          text: "Form"
+                      },
+                      {
+                          text: "Max price"
+                      },
+                      {
+                          text: "Date from"
+                      },
+                      {
+                          text: "Date to"
+                      }
+                      ],
+                    rows: [
+                      [
+                        {
+                          text: "28.0"
+                        },
+                        {
+                          text: "Oral tablet"
+                        },
+                        {
+                          text: "£1,364.00"
+                        },
+                        {
+                        text: "01/Jan/2025"
+                        },
+                        {
+                          text: "31/Dec/2025"
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </section>
+          
+
+            <h2 class="nhsuk-heading-l">Total sales of scheme products</h2>
+
+            <!-- Row 1 -->
+             <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-3">Total sales of primary care products</h3>
+            <div class="nhsuk-grid-row">
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Quantity"
+              },
+              id: "primary-care",
+              name: "primaryCare",
+              suffix: "units",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false
+              }) }}
+            </div>
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Net sales"
+              },
+              id: "primary-care-net",
+              name: "primaryCareNet",
+              prefix: "£",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false
+              }) }}            
+            </div>
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Gross sales"
+              },
+              id: "primary-care-gross",
+              name: "primaryCareGross",
+              prefix: "£",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false,
+              disabled: true
+              }) }}
+            </div>
+          
+            </div>
+          
+            <!-- Row 2 -->
+            <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-3">Total sales of home care products</h3>
+            <div class="nhsuk-grid-row">
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Quantity"
+              },
+              id: "home-care",
+              name: "homeCare",
+              suffix: "units",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false
+              }) }}
+            </div>
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Net sales"
+              },
+              id: "home-care-net",
+              name: "homeCareNet",
+              prefix: "£",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false
+              }) }}            
+            </div>
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Gross sales"
+              },
+              id: "home-care-gross",
+              name: "homeCareGross",
+              prefix: "£",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false,
+              disabled: true
+              }) }}
+            </div>
+          
+            </div>
+
+            <!-- Row 3 -->
+            <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-3">Total sales to all other customers (e.g. Secondary care)</h3>
+            <div class="nhsuk-grid-row">
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Quantity"
+              },
+              id: "total-sales",
+              name: "totalSales",
+              suffix: "units",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false,
+              value: "1"
+              }) }}
+            </div>
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Net sales"
+              },
+              id: "total-sales-net",
+              name: "totalSalesNet",
+              prefix: "£",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false,
+              value: "1,000.00"
+              }) }}            
+            </div>
+          
+            <div class="nhsuk-grid-column-one-third">
+              {{ input({
+              label: {
+                text: "Gross sales"
+              },
+              id: "total-sales-gross",
+              name: "totalSalesGross",
+              prefix: "£",
+              classes: "nhsuk-input--width-10",
+              spellcheck: false,
+              disabled: true,
+              value: "1,364.00"
+              }) }}
+            </div>
+          
+            </div>
+
+            {% set ecpConditionalHtml %}
+              <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: { text: "Quantity" },
+                    id: "ecp-quantity",
+                    name: "ecpQuantity",
+                    suffix: "units",
+                    classes: "nhsuk-input--width-10"
+                  }) }}
+                </div>
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: { text: "Net sales" },
+                    id: "ecp-net-sales",
+                    name: "ecpNetSales",
+                    prefix: "£",
+                    classes: "nhsuk-input--width-10"
+                  }) }}
+                </div>
+
+                <div class="nhsuk-grid-column-one-third">
+                  {{ input({
+                    label: { text: "Gross sales" },
+                    id: "ecp-gross-sales",
+                    name: "ecpGrossSales",
+                    prefix: "£",
+                    classes: "nhsuk-input--width-10",
+                    disabled: true
+                  }) }}
+                </div>
+              </div>
+            {% endset %}
+
+            {{ checkboxes({
+            idPrefix: "example",
+            name: "example",
+            fieldset: {
+              legend: {
+              text: "Exemptions",
+              size: "l"
+              }
+            },
+            items: [
+              {
+              value: "ecp",
+              text: "Exeptional Central Procurements (ECP)",
+              conditional: {
+                html: ecpConditionalHtml
+              }
+              },
+              {
+              value: "cpv",
+              text: "Centrally Procured Vaccines (CPV)",
+              conditional: {
+                html: ecpConditionalHtml
+              }
+              },
+              {
+              value: "nas",
+              text: "New Active Substances (NAS)",
+              conditional: {
+                html: ecpConditionalHtml
+              }
+              }
+            ]
+            }) }}
+
+
+          {{ button({
+            text: "Save and continue",
+            href: "/v7/company/submissions/plr-totals-summary"
+          }) }}
+
+
+          {% set insetTextHtml %}
+            <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/submissions/create-plr-submission">return to the dashboard here</a> if you wish to cancel but the submission information you have entered will not be saved.</p>
+          {% endset %}
+
+          {{ insetText({
+            html: insetTextHtml
+          }) }}
+
+
+          <style>
+            .nhsuk-table__heading-tab {
+                font-size: 1.3rem;
+            }
+
+            .nhsuk-grid-column-one-third {
+              margin-bottom: 20px;
+            }
+
+            .nhsuk-inset-text {
+                max-width: 56em;
+            }
+
+          </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
