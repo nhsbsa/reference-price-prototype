@@ -43,14 +43,15 @@
             <h3 class="nhsuk-notification-banner__heading">
             Reference price information updated
             </h3>
-            <p>Your reference price for [start date] to [end date] has been updated.</p>
+            <p>The reference price for [start date] to [end date] has been updated.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
-            type: "success"
+            type: "success",
+            titleText: "Reference price"
         }) }}
 
         {% endif %}
@@ -60,16 +61,17 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Reference price added
+            Reference price information added
             </h3>
-            <p>Your new reference price for [start date] to [end date] has been saved.</p>
+            <p>The new reference price for [start date] to [end date] has been saved.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
-            type: "success"
+            type: "success",
+            titleText: "Reference price"
         }) }}
 
         {% endif %}
@@ -79,16 +81,17 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Reference price deleted
+            Reference price information deleted
             </h3>
-            <p>Your reference price has been deleted.</p>
+            <p>The reference price has been deleted.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
-            type: "success"
+            type: "success",
+            titleText: "Reference price"
         }) }}
 
         {% endif %}
@@ -103,29 +106,38 @@
             });
         });
     </script>
-    
-        <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
 
-
-        <div class="nhsuk-notification-banner" id="success-banner" style="display:none;" role="region"
+        <div class="nhsuk-notification-banner nhsuk-notification-banner--success" id="success-banner" style="display:none;" role="region"
             aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
             <div class="nhsuk-notification-banner__header">
                 <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
-                    Changes saved
+                    Loss of exclusivity
                 </h2>
             </div>
             <div class="nhsuk-notification-banner__content">
-                <p class="nhsuk-notification-banner__heading" id="banner-message">
+                <h3 class="nhsuk-notification-banner__heading">
+                    VTM Market Authorisation (MA) information updated
+                </h3>
+                <p id="banner-message">
                     Changes saved
                 </p>
 
-                <a href="#" class="nhsuk-link nhsuk-link--no-visited-state"
+                <a href="#" class="nhsuk-notification-banner__link"
                     onclick="this.closest('.nhsuk-notification-banner').style.display='none'; return false;">
                     Close
                 </a>
             </div>
         </div>
 
+        <style>
+            .nhsuk-notification-banner__heading {
+                max-width: 48em;
+            }
+        </style>
+
+
+        <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+        
         <div class="nhsuk-tabs" data-module="nhsuk-tabs">
 
             <ul class="nhsuk-tabs__list">
@@ -226,32 +238,32 @@
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Pack size</td>
                                 <td class="nhsuk-table__cell">28 tablets</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Sub pack information</td>
                                 <td class="nhsuk-table__cell">2 x 14 tablets</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Unit of measure</td>
                                 <td class="nhsuk-table__cell">tablet</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Form</td>
                                 <td class="nhsuk-table__cell">Modified-release tablet</td>
-                                <td class="nhsuk-table__cell">20/04/2009</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">20 April 2009</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Route</td>
                                 <td class="nhsuk-table__cell">Oral</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                         </tbody>
                     </table>
@@ -298,30 +310,30 @@
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Small company</td>
                                 <td class="nhsuk-table__cell">Yes</td>
-                                <td class="nhsuk-table__cell">10/12/2019</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">10 December 2019</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                                 <td class="nhsuk-table__cell"><a href="#"></a></td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">£ 1.5 million exemption</td>
                                 <td class="nhsuk-table__cell">Yes</td>
-                                <td class="nhsuk-table__cell">10/12/2019</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">10 December 2019</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                                 <td class="nhsuk-table__cell"><a href="#"></a></td>
 
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Common Drug Reference (CDR) discontinued</td>
                                 <td class="nhsuk-table__cell">Yes</td>
-                                <td class="nhsuk-table__cell">10/12/2019</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">10 December 2019</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                                 <td class="nhsuk-table__cell"><a href="#"></a></td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Branded Medicines (BM) discontinued</td>
                                 <td class="nhsuk-table__cell">Yes</td>
-                                <td class="nhsuk-table__cell">10/12/2019</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">10 December 2019</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                                 <td class="nhsuk-table__cell"><a href="#"></a></td>
                             </tr>
                              <tr>
@@ -334,8 +346,8 @@
                             <tr>
                                 <td class="nhsuk-table__cell">Percentage attribute</td>
                                 <td class="nhsuk-table__cell">15% top-up payment</td>
-                                <td class="nhsuk-table__cell">10/12/2019</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">10 December 2019</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                                 <td class="nhsuk-table__cell"><a href="#"></a></td>
                             </tr>
                         </tbody>
@@ -360,20 +372,20 @@
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Supplier</td>
                                 <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Supplier SNOMED code</td>
                                 <td class="nhsuk-table__cell">10246711000001109</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Supplier type indicator</td>
                                 <td class="nhsuk-table__cell">Manufacturer</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
 
                         </tbody>
@@ -396,8 +408,8 @@
                             <tr class="nhsuk-table__row">
 
                                 <td class="nhsuk-table__cell">Morningside Healthcare Ltd</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
 
 
@@ -421,14 +433,14 @@
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">BNF chapter</td>
                                 <td class="nhsuk-table__cell">06010202</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Presentation code (BNF)</td>
                                 <td class="nhsuk-table__cell">0601022B0BJABAW</td>
-                                <td class="nhsuk-table__cell">01/06/2011</td>
-                                <td class="nhsuk-table__cell">01/02/3456</td>
+                                <td class="nhsuk-table__cell">1 June 2011</td>
+                                <td class="nhsuk-table__cell">1 February 2036</td>
                             </tr>
                         </tbody>
                     </table>
@@ -535,9 +547,9 @@
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
                                         aria-hidden="true">Value </span>£3.67</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">Start date </span>03/07/2024</td>
+                                        aria-hidden="true">Start date </span>3 July 2024</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">End date </span>01/02/3456</td>
+                                        aria-hidden="true">End date </span>1 February 2036</td>
                             </tr>
 
                             <tr class="nhsuk-table__row" role="row">
@@ -546,9 +558,9 @@
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
                                         aria-hidden="true">Value </span>£4.16</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">Start date </span>11/01/2018</td>
+                                        aria-hidden="true">Start date </span>11 January 2018</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">End date </span>02/07/2024</td>
+                                        aria-hidden="true">End date </span>2 July 2024</td>
                             </tr>
 
                             <tr class="nhsuk-table__row" role="row">
@@ -557,9 +569,9 @@
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
                                         aria-hidden="true">Value </span>£5.73</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">Start date </span>01/06/2011</td>
+                                        aria-hidden="true">Start date </span>1 June 2011</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">End date </span>10/01/2018</td>
+                                        aria-hidden="true">End date </span>10 January 2018</td>
                             </tr>
 
                         </tbody>
@@ -588,9 +600,9 @@
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
                                         aria-hidden="true">Value </span>£3.67</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">Start date </span>03/07/2024</td>
+                                        aria-hidden="true">Start date </span>3 July 2024</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">End date </span>01/02/3456</td>
+                                        aria-hidden="true">End date </span>1 February 2036</td>
                             </tr>
 
                         </tbody>
@@ -620,9 +632,9 @@
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
                                         aria-hidden="true">Value </span>£2.86</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">Start date </span>03/07/2024</td>
+                                        aria-hidden="true">Start date </span>3 July 2024</td>
                                 <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
-                                        aria-hidden="true">End date </span>01/02/3456</td>
+                                        aria-hidden="true">End date </span>1 February 2036</td>
                             </tr>
 
                         </tbody>
@@ -894,7 +906,7 @@
                             <tr class="nhsuk-table__row" role="row">
                                 <td class="nhsuk-table__cell" role="cell">Date presentation becomes an older medicine
                                 </td>
-                                <td class="nhsuk-table__cell" role="cell">12/10/2009</td>
+                                <td class="nhsuk-table__cell" role="cell">12 October 2009</td>
                                 <td class="nhsuk-table__cell" role="cell">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
                                         href="/v5/dhsc/edit-loss-of-exclusivity?field=date-categorised-as-older-medicine">Edit</a>
@@ -929,7 +941,7 @@
                         <tbody class="nhsuk-table__body">
                             <tr class="nhsuk-table__row" role="row">
                                 <td class="nhsuk-table__cell" role="cell">Reference anchor date</td>
-                                <td class="nhsuk-table__cell" role="cell">01/01/2008</td>
+                                <td class="nhsuk-table__cell" role="cell">1 January 2008</td>
                                 <td class="nhsuk-table__cell" role="cell">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
                                         href="/v5/dhsc/edit-loss-of-exclusivity?field=reference-anchor-date">Edit</a>
@@ -990,7 +1002,7 @@
         <!--cdr(ma)-->                    
                             <tr class="nhsuk-table__row" role="row">
                                 <td class="nhsuk-table__cell" role="cell">Market authorisation date</td>
-                                <td class="nhsuk-table__cell" role="cell">01/06/2011</td>
+                                <td class="nhsuk-table__cell" role="cell">1 June 2011</td>
                                 <td class="nhsuk-table__cell" role="cell">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
                                         href="/v5/dhsc/edit-loss-of-exclusivity?field=market-authorisation-date">Edit</a>
@@ -1049,7 +1061,7 @@
                             </tr>
                             <tr class="nhsuk-table__row" role="row">
                                 <td class="nhsuk-table__cell" role="cell">Market authorisation date</td>
-                                <td class="nhsuk-table__cell" role="cell">01/06/2011</td>
+                                <td class="nhsuk-table__cell" role="cell">1 June 2011</td>
                                 <td class="nhsuk-table__cell" role="cell">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
                                         href="/v5/dhsc/edit-loss-of-exclusivity?field=market-authorisation-date">Edit</a>
@@ -1077,7 +1089,7 @@
                         <tbody class="nhsuk-table__body">
                             <tr class="nhsuk-table__row" role="row">
                                 <td class="nhsuk-table__cell" role="cell">SPC expiry date</td>
-                                <td class="nhsuk-table__cell" role="cell">01/06/2011</td>
+                                <td class="nhsuk-table__cell" role="cell">1 June 2011</td>
                                 <td class="nhsuk-table__cell" role="cell">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
                                         href="/v5/dhsc/edit-loss-of-exclusivity?field=spc-expiry-date">Edit</a>
@@ -1135,7 +1147,7 @@
                     </h2>
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
-                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">
+                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="edit-product/add-reference-price">
                                 Add a new reference price</a>
                         </li>
 
@@ -1150,123 +1162,134 @@
                     <ul class="nhsuk-card__actions">
                         <li class="nhsuk-card__action">
                             <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                href="#">Edit<span class="nhsuk-u-visually-hidden"> reference price</span></a>
+                                href="edit-product/reference-price-info">Edit<span class="nhsuk-u-visually-hidden"> reference price</span></a>
                         </li>
 
                         <li class="nhsuk-card__action">
                             <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                href="#">Delete<span class="nhsuk-u-visually-hidden"> reference price</span></a>
+                                href="edit-product/reference-price-delete">Delete<span class="nhsuk-u-visually-hidden"> reference price</span></a>
                         </li>
 
                     </ul>
                 </div>
 
-                    {{ summaryList({
-                        rows: [
+ 
+                {{ table({
+                    firstCellIsHeader: true,
+                    classes: "nhsuk-u-margin-bottom-5",
+                    head: [
+                        {
+                            text: "Name"
+                        },
+                        {
+                            text: "Value"
+                        }
+                    ],
+                    rows: [
+                        [
                             {
-                            key: {
                                 text: "Date correct as of"
                             },
-                            value: {
+                            {
                                 text: "12 October 2025"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Reference price start year"
                             },
-                            value: {
+                            {
                                 text: "2024"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Reference price type"
                             },
-                            value: {
+                            {
                                 text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Reference price start date"
                             },
-                            value: {
+                            {
                                 html: "<p>15 October 2025</p>"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Reference price end date"
                             },
-                            value: {
+                            {
                                 text: "14 October 2028"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Interformulation adjustment"
                             },
-                            value: {
+                            {
                                 text: "Yes"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Pack size adjustment"
                             },
-                            value: {
+                            {
                                 text: "No"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Retrospective adjustment"
                             },
-                            value: {
+                            {
                                 text: "Yes"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Prospective adjustment"
                             },
-                            value: {
+                            {
                                 text: "Yes"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Reference price adjustment"
                             },
-                            value: {
+                            {
                                 text: "Yes"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Reference price"
                             },
-                            value: {
+                            {
                                 text: "£6.41"
                             }
-                            },
+                        ],
+                        [
                             {
-                            key: {
                                 text: "Change following review of previous version"
                             },
-                            value: {
+                            {
                                 text: "No data available"
                             }
-                            }
                         ]
-                    }) }}
+                    ]
+                }) }}
 
 
                     <div class="heading-with-actions" id="comparator-info">
 
                         <h3 class="nhsuk-heading-s">Comparator products used </h3>
-                        <!-- to calculate reference price for period: 01/10/2024 - 01/02/2036 -->
+                        <!-- to calculate reference price for period: 01/10/2024 - 1 February 2036 -->
                         <ul class="nhsuk-card__actions">
                             <!-- <li class="nhsuk-card__action">
                                 <a class="nhsuk-link--no-visited-state nhsuk-link"
@@ -1520,7 +1543,7 @@
                         <div class="heading-with-actions" id="comparator-info">
 
                             <h3 class="nhsuk-heading-s">Comparator products used </h3>
-                            <!-- to calculate reference price for period: 01/10/2024 - 01/02/2036 -->
+                            <!-- to calculate reference price for period: 01/10/2024 - 1 February 2036 -->
                             <ul class="nhsuk-card__actions">
                                 <li class="nhsuk-card__action">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"

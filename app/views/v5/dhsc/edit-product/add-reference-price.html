@@ -17,176 +17,140 @@
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
         <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
 
-          {{ summaryList({
-            rows: [
-              {
-                key: {
-                  text: "Reference price calculation date"
-                },
-                value: {
-                    html:  dateInput({
-                        id: "reference-price-calculation-date",
-                        items: [
-                            { name: "day", classes: "nhsuk-input--width-2" },
-                            { name: "month", classes: "nhsuk-input--width-2" },
-                            { name: "year", classes: "nhsuk-input--width-4" }
-                        ]
-                    })                
-                }
-              },
-              {
-                key: {
-                  text: "Reference price start year"
-                },
-                value: {
-                    html:  dateInput({
-                        id: "reference-price-start-year",
-                        items: [
-                          { name: "year", classes: "nhsuk-input--width-4" }
-                        ]
-                    })                  
-                }
-              },
-              {
-                key: {
-                  text: "Reference price type"
-                },
-                value: {
-                  html: radios({
-                    idPrefix: "reference-price-type",
-                    name: "referencePriceType",
-                    items: [
-                      {
-                        value: "list-price-minus-12.5",
-                        text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
-                      },
-                      {
-                        value: "average-selling-price",
-                        text: "Average selling price"
-                      }
-                    ]
-                  })
-                }
-              },
-              {
-                key: {
-                  text: "Reference price start date"
-                },
-                value: {
-                  html: dateInput({
-                    id: "reference-price-start-date",
-                    namePrefix: "startDate",
-                    items: [
-                      {
-                        name: "day",
-                        classes: "nhsuk-input--width-2"
-                      },
-                      {
-                        name: "month",
-                        classes: "nhsuk-input--width-2"
-                      },
-                      {
-                        name: "year",
-                        classes: "nhsuk-input--width-4"
-                      }
-                    ]
-                  })
-                }
-              },
-              {
-                key: {
-                  text: "Reference price end date"
-                },
-                value: {
-                  html: dateInput({
-                    id: "reference-price-end-date",
-                    namePrefix: "endDate",
-                    items: [
-                      {
-                        name: "day",
-                        classes: "nhsuk-input--width-2"
-                      },
-                      {
-                        name: "month",
-                        classes: "nhsuk-input--width-2"
-                      },
-                      {
-                        name: "year",
-                        classes: "nhsuk-input--width-4"
-                      }
-                    ]
-                  })
-                }
-              },
-              {
-                key: {
-                  text: "Adjustments"
-                },
-                value: {
-                    html: checkboxes({
-                    hint: {
-                      text: "Select all options that apply"
-                    },
-                    idPrefix: "adjustments",
-                    name: "adjustments",
-                    items: [
-                        {
-                        value: "interformulation-adjustment",
-                        text: "Interformulation adjustment"
-                        },
-                        {
-                        value: "pack-size-adjustment",
-                        text: "Pack size adjustment"
-                        },
-                        {
-                        value: "retrospective-adjustment",
-                        text: "Retrospective adjustment"
-                        },
-                        {
-                        value: "prospective-adjustment",
-                        text: "Prospective adjustment"
-                        },
-                        {
-                        value: "reference-price-adjustment",
-                        text: "Reference price adjustment"
-                        }
-                    ]
-                    })   
-                }
-              },
-              {
-                key: {
-                  text: "Reference price"
-                },
-                value: {
-                    html: input({
-                        hint: {
-                          text: "Enter the reference price in pounds and pence"
-                        },
-                        id: "reference-price",
-                        name: "referencePrice",
-                        prefix: "£",
-                        classes: "nhsuk-input--width-5"
-                    })   
-                }
-              },
-              {
-                classes: "nhsuk-summary-list__row--no-border",
-                key: {
-                  text: "Change following review of previous version (optional)"
-                },
-                value: {
-                    html:  textarea({
-                      hint: {
-                        text: "If you are changing the reference price, please provide a reason for the change"
-                      },
-                        name: "changeFollowingReview",
-                        id: "changeFollowingReview"
-                    })                  
-                }
-              }
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price calculation date</h2>
+          </legend>
+          <p class="nhsuk-hint">Enter the date the reference price was calculated.</p>
+          {{ dateInput({
+            id: "reference-price-calculation-date",
+            items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
             ]
           }) }}
+          </fieldset>
+
+          
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price start year</h2>
+          </legend>
+          <p class="nhsuk-hint">Enter the year the reference price starts.</p>
+          {{ dateInput({
+            id: "reference-price-start-year",
+            items: [
+            { name: "year", classes: "nhsuk-input--width-4" }
+            ]
+          }) }}
+          </fieldset>
+
+          
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price type</h2>
+          </legend>
+          <p class="nhsuk-hint">Select the type of reference price.</p>
+          {{ radios({
+            idPrefix: "reference-price-type",
+            name: "referencePriceType",
+            items: [
+            {
+              value: "list-price-minus-12.5",
+              text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+            },
+            {
+              value: "average-selling-price",
+              text: "Average selling price"
+            }
+            ]
+          }) }}
+          </fieldset>
+
+        <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <h2 class="nhsuk-fieldset__heading">Reference price start date</h2>
+        </legend>
+        <p class="nhsuk-hint">Enter the start date for the reference price.</p>
+        {{ dateInput({
+          id: "reference-price-start-date",
+          namePrefix: "startDate",
+          items: [
+          { name: "day", classes: "nhsuk-input--width-2" },
+          { name: "month", classes: "nhsuk-input--width-2" },
+          { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+        }) }}
+        </fieldset>
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <h2 class="nhsuk-fieldset__heading">Reference price end date</h2>
+          </legend>
+          <p class="nhsuk-hint">Enter the end date for the reference price.</p>
+          {{ dateInput({
+          id: "reference-price-end-date",
+          namePrefix: "endDate",
+          items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+          }) }}
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Adjustments</h2>
+          </legend>
+          <p class="nhsuk-hint">Select any adjustments that apply.</p>
+          {{ checkboxes({
+            idPrefix: "adjustments",
+            name: "adjustments",
+            items: [
+            { value: "interformulation-adjustment", text: "Interformulation adjustment" },
+            { value: "pack-size-adjustment", text: "Pack size adjustment" },
+            { value: "retrospective-adjustment", text: "Retrospective adjustment" },
+            { value: "prospective-adjustment", text: "Prospective adjustment" },
+            { value: "reference-price-adjustment", text: "Reference price adjustment" }
+            ]
+          }) }}
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price</h2>
+          </legend>
+          <p class="nhsuk-hint">Enter the reference price in pounds and pence.</p>
+          {{ input({
+            id: "reference-price",
+            name: "referencePrice",
+            prefix: "£",
+            classes: "nhsuk-input--width-5"
+          }) }}
+          </fieldset>
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Change following review of previous version (optional)</h2>
+          </legend>
+          <p class="nhsuk-hint">Provide details of any changes following the review of the previous version.</p>
+          {{ textarea({
+            name: "changeFollowingReview",
+            id: "changeFollowingReview"
+          }) }}
+          </fieldset>
+<!-- 
+            <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Supporting evidence (optional)</h2>
+            </legend>
+            <p class="nhsuk-hint">Upload any supporting evidence.</p>
+            <p class="nhsuk-body">No supporting evidence added.</p>
+            </fieldset> -->
 
           <div class="nhsuk-button-group">
             {{ button({
@@ -197,7 +161,7 @@
             {{ button({
               text: "Cancel",
               classes: "nhsuk-button--secondary",
-              href: "/v5/dhsc/product-details?saved=false&deleted=false"
+              href: "/v5/dhsc/product-details?saved=false&deleted=false#ref-price-information"
             }) }}
           </div>
 

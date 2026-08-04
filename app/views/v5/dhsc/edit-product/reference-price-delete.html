@@ -1,5 +1,5 @@
 {% extends 'layout-dhsc.html' %}
-{% set pageName = "Edit reference price" %}
+{% set pageName = "Delete reference price" %}
 
 {% block beforeContent %}
 
@@ -65,13 +65,13 @@
         {{ button({
           text: "Yes, delete this reference price",
           classes: "nhsuk-button--warning",
-          href: "/v5/dhsc/product-details?deleted=true"
+          href: "/v5/dhsc/product-details?saved=false&deleted=true#ref-price-information"
         }) }}
       
         {{ button({
           text: "Cancel",
           classes: "nhsuk-button--secondary",
-          href: "/v5/dhsc/product-details?saved=false&deleted=false"
+          href: "/v5/dhsc/product-details?saved=false&deleted=false#ref-price-information"
         }) }}
       </div>
     </div>
