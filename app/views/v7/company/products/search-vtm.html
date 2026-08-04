@@ -78,219 +78,205 @@
 
         <div class="nhsuk-card nhsuk-card--grey">
           <div class="nhsuk-card__content">
-
-            <!-- <div class="nhsuk-grid-row"> -->
-
-              <!-- <div class="nhsuk-grid-column-one-third"> -->
-                {{ input({
-                  label: {
-                    text: "VTM name"
-                  },
-                  id: 'inputField1',
-                  name: 'inputField1'
-                }) }}
-              <!-- </div> -->
-
-              <!-- <div class="nhsuk-grid-column-one-third">
-                {{ input({
-                  label: {
-                    text: "Originator licensee (optional)"
-                  },
-                  id: 'inputField2',
-                  name: 'inputField2',
-                  value: data.inputField2
-                }) }}
-              </div>
-
-              <div class="nhsuk-grid-column-one-third">
-                {{ input({
-                  label: {
-                    text: "Originator brand (optional)"
-                  },
-                  id: 'inputField3',
-                  name: 'inputField3',
-                  value: data.inputField3
-                }) }}
-              </div> -->
-
-            <!-- </div> -->
+            {{ input({
+              label: {
+                text: "VTM name"
+              },
+              id: 'inputField1',
+              name: 'inputField1'
+            }) }}
             <div class="nhsuk-button-group">
               {{ button({
-                text: "Search"
+                text: "Search",
+                attributes: {
+                  id: "searchButton",
+                  onclick: "showResults()"
+                }
               }) }}
-            
               {{ button({
                 text: "Reset",
-                classes: "nhsuk-button--secondary nhsuk-u-float-right"
+                classes: "nhsuk-button--secondary nhsuk-u-float-right",
+                attributes: {
+                  onclick: "hideResults()"
+                }
               }) }}
             </div>
           </div>
         </div>
 
+        <div id="resultsSection" style="display: none;">
+          {{ table({
+            head: [
+              {
+                text: "VTM"
+              },
+              {
+                text: "Originator presentation"
+              },
+              {
+                text: "Reference Anchor Date (RAD)"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Metformin"
+                },
+                {
+                  text: "Glucophage"
+                },
+                {
+                  text: "1/1/2024"
+                }
+              ],
+              [
+                {
+                  text: "Atorvastatin"
+                },
+                {
+                  text: "Lipitor"
+                },
+                {
+                  text: "1/4/2022"
+                }
+              ],
+              [
+                {
+                  text: "Example VTM"
+                },
+                {
+                  text: "Unknown"
+                },
+                {
+                  text: "Unknown"
+                }
+              ],
+              [
+                {
+                  text: "Adalimumab"
+                },
+                {
+                  text: "Humira"
+                },
+                {
+                  text: "15/8/2018"
+                }
+              ],
+              [
+                {
+                  text: "Pregabalin"
+                },
+                {
+                  text: "Lyrica"
+                },
+                {
+                  text: "1/7/2017"
+                }
+              ],
+              [
+                {
+                  text: "Rosuvastatin"
+                },
+                {
+                  text: "Crestor"
+                },
+                {
+                  text: "1/1/2016"
+                }
+              ],
+              [
+                {
+                  text: "Esomeprazole"
+                },
+                {
+                  text: "Nexium"
+                },
+                {
+                  text: "1/5/2014"
+                }
+              ],
+              [
+                {
+                  text: "Example VTM 2"
+                },
+                {
+                  text: "Unknown"
+                },
+                {
+                  text: "1/3/2020"
+                }
+              ],
+              [
+                {
+                  text: "Sildenafil"
+                },
+                {
+                  text: "Viagra"
+                },
+                {
+                  text: "1/6/2013"
+                }
+              ],
+              [
+                {
+                  text: "Olanzapine"
+                },
+                {
+                  text: "Zyprexa"
+                },
+                {
+                  text: "1/9/2011"
+                }
+              ]
+            ]
+          }) }}
 
-      {{ table({
-        head: [
-          {
-            text: "VTM"
-          },
-          {
-            text: "Originator presentation"
-          },
-          {
-            text: "Reference Anchor Date (RAD)"
+          {{ pagination({
+            next: {
+              href: "#"
+            },
+            items: [
+              {
+                number: 1,
+                href: "#",
+                current: true
+              },
+              {
+                number: 2,
+                href: "#"
+              },
+              {
+                number: 3,
+                href: "#"
+              },
+              {
+                ellipsis: true
+              },
+              {
+                number: 7,
+                href: "#"
+              }
+            ]
+          }) }}
+
+          {% call details({
+            summaryText: "Why are some details unavailable?"
+          }) %}
+            <p>Some VTMs may not have an identifiable originator presentation or Reference Anchor Date (RAD).</p>
+            <p>Where information is unavailable, reference pricing follows the relevant VPAG guidance and methodology.</p>
+            <p>For more information, <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-originator-identification">read the full guidance</a>.</p>
+          {% endcall %}
+        </div>
+
+        <script>
+          function showResults() {
+            document.getElementById('resultsSection').style.display = 'block';
           }
-        ],
-        rows: [
-          [
-            {
-              text: "Metformin"
-            },
-            {
-              text: "Glucophage"
-            },
-            {
-              text: "1/1/2024"
-            }
-          ],
-          [
-            {
-              text: "Atorvastatin"
-            },
-            {
-              text: "Lipitor"
-            },
-            {
-              text: "1/4/2022"
-            }
-          ],
-          [
-            {
-              text: "Example VTM"
-            },
-            {
-              text: "Unknown"
-            },
-            {
-              text: "Unknown"
-            }
-          ],
-          [
-            {
-              text: "Adalimumab"
-            },
-            {
-              text: "Humira"
-            },
-            {
-              text: "15/8/2018"
-            }
-          ],
-          [
-            {
-              text: "Pregabalin"
-            },
-            {
-              text: "Lyrica"
-            },
-            {
-              text: "1/7/2017"
-            }
-          ],
-          [
-            {
-              text: "Rosuvastatin"
-            },
-            {
-              text: "Crestor"
-            },
-            {
-              text: "1/1/2016"
-            }
-          ],
-          [
-            {
-              text: "Esomeprazole"
-            },
-            {
-              text: "Nexium"
-            },
-            {
-              text: "1/5/2014"
-            }
-          ],
-          [
-            {
-              text: "Example VTM 2"
-            },
-            {
-              text: "Unknown"
-            },
-            {
-              text: "1/3/2020"
-            }
-          ],
-          [
-            {
-              text: "Sildenafil"
-            },
-            {
-              text: "Viagra"
-            },
-            {
-              text: "1/6/2013"
-            }
-          ],
-          [
-            {
-              text: "Olanzapine"
-            },
-            {
-              text: "Zyprexa"
-            },
-            {
-              text: "1/9/2011"
-            }
-          ]
-        ]
-    }) }}
 
-
-      {{ pagination({
-        next: {
-          href: "#"
-        },
-        items: [
-          {
-            number: 1,
-            href: "#",
-            current: true
-          },
-          {
-            number: 2,
-            href: "#"
-          },
-          {
-            number: 3,
-            href: "#"
-          },
-          {
-            ellipsis: true
-          },
-          {
-            number: 7,
-            href: "#"
+          function hideResults() {
+            document.getElementById('resultsSection').style.display = 'none';
           }
-        ]
-      }) }}
-        
-
-      {% call details({
-        summaryText: "Why are some details unavailable?"
-      }) %}
-        <p>Some VTMs may not have an identifiable originator presentation or Reference Anchor Date (RAD).</p>
-        <p>Where information is unavailable, reference pricing follows the relevant VPAG guidance and methodology.</p>
-        <p>For more information, <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-originator-identification">read the full guidance</a>.</p>
-      {% endcall %}
+        </script>
 
         <style>
           .nhsuk-table__heading-tab {
