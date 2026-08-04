@@ -3,10 +3,10 @@
 
 {% block beforeContent %}
 
-<!-- {{ backLink({
+{{ backLink({
     href: 'javascript:history.go(-1)',
     text: 'Back'
-  }) }} -->
+  }) }}
 
 {% endblock %}
 
@@ -40,22 +40,25 @@
           name: "example",
           id: "example",
           label: {
-            text: "Add note (optional)"
+            text: "Add note"
+          },
+          hint: {
+            text: "Explain why this evidence is relevant to the reference price."
           }
         }) }}
         
-          <div class="nhsuk-button-group">
+          <!-- <div class="nhsuk-button-group"> -->
             {{ button({
               text: "Upload evidence",
                href: "/v5/dhsc/experimental/product-details?saved=ref-price-information#ref-price-information"
             }) }}
           
-            {{ button({
+            <!-- {{ button({
               text: "Cancel",
               classes: "nhsuk-button--secondary",
               href: "/v5/dhsc/experimental/product-details?saved=false#ref-price-information"
             }) }}
-          </div>
+          </div> -->
 
     </div>
 </div>

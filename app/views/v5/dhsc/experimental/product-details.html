@@ -1319,7 +1319,7 @@
                         <div class="nhsuk-details__text">
                             <div class="heading-with-actions">
                                 <h3 class="nhsuk-heading-s">
-                                    Supporting evidence attached
+                                    Supporting evidence
                                 </h3>
                                 <ul class="nhsuk-card__actions">
                                     <li class="nhsuk-card__action">
@@ -1329,35 +1329,38 @@
                             </div>
 
                             {{ table({
-                                firstCellIsHeader: true,
-                                classes: "nhsuk-table-responsive nhsuk-u-margin-bottom-5",
+                                firstCellIsHeader: false,
                                 head: [
-                                    {
-                                        text: "File name"
-                                    },
-                                    {
-                                        text: "Action"
-                                    }
+                                { text: "Date" },
+                                { text: "File name" },
+                                { text: "Note" },
+                                { text: "Action" },
+                                { text: "Delete" }
                                 ],
                                 rows: [
-                                    [
-                                        {
-                                            text: "court-ruling.pdf"
-                                        },
-                                        {
-                                            html: '<a class="nhsuk-link" href="/path/to/court-ruling.pdf" target="_blank">View</a>  |  <a class="nhsuk-link" href="/path/to/court-ruling.pdf" download>Download</a>'
-                                        }
-                                    ],
-                                    [
-                                        {
-                                            text: "email.msg"
-                                        },
-                                        {
-                                            html: '<a class="nhsuk-link" href="/path/to/email.msg" target="_blank">View</a>  |  <a class="nhsuk-link" href="/path/to/email.msg" download>Download</a>'
-                                        }
-                                    ]
+                                [
+                                { text: "12 October 2025" },
+                                { text: "court-ruling.pdf" },
+                                { text: "Relevant court ruling document" },
+                                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                                ],
+                                [
+                                { text: "10 October 2025" },
+                                { text: "email.msg" },
+                                { text: "Email correspondence" },
+                                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                                ],
+                                [
+                                { text: "08 October 2023" },
+                                { text: "pack-size-update.xlsx" },
+                                { text: "Pack size update details" },
+                                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
                                 ]
-                            }) }}
+                                ]
+                              }) }}
                         </div>
                     </details>
 
@@ -1628,7 +1631,7 @@
 
                             <div class="heading-with-actions">
                                 <h3 class="nhsuk-heading-s">
-                                    Supporting evidence attached
+                                    Supporting evidence
                                 </h3>
                                 <ul class="nhsuk-card__actions">
                                     <li class="nhsuk-card__action">
@@ -1640,35 +1643,31 @@
                             </div>
         
                             {{ table({
-                                firstCellIsHeader: true,
-                                classes: "nhsuk-table-responsive nhsuk-u-margin-bottom-5",
+                                firstCellIsHeader: false,
                                 head: [
-                                    {
-                                        text: "File name"
-                                    },
-                                    {
-                                        text: "Action"
-                                    }
+                                { text: "Date" },
+                                { text: "File name" },
+                                { text: "Note" },
+                                { text: "Action" },
+                                { text: "Delete" }
                                 ],
                                 rows: [
-                                    [
-                                        {
-                                            text: "court-ruling.pdf"
-                                        },
-                                        {
-                                            html: '<a class="nhsuk-link" href="/path/to/court-ruling.pdf" target="_blank">View</a>  |  <a class="nhsuk-link" href="/path/to/court-ruling.pdf" download>Download</a>'
-                                        }
-                                    ],
-                                    [
-                                        {
-                                            text: "email.msg"
-                                        },
-                                        {
-                                            html: '<a class="nhsuk-link" href="/path/to/email.msg" target="_blank">View</a>  |  <a class="nhsuk-link" href="/path/to/email.msg" download>Download</a>'
-                                        }
-                                    ]
+                                [
+                                    { text: "10 October 2024" },
+                                    { text: "email.msg" },
+                                    { text: "Email correspondence" },
+                                    { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                    { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                                ],
+                                [
+                                    { text: "08 October 2022" },
+                                    { text: "pack-size-update.xlsx" },
+                                    { text: "Pack size update details" },
+                                    { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                    { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
                                 ]
-                            }) }}
+                            ]
+                        }) }}
 
 
                         <div class="heading-with-actions" id="comparator-info">
