@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Add Provisional Products" %}
+{% set pageName = "Add a Provisional Product" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -36,7 +36,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l">Provisional product</span>
+      <span class="nhsuk-caption-l">Add a provisional product</span>
         <h1 class="nhsuk-heading-xl" id="pageHeading">
           Search for a company
           
@@ -54,13 +54,13 @@
     Find company
   </button>
   <button id="reset-btn" class="nhsuk-button nhsuk-button--secondary" type="button">
-    Reset search
+    Reset
   </button>
-  {{ button({
+  <!-- {{ button({
     text: "Cancel",
     classes: "nhsuk-button--secondary",
     href: '/v5/dhsc/provisional/index?deleted=false'
-  }) }}
+  }) }} -->
   </div>
 </div>
 
@@ -76,7 +76,7 @@
 
 
     <p class="nhsuk-hint nhsuk-u-margin-bottom-2">
-      Select a company name to continue
+      Select a company name. If you cannot find it in the list, enter it manually by selecting Add company name at the bottom of the page.
     </p>
     
       <!-- {{ table({
@@ -365,10 +365,10 @@
       <hr>
 
 
-  <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Can't find the company you're looking for?</p>
+  <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Manually enter company name if you cannot find it in the list.</p>
   
   {{ button({
-    text: "Continue with a new company name",
+    text: "Add company name",
     classes: "nhsuk-button--secondary",
     href: "/v5/dhsc/provisional/add/index?manualCompany=true&companyName="
   }) }}

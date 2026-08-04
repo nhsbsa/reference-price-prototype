@@ -17,14 +17,14 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Add Provisional Products" %}
+{% set pageName = "Enter product details" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
 {{ backLink({
-    href: 'javascript:history.go(-1)',
+    href: '/v5/dhsc/provisional/add/search',
     text: 'Back'
 }) }}
 
@@ -36,7 +36,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <span class="nhsuk-caption-l">Provisional product</span>
+      <span class="nhsuk-caption-l">Add a provisional product</span>
         <h1 class="nhsuk-heading-xl" id="pageHeading">
           Enter product details
           
@@ -63,11 +63,7 @@
         <p class="nhsuk-body nhsuk-u-margin-bottom-3">
           {{ data.companyName or 'AAH Medical' }}
         </p>
-        {{ button({
-          text: "Use a different company name",
-          classes: "nhsuk-button--secondary nhsuk-button--small",
-          href: "/v5/dhsc/provisional/add/search"
-        }) }}
+        <br>
       {% endif %}
 
 
