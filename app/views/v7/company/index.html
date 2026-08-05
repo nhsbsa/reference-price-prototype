@@ -33,6 +33,32 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
+        {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+            Portfolio updates
+            </h3>
+            <p>15 presentations in your portfolio have been updated.</p>
+            
+            <a class="nhsuk-notification-banner__link" href="/v7/company/products/updates">View updates</a>&nbsp;&nbsp;&nbsp;
+            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+        {% endset %}
+
+        {{ notificationBanner({
+            html: html,
+            titleText: "Important"
+        }) }}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.js-close-banner').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.closest('.nhsuk-notification-banner').style.display = 'none';
+            });
+            });
+        });
+    </script>
+
         <h1 class="nhsuk-heading-l">Branded Medicines</h1>
 
         <h2 class="nhsuk-heading-m">Introduction</h2>

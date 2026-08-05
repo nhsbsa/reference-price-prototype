@@ -82,6 +82,9 @@
               label: {
                 text: "VTM name"
               },
+              hint: {
+                text: "You can only search VTMs associated with products in your portfolio."
+              },
               id: 'inputField1',
               name: 'inputField1'
             }) }}
@@ -105,131 +108,109 @@
         </div>
 
         <div id="resultsSection" style="display: none;">
-          {{ table({
+            {{ table({
             head: [
               {
-                text: "VTM"
+              text: "VTM"
               },
               {
-                text: "Originator presentation"
+              text: "Originator Presentation"
               },
               {
-                text: "Reference Anchor Date (RAD)"
+              text: "Reference Anchor Date (RAD)"
               }
             ],
             rows: [
               [
-                {
-                  text: "Metformin"
-                },
-                {
-                  text: "Glucophage"
-                },
-                {
-                  text: "1/1/2024"
-                }
+              {
+                text: "Metformin"
+              },
+              {
+                text: "Glucophage"
+              },
+              {
+                text: "01 January 2024"
+              }
               ],
               [
-                {
-                  text: "Atorvastatin"
-                },
-                {
-                  text: "Lipitor"
-                },
-                {
-                  text: "1/4/2022"
-                }
+              {
+                text: "Atorvastatin"
+              },
+              {
+                text: "Lipitor"
+              },
+              {
+                text: "01 April 2022"
+              }
               ],
               [
-                {
-                  text: "Example VTM"
-                },
-                {
-                  text: "Unknown"
-                },
-                {
-                  text: "Unknown"
-                }
+              {
+                text: "Pregabalin"
+              },
+              {
+                text: "Lyrica"
+              },
+              {
+                text: "01 July 2017"
+              }
               ],
               [
-                {
-                  text: "Adalimumab"
-                },
-                {
-                  text: "Humira"
-                },
-                {
-                  text: "15/8/2018"
-                }
+              {
+                text: "Sildenafil"
+              },
+              {
+                text: "Viagra"
+              },
+              {
+                text: "01 June 2013"
+              }
               ],
               [
-                {
-                  text: "Pregabalin"
-                },
-                {
-                  text: "Lyrica"
-                },
-                {
-                  text: "1/7/2017"
-                }
+              {
+                text: "Rosuvastatin"
+              },
+              {
+                text: "Crestor"
+              },
+              {
+                text: "01 January 2016"
+              }
               ],
               [
-                {
-                  text: "Rosuvastatin"
-                },
-                {
-                  text: "Crestor"
-                },
-                {
-                  text: "1/1/2016"
-                }
+              {
+                text: "Esomeprazole"
+              },
+              {
+                text: "Nexium"
+              },
+              {
+                text: "01 May 2014"
+              }
               ],
               [
-                {
-                  text: "Esomeprazole"
-                },
-                {
-                  text: "Nexium"
-                },
-                {
-                  text: "1/5/2014"
-                }
+              {
+                text: "Adalimumab"
+              },
+              {
+                text: "Humira"
+              },
+              {
+                text: "15 October 2018"
+              }
               ],
               [
-                {
-                  text: "Example VTM 2"
-                },
-                {
-                  text: "Unknown"
-                },
-                {
-                  text: "1/3/2020"
-                }
-              ],
-              [
-                {
-                  text: "Sildenafil"
-                },
-                {
-                  text: "Viagra"
-                },
-                {
-                  text: "1/6/2013"
-                }
-              ],
-              [
-                {
-                  text: "Olanzapine"
-                },
-                {
-                  text: "Zyprexa"
-                },
-                {
-                  text: "1/9/2011"
-                }
+              {
+                text: "Example VTM"
+              },
+              {
+                text: "Unknown"
+              },
+              {
+                text: "Unknown"
+              }
               ]
             ]
-          }) }}
+            }) }}
 
           {{ pagination({
             next: {
@@ -262,8 +243,9 @@
           {% call details({
             summaryText: "Why are some details unavailable?"
           }) %}
-            <p>Some VTMs may not have an identifiable originator presentation or Reference Anchor Date (RAD).</p>
-            <p>Where information is unavailable, reference pricing follows the relevant VPAG guidance and methodology.</p>
+            <p>Some VTMs do not have an identifiable originator presentation.</p>
+            <p>Where an originator presentation cannot be identified, reference pricing methodology is applied using the best available information.</p>
+            <p>An unknown originator does not necessarily indicate an error.</p>
             <p>For more information, <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-originator-identification">read the full guidance</a>.</p>
           {% endcall %}
         </div>

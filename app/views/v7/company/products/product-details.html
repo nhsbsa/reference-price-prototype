@@ -1,0 +1,1127 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Product updates" %}
+
+{% set activeNav = "products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+{{ breadcrumb({
+    items: [
+      {
+        href: "/v7/company/products/index",
+        text: "Product portfolio"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+        <h1 class="nhsuk-heading-l">Metabet SR 1000mg tablets (28 tablet - 2 x 14 tablets)</h1>
+        
+        <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+
+            <ul class="nhsuk-tabs__list">
+                <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+                    <a class="nhsuk-tabs__tab" href="#product-information">
+                        Product
+                    </a>
+                </li>
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#pricing-information">
+                        Pricing
+                    </a>
+                </li>
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#exclusivity-information">
+                        Loss of exclusivity
+                    </a>
+                </li>
+
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#ref-price-information">
+                        Reference price
+                    </a>
+                </li>
+
+                <li class="nhsuk-tabs__list-item">
+                    <a class="nhsuk-tabs__tab" href="#history">
+                        History
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nhsuk-tabs__panel" id="product-information">
+
+
+                <!-- Hierarchy attributes -->
+                <div id="hierarchy-attributes">
+                    <h2 class="nhsuk-heading-m">Hierarchy attributes</h2>
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Attribute</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">SNOMED code</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">VTM</td>
+                                <td class="nhsuk-table__cell">Metformin</td>
+                                <td class="nhsuk-table__cell">776713006</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">VMP</td>
+                                <td class="nhsuk-table__cell">Metformin 1g modified-release tablets</td>
+                                <td class="nhsuk-table__cell">38893711000001104</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">VMPP</td>
+                                <td class="nhsuk-table__cell">Metformin 1g modified-release tablets 28 tablets</td>
+                                <td class="nhsuk-table__cell">15367611000001106</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">AMP</td>
+                                <td class="nhsuk-table__cell">Metabet SR 1000mg tablets</td>
+                                <td class="nhsuk-table__cell">18885611000001108</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell">AMPP</td>
+                                <td class="nhsuk-table__cell">Metabet SR 1000mg tablets (28 tablet 2 x 14 tablets)</td>
+                                <td class="nhsuk-table__cell">18885711000001104</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                {% call details({
+                    summaryText: "What is a VTM?",
+                    classes: "nhsuk-u-margin-bottom-5"
+                  }) %}
+                    <p>A Virtual Therapeutic Moiety (VTM) groups products that share the same active substance or therapeutic moiety.</p>
+                    <p>VTMs are used within reference pricing to help identify related products and establish reference pricing information.</p>
+                    <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/search-vtm">search VTMs</a> within the portal.</p>
+                    <p>If a classification is unavailable, the product may be shown as awaiting classification.</p>
+                    <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/index">Read the full guidance</a></p>
+                  {% endcall %}
+
+
+                <!-- Presentation attributes -->
+                <div id="presentation-attributes">
+                    <div id="presentation-attributes"></div>
+                        <h2 class="nhsuk-heading-m">Presentation attributes</h2>
+
+                        {{ table({
+                            classes: "nhsuk-table-responsive",
+                            head: [
+                                { text: "Attribute" },
+                                { text: "Value" }
+                            ],
+                            rows: [
+                                [
+                                    { text: "Form" },
+                                    { text: "Modified-release tablet" }
+                                ],
+                                [
+                                    { text: "Route" },
+                                    { text: "Oral" }
+                                ],
+                                [
+                                    { text: "Pack size" },
+                                    { text: "28 tablets" }
+                                ],
+                                [
+                                    { text: "Sub-pack information" },
+                                    { text: "2 x 14 tablets" }
+                                ],
+                                [
+                                    { text: "Published" },
+                                    { text: "Yes" }
+                                ]
+                            ]
+                        }) }}
+                    </div>
+
+
+                <!-- Additional information -->
+                <div id="additional-information">
+                    <h2 class="nhsuk-heading-m">Additional information</h2>
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Attribute" },
+                            { text: "Value" }
+                        ],
+                        rows: [
+                            [
+                                { text: "Plasma Derived Medicines Product (PDMP)" },
+                                { text: "No" }
+                            ],
+                            [
+                                { text: "Prescribed item type (PIT)" },
+                                { text: "Generic Name AMP" }
+                            ],
+                            [
+                                { text: "New Active Substance (NAS)" },
+                                { text: "No" }
+                            ],
+                            [
+                                { text: "£1.5m Exemption" },
+                                { text: "Yes" }
+                            ]
+                        ]
+                    }) }}
+                </div>
+
+            </div>
+
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="pricing-information">
+                <!--List price-->
+                <div id="list-price">
+                    <h2 class="nhsuk-heading-m">
+                        List price
+                    </h2>
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Price basis</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>NHS indicative price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>Not applicable</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>Not applicable</td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Indicative price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£3.67</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>3 July 2024</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>1 February 2036</td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Indicative price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£4.16</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>11 January 2018</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>2 July 2024</td>
+                            </tr>
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Indicative price</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£5.73</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>1 June 2011</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>10 January 2018</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!--Maximum price-->
+                <div id="maximum-price">
+                    <h2 class="nhsuk-heading-m">
+                        Maximum price
+                    </h2>
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <!-- <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th> -->
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <!-- <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Maximum price</td> -->
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£3.67</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>3 July 2024</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>1 February 2036</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Temporary price-->
+                <div id="temporary-price">
+                    <h2 class="nhsuk-heading-m">
+                        Temporary price
+                    </h2>
+
+                    <table class="nhsuk-table-responsive" role="table">
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <!-- <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th> -->
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+
+                            <tr class="nhsuk-table__row" role="row">
+                                <!-- <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Name </span>Temporary price</td> -->
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Value </span>£2.86</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">Start date </span>3 July 2024</td>
+                                <td class="nhsuk-table__cell" role="cell"><span class="nhsuk-table-responsive__heading"
+                                        aria-hidden="true">End date </span>1 February 2036</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="exclusivity-information">
+
+                <!---Older/newer presentation-->
+                <div id="older-newer">
+                    <h2 class="nhsuk-heading-m">Older/newer presentation</h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Name" },
+                            { text: "Value" }
+                        ],
+                        rows: [
+                            [
+                                { text: "Medicine classification" },
+                                { text: "Older medicine" }
+                            ],
+                            [
+                                { text: "Date presentation becomes an older medicine" },
+                                { text: "12 October 2009" }
+                            ],
+                            [
+                                { text: "Originator status" },
+                                { text: "Newer entrant" }
+                            ]
+                        ]
+                    }) }}
+
+                    {% call details({
+                        summaryText: "How is classification determined?",
+                        classes: "nhsuk-u-margin-bottom-5"
+                      }) %}
+                        <p>Products are classified as either Older or Newer as part of the reference pricing process.</p>
+                        <p>This classification helps determine how products are considered within the wider reference pricing methodology.</p>
+                        <p>Classification may be reviewed and updated when new information becomes available.</p>
+                        <p>If a classification is unavailable, the product may be shown as awaiting classification.</p>
+                        <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/provisional-ref-price-guidance">Read the full guidance</a></p>
+                      {% endcall %}
+                    
+                </div>
+
+                <!---Reference anchor date-->
+                <div id="rad">
+                    <h2 class="nhsuk-heading-m">Reference anchor date</h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Name" },
+                            { text: "Value" }
+                        ],
+                        rows: [
+                            [
+                                { text: "Reference anchor date (RAD)" },
+                                { text: "1 January 2008" }
+                            ]
+                        ]
+                    }) }}
+
+                    {% call details({
+                        summaryText: "What is a reference anchor date?",
+                        classes: "nhsuk-u-margin-bottom-5"
+                      }) %}
+                        <p>A reference anchor date (RAD) is a date used within the reference pricing methodology.</p>
+                        <p>RADs help establish and maintain reference pricing information and may be displayed for products and Virtual Therapeutic Moieties (VTMs).</p>
+                        <p>Some products may not have an available RAD. Where this occurs, the value may be shown as Unknown or No date value present.</p>
+                        <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-rad">Read the full guidance</a></p>
+                      {% endcall %}
+                </div>
+
+                <!---Market Authorisation Information 1-->
+                <div id="ma-info-1">
+                    <h2 class="nhsuk-heading-m">
+                        VTM Market authorisation (MA) information
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">Market authorisation number</td>
+                                <td class="nhsuk-table__cell" role="cell">PL 20117/0184</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">Market authorisation product name</td>
+                                <td class="nhsuk-table__cell" role="cell">Metabet SR</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">Market authorisation holder</td>
+                                <td class="nhsuk-table__cell" role="cell">Morningside Incorporated</td>
+                            </tr>            
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">Market authorisation date</td>
+                                <td class="nhsuk-table__cell" role="cell">1 June 2011</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!--Supplemtary Protection Certification Information-->
+                <div id="spc-info">
+                    <h2 class="nhsuk-heading-m">
+                        VTM Supplementary Protection Certificate (SPC) information
+                    </h2>
+                    <table class="nhsuk-table-responsive" role="table">
+
+                        <thead class="nhsuk-table__head" role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Name</th>
+                                <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">SPC expiry date</td>
+                                <td class="nhsuk-table__cell" role="cell">1 June 2011</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">SPC number</td>
+                                <td class="nhsuk-table__cell" role="cell">IPO456789</td>
+                            </tr>
+                            <tr class="nhsuk-table__row" role="row">
+                                <td class="nhsuk-table__cell" role="cell">SPC product description</td>
+                                <td class="nhsuk-table__cell" role="cell">Metabet Ultra</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ref-price-information">
+                    <h2 class="nhsuk-heading-m">
+                        Reference price information
+                    </h2>
+
+                    <h3 class="nhsuk-heading-s">
+                        Reference price for 15 October 2025 to 14 October 2028
+                    </h3>
+
+
+                    {{ table({
+                        firstCellIsHeader: true,
+                        classes: "nhsuk-u-margin-bottom-5",
+                        head: [
+                            {
+                                text: "Name"
+                            },
+                            {
+                                text: "Value"
+                            }
+                        ],
+                        rows: [
+                            [
+                                {
+                                    text: "Date correct as of"
+                                },
+                                {
+                                    text: "12 October 2025"
+                                }
+                            ],
+                            [
+                                {
+                                    text: "Reference price start year"
+                                },
+                                {
+                                    text: "2024"
+                                }
+                            ],
+                            [
+                                {
+                                    text: "Reference price type"
+                                },
+                                {
+                                    text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                }
+                            ],
+                            [
+                                {
+                                    text: "Reference price start date"
+                                },
+                                {
+                                    text: "15 October 2025"
+                                }
+                            ],
+                            [
+                                {
+                                    text: "Reference price end date"
+                                },
+                                {
+                                    text: "14 October 2028"
+                                }
+                            ],
+                            [
+                                {
+                                    text: "Reference price"
+                                },
+                                {
+                                    text: "£6.41"
+                                }
+                            ]
+                        ]
+                    }) }}
+
+                    {% call details({
+                        summaryText: "What is a reference price?",
+                        classes: "nhsuk-u-margin-bottom-5"
+                      }) %}
+                        <p>A reference price is used within the VPAG reference pricing methodology and may be displayed alongside products within the portal.</p>
+                        <p>Reference prices may be reviewed and updated over time as additional information becomes available.</p>
+                        <p>The reference price shown reflects the most recent information available for this product.</p>
+                        <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p>
+                      {% endcall %}
+<!-- 
+                    <details class="nhsuk-details">
+                        <summary class="nhsuk-details__summary">
+                            <span class="nhsuk-details__summary-text">
+                                View supporting evidence attached to this reference price
+                            </span>
+                        </summary>
+                        <div class="nhsuk-details__text">
+                            <div class="heading-with-actions">
+                                <h3 class="nhsuk-heading-s">
+                                    Supporting evidence
+                                </h3>
+                                <ul class="nhsuk-card__actions">
+                                    <li class="nhsuk-card__action">
+                                        <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/experimental/add-reference-price-evidence">Add supporting evidence</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {{ table({
+                                firstCellIsHeader: false,
+                                head: [
+                                { text: "Date" },
+                                { text: "File name" },
+                                { text: "Note" },
+                                { text: "Action" },
+                                { text: "Delete" }
+                                ],
+                                rows: [
+                                [
+                                { text: "12 October 2025" },
+                                { text: "court-ruling.pdf" },
+                                { text: "Relevant court ruling document" },
+                                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                                ],
+                                [
+                                { text: "10 October 2025" },
+                                { text: "email.msg" },
+                                { text: "Email correspondence" },
+                                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                                ],
+                                [
+                                { text: "08 October 2023" },
+                                { text: "pack-size-update.xlsx" },
+                                { text: "Pack size update details" },
+                                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                                ]
+                                ]
+                              }) }}
+                        </div>
+                    </details> -->
+
+
+
+                        <h3 class="nhsuk-heading-s">Comparator products used </h3>
+                    
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Name of comparator" },
+                            { text: "Year of comparator price" },
+                            { text: "Comparator price" }
+                        ],
+                        rows: [
+                            [
+                                { text: "Adenuric 120mg tablets (28 tablet 2 × 14 tablets)" },
+                                { text: "2023" },
+                                { text: "£6.30" }
+                            ],
+                            [
+                                { text: "Keral 25mg tablets (20 tablet 2 × 10 tablets)" },
+                                { text: "2016" },
+                                { text: "£6.30" }
+                            ],
+                            [
+                                { text: "Migard 2.5mg tablets (6 tablets)" },
+                                { text: "2011" },
+                                { text: "£9.30" }
+                            ]
+                        ]
+                    }) }}
+
+                    {% call details({
+                        summaryText: "What is a comparator?",
+                        classes: "nhsuk-u-margin-bottom-5"
+                      }) %}
+                        <p>Comparator products may be used when establishing reference pricing information.</p>
+                        <p>Comparator information helps explain how reference pricing has been determined.</p>
+                        <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p>
+                      {% endcall %}
+
+                <details class="nhsuk-details nhsuk-expander">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                            View reference price: 6 August 2022 to 1 October 2024
+                        </span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                            <h3 class="nhsuk-heading-s">
+                                Reference price for 6 August 2022 to 1 October 2024
+                            </h3>
+
+                            {{ table({
+                                firstCellIsHeader: true,
+                                classes: "nhsuk-table-responsive",
+                                head: [
+                                    {
+                                        text: "Name"
+                                    },
+                                    {
+                                        text: "Value"
+                                    }
+                                ],
+                                rows: [
+                                    [
+                                        {
+                                            text: "Reference price start year"
+                                        },
+                                        {
+                                            text: "2023"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price type"
+                                        },
+                                        {
+                                            text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price start date"
+                                        },
+                                        {
+                                            text: "15 October 2022"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price end date"
+                                        },
+                                        {
+                                            text: "14 October 2023"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference anchor date"
+                                        },
+                                        {
+                                            text: "1 January 2024"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Medicine classification"
+                                        },
+                                        {
+                                            text: "Older medicine"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Date presentation becomes an older medicine"
+                                        },
+                                        {
+                                            text: "14 October 2024"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Originator classification"
+                                        },
+                                        {
+                                            text: "New entrant"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price"
+                                        },
+                                        {
+                                            text: "£6.41"
+                                        }
+                                    ]
+                                ]
+                            }) }}
+
+
+                            <h3 class="nhsuk-heading-s">Comparator products used </h3>
+
+                            <table class="nhsuk-table-responsive" role="table">
+                                <thead class="nhsuk-table__head" role="rowgroup">
+                                    <tr role="row">
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Name of
+                                            comparator
+                                        </th>
+
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Year of
+                                            comparator
+                                            price
+                                        </th>
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator price
+                                        </th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody class="nhsuk-table__body">
+
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Product
+                                            </span>
+                                            Adenuric 120mg tablets 28 tablet (2 × 14 tablets)
+                                        </td>
+
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Price
+                                                Year </span>
+                                            2023
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Price
+                                            </span>
+                                            £6.30
+                                        </td>
+                                    </tr>
+
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Product
+                                            </span>
+                                            Keral 25mg tablets 20 tablet (2 × 10 tablets)
+                                        </td>
+
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Price
+                                                Year </span>
+                                            2016
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Price
+                                            </span>
+                                            £6.30
+                                        </td>
+                                    </tr>
+
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Product
+                                            </span>
+                                            Migard 2.5mg tablets (6 tablets)
+                                        </td>
+
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Price
+                                                Year </span>
+                                            2011
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
+                                                Price
+                                            </span>
+                                            £9.30
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                    </div>
+                </details>
+
+                <details class="nhsuk-details nhsuk-expander">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                            View reference price: 1 March 2018 to 6 August 2022
+                        </span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                        <p>No information available</p>
+
+
+                    </div>
+                </details>
+            </div>
+
+
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="history">
+
+                <!---Product history-->
+                <div id="product-history">
+                    <h2 class="nhsuk-heading-m">Product history</h2>
+                    <div class="history-filters">
+                        <div class="filter-column">
+                            <label class="nhsuk-label" for="filter-by">
+                                Filter by
+                            </label>
+                            {{ select({
+                                id: "filter-by",
+                                name: "filter-by",
+                                classes: "nhsuk-select",
+                                items: [
+                                    { value: "all", text: "All", selected: true },
+                                    { value: "reference-price", text: "Product: Hierarchy attributes" },
+                                    { value: "older-newer", text: "Product: Presentation attributes" },
+                                    { value: "rad", text: "Product: Additional information" },
+                                    { value: "all", text: "Pricing: List price" },
+                                    { value: "reference-price", text: "Pricing: Maximum price" },
+                                    { value: "older-newer", text: "Pricing: Temporary price" },
+                                    { value: "rad", text: "Loss of exclusivity: Older/newer presentation" },
+                                    { value: "all", text: "Loss of exclusivity: Reference anchor date" },
+                                    { value: "reference-price", text: "Loss of exclusivity: VTM Market authorisation (MA) information" },
+                                    { value: "older-newer", text: "Loss of exclusivity: VTM Supplementary Protection Certificate (SPC) information" },
+                                    { value: "rad", text: "Reference price information" }
+                                ]
+                            }) }}
+                        </div>
+                        <div class="sort-column">
+                            <label class="nhsuk-label" for="sort-by">
+                                Sort by
+                            </label>
+                            {{ select({
+                                id: "sort-by",
+                                name: "sort-by",
+                                classes: "nhsuk-select",
+                                items: [
+                                    { value: "most-recent", text: "Most recent first", selected: true },
+                                    { value: "oldest-first", text: "Oldest first" }
+                                ]
+                            }) }}
+                        </div>
+
+                    </div>
+                        <p>Showing 1 to 20 of 148 updates for this product.</p>
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Date" },
+                            { text: "Section" },
+                            { text: "Change" },
+                            { text: "From" },
+                            { text: "To" }
+                        ],
+                        rows: [
+                            [
+                                { text: "25 Jul 2026" },
+                                { text: "Reference price information" },
+                                { text: "Reference price for [start date] to [start date] updated" },
+                                { text: "£5.84" },
+                                { text: "£6.41" }
+                            ],
+                            [
+                                { text: "18 Jun 2026" },
+                                { text: "Older/newer presentation" },
+                                { text: "Medicine classification updated" },
+                                { text: "Newer medicine" },
+                                { text: "Older medicine" }
+                            ],
+                            [
+                                { text: "02 May 2026" },
+                                { text: "Reference anchor date" },
+                                { text: "Reference anchor date (RAD) updated" },
+                                { text: "01 Jan 2006" },
+                                { text: "01 Jan 2008" }
+                            ],
+                            [
+                                { text: "14 Apr 2026" },
+                                { text: "Older/newer presentation" },
+                                { text: "Originator status updated" },
+                                { text: "Originator" },
+                                { text: "Newer entrant" }
+                            ],
+                            [
+                                { text: "10 Mar 2026" },
+                                { text: "Reference price information" },
+                                { text: "Reference price type updated" },
+                                { text: "Average selling price" },
+                                { text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments" }
+                            ],
+                            [
+                                { text: "12 Jan 2026" },
+                                { text: "Reference price information" },
+                                { text: "Reference price end date updated" },
+                                { text: "31 Mar 2026" },
+                                { text: "14 Oct 2028" }
+                            ],
+                            [
+                                { text: "30 Nov 2025" },
+                                { text: "Reference price information" },
+                                { text: "Reference price start date updated" },
+                                { text: "01 Apr 2024" },
+                                { text: "15 Oct 2025" }
+                            ],
+                            [
+                                { text: "08 Oct 2025" },
+                                { text: "Reference anchor date" },
+                                { text: "Reference anchor date (RAD) updated" },
+                                { text: "Unknown" },
+                                { text: "01 Jan 2006" }
+                            ],
+                            [
+                                { text: "16 Sep 2025" },
+                                { text: "Older/newer presentation" },
+                                { text: "Date presentation becomes an older medicine updated" },
+                                { text: "01 Jan 2010" },
+                                { text: "12 Oct 2009" }
+                            ],
+                            [
+                                { text: "22 Aug 2025" },
+                                { text: "Reference price information" },
+                                { text: "Reference price for [start date] to [end date] created" },
+                                { text: "No reference price" },
+                                { text: "£5.84" }
+                            ]
+                        ]
+                    }) }}
+                    
+                    {% from "pagination/macro.njk" import pagination %}
+
+                    {{ pagination({
+                      next: {
+                        href: "#"
+                      },
+                      items: [
+                        {
+                          number: 1,
+                          href: "#",
+                          current: true
+                        },
+                        {
+                          number: 2,
+                          href: "#"
+                        },
+                        {
+                          number: 3,
+                          href: "#"
+                        },
+                        {
+                          ellipsis: true
+                        },
+                        {
+                          number: 7,
+                          href: "#"
+                        }
+                      ]
+                    }) }}
+                </div>
+            </div>
+
+        </div>
+
+        <style>
+            .nhsuk-grid-row {
+                display: flex;
+                align-items: last baseline;
+            }
+
+            .history-filters {
+                display: flex;
+                align-items: flex-end;
+            }
+
+            .filter-column {
+                flex: 1;
+                max-width: 500px;
+            }
+
+            .sort-column {
+                margin-left: auto;
+                width: 250px;
+            }
+            
+            .nhsuk-summary-list__key {
+                width: 35%;
+            }
+
+            .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .heading-with-actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 16px;
+            }
+
+            .heading-with-actions h2,
+            .heading-with-actions h3 {
+                margin-bottom: 0;
+            }
+
+            .heading-with-actions .nhsuk-card__actions {
+                margin: 0;
+            }
+
+            .nhsuk-notification-banner__content p {
+                max-width: 48em;
+            }
+        </style>
+
+
+        <script>
+            // Helper function to convert to lowercase, preserving abbreviations
+            function toLowercase(str) {
+                return str
+                    .split(/\s+/)
+                    .map(word => {
+                        if (word === word.toUpperCase() && word.length > 1) {
+                            return word;
+                        }
+                        return word.toLowerCase();
+                    })
+                    .join(' ');
+            }
+
+
+            // // Remove querystring from the URL now that we've captured values
+            // window.history.replaceState({}, document.title, window.location.pathname);
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nhsuk-tabs__tab');
+
+                // Ensure sessionStorage has the currently active tab (use selected li or first tab)
+                const selectedTabLink = document.querySelector('.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab') ||
+                    document.querySelector('.nhsuk-tabs__tab[href^="#"]');
+                if (selectedTabLink) {
+                    sessionStorage.setItem('activeTab', selectedTabLink.getAttribute('href'));
+                }
+
+                // Track tab clicks
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        sessionStorage.setItem('activeTab', this.getAttribute('href'));
+                    });
+                });
+
+                // Restore tab after save (use captured tabParam first, fallback to sessionStorage)
+                if (wasSaved) {
+                    const tabToRestore = tabParam || sessionStorage.getItem('activeTab') || '#product-information';
+                    const tabLink = document.querySelector(`a[href="${tabToRestore}"]`);
+
+                    // Delay to allow NHS tabs module to initialise
+                    if (tabLink) {
+                        setTimeout(function () {
+                            tabLink.click();
+                        }, 200);
+                    }
+                }
+            });
+        </script>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}

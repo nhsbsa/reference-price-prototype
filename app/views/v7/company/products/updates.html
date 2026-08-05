@@ -104,6 +104,22 @@
             }) }}
           </div>
 
+          <div style="display: flex; justify-content: flex-end;">
+            {{ select({
+              label: {
+                text: "Sort by"
+              },
+              id: "sort-by",
+              name: "sortBy",
+              value: "recently-published",
+              items: [
+                { value: "most-recent", text: "Most recent first", selected: true },
+                { value: "oldest-first", text: "Oldest first" }
+              ]
+            }) }}
+          </div>
+
+          <p>Showing 1 to 20 of 148 updates for this portfolio.</p>
 
         {{ table({
           head: [
@@ -111,119 +127,121 @@
               text: "Date"
             },
             {
-              text: "Product"
+              text: "Presentation"
             },
             {
               text: "Update"
-            },
-            {
-              text: "From"
-            },
-            {
-              text: "To"
             }
           ],
           rows: [
             [
               {
-                text: "5/8/2026"
+          text: "05 August 2026"
               },
               {
-                text: "Atenix 100g tablets Oral tablets"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)</a>"
               },
               {
-                text: "Reference price updated"
-              },
-              {
-                text: "£25.00"
-              },
-              {
-                text: "£30.00"
+          text: "Reference price updated"
               }
             ],
             [
               {
-                text: "2/8/2026"
+          text: "05 August 2026"
               },
               {
-                text: "Atenix 100g tablets Oral tablets"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)</a>"
               },
               {
-                text: "Pack size updated"
-              },
-              {
-                text: "15.00"
-              },
-              {
-                text: "28.00"
+          text: "Medicine classification updated"
               }
             ],
             [
               {
-                text: "1/8/2026"
+          text: "02 August 2026"
               },
               {
-                text: "Glucophage 500mg tablets Oral tablets"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)</a>"
               },
               {
-                text: "Classification updated"
-              },
-              {
-                text: "Awaiting classification"
-              },
-              {
-                text: "Newer classification"
+          text: "Pack size updated"
               }
             ],
             [
               {
-                text: "15/7/2026"
+          text: "01 August 2026"
               },
               {
-                text: "Glucophage 850mg tablets Oral tablets"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)</a>"
               },
               {
-                text: "Reference price added"
-              },
-              {
-                text: "£0.00"
-              },
-              {
-                text: "£25.00"
+          text: "Medicine classification updated"
               }
             ],
             [
               {
-                text: "3/6/2026"
+          text: "15 July 2026"
               },
               {
-                text: "Solpadeine Plus capsules Oral capsules"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)</a>"
               },
               {
-                text: "Date presentation became older medicine updated"
-              },
-              {
-                text: "No date value present"
-              },
-              {
-                text: "3/6/2026"
+          text: "Reference price added"
               }
             ],
             [
               {
-                text: "18/2/2026"
+          text: "03 June 2026"
               },
               {
-                text: "Tramulief SR 100mg tablets Modified release tablets"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)</a>"
               },
               {
-                text: "Max price updated"
+          text: "Date presentation became older medicine updated"
+              }
+            ],
+            [
+              {
+          text: "18 February 2026"
               },
               {
-                text: "£150.00"
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)</a>"
               },
               {
-                text: "£230.00"
+          text: "Max price updated"
+              }
+            ],
+            [
+              {
+          text: "10 January 2026"
+              },
+              {
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)</a>"
+              },
+              {
+          text: "Reference price updated"
+              }
+            ],
+            [
+              {
+          text: "25 December 2025"
+              },
+              {
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metformin 500mg prolonged-release tablets (56 tablets - 4 x 14 tablets)</a>"
+              },
+              {
+          text: "New product added"
+              }
+            ],
+            [
+              {
+          text: "05 November 2025"
+              },
+              {
+          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Olanzapine 10mg orodispersible tablets (28 tablets - 2 x 14 tablets)</a>"
+              },
+              {
+          text: "Dosage updated"
               }
             ]
           ]
