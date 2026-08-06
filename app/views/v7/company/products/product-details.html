@@ -134,37 +134,114 @@
                   {% endcall %}
 
 
+                  <!-- Dispensing attributes -->
+                  <div id="dispensing-attributes">
+                    <h2 class="nhsuk-heading-m">Dispensing attributes</h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Name" },
+                            { text: "Value" },
+                            { text: "Start date" },
+                            { text: "End date" }
+                        ],
+                        rows: [
+                            [
+                                { text: "Pack size" },
+                                { text: "28 tablets" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ],
+                            [
+                                { text: "Sub pack information" },
+                                { text: "2 x 14 tablets" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ],
+                            [
+                                { text: "Unit of measure" },
+                                { text: "tablet" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ],
+                            [
+                                { text: "Form" },
+                                { text: "Modified-release tablet" },
+                                { text: "20 April 2009" },
+                                { text: "1 February 2036" }
+                            ],
+                            [
+                                { text: "Route" },
+                                { text: "Oral" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ]
+                        ]
+                    }) }}
+                  </div>
+
+
                 <!-- Presentation attributes -->
                 <div id="presentation-attributes">
                     <div id="presentation-attributes"></div>
                         <h2 class="nhsuk-heading-m">Presentation attributes</h2>
-
                         {{ table({
                             classes: "nhsuk-table-responsive",
                             head: [
-                                { text: "Attribute" },
-                                { text: "Value" }
+                                { text: "Name" },
+                                { text: "Value" },
+                                { text: "Start date" },
+                                { text: "End date" }
                             ],
                             rows: [
                                 [
-                                    { text: "Form" },
-                                    { text: "Modified-release tablet" }
+                                    { text: "Low value presentation" },
+                                    { text: "No" },
+                                    { text: "Not applicable" },
+                                    { text: "Not applicable" }
                                 ],
                                 [
-                                    { text: "Route" },
-                                    { text: "Oral" }
+                                    { text: "Vaccine" },
+                                    { text: "No" },
+                                    { text: "Not applicable" },
+                                    { text: "Not applicable" }
                                 ],
                                 [
-                                    { text: "Pack size" },
-                                    { text: "28 tablets" }
+                                    { text: "Small company" },
+                                    { text: "Yes" },
+                                    { text: "10 December 2019" },
+                                    { text: "1 February 2036" }
                                 ],
                                 [
-                                    { text: "Sub-pack information" },
-                                    { text: "2 x 14 tablets" }
+                                    { text: "£ 1.5 million exemption" },
+                                    { text: "Yes" },
+                                    { text: "10 December 2019" },
+                                    { text: "1 February 2036" }
                                 ],
                                 [
-                                    { text: "Published" },
-                                    { text: "Yes" }
+                                    { text: "Common Drug Reference (CDR) discontinued" },
+                                    { text: "Yes" },
+                                    { text: "10 December 2019" },
+                                    { text: "1 February 2036" }
+                                ],
+                                [
+                                    { text: "Branded Medicines (BM) discontinued" },
+                                    { text: "Yes" },
+                                    { text: "10 December 2019" },
+                                    { text: "1 February 2036" }
+                                ],
+                                [
+                                    { text: "Combination product" },
+                                    { text: "No" },
+                                    { text: "Not applicable" },
+                                    { text: "Not applicable" }
+                                ],
+                                [
+                                    { text: "Percentage attribute" },
+                                    { text: "15% top-up payment" },
+                                    { text: "10 December 2019" },
+                                    { text: "1 February 2036" }
                                 ]
                             ]
                         }) }}
