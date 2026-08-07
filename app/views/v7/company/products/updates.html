@@ -104,148 +104,92 @@
             }) }}
           </div>
 
-          <div style="display: flex; justify-content: flex-end;">
-            {{ select({
-              label: {
-                text: "Sort by"
-              },
-              id: "sort-by",
-              name: "sortBy",
-              value: "recently-published",
-              items: [
-                { value: "most-recent", text: "Most recent first", selected: true },
-                { value: "oldest-first", text: "Oldest first" }
-              ]
-            }) }}
-          </div>
-
           <p>Showing 1 to 10 of 72 updates for this portfolio.</p>
 
-        {{ table({
-          head: [
-            {
-              text: "Date"
-            },
-            {
-              text: "Presentation"
-            },
-            {
-              text: "Update"
-            }
-          ],
-          rows: [
-            [
-              {
-          text: "05 August 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)</a>"
-              },
-              {
-          text: "Reference price updated"
-              }
-            ],
-            [
-              {
-          text: "05 August 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)</a>"
-              },
-              {
-          text: "Medicine classification updated"
-              }
-            ],
-            [
-              {
-          text: "02 August 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)</a>"
-              },
-              {
-          text: "Pack size updated"
-              }
-            ],
-            [
-              {
-          text: "01 August 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)</a>"
-              },
-              {
-          text: "Medicine classification updated"
-              }
-            ],
-            [
-              {
-          text: "15 July 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)</a>"
-              },
-              {
-          text: "Reference price added"
-              }
-            ],
-            [
-              {
-          text: "03 June 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)</a>"
-              },
-              {
-          text: "Date presentation became older medicine updated"
-              }
-            ],
-            [
-              {
-          text: "18 February 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)</a>"
-              },
-              {
-          text: "Max price updated"
-              }
-            ],
-            [
-              {
-          text: "10 January 2026"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)</a>"
-              },
-              {
-          text: "Reference price updated"
-              }
-            ],
-            [
-              {
-          text: "25 December 2025"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Metformin 500mg prolonged-release tablets (56 tablets - 4 x 14 tablets)</a>"
-              },
-              {
-          text: "New product added"
-              }
-            ],
-            [
-              {
-          text: "05 November 2025"
-              },
-              {
-          html: "<a class='nhsuk-link nhsuk-link--no-visited-state' href='/v7/company/products/product-details#history'><span class='nhsuk-u-visually-hidden'>View </span>Olanzapine 10mg orodispersible tablets (28 tablets - 2 x 14 tablets)</a>"
-              },
-              {
-          text: "Dosage updated"
-              }
-            ]
-          ]
-        }) }}
+          <table class="nhsuk-table-responsive" id="portfolio-updates-table">
+            <thead class="nhsuk-table__head">
+              <tr class="nhsuk-table__row">
+                <th scope="col" aria-sort="descending" id="portfolio-date-sort">
+                  <button type="button" class="sortable-header">
+                    Date
+                    <span class="sort-indicator" aria-hidden="true">
+                      <span>▲</span>
+                      <span>▼</span>
+                    </span>
+                  </button>
+                </th>
+                <th scope="col">Presentation</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+          
+            <tbody class="nhsuk-table__body">
+            <tr>
+              <td>05 August 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+                </a>
+              </td>
+              <td>Reference price updated for [start date] to [end date]</td>
+            </tr>
+            <tr>
+              <td>05 August 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+                </a>
+              </td>
+              <td>Medicine classification updated</td>
+            </tr>
+            <tr>
+              <td>01 August 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)
+                </a>
+              </td>
+              <td>Date presentation becomes an older medicine updated</td>
+            </tr>
+            <tr>
+              <td>15 July 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)
+                </a>
+              </td>
+              <td>Reference price added for [start date] to [end date]</td>
+            </tr>
+            <tr>
+              <td>03 June 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
+                </a>
+              </td>
+              <td>Date presentation became older medicine updated</td>
+            </tr>
+            <tr>
+              <td>18 February 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
+                </a>
+              </td>
+              <td>Maximum price updated</td>
+            </tr>
+            <tr>
+              <td>10 January 2026</td>
+              <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details#history">
+                  <span class="nhsuk-u-visually-hidden">View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)
+                </a>
+              </td>
+              <td>Reference price updated for [start date] to [end date]</td>
+            </tr>
+          </tbody>
+        </table>
+
         {% from "pagination/macro.njk" import pagination %}
 
         {{ pagination({
@@ -275,9 +219,77 @@
             }
           ]
         }) }}
+
+        <script>
+          (function () {
+            const table = document.getElementById('portfolio-updates-table');
+            if (!table) return;
+          
+            const tbody = table.querySelector('tbody');
+            const dateHeader = document.getElementById('portfolio-date-sort');
+            const button = dateHeader.querySelector('button');
+            const indicator = dateHeader.querySelector('.sort-indicator');
+          
+            let descending = true;
+          
+            button.addEventListener('click', () => {
+              const rows = Array.from(tbody.querySelectorAll('tr'));
+          
+              rows.sort((a, b) => {
+                const dateA = new Date(a.cells[0].textContent.trim());
+                const dateB = new Date(b.cells[0].textContent.trim());
+          
+                return descending
+                  ? dateA - dateB
+                  : dateB - dateA;
+              });
+          
+              rows.forEach(row => tbody.appendChild(row));
+          
+              descending = !descending;
+          
+              dateHeader.setAttribute(
+                'aria-sort',
+                descending ? 'descending' : 'ascending'
+              );
+          
+              if (descending) {
+                indicator.innerHTML =
+                  '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>';
+              } else {
+                indicator.innerHTML =
+                  '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>';
+              }
+            });
+          })();
+          </script>
         
 
         <style>
+          .sortable-header {
+            background: none;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 4px;
+          }
+
+          .sort-indicator {
+            display: inline-flex;
+            flex-direction: column;
+            line-height: 1;
+            font-size: 12px;
+            margin-top: 2px;
+          }
+
+          .sort-indicator span {
+            display: block;
+          }
+
           .nhsuk-table__heading-tab {
               font-size: 1.3rem;
           }

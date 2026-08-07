@@ -135,67 +135,77 @@
             }) }}
             </fieldset>
 
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                <h2 class="nhsuk-fieldset__heading">Supporting evidence (optional)</h2>
+              </legend>
+              <p class="nhsuk-hint">Upload any supporting evidence.</p>
+                {{ table({
+                firstCellIsHeader: false,
+                head: [
+                { text: "Date" },
+                { text: "File name" },
+                { text: "Note" },
+                { text: "Action" },
+                { text: "Delete" }
+                ],
+                rows: [
+                [
+                { text: "12 October 2025" },
+                { text: "court-ruling-relevant-to-case-12345.pdf" },
+                { text: "This document contains the court ruling relevant to the reference price adjustment for case 12345." },
+                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                ],
+                [
+                { text: "10 October 2025" },
+                { text: "email-correspondence-with-supplier.msg" },
+                { text: "Email correspondence with the supplier discussing the reference price calculation and adjustments." },
+                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                ],
+                [
+                { text: "05 October 2023" },
+                { text: "pricing-history-2023-2025.pdf" },
+                { text: "Historical pricing data and analysis for 2023-2025." },
+                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                ],
+                [
+                { text: "03 October 2023" },
+                { text: "methodology-review.docx" },
+                { text: "Review of adjustment methodology with recommendations." },
+                { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
+                { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
+                ]
+                ]
+                }) }}
+
+              {{ button({
+                text: "Add supporting evidence",
+                classes: "nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-8",
+                href: "add-reference-price-evidence"
+              }) }}
+              </fieldset>
+  
+
             <fieldset class="nhsuk-fieldset">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-              <h2 class="nhsuk-fieldset__heading">Change following review of previous version (optional)</h2>
-            </legend>
-            <p class="nhsuk-hint">Provide details of any changes following the review of the previous version.</p>
+              <h2 class="nhsuk-fieldset__heading">Reason for change (optional)</h2>
+              </legend>
+              <p class="nhsuk-hint">Give your reason for editing this reference price.</p>
             {{ textarea({
               name: "changeFollowingReview",
               id: "changeFollowingReview",
               value: "No data available"
             }) }}
             </fieldset>
-            <fieldset class="nhsuk-fieldset">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-              <h2 class="nhsuk-fieldset__heading">Supporting evidence (optional)</h2>
-            </legend>
-            <p class="nhsuk-hint">Upload any supporting evidence.</p>
-            {{ table({
-              firstCellIsHeader: false,
-              head: [
-              { text: "Date" },
-              { text: "File name" },
-              { text: "Note" },
-              { text: "Action" },
-              { text: "Delete" }
-              ],
-              rows: [
-              [
-              { text: "12 October 2025" },
-              { text: "court-ruling.pdf" },
-              { text: "Relevant court ruling document" },
-              { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
-              { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
-              ],
-              [
-              { text: "10 October 2025" },
-              { text: "email.msg" },
-              { text: "Email correspondence" },
-              { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
-              { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
-              ],
-              [
-              { text: "08 October 2023" },
-              { text: "pack-size-update.xlsx" },
-              { text: "Pack size update details" },
-              { html: '<a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download</a>' },
-              { html: '<a href="/v5/dhsc/experimental/delete-evidence" class="nhsuk-link nhsuk-link--no-visited-state">Delete</a>' }
-              ]
-              ]
-            }) }}
-            </fieldset>
-
+            
           <div class="nhsuk-button-group">
             {{ button({
               text: "Save details",
                href: "product-details?saved=reference-price-details&deleted=false#ref-price-information"
-            }) }}
-
-            {{ button({
-              text: "Add supporting evidence",
-              classes: "nhsuk-button--secondary",
-              href: "add-reference-price-evidence"
             }) }}
           
             {{ button({
