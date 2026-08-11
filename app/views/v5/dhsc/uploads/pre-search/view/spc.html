@@ -17,29 +17,17 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Uploaded data" %}
+{% set pageName = "View the Supplementary Protection Certificate (SPC) dataset" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
-    </li>
-   <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/uploads/index">Uploaded data</a>
-    </li> 
-  </ol>
-<!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+  href: '/v5/dhsc/uploads/pre-search/spc',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -48,9 +36,9 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>View Supplementary Protection Certificate (SPC) data</h1>
+        <h1>View the Supplementary Protection Certificate (SPC) dataset</h1>
 
-                <details class="nhsuk-details">
+                <!-- <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
                     Filter the data
@@ -87,9 +75,9 @@
 Apply filter
                 </button>
             </div>
-        </details>
+        </details> -->
         <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download dataset
+            Download full dataset
         </button>
 
         <div class="large-table-container">
@@ -109,69 +97,69 @@ Apply filter
 
   <tbody class="nhsuk-table__body">
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">febuxostat</td>
-      <td class="nhsuk-table__cell">22/04/2023</td>
-      <td class="nhsuk-table__cell">SPC 2010019</td>
-      <td class="nhsuk-table__cell"></td>
-      <td class="nhsuk-table__cell">TestA 120mg tablets (28 tablets)</td>
-      <td class="nhsuk-table__cell">febuxostat 120mg tablets</td>
-      <td class="nhsuk-table__cell">TestCompanyA</td>
-      <td class="nhsuk-table__cell">TestCompanyA</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">amlodipine</td>
-      <td class="nhsuk-table__cell">12/09/2024</td>
+      <td class="nhsuk-table__cell">Amlodipine</td>
+      <td class="nhsuk-table__cell">12 September 2024</td>
       <td class="nhsuk-table__cell">SPC 20056453</td>
       <td class="nhsuk-table__cell"></td>
       <td class="nhsuk-table__cell">Cardiovex 20mg tablets (28 tablets)</td>
-      <td class="nhsuk-table__cell">amlodipine 20mg tablets</td>
+      <td class="nhsuk-table__cell">Amlodipine 20mg tablets</td>
       <td class="nhsuk-table__cell">HealthPharm Ltd</td>
       <td class="nhsuk-table__cell">HealthPharm Ltd</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">omeprazole</td>
-      <td class="nhsuk-table__cell">05/03/2022</td>
-      <td class="nhsuk-table__cell">SPC 19992211</td>
-      <td class="nhsuk-table__cell"></td>
-      <td class="nhsuk-table__cell">Gastroquel 40mg capsules (30 capsules)</td>
-      <td class="nhsuk-table__cell">omeprazole 40mg capsules</td>
-      <td class="nhsuk-table__cell">MedicaPlus</td>
-      <td class="nhsuk-table__cell">MedicaPlus</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">montelukast</td>
-      <td class="nhsuk-table__cell">19/07/2023</td>
-      <td class="nhsuk-table__cell">SPC 19989874</td>
-      <td class="nhsuk-table__cell"></td>
-      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets (56 tablets)</td>
-      <td class="nhsuk-table__cell">montelukast 5mg tablets</td>
-      <td class="nhsuk-table__cell">Optima Healthcare</td>
-      <td class="nhsuk-table__cell">Optima Healthcare</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">pregabalin</td>
-      <td class="nhsuk-table__cell">14/11/2024</td>
-      <td class="nhsuk-table__cell">SPC 20043345</td>
-      <td class="nhsuk-table__cell"></td>
-      <td class="nhsuk-table__cell">Neurocet 75mg capsules (30 capsules)</td>
-      <td class="nhsuk-table__cell">pregabalin 75mg capsules</td>
-      <td class="nhsuk-table__cell">BioMedica UK</td>
-      <td class="nhsuk-table__cell">BioMedica UK</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">cetirizine</td>
-      <td class="nhsuk-table__cell">01/02/2021</td>
+      <td class="nhsuk-table__cell">Cetirizine</td>
+      <td class="nhsuk-table__cell">01 February 2021</td>
       <td class="nhsuk-table__cell">SPC 19968871</td>
       <td class="nhsuk-table__cell"></td>
       <td class="nhsuk-table__cell">Allergion 10mg tablets (30 tablets)</td>
-      <td class="nhsuk-table__cell">cetirizine 10mg tablets</td>
+      <td class="nhsuk-table__cell">Cetirizine 10mg tablets</td>
       <td class="nhsuk-table__cell">NexThera</td>
       <td class="nhsuk-table__cell">NexThera</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Febuxostat</td>
+      <td class="nhsuk-table__cell">22 April 2023</td>
+      <td class="nhsuk-table__cell">SPC 2010019</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">TestA 120mg tablets (28 tablets)</td>
+      <td class="nhsuk-table__cell">Febuxostat 120mg tablets</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+      <td class="nhsuk-table__cell">TestCompanyA</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Montelukast</td>
+      <td class="nhsuk-table__cell">19 July 2023</td>
+      <td class="nhsuk-table__cell">SPC 19989874</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Pulmoclear 5mg tablets (56 tablets)</td>
+      <td class="nhsuk-table__cell">Montelukast 5mg tablets</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+      <td class="nhsuk-table__cell">Optima Healthcare</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Omeprazole</td>
+      <td class="nhsuk-table__cell">05 March 2022</td>
+      <td class="nhsuk-table__cell">SPC 19992211</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Gastroquel 40mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">Omeprazole 40mg capsules</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+      <td class="nhsuk-table__cell">MedicaPlus</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Pregabalin</td>
+      <td class="nhsuk-table__cell">14 November 2024</td>
+      <td class="nhsuk-table__cell">SPC 20043345</td>
+      <td class="nhsuk-table__cell"></td>
+      <td class="nhsuk-table__cell">Neurocet 75mg capsules (30 capsules)</td>
+      <td class="nhsuk-table__cell">Pregabalin 75mg capsules</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
+      <td class="nhsuk-table__cell">BioMedica UK</td>
     </tr>
   </tbody>
 </table>

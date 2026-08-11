@@ -17,29 +17,17 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Uploaded data" %}
+{% set pageName = "View the Virtual Therapeutic Moiety (VTM) originator data" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
-    </li>
-   <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/uploads/index">Uploaded data</a>
-    </li> 
-  </ol>
-<!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+  href: '/v5/dhsc/uploads/pre-search/vtm',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -55,7 +43,7 @@
       
  
         <br>
-                <details class="nhsuk-details">
+                <!-- <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
                     Filter the data
@@ -85,9 +73,9 @@
   Apply filter
 </button>
             </div>
-        </details>
+        </details> -->
         <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-            Download dataset
+            Download full dataset
         </button>
 
         <div class="large-table-container">
@@ -108,33 +96,15 @@
 
   <tbody class="nhsuk-table__body">
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Febuxostat</td>
-      <td class="nhsuk-table__cell">Menarini</td>
-      <td class="nhsuk-table__cell">Adenuric</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
       <td class="nhsuk-table__cell">Amlodipine</td>
       <td class="nhsuk-table__cell">Pfizer</td>
       <td class="nhsuk-table__cell">Norvasc</td>
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Omeprazole</td>
-      <td class="nhsuk-table__cell">AstraZeneca</td>
-      <td class="nhsuk-table__cell">Losec</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Montelukast</td>
-      <td class="nhsuk-table__cell">Merck Sharp & Dohme</td>
-      <td class="nhsuk-table__cell">Singulair</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Pregabalin</td>
+      <td class="nhsuk-table__cell">Atorvastatin</td>
       <td class="nhsuk-table__cell">Pfizer</td>
-      <td class="nhsuk-table__cell">Lyrica</td>
+      <td class="nhsuk-table__cell">Lipitor</td>
     </tr>
 
     <tr class="nhsuk-table__row">
@@ -144,21 +114,9 @@
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Naproxen</td>
-      <td class="nhsuk-table__cell">Roche</td>
-      <td class="nhsuk-table__cell">Naprosyn</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Metformin</td>
-      <td class="nhsuk-table__cell">Merck Santé</td>
-      <td class="nhsuk-table__cell">Glucophage</td>
-    </tr>
-
-    <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Salmeterol</td>
-      <td class="nhsuk-table__cell">GlaxoSmithKline</td>
-      <td class="nhsuk-table__cell">Serevent</td>
+      <td class="nhsuk-table__cell">Febuxostat</td>
+      <td class="nhsuk-table__cell">Menarini</td>
+      <td class="nhsuk-table__cell">Adenuric</td>
     </tr>
 
     <tr class="nhsuk-table__row">
@@ -168,9 +126,39 @@
     </tr>
 
     <tr class="nhsuk-table__row">
-      <td class="nhsuk-table__cell">Atorvastatin</td>
+      <td class="nhsuk-table__cell">Metformin</td>
+      <td class="nhsuk-table__cell">Merck Santé</td>
+      <td class="nhsuk-table__cell">Glucophage</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Montelukast</td>
+      <td class="nhsuk-table__cell">Merck Sharp & Dohme</td>
+      <td class="nhsuk-table__cell">Singulair</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Naproxen</td>
+      <td class="nhsuk-table__cell">Roche</td>
+      <td class="nhsuk-table__cell">Naprosyn</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Omeprazole</td>
+      <td class="nhsuk-table__cell">AstraZeneca</td>
+      <td class="nhsuk-table__cell">Losec</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Pregabalin</td>
       <td class="nhsuk-table__cell">Pfizer</td>
-      <td class="nhsuk-table__cell">Lipitor</td>
+      <td class="nhsuk-table__cell">Lyrica</td>
+    </tr>
+
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">Salmeterol</td>
+      <td class="nhsuk-table__cell">GlaxoSmithKline</td>
+      <td class="nhsuk-table__cell">Serevent</td>
     </tr>
   </tbody>
 </table>

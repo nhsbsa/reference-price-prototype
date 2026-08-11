@@ -17,29 +17,17 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Uploaded data" %}
+{% set pageName = "Search the Supplementary Protection Certificate (SPC) dataset" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/datasources">Data sources</a>
-    </li>
-   <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/uploads/index">Uploaded data</a>
-    </li> 
-  </ol>
-<!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
 
-</nav>
+{{ backLink({
+  href: '/v5/dhsc/uploads',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -48,11 +36,11 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1>Supplementary Protection Certificate (SPC) dataset</h1>
+        <h1>Search the Supplementary Protection Certificate (SPC) dataset</h1>
 
     
 
-  <p>Search and filter this dataset using one or more of the fields below.</p>
+  <p>Enter a value into one or both of the fields or leave both fields blank to view the complete dataset.</p>
 
 
        <div class="nhsuk-form-group">
