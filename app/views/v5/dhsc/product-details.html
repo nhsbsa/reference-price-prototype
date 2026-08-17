@@ -24,9 +24,9 @@
 {% block beforeContent %}
 
 {{ backLink({
-    href: '/v5/dhsc/search',
+    href: 'javascript:history.go(-1)',
     text: 'Back'
-}) }}
+  }) }}
 
 {% endblock %}
 
@@ -1196,7 +1196,7 @@
                         ],
                         [
                             {
-                                text: "Reference price start year"
+                                text: "Comparator year"
                             },
                             {
                                 text: "2024"
@@ -1442,7 +1442,7 @@
                                 rows: [
                                     {
                                     key: {
-                                        text: "Reference price start year"
+                                        text: "Comparator year"
                                     },
                                     value: {
                                         text: "2023"

@@ -19,30 +19,30 @@
 
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            <h2 class="nhsuk-fieldset__heading">Reference price calculation date</h2>
+            <h2 class="nhsuk-fieldset__heading">Reference price</h2>
           </legend>
-          <p class="nhsuk-hint">Enter the date the reference price was calculated.</p>
-          {{ dateInput({
-            id: "reference-price-calculation-date",
-            items: [
-            { name: "day", classes: "nhsuk-input--width-2" },
-            { name: "month", classes: "nhsuk-input--width-2" },
-            { name: "year", classes: "nhsuk-input--width-4" }
-            ]
+          {{ input({
+            label: {
+                text: "Price in pounds"
+            },
+            hint: {
+                text: "For example, 7,500.50."
+            },
+            id: "reference-price",
+            name: "referencePrice",
+            prefix: "£",
+            classes: "nhsuk-input--width-5"
           }) }}
           </fieldset>
-
           
-
           <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            <h2 class="nhsuk-fieldset__heading">Reference price start year</h2>
+            <h2 class="nhsuk-fieldset__heading">Comparator year</h2>
           </legend>
-          <p class="nhsuk-hint">Enter the year the reference price starts.</p>
           {{ dateInput({
-            id: "reference-price-start-year",
+            id: "comparator-year",
             items: [
-            { name: "year", classes: "nhsuk-input--width-4" }
+            { name: "year", classes: "nhsuk-input--width-4"}
             ]
           }) }}
           </fieldset>
@@ -60,7 +60,7 @@
             items: [
             {
               value: "list-price-minus-12.5",
-              text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+              text: "List price minus 12.5%"
             },
             {
               value: "average-selling-price",
@@ -102,6 +102,22 @@
           }) }}
           </fieldset>
 
+
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">Data correct as of</h2>
+            </legend>
+            <p class="nhsuk-hint">Enter the date the reference price was calculated. For example, 15 3 1984.</p>
+            {{ dateInput({
+              id: "reference-price-calculation-date",
+              items: [
+              { name: "day", classes: "nhsuk-input--width-2" },
+              { name: "month", classes: "nhsuk-input--width-2" },
+              { name: "year", classes: "nhsuk-input--width-4" }
+              ]
+            }) }}
+            </fieldset>
+
           <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
             <h2 class="nhsuk-fieldset__heading">Adjustments</h2>
@@ -111,33 +127,20 @@
             idPrefix: "adjustments",
             name: "adjustments",
             items: [
-            { value: "interformulation-adjustment", text: "Interformulation adjustment" },
+            { value: "interformulation-adjustment", text: "Interformulation adjustment"},
             { value: "pack-size-adjustment", text: "Pack size adjustment" },
-            { value: "retrospective-adjustment", text: "Retrospective adjustment" },
-            { value: "prospective-adjustment", text: "Prospective adjustment" },
-            { value: "reference-price-adjustment", text: "Reference price adjustment" }
+            { value: "retrospective-adjustment", text: "Retrospective adjustment"},
+            { value: "prospective-adjustment", text: "Prospective adjustment"},
+            { value: "reference-price-adjustment", text: "Reference price adjustment"}
             ]
           }) }}
           </fieldset>
 
           <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            <h2 class="nhsuk-fieldset__heading">Reference price</h2>
+            <h2 class="nhsuk-fieldset__heading">Reason for change (optional)</h2>
           </legend>
-          <p class="nhsuk-hint">Enter the reference price in pounds and pence.</p>
-          {{ input({
-            id: "reference-price",
-            name: "referencePrice",
-            prefix: "£",
-            classes: "nhsuk-input--width-5"
-          }) }}
-          </fieldset>
-
-          <fieldset class="nhsuk-fieldset">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            <h2 class="nhsuk-fieldset__heading">Change following review of previous version (optional)</h2>
-          </legend>
-          <p class="nhsuk-hint">Provide details of any changes following the review of the previous version.</p>
+          <p class="nhsuk-hint">Give your reason for adding this reference price.</p>
           {{ textarea({
             name: "changeFollowingReview",
             id: "changeFollowingReview"

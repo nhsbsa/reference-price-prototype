@@ -23,6 +23,11 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
+{{ backLink({
+  href: '/v5/dhsc',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 <!-- For adding page content -->
@@ -87,14 +92,15 @@
 
     </fieldset>
 
+    <div class="nhsuk-button-group">
     <button id="toggleBtn" class="nhsuk-button">
       Search
     </button>
 
-    <a href="/v5/dhsc/" class="nhsuk-button nhsuk-button--secondary">
-      Back to dashboard
+    <a href="/v5/dhsc/search" class="nhsuk-button nhsuk-button--secondary">
+      Reset
     </a>
-
+  </div>
 
     <div id="resultsSection" class="large-table-container" style="display: none;">
       <div>

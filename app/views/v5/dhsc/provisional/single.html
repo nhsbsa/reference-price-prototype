@@ -42,16 +42,17 @@
 
         {% set html %}
           <h3 class="nhsuk-notification-banner__heading">
-            Provisional product updated
+            Product details updated
           </h3>
-          <p>Your product details have been saved.</p>
+          <p>The company name has been saved.</p>
           <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
           </a>
         {% endset %}
       
         {{ notificationBanner({
           html: html,
-          type: "success"
+          type: "success",
+          titleText: "Product details"
         }) }}
       
       {% endif %}
@@ -61,15 +62,16 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Provisional product updated
+            Originator details updated
             </h3>
-            <p>Your originator details have been saved.</p>
+            <p>The date presentation becomes an older medicine has been saved.</p>
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
-            type: "success"
+            type: "success",
+            titleText: "Originator details"
         }) }}
 
         {% endif %}
@@ -79,16 +81,17 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Provisional product updated
+                Reference price details updated
             </h3>
-            <p>Your reference price details have been saved.</p>
+            <p>The reference anchor date has been saved.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
-            type: "success"
+            type: "success",
+            titleText: "Reference price details"
         }) }}
 
         {% endif %}
@@ -220,7 +223,7 @@
                             Date presentation becomes an older medicine
                         </dt>
                         <dd class="nhsuk-summary-list__value">
-                            19/12/2026
+                            19 December 2026
                         </dd>
 
                     </div>
@@ -249,7 +252,7 @@
                             Reference anchor date
                         </dt>
                         <dd class="nhsuk-summary-list__value">
-                            01/01/2025
+                            1 January 2025
                         </dd>
 
                     </div>

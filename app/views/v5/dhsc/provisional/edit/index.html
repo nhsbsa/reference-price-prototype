@@ -64,24 +64,26 @@
         </div>
 
       {{ button({
-        text: "Use a different company name",
+        text: "Change company name",
         classes: "nhsuk-button--secondary nhsuk-button--small",
         href: "/v5/dhsc/provisional/edit/search"
       }) }}
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="two-thirds">
-    Product name
-  </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Medication q 200mg (2 x 24 tablets)">
-</div>
+      <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="e">Change <span class="nhsuk-u-visually-hidden">company name</span></a></p> -->
 
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="two-thirds">
- Active substance(s)
-  </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Metsulin">
-</div>
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="two-thirds">
+          Product name
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Medication q 200mg (2 x 24 tablets)">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="two-thirds">
+      Active substance(s)
+        </label>
+        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Metsulin">
+      </div>
 
 
 
@@ -94,7 +96,7 @@
           {{ button({
             text: "Cancel",
             classes: "nhsuk-button--secondary",
-            href: "/v5/dhsc/provisional/single?saved=false"
+            href: "/v5/dhsc/provisional/single?saved=false#product-details"
           }) }}
         </div>
 
