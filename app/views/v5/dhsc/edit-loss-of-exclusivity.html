@@ -2,20 +2,7 @@
 {% set pageName = "Edit loss of exclusivity" %}
 
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#exclusivity-information">Product
-                details</a>
-        </li>
-    </ol>
-</nav>
+
 {% endblock %}
 
 {% block content %}
@@ -113,7 +100,7 @@
                 value: "2008-01-01"
             },
             "market-authorisation-number": {
-                label: "Market Authorisation number",
+                label: "market authorisation number",
                 type: "text",
                 value: "PL 20117/0184",
                 labelPrefix: "the",
@@ -121,7 +108,7 @@
                 calloutContent: "Changing the market authorisation number will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
             },
             "ma-product-name": {
-                label: "Market Authorisation product name",
+                label: "market authorisation product name",
                 type: "text",
                 value: "Metabet SR",
                 labelPrefix: "the",
@@ -129,7 +116,7 @@
                 calloutContent: "Changing the market authorisation product name will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
             },
             "mhra-market-authorisation-holder": {
-                label: "(MHRA) Market Authorisation holder",
+                label: "(MHRA) market authorisation holder",
                 type: "text",
                 value: "Morningside Incorporated",
                 labelPrefix: "the",
@@ -137,7 +124,7 @@
                 calloutContent: "Changing the (MHRA) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
             },
             "cdr-market-authorisation-holder": {
-                label: "(CDR) Market Authorisation holder",
+                label: "(CDR) market authorisation holder",
                 type: "autocomplete",
                 value: "Morningside Healthcare Ltd",
                 labelPrefix: "the",
@@ -145,7 +132,7 @@
                 calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
             },
             "market-authorisation-date": {
-                label: "Market Authorisation date",
+                label: "market authorisation date",
                 type: "date",
                 value: "2011-06-01",
                 labelPrefix: "the",
