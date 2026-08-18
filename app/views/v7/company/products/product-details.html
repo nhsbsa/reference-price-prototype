@@ -25,13 +25,9 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
-{{ breadcrumb({
-    items: [
-      {
-        href: "/v7/company/products/index",
-        text: "Product portfolio"
-      }
-    ]
+{{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
   }) }}
 
 {% endblock %}
@@ -764,7 +760,7 @@
                                     text: "Reference price type"
                                 },
                                 {
-                                    text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                    text: "List price minus 12.5%"
                                 }
                             ],
                             [
@@ -1107,7 +1103,7 @@
 
                 <!---Product history-->
                 <div id="product-history">
-                    <h2 class="nhsuk-heading-m">Presentation history</h2>
+                    <h2 class="nhsuk-heading-m">Product history</h2>
                     <details class="nhsuk-details">
                         <summary class="nhsuk-details__summary">
                             <span class="nhsuk-details__summary-text">
@@ -1126,20 +1122,11 @@
                                         name: "filter-by",
                                         classes: "nhsuk-select",
                                         items: [
-                                            { value: "all", text: "All", selected: true },
-                                            { value: "hcp", text: "Product: Historic Cash Payment (HCP)" },
-                                            { value: "vtm-type", text: "Product: VTM type" },
-                                            { value: "dispensing-attributes", text: "Product: Dispensing attributes" },
-                                            { value: "presentation-attributes", text: "Product: Presentation attributes" },
-                                            { value: "additional-information", text: "Product: Additional information" },
-                                            { value: "list-price", text: "Pricing: List price" },
-                                            { value: "maximum-price", text: "Pricing: Maximum price" },
-                                            { value: "temporary-price", text: "Pricing: Temporary price" },
-                                            { value: "older-newer", text: "Loss of exclusivity: Older/newer presentation" },
-                                            { value: "rad", text: "Loss of exclusivity: Reference anchor date" },
-                                            { value: "vtm-ma", text: "Loss of exclusivity: VTM Market authorisation (MA) information" },
-                                            { value: "vtm-supplementary", text: "Loss of exclusivity: VTM Supplementary Protection Certificate (SPC) information" },
-                                            { value: "ref-price-information", text: "Reference price information" }
+                                        { value: "all", text: "All updates", selected: true },
+                                        { value: "reference-price", text: "Reference price updates" },
+                                        { value: "rad", text: "Reference anchor date (RAD) updates" },
+                                        { value: "vtm-originator", text: "VTM originator updates" },
+                                        { value: "loe-date", text: "Date presentation becomes older medicine updates" }
                                         ]
                                     }) }}
                                 </div>
@@ -1147,17 +1134,18 @@
                             <div class="nhsuk-button-group">
                             {{ button({
                                 text: "Apply filter",
-                                classes: "nhsuk-button nhsuk-button--secondary",
+                                classes: "nhsuk-button",
                                 attributes: {
                                     type: "button"
                                 }
                             }) }}
+
                         </div>
                         </div>
                         </div>
                     </details>
 
-                    <p>Showing 1 to 10 of 78 updates for this presentation.</p>
+                    <p>Showing 1 to 10 of 78 updates for this product.</p>
 
                     <div class="nhsuk-table-responsive">
                       <table class="nhsuk-table-responsive" id="portfolio-updates-table">
@@ -1172,7 +1160,6 @@
                                   </span>
                                 </button>
                               </th>
-                            <th scope="col">Section</th>
                             <th scope="col">Change</th>
                             <th scope="col">From</th>
                             <th scope="col">To</th>
@@ -1182,7 +1169,6 @@
                         <tbody class="nhsuk-table__body">
                           <tr>
                             <td>25 July 2026</td>
-                            <td>Reference price information</td>
                             <td>Reference price updated for [start date] to [end date]</td>
                             <td>£5.84</td>
                             <td>£6.41</td>
@@ -1190,75 +1176,32 @@
                     
                           <tr>
                             <td>18 June 2026</td>
-                            <td>Older/newer presentation</td>
-                            <td>Medicine classification updated</td>
-                            <td>Newer medicine</td>
-                            <td>Older medicine</td>
+                            <td>Date presentation becomes an older medicine updated</td>
+                            <td>1 January 2006</td>
+                            <td>12 October 2008</td>
                           </tr>
                     
                           <tr>
-                            <td>02 May 2026</td>
-                            <td>Reference anchor date</td>
+                            <td>2 May 2026</td>
                             <td>Reference anchor date (RAD) updated</td>
-                            <td>01 January 2006</td>
-                            <td>01 January 2008</td>
+                            <td>1 January 2006</td>
+                            <td>1 January 2008</td>
                           </tr>
                     
                           <tr>
                             <td>14 April 2026</td>
-                            <td>Older/newer presentation</td>
-                            <td>Originator status updated</td>
-                            <td>Originator</td>
-                            <td>Newer entrant</td>
-                          </tr>
-                    
-                          <tr>
-                            <td>10 March 2026</td>
-                            <td>Reference price information</td>
-                            <td>Reference price type updated for [start date] to [end date]</td>
-                            <td>Average selling price</td>
-                            <td>List price of comparator(s) according to dm+d minus 12.5% subject to adjustments</td>
-                          </tr>
-                    
-                          <tr>
-                            <td>12 January 2026</td>
-                            <td>Reference price information</td>
-                            <td>Reference price end date updated for [start date] to [end date]</td>
-                            <td>31 March 2026</td>
-                            <td>14 October 2028</td>
-                          </tr>
-                    
-                          <tr>
-                            <td>30 November 2025</td>
-                            <td>Reference price information</td>
-                            <td>Reference price start date updated for [start date] to [end date]</td>
-                            <td>01 April 2024</td>
-                            <td>15 October 2025</td>
-                          </tr>
-                    
-                          <tr>
-                            <td>08 October 2025</td>
-                            <td>Reference anchor date</td>
-                            <td>Reference anchor date (RAD) updated</td>
+                            <td>VTM originator updated</td>
                             <td>Unknown</td>
-                            <td>01 January 2006</td>
+                            <td>Glucophage</td>
                           </tr>
-                    
+
                           <tr>
-                            <td>16 September 2025</td>
-                            <td>Older/newer presentation</td>
-                            <td>Date presentation becomes an older medicine updated</td>
-                            <td>01 January 2010</td>
-                            <td>12 October 2009</td>
-                          </tr>
-                    
-                          <tr>
-                            <td>22 August 2025</td>
-                            <td>Reference price information</td>
+                            <td>2 April 2026</td>
                             <td>Reference price added for [start date] to [end date]</td>
                             <td>No reference price</td>
-                            <td>£5.84</td>
+                            <td>£6.41</td>
                           </tr>
+                    
                         </tbody>
                       </table>
                     </div>
