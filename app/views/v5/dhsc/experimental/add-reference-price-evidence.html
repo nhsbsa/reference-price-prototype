@@ -47,18 +47,22 @@
           }
         }) }}
         
-          <!-- <div class="nhsuk-button-group"> -->
-            {{ button({
-              text: "Upload evidence",
-               href: "/v5/dhsc/experimental/product-details?saved=ref-price-information#ref-price-information"
-            }) }}
-          
-            <!-- {{ button({
-              text: "Cancel",
-              classes: "nhsuk-button--secondary",
-              href: "/v5/dhsc/experimental/product-details?saved=false#ref-price-information"
-            }) }}
-          </div> -->
+        {% if data.return == "add-reference-price" %}
+        {{ button({
+          text: "Upload evidence",
+          href: "add-reference-price?evidenceAdded=true"
+        }) }}
+      {% elif data.return == "edit-reference-price" %}
+        {{ button({
+          text: "Upload evidence",
+          href: "edit-reference-price?evidenceAdded=true"
+        }) }}
+      {% else %}
+        {{ button({
+          text: "Upload evidence",
+          href: "/v5/dhsc/experimental/product-details?saved=evidence#ref-price-information"
+        }) }}
+      {% endif %}
 
     </div>
 </div>
