@@ -2,19 +2,12 @@
 {% set pageName = "Confirm change" %}
 
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#exclusivity-information">Product details</a>
-        </li>
-    </ol>
-</nav>
+
+{{ backLink({
+  href: '/v5/dhsc/cdr-company-edit?field=cdr-market-authorisation-holder',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -116,7 +109,7 @@ const confirmationHtml = manualCompany ? `
 
     // Cancel button handler - go back to search
     document.getElementById('cancel-btn').addEventListener('click', function () {
-        window.location.href = '/v5/dhsc/cdr-company-edit?field=' + encodeURIComponent(fieldKey);
+        window.location.href = '/v5/dhsc/product-details#exclusivity-information';
     });
 }());
 </script>

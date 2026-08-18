@@ -2,19 +2,12 @@
 {% set pageName = "Search company" %}
 
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#exclusivity-information">Product details</a>
-        </li>
-    </ol>
-</nav>
+
+{{ backLink({
+  href: '/v5/dhsc/product-details#exclusivity-information',
+  text: 'Back'
+}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -38,9 +31,9 @@
             <label class="nhsuk-label" for="company-search">Search for company</label>
             <input class="nhsuk-input" id="company-search" name="company-search" type="text" placeholder="Enter company name">
             <!-- <div class="nhsuk-hint">Click Search to show matching companies</div> -->
-            <div class="nhsuk-u-margin-top-2">
+            <div class="nhsuk-button-group nhsuk-u-margin-top-3">
                 <button id="search-btn" class="nhsuk-button" type="button">Search</button>
-                <button id="clear-btn" class="nhsuk-button nhsuk-button--secondary" type="button">Clear</button>
+                <button id="clear-btn" class="nhsuk-button nhsuk-button--secondary" type="button">Reset</button>
             </div>
         </div>
 
@@ -71,7 +64,7 @@
         
         
             <p class="nhsuk-hint nhsuk-u-margin-bottom-2">
-              Select a company name to continue
+              Select a company name. If you cannot find it in the list, enter it manually by selecting Add company name at the bottom of the page.
             </p>
             
               {{ table({
@@ -247,10 +240,10 @@
               <hr>
         
         
-          <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Can't find the company you're looking for?</p>
+          <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Manually enter company name if you cannot find it in the list.</p>
           
           {{ button({
-            text: "Continue with a new company name",
+            text: "Add company name",
             classes: "nhsuk-button--secondary",
             href: "/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&manualCompany=true"          
           }) }}
