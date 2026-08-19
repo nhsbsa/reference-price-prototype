@@ -25,10 +25,17 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
-{{ backLink({
-    href: 'javascript:history.go(-1)',
-    text: 'Back'
+{% if data.source == "updates" %}
+  {{ backLink({
+    href: "/v7/company/products/updates",
+    text: "Back to product updates"
   }) }}
+{% else %}
+  {{ backLink({
+    href: "/v7/company/products/index",
+    text: "Back to product portfolio"
+  }) }}
+{% endif %}
 
 {% endblock %}
 
@@ -1125,7 +1132,6 @@
                                         { value: "all", text: "All", selected: true },
                                         { value: "reference-price", text: "Reference price updates" },
                                         { value: "rad", text: "Reference anchor date (RAD) updates" },
-                                        { value: "vtm-originator", text: "VTM originator updates" },
                                         { value: "loe-date", text: "Date presentation becomes older medicine updates" }
                                         ]
                                     }) }}
@@ -1177,22 +1183,15 @@
                           <tr>
                             <td>18 June 2026</td>
                             <td>Date presentation becomes an older medicine updated</td>
-                            <td>1 January 2006</td>
-                            <td>12 October 2008</td>
+                            <td>1 January 2026</td>
+                            <td>12 October 2028</td>
                           </tr>
                     
                           <tr>
                             <td>2 May 2026</td>
                             <td>Reference anchor date (RAD) updated</td>
-                            <td>1 January 2006</td>
-                            <td>31 December 2008</td>
-                          </tr>
-                    
-                          <tr>
-                            <td>14 April 2026</td>
-                            <td>VTM originator updated</td>
-                            <td>Unknown</td>
-                            <td>Glucophage</td>
+                            <td>1 January 2026</td>
+                            <td>31 December 2028</td>
                           </tr>
 
                           <tr>
