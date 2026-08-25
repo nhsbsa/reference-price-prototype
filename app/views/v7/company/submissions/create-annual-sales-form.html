@@ -68,10 +68,8 @@
               <h1 class="nhsuk-heading-l">
                 Sales report - unaudited annual
               </h1>
-
-
+            </div>
           </div>
-        </div>
           
               <section id="submission-details">
                 <div class="nhsuk-table__panel-with-heading-tab">
@@ -175,12 +173,12 @@
               ],
               rows: [
                 [
-                  {
-                    text: "01/01/2025"
-                  },
-                  {
-                    text: "31/12/2025"
-                  }
+                    {
+                    text: "1 January 2025"
+                    },
+                    {
+                    text: "31 December 2025"
+                    }
                 ]
               ]
             }) }}
@@ -555,10 +553,13 @@
         text: "Calculate",
         href: "/v7/company/submissions/annual-sales-form-calculation"
         }) }}
-      </div>
+
+      {{ button({
+        text: "Cancel",
+        variant: "secondary",
+        href: "/v7/company/submissions/index"
+      }) }}
       
-      <div>
-        <p><a href="/v7/company/submissions/index" class="nhsuk-link nhsuk-link--no-visited-state">Cancel</a><p>
       </div>
 
 

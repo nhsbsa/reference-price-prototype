@@ -54,7 +54,7 @@
                   </li>
           
                   <li class="app-side-nav__item">
-                    <a class="app-side-nav__link" href="s">
+                    <a class="app-side-nav__link" href="file-upload--create-annual-sales">
                       File upload
                     </a>
                   </li>
@@ -174,10 +174,10 @@
                     rows: [
                       [
                         {
-                          text: "01/01/2025"
+                          text: "1 January 2025"
                         },
                         {
-                          text: "31/12/2025"
+                          text: "31 December 2025"
                         }
                       ]
                     ]
@@ -581,12 +581,13 @@
               text: "Submit form",
               href: "/v7/company/submissions/index"
               }) }}
-            </div>
-            
-            <div>
-              <p><a href="/v7/company/submissions/index" class="nhsuk-link nhsuk-link--no-visited-state">Cancel</a><p>
-            </div>
 
+              {{ button({
+                text: "Cancel",
+                variant: "secondary",
+                href: "/v7/company/submissions/index"
+              }) }}
+            </div>
 
 
           <style>
