@@ -63,9 +63,9 @@
       
       <div class="nhsuk-button-group">
         {{ button({
+          id: "delete-reference-price",
           text: "Yes, delete this reference price",
-          classes: "nhsuk-button--warning",
-          href: "/v5/dhsc/product-details?saved=false&deleted=true#ref-price-information"
+          classes: "nhsuk-button--warning"
         }) }}
       
         {{ button({
@@ -73,6 +73,20 @@
           classes: "nhsuk-button--secondary",
           href: "/v5/dhsc/product-details?saved=false&deleted=false#ref-price-information"
         }) }}
+
+      
+      <script>
+      document.getElementById('delete-reference-price').addEventListener('click', function () {
+      
+          sessionStorage.setItem('bannerTab', 'Reference price');
+          sessionStorage.setItem('bannerHeading', 'Reference price information updated');
+          sessionStorage.setItem('lastEditedFieldLabel', 'reference price for [start date] to [end date]');
+          sessionStorage.setItem('bannerAction', 'deleted');
+      
+          window.location.href =
+              '/v5/dhsc/product-details?saved=true&tab=%23ref-price-information';
+      });
+      </script>
       </div>
     </div>
 </div>

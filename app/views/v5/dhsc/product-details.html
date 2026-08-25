@@ -40,7 +40,7 @@
         {% if data['saved'] == 'reference-price-details' %}
 
         {% set html %}
-            <h3 class="nhsuk-notification-banner__heading">
+            <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
             Reference price information updated
             </h3>
             <p>The reference price for [start date] to [end date] has been updated.</p>
@@ -60,10 +60,10 @@
         {% if data['saved'] == 'reference-price' %}
 
         {% set html %}
-            <h3 class="nhsuk-notification-banner__heading">
+            <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
             Reference price information added
             </h3>
-            <p>The new reference price for [start date] to [end date] has been saved.</p>
+            <p>The new reference price for [start date] to [end date] has been added.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -78,12 +78,12 @@
 
         <!-- Reference price deleted notification banner -->
         {% if data['deleted'] == 'true' %}
-
+        
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
             Reference price information deleted
             </h3>
-            <p>The reference price has been deleted.</p>
+            <p>The reference price for [start date] to [end date] has been deleted.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -110,13 +110,13 @@
         <div class="nhsuk-notification-banner nhsuk-notification-banner--success" id="success-banner" style="display:none;" role="region"
             aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
             <div class="nhsuk-notification-banner__header">
-                <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
-                    Loss of exclusivity
+                <h2 class="nhsuk-notification-banner__title" id="banner-tab">
+                    Tab name
                 </h2>
             </div>
             <div class="nhsuk-notification-banner__content">
-                <h3 class="nhsuk-notification-banner__heading">
-                    VTM Market Authorisation (MA) information updated
+                <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
+                    Section updated
                 </h3>
                 <p id="banner-message">
                     Changes saved
@@ -281,7 +281,6 @@
                                 <th scope="col" class="nhsuk-table__header" role="columnheader">Value</th>
                                 <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
                                 <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
-                                <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
                             </tr>
                         </thead>
                         <tbody class="nhsuk-table__body">
@@ -292,10 +291,6 @@
                                 <td class="nhsuk-table__cell">No</td>
                                 <td class="nhsuk-table__cell">Not applicable</td>
                                 <td class="nhsuk-table__cell">Not applicable</td>
-                                <td class="nhsuk-table__cell">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-presentation-attributes?field=low-value-presentation">Edit</a>
-                                </td>
                             </tr>
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Vaccine</td>
@@ -1780,44 +1775,67 @@
 
 
         <script>
-            // Helper function to convert to lowercase, preserving abbreviations
-            function toLowercase(str) {
-                return str
-                    .split(/\s+/)
-                    .map(word => {
-                        if (word === word.toUpperCase() && word.length > 1) {
-                            return word;
-                        }
-                        return word.toLowerCase();
-                    })
-                    .join(' ');
-            }
+
 
     // Capture the original query parameters once (before we replaceState)
-// Capture the original query parameters once (before we replaceState)
-const initialParams = new URLSearchParams(window.location.search);
-const wasSaved = initialParams.get('saved') === 'true';
-const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
-const initialHash = window.location.hash;
+    const initialParams = new URLSearchParams(window.location.search);
+    const wasSaved = initialParams.get('saved') === 'true';
+    const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
+    const initialHash = window.location.hash;
 
-if (wasSaved) {
+    if (wasSaved) {
+
+    document.querySelectorAll('.nhsuk-notification-banner:not(#success-banner)')
+    .forEach(banner => banner.style.display = 'none');
+
     const banner = document.getElementById('success-banner');
     const bannerMessage = document.getElementById('banner-message');
+    const bannerHeading = document.getElementById('banner-heading');
 
-    if (banner) {
-        const fieldLabel = sessionStorage.getItem('lastEditedFieldLabel') || 'field';
-        const lowercaseLabel = toLowercase(fieldLabel);
-        bannerMessage.textContent = `The ${lowercaseLabel} has been updated`;
-        banner.style.display = 'block';
+    if (banner && bannerMessage && bannerHeading) {
+
+        const bannerTab = document.getElementById('banner-tab');
+
+        const tabText =
+            sessionStorage.getItem('bannerTab') || 'Product';
+
+        bannerTab.textContent = tabText;
+
+        const activeTab =
+            tabParam ||
+            sessionStorage.getItem('activeTab');
+
+        const activeTabLink =
+            document.querySelector(`a[href="${activeTab}"]`);
+
+        if (bannerTab && activeTabLink) {
+            bannerTab.textContent = activeTabLink.textContent.trim();
+        }
+
+        const fieldLabel =
+            sessionStorage.getItem('lastEditedFieldLabel') || 'field';
+
+        const headingText =
+            sessionStorage.getItem('bannerHeading') || `${fieldLabel} updated`;
+
+        const action =
+            sessionStorage.getItem('bannerAction') || 'updated';
+            
+        
+        bannerHeading.textContent = headingText;
+        bannerMessage.textContent =
+            `The ${fieldLabel} has been ${action}`;
+                banner.style.display = 'block';
+            }
+
+    } else if (initialHash) {
+        const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
+        if (tabLink) {
+            setTimeout(function () {
+                tabLink.click();
+            }, 200);
+        }
     }
-} else if (initialHash) {
-    const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
-    if (tabLink) {
-        setTimeout(function () {
-            tabLink.click();
-        }, 200);
-    }
-}
 
             // Remove querystring from the URL now that we've captured values
             window.history.replaceState({}, document.title, window.location.pathname);

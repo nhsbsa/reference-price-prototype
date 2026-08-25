@@ -22,31 +22,13 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-        </li>    
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#ref-price-information">Product details</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/comparator-search">Add a new comparator</a>
-        </li>    
-        <!--   <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/query-details">Query details</a>
-    </li>   -->
 
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
-
-</nav>
+{{
+    backLink({
+        href: "/v5/dhsc/comparator-search",
+        text: "Back"
+    })
+}}
 {% endblock %}
 
 <!-- For adding page content -->
@@ -58,6 +40,13 @@
             tablets)</span>
         <h1>Review new comparator</h1>
 
+        <label class="nhsuk-label nhsuk-label--s">
+          Comparator product name
+        </label>
+        <p class="nhsuk-body nhsuk-u-margin-bottom-3" id="comparator-name">
+          Metsulan Extra release tablets
+        </p>
+        <br>
 
         <div class="nhsuk-form-group">
           <label class="nhsuk-label" for="one-third">
@@ -101,13 +90,10 @@
   </fieldset>
 </div>
 
-        <a id="save-compare" href="/v5/dhsc/product-details" class="nhsuk-button">
-                Save changes
-            </a>
+        <button id="save-compare" class="nhsuk-button">
+            Save changes
+        </button>
 
-                 <a href="comparator-info" class="nhsuk-button nhsuk-button--secondary">
-              Cancel
-            </a>
         <!-- End of content -->
 
     </div>
@@ -122,7 +108,14 @@
     saveBtn.addEventListener('click', function (e) {
         e.preventDefault();
         // label used by product-details to render the success banner
-        sessionStorage.setItem('lastEditedFieldLabel', 'Comparator information');
+
+        sessionStorage.setItem(
+          'lastEditedFieldLabel',
+          'new comparator Metsulan Extra release tablets'
+        );
+
+        sessionStorage.setItem('bannerHeading', 'Comparator products used updated');
+        sessionStorage.setItem('bannerAction', 'added');
 
         // prefer any stored activeTab, otherwise default to product-information
         const activeTab = sessionStorage.getItem('activeTab') || '#product-information';

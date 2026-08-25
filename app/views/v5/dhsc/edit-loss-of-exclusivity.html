@@ -194,7 +194,44 @@
         const field = fields[fieldKey] || fields["date-categorised-as-older-medicine"];
 
         sessionStorage.setItem('lastEditedField', fieldKey);
-        sessionStorage.setItem('lastEditedFieldLabel', field.label);
+        sessionStorage.setItem('lastEditedFieldLabel', toLowercase(field.label));
+        sessionStorage.setItem('bannerAction', 'updated');
+        sessionStorage.setItem('bannerTab', 'Loss of exclusivity');
+
+        const maFields = [
+            'market-authorisation-number',
+            'ma-product-name',
+            'mhra-market-authorisation-holder',
+            'cdr-market-authorisation-holder',
+            'market-authorisation-date'
+        ];
+
+        const spcFields = [
+            'spc-expiry-date',
+            'spc-number',
+            'spc-number-alternative',
+            'spc-product-description',
+            'cdr-spc-holder',
+            'ipo-spc-holder'
+        ];
+
+        let bannerHeading = 'Loss of exclusivity information updated';
+
+        if (maFields.includes(fieldKey)) {
+            bannerHeading = 'VTM Market Authorisation (MA) information updated';
+        } else if (spcFields.includes(fieldKey)) {
+            bannerHeading = 'VTM Supplementary Protection Certificate (SPC) information updated';
+        } else if (fieldKey === 'reference-anchor-date') {
+            bannerHeading = 'Reference anchor date updated';
+        } else if (
+            fieldKey === 'medicine-classification' ||
+            fieldKey === 'date-categorised-as-older-medicine' ||
+            fieldKey === 'originator-status'
+        ) {
+            bannerHeading = 'Older/newer presentation updated';
+        }
+
+        sessionStorage.setItem('bannerHeading', bannerHeading);
 
         const heading = document.getElementById("field-heading");
         const lowercaseLabel = toLowercase(field.label);

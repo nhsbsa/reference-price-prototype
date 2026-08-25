@@ -3,35 +3,24 @@
 {% set pageName = "Edit Comparator" %}
 
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#ref-price-information">Product details</a>
-    </li>
-  </ol>
-</nav>
+
 {% endblock %}
 
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-<span class="nhsuk-caption-l" id="comparator-name">Edit comparator</span>
-    <h1 >Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+<span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+    <h1>Edit comparator details</h1>
 
     <form method="POST" action="/v5/dhsc/edit-product/comparator-details" id="edit-comparator-form">
       
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="comparator-product-name">
-          Comparator product name
-        </label>
-        <input class="nhsuk-input" id="comparator-product-name" name="comparatorProductName" type="text" disabled>
-      </div>
+
+      <label class="nhsuk-label nhsuk-label--s">
+        Comparator product name
+      </label>
+      <p class="nhsuk-body nhsuk-u-margin-bottom-3" id="comparator-product-display">
+      </p>
+      <br>
 
       <div class="nhsuk-form-group">
         <label class="nhsuk-label" for="year-of-price">
@@ -73,6 +62,7 @@
           </div>
         </fieldset>
       </div>
+
       <button type="button" id="save-compare" class="nhsuk-button">
         Save changes
       </button>
@@ -107,12 +97,11 @@
         const data = comparatorData[comparatorId];
         
         // Populate form fields
-        document.getElementById('comparator-product-name').value = data.name;
         document.getElementById('year-of-price').value = data.year;
         document.getElementById('comparator-price').value = data.price;
         document.getElementById(`flat-price-${data.flatPrice}`).checked = true;
-        document.getElementById('comparator-name').textContent = `Edit comparator: ${data.name}`;
         document.getElementById('comparator-id-input').value = comparatorId;
+        document.getElementById('comparator-product-display').textContent = data.name;
       }
 
        (function () {
@@ -122,7 +111,17 @@
         saveBtn.addEventListener('click', function (e) {
           e.preventDefault();
           // label used by product-details to render the success banner
-          sessionStorage.setItem('lastEditedFieldLabel', 'Comparator information');
+          const comparatorName =
+
+          document.getElementById('comparator-product-display').textContent;
+          
+          sessionStorage.setItem(
+            'lastEditedFieldLabel',
+            `comparator ${comparatorName}`
+          );
+
+          sessionStorage.setItem('bannerHeading', 'Comparator products used updated');
+          sessionStorage.setItem('bannerAction', 'updated');
 
           // prefer any stored activeTab, otherwise default to ref-price-information
           const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';
