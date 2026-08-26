@@ -48,14 +48,14 @@
   <label class="nhsuk-label" for="two-thirds">
    Originator brand name
   </label>
-  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Abagna LTD">
+  <input class="nhsuk-input nhsuk-u-width-two-thirds" id="originator-brand-name" name="twoThirds" type="text" value="Abagna LTD">
 </div>
 
 <div class="nhsuk-form-group">
   <label class="nhsuk-label" for="sort-by">
     Originator status
   </label>
-  <select class="nhsuk-select" id="sort-by" name="sortBy">
+  <select class="nhsuk-select" id="originator-status" name="sortBy">
  
      <option value="recently-published" selected>Originator</option>
     <option value="recently-updated">Newer entrant</option>
@@ -66,7 +66,7 @@
 
 
     <label class="nhsuk-label nhsuk-date-input__label">Date presentation becomes an older medicine</label>
-<div class="nhsuk-date-input" id="appointment-date">
+    <div class="nhsuk-date-input" id="appointment-date">
 
       <div class="nhsuk-date-input__item">
         <div class="nhsuk-form-group">
@@ -74,7 +74,7 @@
           <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-day">
             Day
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="appointment-date-day" name="appointmentDate[day]" type="text" inputmode="numeric">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="older-medicine-day" name="appointmentDate[day]" type="text" inputmode="numeric">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -82,7 +82,7 @@
           <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-month">
             Month
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="appointment-date-month" name="appointmentDate[month]" type="text" inputmode="numeric">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="older-medicine-month" name="appointmentDate[month]" type="text" inputmode="numeric">
         </div>
       </div>
       <div class="nhsuk-date-input__item">
@@ -90,16 +90,15 @@
           <label class="nhsuk-label nhsuk-date-input__label" for="appointment-date-year">
             Year
           </label>
-          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="appointment-date-year" name="appointmentDate[year]" type="text" inputmode="numeric">
+          <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="older-medicine-year" name="appointmentDate[year]" type="text" inputmode="numeric">
         </div>
       </div>
     </div>
 
     <div class="nhsuk-button-group">
-      {{ button({
-        text: "Save",
-        href: "/v5/dhsc/provisional/single?saved=originator-details#originator-details"
-      }) }}
+      <button id="save-originator-details" class="nhsuk-button">
+        Save
+      </button>
     
       {{ button({
         text: "Cancel",
@@ -107,6 +106,53 @@
         href: "/v5/dhsc/provisional/single?saved=false#originator-details"
       }) }}
     </div>
+
+    <script>
+      document.getElementById('save-originator-details').addEventListener('click', function () {
+      
+          const changedFields = [];
+      
+          const brandName =
+              document.getElementById('originator-brand-name').value;
+      
+          const originatorStatus =
+              document.getElementById('originator-status').value;
+      
+          const day =
+              document.getElementById('older-medicine-day').value;
+      
+          const month =
+              document.getElementById('older-medicine-month').value;
+      
+          const year =
+              document.getElementById('older-medicine-year').value;
+      
+          if (brandName !== 'Abagna LTD') {
+              changedFields.push('originator brand name');
+          }
+      
+          if (originatorStatus !== 'recently-published') {
+              changedFields.push('originator status');
+          }
+      
+          if (day || month || year) {
+              changedFields.push('date presentation becomes an older medicine');
+          }
+      
+          const fieldLabel = changedFields.length
+              ? changedFields.join(' and ')
+              : '[input field label(s)]';
+      
+          const verb =
+              changedFields.length > 1 ? 'have' : 'has';
+      
+          sessionStorage.setItem('lastEditedFieldLabel', fieldLabel);
+          sessionStorage.setItem('bannerVerb', verb);
+      
+          window.location.href =
+          '/v5/dhsc/provisional/single?saved=true&section=originator-details#originator-details';
+      });
+      </script>
 
         <!-- End of content -->
 

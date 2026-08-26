@@ -36,21 +36,21 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-    
       {% if data['deleted'] == 'true' %}
 
       {% set html %}
           <h3 class="nhsuk-notification-banner__heading">
-          Provisional product deleted
+            Medication q 200mg tablets (2 x 24 tablets)
           </h3>
-          <p>Medication q 200mg tablets (2 x 24 tablets) has been deleted.</p>
+          <p>The provisional product has been deleted.</p>
 
           <a class="nhsuk-notification-banner__link js-close-banner" href="cancel">Close</a>
       {% endset %}
 
       {{ notificationBanner({
           html: html,
-          type: "success"
+          type: "success",
+          titleText: "Provisional product"
       }) }}
 
   {% endif %}

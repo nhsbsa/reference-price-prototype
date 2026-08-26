@@ -4,7 +4,7 @@
 {% block beforeContent %}
 
 {{ backLink({
-  href: '/v5/dhsc/product-details#exclusivity-information',
+  id: "back-link",
   text: 'Back'
 }) }}
 
@@ -33,7 +33,7 @@
             <!-- <div class="nhsuk-hint">Click Search to show matching companies</div> -->
             <div class="nhsuk-button-group nhsuk-u-margin-top-3">
                 <button id="search-btn" class="nhsuk-button" type="button">Search</button>
-                <button id="clear-btn" class="nhsuk-button nhsuk-button--secondary" type="button">Reset</button>
+                <button id="reset-btn" class="nhsuk-button nhsuk-button--secondary" type="button">Reset</button>
             </div>
         </div>
 
@@ -245,7 +245,7 @@
           {{ button({
             text: "Add company name",
             classes: "nhsuk-button--secondary",
-            href: "/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&manualCompany=true"          
+            href: "/v5/dhsc/cdr-company-confirm?manualCompany=true"
           }) }}
         
         </div>
@@ -309,7 +309,7 @@
             calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
         },
         "cdr-spc-holder": {
-            label: "Supplementary Protection Certificate (SPC) holder",
+            label: "(CDR) Supplementary Protection Certificate (SPC) holder",
             currentValue: "Morningside Healthcare Ltd",
             calloutHeading: "Changing the (CDR) SPC holder",
             calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
@@ -318,6 +318,20 @@
 
     const params = new URLSearchParams(window.location.search);
     const fieldKey = params.get('field') || 'cdr-market-authorisation-holder';
+
+    const addCompanyBtn = document.getElementById('add-company-btn');
+
+  if (addCompanyBtn) {
+      addCompanyBtn.href =
+          `/v5/dhsc/cdr-company-confirm?field=${encodeURIComponent(fieldKey)}&manualCompany=true`;
+  }
+
+    document.querySelectorAll('a[href*="/v5/dhsc/cdr-company-confirm"]').forEach(link => {
+      const url = new URL(link.href, window.location.origin);
+      url.searchParams.set('field', fieldKey);
+      link.href = url.toString();
+  });
+
     const metadata = fieldMetadata[fieldKey] || fieldMetadata['cdr-market-authorisation-holder'];
 
     // Display field info and callout

@@ -180,10 +180,10 @@
                 calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
             },
             "ipo-spc-holder": {
-                label: "Supplementary Protection Certificate (SPC) holder",
+                label: "(IPO) Supplementary Protection Certificate (SPC) holder",
                 type: "text",
                 value: "Morningside Healthcare Ltd",
-                labelPrefix: "the (IPO)",
+                labelPrefix: "the",
                 calloutHeading: "Changing the (IPO) SPC holder",
                 calloutContent: "Changing the (IPO) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
             }
@@ -215,20 +215,20 @@
             'ipo-spc-holder'
         ];
 
-        let bannerHeading = 'Loss of exclusivity information updated';
+        let bannerHeading = 'Loss of exclusivity information';
 
         if (maFields.includes(fieldKey)) {
-            bannerHeading = 'VTM Market Authorisation (MA) information updated';
+            bannerHeading = 'VTM Market Authorisation (MA) information';
         } else if (spcFields.includes(fieldKey)) {
-            bannerHeading = 'VTM Supplementary Protection Certificate (SPC) information updated';
+            bannerHeading = 'VTM Supplementary Protection Certificate (SPC) information';
         } else if (fieldKey === 'reference-anchor-date') {
-            bannerHeading = 'Reference anchor date updated';
+            bannerHeading = 'Reference anchor date';
         } else if (
             fieldKey === 'medicine-classification' ||
             fieldKey === 'date-categorised-as-older-medicine' ||
             fieldKey === 'originator-status'
         ) {
-            bannerHeading = 'Older/newer presentation updated';
+            bannerHeading = 'Older/newer presentation';
         }
 
         sessionStorage.setItem('bannerHeading', bannerHeading);

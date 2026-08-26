@@ -3,10 +3,6 @@
 
 {% block beforeContent %}
 
-{{ backLink({
-  href: '/v5/dhsc/cdr-company-edit?field=cdr-market-authorisation-holder',
-  text: 'Back'
-}) }}
 
 {% endblock %}
 
@@ -34,7 +30,7 @@
             calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
         },
         "cdr-spc-holder": {
-            label: "Supplementary Protection Certificate (SPC) holder",
+            label: "(CDR) Supplementary Protection Certificate (SPC) holder",
             calloutHeading: "Changing the (CDR) SPC holder",
             calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
         }
@@ -109,7 +105,7 @@ const confirmationHtml = manualCompany ? `
 
     // Cancel button handler - go back to search
     document.getElementById('cancel-btn').addEventListener('click', function () {
-        window.location.href = '/v5/dhsc/product-details#exclusivity-information';
+        window.location.href = 'javascript:history.go(-1)';
     });
 }());
 </script>

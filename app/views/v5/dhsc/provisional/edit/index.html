@@ -75,23 +75,22 @@
         <label class="nhsuk-label" for="two-thirds">
           Product name
         </label>
-        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Medication q 200mg (2 x 24 tablets)">
+        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="product-name" name="twoThirds" type="text" value="Medication q 200mg (2 x 24 tablets)">
       </div>
 
       <div class="nhsuk-form-group">
         <label class="nhsuk-label" for="two-thirds">
       Active substance(s)
         </label>
-        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="two-thirds" name="twoThirds" type="text" value="Metsulin">
+        <input class="nhsuk-input nhsuk-u-width-two-thirds" id="active-substance" name="twoThirds" type="text" value="Metsulin">
       </div>
 
 
 
         <div class="nhsuk-button-group">
-          {{ button({
-            text: "Save",
-            href: "/v5/dhsc/provisional/single?saved=product-details"
-          }) }}
+          <button id="save-product-details" class="nhsuk-button">
+            Save
+          </button>
         
           {{ button({
             text: "Cancel",
@@ -99,6 +98,50 @@
             href: "/v5/dhsc/provisional/single?saved=false#product-details"
           }) }}
         </div>
+        
+        <script>
+          document.getElementById('save-product-details').addEventListener('click', function () {
+
+          const changedFields = [];
+
+          const productName =
+              document.getElementById('product-name').value;
+
+          const activeSubstance =
+              document.getElementById('active-substance').value;
+
+          if (productName !== 'Medication q 200mg (2 x 24 tablets)') {
+              changedFields.push('product name');
+          }
+
+          if (activeSubstance !== 'Metsulin') {
+              changedFields.push('active substance(s)');
+          }
+
+          const fieldsToDisplay = changedFields.length
+          ? changedFields
+          : ['[input field label(s)]'];
+
+          sessionStorage.setItem(
+              'lastEditedFieldLabel',
+              fieldsToDisplay.length === 1
+                  ? fieldsToDisplay[0]
+                  : fieldsToDisplay.slice(0, -1).join(', ') +
+                    ' and ' +
+                    fieldsToDisplay.slice(-1)
+          );
+
+          const noChanges = changedFields.length === 0;
+
+          sessionStorage.setItem(
+              'bannerVerb',
+              (changedFields.length > 1 || noChanges) ? 'have' : 'has'
+          );
+
+          window.location.href =
+          '/v5/dhsc/provisional/single?saved=true&section=product-details#product-details';
+          });
+          </script>
 
         <!-- End of content -->
 

@@ -38,13 +38,15 @@
     <div class="nhsuk-grid-column-full">
 
         <!-- Product details notification banner -->
-        {% if data['saved'] == 'product-details' %}
+        <div id="product-details-banner" style="display: none;">
 
         {% set html %}
           <h3 class="nhsuk-notification-banner__heading">
-            Product details updated
+            Product details
           </h3>
-          <p>The company name has been saved.</p>
+          <p id="product-details-message">
+            Changes saved.
+          </p>
           <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
           </a>
         {% endset %}
@@ -52,60 +54,121 @@
         {{ notificationBanner({
           html: html,
           type: "success",
-          titleText: "Product details"
+          titleText: "Provisional product"
         }) }}
       
-      {% endif %}
+        </div>
 
       <!-- Origiinator details notification banner -->
-      {% if data['saved'] == 'originator-details' %}
+      <div id="originator-details-banner" style="display:none;">
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Originator details updated
+            Originator details
             </h3>
-            <p>The date presentation becomes an older medicine has been saved.</p>
+            <p id="originator-details-message" style="max-width: 60em;">
+                Changes saved.
+              </p>
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
             type: "success",
-            titleText: "Originator details"
+            titleText: "Provisional product"
         }) }}
 
-        {% endif %}
+        </div>
 
         <!-- Reference price details notification banner -->
-        {% if data['saved'] == 'reference-price-details' %}
+        <div id="reference-price-details-banner" style="display:none;">
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-                Reference price details updated
+                Reference price details
             </h3>
-            <p>The reference anchor date has been saved.</p>
-
+            <p id="reference-price-details-message">
+                Changes saved.
+            </p>
+            
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
 
         {{ notificationBanner({
             html: html,
             type: "success",
-            titleText: "Reference price details"
+            titleText: "Provisional product"
         }) }}
 
-        {% endif %}
+        </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          document.querySelectorAll('.js-close-banner').forEach(link => {
-            link.addEventListener('click', function (e) {
-              e.preventDefault();
-              this.closest('.nhsuk-notification-banner').style.display = 'none';
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            
+                const params = new URLSearchParams(window.location.search);
+            
+                const wasSaved =
+                    params.get('saved') === 'true';
+            
+                const section =
+                    params.get('section');
+            
+                    if (wasSaved) {
+
+                    let message;
+
+                    if (section === 'product-details') {
+
+                    document.getElementById('product-details-banner').style.display = 'block';
+
+                    message =
+                        document.getElementById('product-details-message');
+
+                    } else if (section === 'originator-details') {
+
+                    document.getElementById('originator-details-banner').style.display = 'block';
+
+                    message =
+                        document.getElementById('originator-details-message');
+
+                    } else if (section === 'reference-price-details') {
+
+                    document.getElementById('reference-price-details-banner').style.display = 'block';
+
+                    message =
+                        document.getElementById('reference-price-details-message');
+                    }
+
+                    const fieldLabel =
+                        sessionStorage.getItem('lastEditedFieldLabel');
+
+                    const verb =
+                        sessionStorage.getItem('bannerVerb') || 'has';
+
+                    if (fieldLabel && message) {
+                        message.textContent =
+                            `The ${fieldLabel} ${verb} been updated.`;
+                    }
+
+                    sessionStorage.removeItem('lastEditedFieldLabel');
+                    sessionStorage.removeItem('bannerVerb');
+            
+                    window.history.replaceState(
+                        {},
+                        '',
+                        '/v5/dhsc/provisional/single'
+                    );
+                }
+            
+                document.querySelectorAll('.js-close-banner').forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        this.closest('.nhsuk-notification-banner').style.display = 'none';
+                    });
+                });
+            
             });
-          });
-        });
-      </script>
+            </script>
 
         <h1 class="nhsuk-heading-xl" id="pageHeading">
             <span class="nhsuk-caption-l">Provisional product</span>

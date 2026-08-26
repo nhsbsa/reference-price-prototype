@@ -56,7 +56,7 @@
               <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-day">
                 Day
               </label>
-              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-day"
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="reference-anchor-day"
                 name="dateOfBirth[day]" type="text" inputmode="numeric" value="01">
             </div>
           </div>
@@ -65,7 +65,7 @@
               <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-month">
                 Month
               </label>
-              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="date-of-birth-month"
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="reference-anchor-month"
                 name="dateOfBirth[month]" type="text" inputmode="numeric" value="01">
             </div>
           </div>
@@ -74,7 +74,7 @@
               <label class="nhsuk-label nhsuk-date-input__label" for="date-of-birth-year">
                 Year
               </label>
-              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="date-of-birth-year"
+              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="reference-anchor-year"
                 name="dateOfBirth[year]" type="text" inputmode="numeric" value="2025">
             </div>
           </div>
@@ -92,8 +92,7 @@
     label: {
     text: "Reference price"
     },
-    id: "cost-pounds",
-    name: "costPounds",
+    id: "reference-price",
     prefix: "£",
     classes: "nhsuk-input--width-5",
     value: 7.32,
@@ -101,10 +100,9 @@
     }) }}
     
     <div class="nhsuk-button-group">
-      {{ button({
-        text: "Save",
-        href: "/v5/dhsc/provisional/single?saved=reference-price-details#ref-price-details"
-      }) }}
+      <button id="save-reference-price-details" class="nhsuk-button">
+        Save
+      </button>
     
       {{ button({
         text: "Cancel",
@@ -113,6 +111,50 @@
       }) }}
     </div>
 
+
+    <script>
+      document.getElementById('save-reference-price-details').addEventListener('click', function () {
+      
+          const changedFields = [];
+      
+          const referencePrice =
+              document.getElementById('reference-price').value;
+      
+          const day =
+              document.getElementById('reference-anchor-day').value;
+      
+          const month =
+              document.getElementById('reference-anchor-month').value;
+      
+          const year =
+              document.getElementById('reference-anchor-year').value;
+      
+          if (referencePrice !== '7.32') {
+              changedFields.push('reference price');
+          }
+      
+          if (
+              day !== '01' ||
+              month !== '01' ||
+              year !== '2025'
+          ) {
+              changedFields.push('reference anchor date');
+          }
+      
+          const fieldLabel = changedFields.length
+              ? changedFields.join(' and ')
+              : '[input field label(s)]';
+      
+          const verb =
+              changedFields.length > 1 ? 'have' : 'has';
+      
+          sessionStorage.setItem('lastEditedFieldLabel', fieldLabel);
+          sessionStorage.setItem('bannerVerb', verb);
+      
+          window.location.href =
+          '/v5/dhsc/provisional/single?saved=true&section=reference-price-details#ref-price-details';
+      });
+      </script>
 
     <!-- End of content -->
 

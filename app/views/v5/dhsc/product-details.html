@@ -41,7 +41,7 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
-            Reference price information updated
+            Reference price information
             </h3>
             <p>The reference price for [start date] to [end date] has been updated.</p>
 
@@ -61,7 +61,7 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
-            Reference price information added
+            Reference price information
             </h3>
             <p>The new reference price for [start date] to [end date] has been added.</p>
 
@@ -81,7 +81,7 @@
         
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Reference price information deleted
+            Reference price information
             </h3>
             <p>The reference price for [start date] to [end date] has been deleted.</p>
 
@@ -116,7 +116,7 @@
             </div>
             <div class="nhsuk-notification-banner__content">
                 <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
-                    Section updated
+                    Section name
                 </h3>
                 <p id="banner-message">
                     Changes saved
@@ -1816,7 +1816,7 @@
             sessionStorage.getItem('lastEditedFieldLabel') || 'field';
 
         const headingText =
-            sessionStorage.getItem('bannerHeading') || `${fieldLabel} updated`;
+            sessionStorage.getItem('bannerHeading') || `${fieldLabel}`;
 
         const action =
             sessionStorage.getItem('bannerAction') || 'updated';
