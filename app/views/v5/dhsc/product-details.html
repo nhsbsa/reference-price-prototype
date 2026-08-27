@@ -43,7 +43,7 @@
             <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
             Reference price information
             </h3>
-            <p>The reference price for [start date] to [end date] has been updated.</p>
+            <p>The reference price for 15 October 2025 to 14 October 2028 has been updated.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -63,7 +63,7 @@
             <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
             Reference price information
             </h3>
-            <p>The new reference price for [start date] to [end date] has been added.</p>
+            <p>The new reference price for 15 October 2025 to 14 October 2028 has been added.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -83,7 +83,7 @@
             <h3 class="nhsuk-notification-banner__heading">
             Reference price information
             </h3>
-            <p>The reference price for [start date] to [end date] has been deleted.</p>
+            <p>The reference price for 15 October 2025 to 14 October 2028 has been deleted.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -1291,7 +1291,12 @@
                                     href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a>
                             </li> -->
                             <li class="nhsuk-card__action">
-                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/comparator-search">Add a new comparator</a>
+                                <a class="nhsuk-link--no-visited-state nhsuk-link"                                         href="/v5/dhsc/comparator-search"
+                                onclick="
+                                sessionStorage.setItem(
+                                    'referencePricePeriod',
+                                    '15 October 2025 to 14 October 2028'
+                                )">Add a new comparator</a>
                             </li>
 
                         </ul>
@@ -1546,9 +1551,14 @@
                                 </li>
                                 <li class="nhsuk-card__action">
                                     <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/comparator-search">Add
-                                        a
-                                        new comparator</a>
+                                        href="/v5/dhsc/comparator-search"
+                                        onclick="
+                                        sessionStorage.setItem(
+                                            'referencePricePeriod',
+                                            '6 August 2022 to 1 October 2024'
+                                        )"
+                                        >Add a new comparator</a>
+                                        
                                 </li>
 
                             </ul>
@@ -1812,21 +1822,45 @@
             bannerTab.textContent = activeTabLink.textContent.trim();
         }
 
-        const fieldLabel =
-            sessionStorage.getItem('lastEditedFieldLabel') || 'field';
+        const comparatorName =
+            sessionStorage.getItem('comparatorName');
 
-        const headingText =
-            sessionStorage.getItem('bannerHeading') || `${fieldLabel}`;
+        const referencePricePeriod =
+            sessionStorage.getItem('referencePricePeriod');
 
         const action =
-            sessionStorage.getItem('bannerAction') || 'updated';
-            
-        
-        bannerHeading.textContent = headingText;
-        bannerMessage.textContent =
-            `The ${fieldLabel} has been ${action}`;
-                banner.style.display = 'block';
-            }
+            sessionStorage.getItem('bannerAction');
+
+        if (
+            comparatorName &&
+            referencePricePeriod &&
+            ['added', 'updated', 'deleted'].includes(action)
+        ) {
+
+            bannerHeading.textContent =
+                'Comparator products used';
+
+            bannerMessage.textContent =
+                `The comparator ${comparatorName} in reference price for ${referencePricePeriod} has been ${action}`;
+
+            sessionStorage.removeItem('comparatorName');
+            sessionStorage.removeItem('referencePricePeriod');
+            sessionStorage.removeItem('bannerAction');
+
+        } else {
+            const fieldLabel =
+                sessionStorage.getItem('lastEditedFieldLabel') || 'field';
+
+            bannerHeading.textContent =
+                sessionStorage.getItem('bannerHeading') || fieldLabel;
+
+            bannerMessage.textContent =
+                `The ${fieldLabel} has been ${action}`;
+        }
+
+        banner.style.display = 'block';
+
+        }
 
     } else if (initialHash) {
         const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');

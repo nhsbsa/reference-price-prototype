@@ -3,19 +3,7 @@
 {% set pageName = "Confirm you want to remove comparator" %}
 
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <ol class="nhsuk-breadcrumb__list">
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-    </li>
-    <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#ref-price-information">Product details</a>
-    </li>
-  </ol>
-</nav>
+
 {% endblock %}
 
 {% block content %}
@@ -84,7 +72,7 @@
       }
 
       // Set cancel link to go back to edit page
-      document.getElementById('cancel-link').href = `/v5/dhsc/edit-product/comparator-details?id=${comparatorId}`;
+      document.getElementById('cancel-link').href = `javascript:history.go(-1)`;
 
       (function () {
         const saveBtn = document.getElementById('save-compare');
@@ -92,12 +80,30 @@
 
         saveBtn.addEventListener('click', function (e) {
           e.preventDefault();
-          // label used by product-details to render the success banner
-          sessionStorage.setItem('lastEditedFieldLabel', 'Comparator information');
 
-          // prefer any stored activeTab, otherwise default to ref-price-information
-          const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';
-          window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(activeTab);
+          const comparatorName = comparatorData[comparatorId].name;
+
+          sessionStorage.setItem(
+              'comparatorName',
+              comparatorName
+          );
+
+          sessionStorage.setItem(
+              'referencePricePeriod',
+              '15 October 2025 to 14 October 2028'
+          );
+
+          sessionStorage.setItem(
+              'bannerAction',
+              'deleted'
+          );
+
+          const activeTab =
+            sessionStorage.getItem('activeTab') || '#ref-price-information';
+
+          window.location.href =
+            '/v5/dhsc/product-details?saved=true&tab=' +
+            encodeURIComponent(activeTab);
         });
       }());
     </script>

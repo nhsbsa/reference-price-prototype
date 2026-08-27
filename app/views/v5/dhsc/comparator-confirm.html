@@ -106,21 +106,29 @@
     if (!saveBtn) return;
 
     saveBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        // label used by product-details to render the success banner
+    e.preventDefault();
 
-        sessionStorage.setItem(
-          'lastEditedFieldLabel',
-          'new comparator Metsulan Extra release tablets'
-        );
+    const comparatorName =
+        document.getElementById('comparator-name').textContent.trim();
 
-        sessionStorage.setItem('bannerHeading', 'Comparator products used');
-        sessionStorage.setItem('bannerAction', 'added');
+    sessionStorage.setItem(
+        'comparatorName',
+        comparatorName
+    );
 
-        // prefer any stored activeTab, otherwise default to product-information
-        const activeTab = sessionStorage.getItem('activeTab') || '#product-information';
-        window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(activeTab);
-    });
+    sessionStorage.setItem(
+        'bannerAction',
+        'added'
+    );
+
+    const activeTab =
+        sessionStorage.getItem('activeTab') ||
+        '#ref-price-information';
+
+    window.location.href =
+        '/v5/dhsc/product-details?saved=true&tab=' +
+        encodeURIComponent(activeTab);
+});
 }());
 </script>
 {% endblock %}

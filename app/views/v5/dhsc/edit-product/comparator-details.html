@@ -110,18 +110,25 @@
 
         saveBtn.addEventListener('click', function (e) {
           e.preventDefault();
+         
           // label used by product-details to render the success banner
           const comparatorName =
+            document.getElementById('comparator-product-display').textContent;
 
-          document.getElementById('comparator-product-display').textContent;
-          
           sessionStorage.setItem(
-            'lastEditedFieldLabel',
-            `comparator ${comparatorName}`
+            'comparatorName',
+            comparatorName
           );
 
-          sessionStorage.setItem('bannerHeading', 'Comparator products used updated');
-          sessionStorage.setItem('bannerAction', 'updated');
+          sessionStorage.setItem(
+            'referencePricePeriod',
+            '15 October 2025 to 14 October 2028'
+          );
+
+          sessionStorage.setItem(
+            'bannerAction',
+            'updated'
+          );
 
           // prefer any stored activeTab, otherwise default to ref-price-information
           const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';

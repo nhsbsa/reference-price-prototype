@@ -22,28 +22,7 @@
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-    <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc">Dashboard</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/search">Search for a product</a>
-        </li>
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/product-details#ref-price-information">Product details</a>
-        </li>   
-        <li class="nhsuk-breadcrumb__list-item">
-            <a class="nhsuk-breadcrumb__link" href="/v5/dhsc/comparator-info">Edit and remove comparators</a>
-        </li>     
 
-    </ol>
-    <!-- 
-  <a class="nhsuk-back-link" href="#">
-    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
-  </a> -->
-
-</nav>
 {% endblock %}
 
 <!-- For adding page content -->
@@ -206,12 +185,28 @@
 
     saveBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        // label used by product-details to render the success banner
-        sessionStorage.setItem('lastEditedFieldLabel', 'Comparator information');
 
-        // prefer any stored activeTab, otherwise default to product-information
-        const activeTab = sessionStorage.getItem('activeTab') || '#product-information';
-        window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(activeTab);
+        sessionStorage.setItem(
+            'comparatorName',
+            'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets'
+        );
+
+        sessionStorage.setItem(
+            'referencePricePeriod',
+            '6 August 2022 to 1 October 2024'
+        );
+
+        sessionStorage.setItem(
+            'bannerAction',
+            'updated'
+        );
+
+        const activeTab =
+            sessionStorage.getItem('activeTab') || '#ref-price-information';
+
+        window.location.href =
+            '/v5/dhsc/product-details?saved=true&tab=' +
+            encodeURIComponent(activeTab);
     });
 }());
 </script>
