@@ -42,13 +42,13 @@
         
               <ul class="nhsuk-list app-side-nav__list">
                 <li class="app-side-nav__item">
-                  <a class="app-side-nav__link" href="/v7/company/products/index">
+                  <a class="app-side-nav__link">
                     Product portfolio
                   </a>
                 </li>
         
                 <li class="app-side-nav__item">
-                  <a class="app-side-nav__link" href="/v7/company/products/updates">
+                  <a class="app-side-nav__link">
                     Product updates
                   </a>
                 </li>
@@ -83,7 +83,8 @@
                 text: "Enter a VTM"
               },
               id: 'inputField1',
-              name: 'inputField1'
+              name: 'inputField1',
+              value: "Augmentin"
             }) }}
             <div class="nhsuk-button-group">
               {{ button({
@@ -107,111 +108,9 @@
 
         <div id="resultsSection" style="display: none;">
 
+          <h2 class="nhsuk-heading-m">No VTM found matching "Augmentin"</h2>
+          <p>Check the spelling and try searching again.</p>
 
-            <span class="nhsuk-caption-l">Virtual Therapeutic Moiety (VTM)</span>
-            <h2 class="nhsuk-heading-l">Metformin</h2>
-            
-            <div class="nhsuk-tabs" data-module="nhsuk-tabs">
-              <h3 class="nhsuk-tabs__title">
-                Contents
-              </h3>
-              <ul class="nhsuk-tabs__list">
-                <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
-                  <a class="nhsuk-tabs__tab" href="#originator-presentations">
-                    Originator presentation(s)
-                  </a>
-                </li>
-                <li class="nhsuk-tabs__list-item">
-                  <a class="nhsuk-tabs__tab" href="#reference-anchor-date">
-                    Reference anchor date(s) (RADs)
-                  </a>
-                </li>
-        
-              </ul>
-              <div class="nhsuk-tabs__panel" id="originator-presentations">
-                <h3 class="nhsuk-heading-s">Originator presentation(s)</h3>
-        
-                <ul>
-                  <li>Glucophage 500mg tablets</li>
-                  <li>Glucophage SR 500mg tablets</li>
-                  <li>Glucophage SR 1000mg tablets</li>
-                  <li>Glucophage SR 500mg prolonged-release tablets</li>
-                  <li>Glucophage SR 1000mg prolonged-release tablets</li>
-                </ul>
-              </div>
-              <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="reference-anchor-date">
-
-                <table class="nhsuk-table">
-                  <caption class="nhsuk-table__caption">
-                  Reference anchor date(s) (RADs)
-                  </caption>
-                  <thead class="nhsuk-table__head">
-                  <tr class="nhsuk-table__row">
-                    <th class="nhsuk-table__header" scope="col">
-                    AMPP
-                    </th>
-                    <th class="nhsuk-table__header" scope="col">
-                    Reference anchor date
-                    </th>
-                  </tr>
-                  </thead>
-                  <tbody class="nhsuk-table__body">
-                  <tr class="nhsuk-table__row">
-                    <td class="nhsuk-table__cell">
-                    Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
-                    </td>
-                    <td class="nhsuk-table__cell">
-                    1 January 2024
-                    </td>
-                  </tr>
-                  <tr class="nhsuk-table__row">
-                    <td class="nhsuk-table__cell">
-                    Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)
-                    </td>
-                    <td class="nhsuk-table__cell">
-                    1 January 2024
-                    </td>
-                  </tr>
-                  <tr class="nhsuk-table__row">
-                    <td class="nhsuk-table__cell">
-                    Metformin 500mg prolonged-release tablets (56 tablets - 4 x 14 tablets)
-                    </td>
-                    <td class="nhsuk-table__cell">
-                    Unknown
-                    </td>
-                  </tr>
-                  <tr class="nhsuk-table__row">
-                    <td class="nhsuk-table__cell">
-                    Metformin 500mg prolonged-release tablets (28 tablets - 2 x 14 tablets)
-                    </td>
-                    <td class="nhsuk-table__cell">
-                    15 June 2022
-                    </td>
-                  </tr>
-                  <tr class="nhsuk-table__row">
-                    <td class="nhsuk-table__cell">
-                    Metformin 850mg tablets (56 tablets - 4 x 14 tablets)
-                    </td>
-                    <td class="nhsuk-table__cell">
-                    1 January 2020
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-                
-        
-              </div>
-        
-            </div>
-
-
-          {% call details({
-            summaryText: "Why are some details unavailable?"
-          }) %}
-            <p>Some VTMs do not have an identifiable originator presentation.</p>
-            <p>Where an originator presentation cannot be identified, reference pricing methodology is applied using the best available information.</p>
-            <p>An unknown originator does not necessarily indicate an error.</p>
-          {% endcall %}
         </div>
 
         <script>
