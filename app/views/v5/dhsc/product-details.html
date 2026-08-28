@@ -1202,7 +1202,7 @@
                                 text: "Reference price type"
                             },
                             {
-                                text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                text: "List price minus 12.5%"
                             }
                         ],
                         [
@@ -1281,6 +1281,90 @@
                 }) }}
 
 
+                <details class="nhsuk-details">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                            Add or view supporting evidence
+                        </span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                        <div class="heading-with-actions">
+                            <h3 class="nhsuk-heading-s">
+                                Supporting evidence
+                            </h3>
+                            <ul class="nhsuk-card__actions">
+                                <li class="nhsuk-card__action">
+                                    <a class="nhsuk-link nhsuk-link--no-visited-state" 
+                                    href="/v5/dhsc/add-reference-price-evidence"
+                                    onclick="
+                                      sessionStorage.setItem(
+                                        'referencePricePeriod', 
+                                        '15 October 2025 to 14 October 2028'
+                                      )">Add supporting evidence</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <table class="nhsuk-table-responsive" role="table">
+                            <thead class="nhsuk-table__head" role="rowgroup">
+                                <tr role="row">
+                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Date</th>
+                                    <th scope="col" class="nhsuk-table__header" role="columnheader">File name</th>
+                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Note</th>
+                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
+                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody class="nhsuk-table__body">
+                                <tr class="nhsuk-table__row" role="row">
+                                    <td class="nhsuk-table__cell" role="cell">12 October 2025</td>
+                                    <td class="nhsuk-table__cell" role="cell">court-ruling-relevant-to-case-12345.pdf</td>
+                                    <td class="nhsuk-table__cell" role="cell">This document contains the court ruling relevant to the reference price adjustment for case 12345.</td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                </tr>
+                                <tr class="nhsuk-table__row" role="row">
+                                    <td class="nhsuk-table__cell" role="cell">10 October 2025</td>
+                                    <td class="nhsuk-table__cell" role="cell">email-correspondence-with-supplier.msg</td>
+                                    <td class="nhsuk-table__cell" role="cell">Email correspondence with the supplier discussing the reference price calculation and adjustments.</td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                </tr>
+                                <tr class="nhsuk-table__row" role="row">
+                                    <td class="nhsuk-table__cell" role="cell">5 October 2023</td>
+                                    <td class="nhsuk-table__cell" role="cell">pricing-history-2023-2025.pdf</td>
+                                    <td class="nhsuk-table__cell" role="cell">Historical pricing data and analysis for 2023-2025.</td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                </tr>
+                                <tr class="nhsuk-table__row" role="row">
+                                    <td class="nhsuk-table__cell" role="cell">3 October 2023</td>
+                                    <td class="nhsuk-table__cell" role="cell">methodology-review.docx</td>
+                                    <td class="nhsuk-table__cell" role="cell">Review of adjustment methodology with recommendations.</td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
                     <div class="heading-with-actions" id="comparator-info">
 
                         <h3 class="nhsuk-heading-s">Comparator products used </h3>
@@ -1291,7 +1375,8 @@
                                     href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a>
                             </li> -->
                             <li class="nhsuk-card__action">
-                                <a class="nhsuk-link--no-visited-state nhsuk-link"                                         href="/v5/dhsc/comparator-search"
+                                <a class="nhsuk-link--no-visited-state nhsuk-link"   
+                                href="/v5/dhsc/comparator-search"
                                 onclick="
                                 sessionStorage.setItem(
                                     'referencePricePeriod',
@@ -1453,7 +1538,7 @@
                                         text: "Reference price type"
                                     },
                                     value: {
-                                        text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                        text: "List price minus 12.5%"
                                     }
                                     },
                                     {
@@ -1538,6 +1623,83 @@
                                     }
                                 ]
                             }) }}
+
+
+                            <div class="heading-with-actions">
+                                <h3 class="nhsuk-heading-s">
+                                    Supporting evidence
+                                </h3>
+                                <ul class="nhsuk-card__actions">
+                                    <li class="nhsuk-card__action">
+                                        <a class="nhsuk-link nhsuk-link--no-visited-state" 
+                                        href="/v5/dhsc/add-reference-price-evidence"
+                                            onclick="
+                                            sessionStorage.setItem(
+                                                'referencePricePeriod', 
+                                                '6 August 2022 to 1 October 2024'
+                                            )">Add supporting evidence</a>
+                                    </li>
+            
+                                </ul>
+                            </div>
+        
+                            <table class="nhsuk-table-responsive" role="table">
+                                <thead class="nhsuk-table__head" role="rowgroup">
+                                    <tr role="row">
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Date</th>
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">File name</th>
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Note</th>
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="nhsuk-table__body">
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">12 October 2025</td>
+                                        <td class="nhsuk-table__cell" role="cell">court-ruling-relevant-to-case-12345.pdf</td>
+                                        <td class="nhsuk-table__cell" role="cell">This document contains the court ruling relevant to the reference price adjustment for case 12345.</td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">10 October 2025</td>
+                                        <td class="nhsuk-table__cell" role="cell">email-correspondence-with-supplier.msg</td>
+                                        <td class="nhsuk-table__cell" role="cell">Email correspondence with the supplier discussing the reference price calculation and adjustments.</td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">05 October 2023</td>
+                                        <td class="nhsuk-table__cell" role="cell">pricing-history-2023-2025.pdf</td>
+                                        <td class="nhsuk-table__cell" role="cell">Historical pricing data and analysis for 2023-2025.</td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="nhsuk-table__row" role="row">
+                                        <td class="nhsuk-table__cell" role="cell">03 October 2023</td>
+                                        <td class="nhsuk-table__cell" role="cell">methodology-review.docx</td>
+                                        <td class="nhsuk-table__cell" role="cell">Review of adjustment methodology with recommendations.</td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
+                                        </td>
+                                        <td class="nhsuk-table__cell" role="cell">
+                                            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
 
                         <div class="heading-with-actions" id="comparator-info">
@@ -1786,124 +1948,154 @@
 
         <script>
 
+            // Capture the original query parameters once (before we replaceState)
+            const initialParams = new URLSearchParams(window.location.search);
+            const wasSaved = initialParams.get('saved') === 'true';
+            const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
+            const initialHash = window.location.hash;
 
-    // Capture the original query parameters once (before we replaceState)
-    const initialParams = new URLSearchParams(window.location.search);
-    const wasSaved = initialParams.get('saved') === 'true';
-    const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
-    const initialHash = window.location.hash;
+            if (wasSaved) {
 
-    if (wasSaved) {
+            document.querySelectorAll('.nhsuk-notification-banner:not(#success-banner)')
+            .forEach(banner => banner.style.display = 'none');
 
-    document.querySelectorAll('.nhsuk-notification-banner:not(#success-banner)')
-    .forEach(banner => banner.style.display = 'none');
+            const banner = document.getElementById('success-banner');
+            const bannerMessage = document.getElementById('banner-message');
+            const bannerHeading = document.getElementById('banner-heading');
 
-    const banner = document.getElementById('success-banner');
-    const bannerMessage = document.getElementById('banner-message');
-    const bannerHeading = document.getElementById('banner-heading');
+            if (banner && bannerMessage && bannerHeading) {
 
-    if (banner && bannerMessage && bannerHeading) {
+                const bannerTab = document.getElementById('banner-tab');
 
-        const bannerTab = document.getElementById('banner-tab');
+                const tabText =
+                    sessionStorage.getItem('bannerTab') || 'Product';
 
-        const tabText =
-            sessionStorage.getItem('bannerTab') || 'Product';
+                bannerTab.textContent = tabText;
 
-        bannerTab.textContent = tabText;
+                const activeTab =
+                    tabParam ||
+                    sessionStorage.getItem('activeTab');
 
-        const activeTab =
-            tabParam ||
-            sessionStorage.getItem('activeTab');
+                const activeTabLink =
+                    document.querySelector(`a[href="${activeTab}"]`);
 
-        const activeTabLink =
-            document.querySelector(`a[href="${activeTab}"]`);
-
-        if (bannerTab && activeTabLink) {
-            bannerTab.textContent = activeTabLink.textContent.trim();
-        }
-
-        const comparatorName =
-            sessionStorage.getItem('comparatorName');
-
-        const referencePricePeriod =
-            sessionStorage.getItem('referencePricePeriod');
-
-        const action =
-            sessionStorage.getItem('bannerAction');
-
-        if (
-            comparatorName &&
-            referencePricePeriod &&
-            ['added', 'updated', 'deleted'].includes(action)
-        ) {
-
-            bannerHeading.textContent =
-                'Comparator products used';
-
-            bannerMessage.textContent =
-                `The comparator ${comparatorName} in reference price for ${referencePricePeriod} has been ${action}`;
-
-            sessionStorage.removeItem('comparatorName');
-            sessionStorage.removeItem('referencePricePeriod');
-            sessionStorage.removeItem('bannerAction');
-
-        } else {
-            const fieldLabel =
-                sessionStorage.getItem('lastEditedFieldLabel') || 'field';
-
-            bannerHeading.textContent =
-                sessionStorage.getItem('bannerHeading') || fieldLabel;
-
-            bannerMessage.textContent =
-                `The ${fieldLabel} has been ${action}`;
-        }
-
-        banner.style.display = 'block';
-
-        }
-
-    } else if (initialHash) {
-        const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
-        if (tabLink) {
-            setTimeout(function () {
-                tabLink.click();
-            }, 200);
-        }
-    }
-
-            // Remove querystring from the URL now that we've captured values
-            window.history.replaceState({}, document.title, window.location.pathname);
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const tabs = document.querySelectorAll('.nhsuk-tabs__tab');
-
-                // Ensure sessionStorage has the currently active tab (use selected li or first tab)
-                const selectedTabLink = document.querySelector('.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab') ||
-                    document.querySelector('.nhsuk-tabs__tab[href^="#"]');
-                if (selectedTabLink) {
-                    sessionStorage.setItem('activeTab', selectedTabLink.getAttribute('href'));
+                if (bannerTab && activeTabLink) {
+                    bannerTab.textContent = activeTabLink.textContent.trim();
                 }
 
-                // Track tab clicks
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', function () {
-                        sessionStorage.setItem('activeTab', this.getAttribute('href'));
+                const evidenceFileName =
+                    sessionStorage.getItem('evidenceFileName');
+
+                const evidenceAction =
+                    sessionStorage.getItem('evidenceAction');
+
+                const comparatorName =
+                    sessionStorage.getItem('comparatorName');
+
+                const referencePricePeriod =
+                    sessionStorage.getItem('referencePricePeriod');
+
+                const action =
+                    sessionStorage.getItem('bannerAction');
+
+                    if (
+                        evidenceFileName &&
+                        evidenceAction &&
+                        referencePricePeriod
+                    ) {
+
+                        bannerHeading.textContent =
+                            'Supporting evidence';
+
+                        if (evidenceAction === 'added') {
+
+                            bannerMessage.textContent =
+                                `The new evidence ${evidenceFileName} in reference price for ${referencePricePeriod} has been added`;
+
+                        } else {
+
+                            bannerMessage.textContent =
+                                `The evidence ${evidenceFileName} in reference price for ${referencePricePeriod} has been deleted`;
+
+                        }
+
+                        sessionStorage.removeItem('evidenceFileName');
+                        sessionStorage.removeItem('evidenceAction');
+                        sessionStorage.removeItem('referencePricePeriod');
+
+                    } else if (
+                    comparatorName &&
+                    referencePricePeriod &&
+                    ['added', 'updated', 'deleted'].includes(action)
+                ) {
+
+                    bannerHeading.textContent =
+                        'Comparator products used';
+
+                    bannerMessage.textContent =
+                        `The comparator ${comparatorName} in reference price for ${referencePricePeriod} has been ${action}`;
+
+                    sessionStorage.removeItem('comparatorName');
+                    sessionStorage.removeItem('referencePricePeriod');
+                    sessionStorage.removeItem('bannerAction');
+
+                } else {
+                    const fieldLabel =
+                        sessionStorage.getItem('lastEditedFieldLabel') || 'field';
+
+                    bannerHeading.textContent =
+                        sessionStorage.getItem('bannerHeading') || fieldLabel;
+
+                    bannerMessage.textContent =
+                        `The ${fieldLabel} has been ${action}`;
+                }
+
+                banner.style.display = 'block';
+
+                }
+
+            } else if (initialHash) {
+                const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
+                if (tabLink) {
+                    setTimeout(function () {
+                        tabLink.click();
+                    }, 200);
+                }
+            }
+
+                    // Remove querystring from the URL now that we've captured values
+                    window.history.replaceState({}, document.title, window.location.pathname);
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const tabs = document.querySelectorAll('.nhsuk-tabs__tab');
+
+                        // Ensure sessionStorage has the currently active tab (use selected li or first tab)
+                        const selectedTabLink = document.querySelector('.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab') ||
+                            document.querySelector('.nhsuk-tabs__tab[href^="#"]');
+                        if (selectedTabLink) {
+                            sessionStorage.setItem('activeTab', selectedTabLink.getAttribute('href'));
+                        }
+
+                        // Track tab clicks
+                        tabs.forEach(tab => {
+                            tab.addEventListener('click', function () {
+                                sessionStorage.setItem('activeTab', this.getAttribute('href'));
+                            });
+                        });
+
+                        // Restore tab after save (use captured tabParam first, fallback to sessionStorage)
+                        if (wasSaved) {
+                            const tabToRestore = tabParam || sessionStorage.getItem('activeTab') || '#product-information';
+                            const tabLink = document.querySelector(`a[href="${tabToRestore}"]`);
+
+                            // Delay to allow NHS tabs module to initialise
+                            if (tabLink) {
+                                setTimeout(function () {
+                                    tabLink.click();
+                                }, 200);
+                            }
+                        }
                     });
-                });
-
-                // Restore tab after save (use captured tabParam first, fallback to sessionStorage)
-                if (wasSaved) {
-                    const tabToRestore = tabParam || sessionStorage.getItem('activeTab') || '#product-information';
-                    const tabLink = document.querySelector(`a[href="${tabToRestore}"]`);
-
-                    // Delay to allow NHS tabs module to initialise
-                    if (tabLink) {
-                        setTimeout(function () {
-                            tabLink.click();
-                        }, 200);
-                    }
-                }
-            });
         </script>
 
         <!-- End of content -->

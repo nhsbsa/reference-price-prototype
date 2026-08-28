@@ -23,12 +23,6 @@
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 
-{{
-  backLink({
-    href: "/v5/dhsc/product-details#ref-price-information",
-    text: "Back"
-  })
-}}
 {% endblock %}
 
 <!-- For adding page content -->
@@ -323,6 +317,18 @@
       </div>
     </details>
 
+
+    <br>
+    <div class="nhsuk-button-group">
+      <a href="comparator-info-confirm" class="nhsuk-button">
+        Save and continue
+      </a>
+  
+      <a href="/v5/dhsc/product-details#ref-price-information" class="nhsuk-button nhsuk-button--secondary">
+        Discard changes
+      </a>
+      </div>
+
     <script>
       document.addEventListener("click", function (e) {
         if (e.target.classList.contains("remove-comparator")) {
@@ -332,10 +338,7 @@
           }
         }
       });
-    </script>
 
-
-    <script>
       document.getElementById("new-trigger").addEventListener("click", function (e) {
         e.preventDefault(); // prevent anchor jump
 
@@ -351,15 +354,6 @@
       });
     </script>
 
-
-
-    <a href="comparator-info-confirm" class="nhsuk-button">
-      Save and continue
-    </a>
-
-    <a href="/v5/dhsc/product-details" class="nhsuk-button nhsuk-button--secondary">
-      Discard changes
-    </a>
     <!-- End of content -->
 
   </div>

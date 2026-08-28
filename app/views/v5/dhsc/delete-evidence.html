@@ -1,0 +1,121 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Delete reference price" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+  <!-- {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+<!-- <form action="#" method="post"> -->
+  <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+  <h1>Delete reference price evidence</h1>
+
+  <p>File name: <strong>court-ruling-relevant-to-case-12345.pdf</strong></p>
+
+  <p>Are you sure you want to delete?</p>
+
+  <p>The associated note will also be removed. This action cannot be undone.</p>
+<!-- 
+  <div class="nhsuk-radios" data-module="nhsuk-radios">
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="yes" name="cdrAdded" type="radio" value="yes">
+      <label class="nhsuk-label nhsuk-radios__label" for="yes">Yes, I do want to delete this product</label>
+    </div>
+
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="no" name="cdrAdded" type="radio" value="no">
+      <label class="nhsuk-label nhsuk-radios__label" for="no">No, I do not want to delete this product</label>
+    </div>
+  </div>
+<br>
+  <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+    Continue
+  </button>
+</form> -->
+
+
+<div class="nhsuk-button-group">
+  
+  <button
+    id="delete-evidence"
+    class="nhsuk-button nhsuk-button--warning">
+    Yes, delete this evidence
+  </button>
+
+
+  {{ button({
+    text: "Cancel",
+    classes: "nhsuk-button--secondary",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+
+
+<script>
+  (function () {
+      const deleteBtn =
+          document.getElementById('delete-evidence');
+  
+      if (!deleteBtn) return;
+  
+      deleteBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+  
+          sessionStorage.setItem(
+              'evidenceFileName',
+              'court-ruling-relevant-to-case-12345.pdf'
+          );
+  
+          sessionStorage.setItem(
+              'evidenceAction',
+              'deleted'
+          );
+  
+          const activeTab =
+              sessionStorage.getItem('activeTab') ||
+              '#ref-price-information';
+  
+          window.location.href =
+              '/v5/dhsc/product-details?saved=true&tab=' +
+              encodeURIComponent(activeTab);
+      });
+  }());
+  </script>
+  
+  
+       
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
