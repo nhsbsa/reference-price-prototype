@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "Search VTMs" %}
+{% set pageName = "Product updates" %}
 
 {% set activeNav = "products" %}
 
@@ -42,19 +42,19 @@
         
               <ul class="nhsuk-list app-side-nav__list">
                 <li class="app-side-nav__item">
-                  <a class="app-side-nav__link">
+                  <a class="app-side-nav__link" href="/v7/company/products/index">
                     Product portfolio
                   </a>
                 </li>
         
-                <li class="app-side-nav__item">
+                <li class="app-side-nav__item app-side-nav__item--current">
                   <a class="app-side-nav__link">
                     Product updates
                   </a>
                 </li>
 
-                <li class="app-side-nav__item app-side-nav__item--current">
-                  <a class="app-side-nav__link">
+                <li class="app-side-nav__item">
+                  <a class="app-side-nav__link" href="/v7/company/products/search-vtm">
                     Search VTMs
                   </a>
                 </li>
@@ -66,67 +66,49 @@
           <div class="app-pane__main-content">
         
             <h1 class="nhsuk-heading-l">
-              Search for Virtual Therapeutic Moiety (VTMs)
+              Product updates
             </h1>
-            <p>Search for a VTM to view available originator
-              presentation and Reference Anchor Date (RAD)
-              information.</p>
           </div>
         </div>
 
-        <br><br>
-
-        <div class="nhsuk-card nhsuk-card--grey">
-          <div class="nhsuk-card__content">
-            {{ input({
-              label: {
-                text: "Enter a VTM"
-              },
-              id: 'inputField1',
-              name: 'inputField1',
-              value: "Augmentin"
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Company details
+            </h2>
+          
+            {{ table({
+              head: [
+                {
+                    text: "Company"
+                },
+                {
+                    text: "SNOMED"
+                },
+                {
+                    text: "Reference"
+                }
+                ],
+              rows: [
+                [
+                  {
+                    text: "Aspire Pharma Ltd"
+                  },
+                  {
+                    text: "22"
+                  },
+                  {
+                    text: "419"
+                  }
+                ]
+              ]
             }) }}
-            <div class="nhsuk-button-group">
-              {{ button({
-                text: "Search",
-                attributes: {
-                  id: "searchButton",
-                  onclick: "showResults()"
-                }
-              }) }}
-              {{ button({
-                text: "Reset",
-                classes: "nhsuk-button--secondary nhsuk-u-float-right",
-                attributes: {
-                  onclick: "hideResults()"
-                }
-              }) }}
-            </div>
           </div>
-        </div>
 
-
-        <div id="resultsSection" style="display: none;">
-
-          <h2 class="nhsuk-heading-m">No VTM found matching "Augmentin"</h2>
-          <p>Check the spelling and try searching again.</p>
-
-        </div>
-
-        <script>
-          function showResults() {
-            document.getElementById('resultsSection').style.display = 'block';
-          }
-
-          function hideResults() {
-            document.getElementById('resultsSection').style.display = 'none';
-          }
-        </script>
+          <h2 class="nhsuk-heading-m">No updates</h2>
+          <p>New updates will appear here when changes are made to products in your portfolio.</p>
+        
 
         <style>
-          .nhsuk-table__heading-tab {
-              font-size: 1.3rem;
-          }
 
           .app-pane {
             display: flex;
