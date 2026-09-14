@@ -42,7 +42,7 @@
         
               <ul class="nhsuk-list app-side-nav__list">
                 <li class="app-side-nav__item">
-                  <a class="app-side-nav__link" href="/v7/company/products/index">
+                  <a class="app-side-nav__link">
                     Product portfolio
                   </a>
                 </li>
@@ -54,7 +54,7 @@
                 </li>
 
                 <li class="app-side-nav__item">
-                  <a class="app-side-nav__link" href="/v7/company/products/search-vtm">
+                  <a class="app-side-nav__link">
                     Search VTMs
                   </a>
                 </li>
@@ -104,83 +104,135 @@
             }) }}
           </div>
 
-          <p>Showing 1 to 10 of 72 updates for this portfolio.</p>
+            <p>Showing 1 to 10 of 72 updates for this portfolio.</p>
 
-          <table class="nhsuk-table-responsive" id="portfolio-updates-table">
+                {{ checkboxes({
+                  idPrefix: "example",
+                  name: "example",
+                  small: true,
+                  items: [
+                    {
+                      value: "select-all",
+                      text: "Select all updates",
+                      checked: false
+                    }
+                  ]
+                }) }}
+
+
+            <table class="nhsuk-table-responsive" id="portfolio-updates-table">
             <caption class="nhsuk-u-visually-hidden">Portfolio updates table</caption>
             <thead class="nhsuk-table__head">
               <tr class="nhsuk-table__row">
-          <th scope="col" aria-sort="descending" id="portfolio-date-sort">
+            <th scope="col"></th>
+            <th scope="col" aria-sort="descending" id="portfolio-date-sort">
             <button type="button" class="sortable-header">
               Date
               <span class="sort-indicator" aria-hidden="true">
-                <span>▲</span>
-                <span>▼</span>
+            <span>▲</span>
+            <span>▼</span>
               </span>
             </button>
-          </th>
-          <th scope="col">Presentation</th>
-          <th scope="col">Update</th>
+            </th>
+            <th scope="col">Presentation</th>
+            <th scope="col">Update</th>
               </tr>
             </thead>
-          
+            
             <tbody class="nhsuk-table__body">
             <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update1" type="checkbox" name="select-update" value="update1">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update1"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
               <td style="white-space: nowrap;">5 August 2026</td>
               <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
             <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
-          </a>
+            </a>
               </td>
-          <td>Reference price updated for 15 June 2026 to 15 December 2027</td>
+            <td>Reference price updated for 15 June 2026 to 15 December 2027</td>
             </tr>
             <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update2" type="checkbox" name="select-update" value="update2">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update2"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
               <td>5 August 2026</td>
               <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
             <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
-          </a>
+            </a>
               </td>
               <td>Reference anchor date (RAD) updated</td>
             </tr>
             <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update3" type="checkbox" name="select-update" value="update3">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update3"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
               <td>15 July 2026</td>
               <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
             <span class="nhsuk-u-visually-hidden">View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)
-          </a>
+            </a>
               </td>
-          <td>Reference price added for 1 July 2026 to 31 July 2028</td>
+            <td>Reference price added for 1 July 2026 to 31 July 2028</td>
             </tr>
             <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update4" type="checkbox" name="select-update" value="update4">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update4"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
               <td>3 June 2026</td>
               <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+              <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
             <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
-          </a>
+              </a>
               </td>
               <td>Reference anchor date (RAD) updated</td>
             </tr>
             <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update5" type="checkbox" name="select-update" value="update5">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update5"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
               <td style="white-space: nowrap;">18 February 2026</td>
               <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
             <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
-          </a>
+            </a>
               </td>
               <td>Date presentation becomes an older medicine updated</td>
             </tr>
             <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update6" type="checkbox" name="select-update" value="update6">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update6"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
               <td>10 January 2026</td>
               <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
             <span class="nhsuk-u-visually-hidden">View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)
-          </a>
+            </a>
               </td>
-          <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
+            <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
             </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+
 
         {% from "pagination/macro.njk" import pagination %}
 
@@ -212,49 +264,84 @@
           ]
         }) }}
 
+        <div style="margin-left: auto;" id="clear-updates-button">
+          {{ button({
+            text: "Clear selected updates",
+            variant: "secondary"
+          }) }}
+        </div>
+
         <script>
-          (function () {
+          // Checkbox handling logic
+          (function handleCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][name="select-update"]');
+            const selectAllCheckbox = document.querySelector('input[type="checkbox"][value="select-all"]');
+            const clearButton = document.getElementById('clear-updates-button');
+
+            function updateClearButtonVisibility() {
+              const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+              clearButton.style.display = anyChecked || selectAllCheckbox.checked ? 'flex' : 'none';
+            }
+
+            function updateSelectAllState() {
+              const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+              selectAllCheckbox.checked = allChecked;
+            }
+
+            selectAllCheckbox.addEventListener('change', () => {
+              checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+              updateClearButtonVisibility();
+            });
+
+            checkboxes.forEach(checkbox => {
+              checkbox.addEventListener('change', () => {
+                updateClearButtonVisibility();
+                updateSelectAllState();
+              });
+            });
+
+            updateClearButtonVisibility();
+          })();
+
+          // Table sorting logic
+          (function handleTableSorting() {
             const table = document.getElementById('portfolio-updates-table');
             if (!table) return;
-          
+
             const tbody = table.querySelector('tbody');
             const dateHeader = document.getElementById('portfolio-date-sort');
             const button = dateHeader.querySelector('button');
             const indicator = dateHeader.querySelector('.sort-indicator');
-          
+
             let descending = true;
-          
+
             button.addEventListener('click', () => {
               const rows = Array.from(tbody.querySelectorAll('tr'));
-          
+
               rows.sort((a, b) => {
-                const dateA = new Date(a.cells[0].textContent.trim());
-                const dateB = new Date(b.cells[0].textContent.trim());
-          
+                const dateA = new Date(a.cells[1].textContent.trim());
+                const dateB = new Date(b.cells[1].textContent.trim());
+
                 return descending
-                  ? dateA - dateB
-                  : dateB - dateA;
+                  ? dateB - dateA
+                  : dateA - dateB;
               });
-          
+
               rows.forEach(row => tbody.appendChild(row));
-          
+
               descending = !descending;
-          
+
               dateHeader.setAttribute(
                 'aria-sort',
                 descending ? 'descending' : 'ascending'
               );
-          
-              if (descending) {
-                indicator.innerHTML =
-                  '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>';
-              } else {
-                indicator.innerHTML =
-                  '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>';
-              }
+
+              indicator.innerHTML = descending
+                ? '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>'
+                : '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>';
             });
           })();
-          </script>
+        </script>
         
 
         <style>

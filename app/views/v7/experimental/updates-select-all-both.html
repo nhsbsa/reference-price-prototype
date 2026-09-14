@@ -1,0 +1,457 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'v7/layout-company-share.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Product updates" %}
+
+{% set activeNav = "products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <div class="app-pane">
+
+          <aside class="app-pane__side-bar">
+            <nav class="app-side-nav">
+        
+              <h2 class="app-side-nav__heading">Navigation</h2>
+        
+              <ul class="nhsuk-list app-side-nav__list">
+                <li class="app-side-nav__item">
+                  <a class="app-side-nav__link">
+                    Product portfolio
+                  </a>
+                </li>
+        
+                <li class="app-side-nav__item app-side-nav__item--current">
+                  <a class="app-side-nav__link">
+                    Product updates
+                  </a>
+                </li>
+
+                <li class="app-side-nav__item">
+                  <a class="app-side-nav__link">
+                    Search VTMs
+                  </a>
+                </li>
+              </ul>
+        
+            </nav>
+          </aside>
+        
+          <div class="app-pane__main-content">
+        
+            <h1 class="nhsuk-heading-l">
+              Product updates
+            </h1>
+          </div>
+        </div>
+
+          <div class="nhsuk-table__panel-with-heading-tab">
+            <h2 class="nhsuk-table__heading-tab">
+              Company details
+            </h2>
+          
+            {{ table({
+              head: [
+          {
+              text: "Company"
+          },
+          {
+              text: "SNOMED"
+          },
+          {
+              text: "Reference"
+          }
+          ],
+              rows: [
+          [
+            {
+              text: "Aspire Pharma Ltd"
+            },
+            {
+              text: "22"
+            },
+            {
+              text: "419"
+            }
+          ]
+              ]
+            }) }}
+          </div>
+
+            <p>Showing 1 to 10 of 72 updates for this portfolio.</p>
+            <div style="display: flex; align-items: center; white-space: nowrap;">
+              {{ checkboxes({
+                idPrefix: "example",
+                name: "example",
+                small: true,
+                items: [
+                  {
+              value: "select-all",
+              text: "Select all updates",
+              checked: false
+                  }
+                ]
+              }) }}
+
+              <div style="margin-left: auto; display: none;" id="clear-updates-button-top">
+                {{ button({
+                  text: "Clear selected updates",
+                  small: true,
+                  variant: "secondary"
+                }) }}
+              </div>
+            </div>
+
+            <table class="nhsuk-table-responsive" id="portfolio-updates-table" style="margin-bottom: 0px;">
+              <caption class="nhsuk-u-visually-hidden">Portfolio updates table</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th scope="col"></th>
+                  <th scope="col" aria-sort="descending" id="portfolio-date-sort">
+              <button type="button" class="sortable-header">
+                Date
+                <span class="sort-indicator" aria-hidden="true">
+                  <span>▲</span>
+                  <span>▼</span>
+                </span>
+              </button>
+                  </th>
+                  <th scope="col">Presentation</th>
+                  <th scope="col">Update</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr>
+                  <td>
+                <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+                <input class="nhsuk-checkboxes__input" id="select-update1" type="checkbox" name="select-update" value="update1">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update1"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+                </div>
+                  </td>
+                  <td style="white-space: nowrap;">5 August 2026</td>
+                  <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+                <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+                </a>
+                  </td>
+                <td>Reference price updated for 15 June 2026 to 15 December 2027</td>
+                </tr>
+                <tr>
+                  <td>
+                <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+                <input class="nhsuk-checkboxes__input" id="select-update2" type="checkbox" name="select-update" value="update2">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update2"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+                </div>
+                  </td>
+                  <td>5 August 2026</td>
+                  <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+                <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+                </a>
+                  </td>
+                  <td>Reference anchor date (RAD) updated</td>
+                </tr>
+                <tr>
+                  <td>
+                <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+                <input class="nhsuk-checkboxes__input" id="select-update3" type="checkbox" name="select-update" value="update3">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update3"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+                </div>
+                  </td>
+                  <td>15 July 2026</td>
+                  <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+                <span class="nhsuk-u-visually-hidden">View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)
+                </a>
+                  </td>
+                <td>Reference price added for 1 July 2026 to 31 July 2028</td>
+                </tr>
+                <tr>
+                  <td>
+                <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+                <input class="nhsuk-checkboxes__input" id="select-update4" type="checkbox" name="select-update" value="update4">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update4"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+                </div>
+                  </td>
+                  <td>3 June 2026</td>
+                  <td>
+                  <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+                <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
+                  </a>
+                  </td>
+                  <td>Reference anchor date (RAD) updated</td>
+                </tr>
+                <tr>
+                  <td>
+                <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+                <input class="nhsuk-checkboxes__input" id="select-update5" type="checkbox" name="select-update" value="update5">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update5"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+                </div>
+                  </td>
+                  <td style="white-space: nowrap;">18 February 2026</td>
+                  <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+                <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
+                </a>
+                  </td>
+                  <td>Date presentation becomes an older medicine updated</td>
+                </tr>
+                <tr>
+                  <td>
+                <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+                <input class="nhsuk-checkboxes__input" id="select-update6" type="checkbox" name="select-update" value="update6">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update6"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+                </div>
+                  </td>
+                  <td>10 January 2026</td>
+                  <td>
+                <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+                <span class="nhsuk-u-visually-hidden">View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)
+                </a>
+                  </td>
+                <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+
+              {% from "pagination/macro.njk" import pagination %}
+            
+              <div style="margin-bottom: 0;">
+                {{ pagination({
+                  next: {
+                    href: "#"
+                  },
+                  items: [
+                    {
+                      number: 1,
+                      href: "#",
+                      current: true
+                    },
+                    {
+                      number: 2,
+                      href: "#"
+                    },
+                    {
+                      number: 3,
+                      href: "#"
+                    },
+                    {
+                      ellipsis: true
+                    },
+                    {
+                      number: 7,
+                      href: "#"
+                    }
+                  ]
+                }) }}
+              </div>
+            
+              <div id="clear-updates-button-bottom" style="display: none; margin-top: 24px;">
+                {{ button({
+                  text: "Clear selected updates",
+                  small: true,
+                  variant: "secondary"
+                }) }}
+              </div>
+            
+            </div>
+
+            <script>
+              // Checkbox handling logic
+              (function handleCheckboxes() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"][name="select-update"]');
+                const selectAllCheckbox = document.querySelector('input[type="checkbox"][value="select-all"]');
+                const clearButtonTop = document.getElementById('clear-updates-button-top');
+                const clearButtonBottom = document.getElementById('clear-updates-button-bottom');
+
+                function updateClearButtonVisibility() {
+                  const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                  const displayValue = anyChecked || selectAllCheckbox.checked ? 'flex' : 'none';
+                  clearButtonTop.style.display = displayValue;
+                  clearButtonBottom.style.display = displayValue;
+                }
+
+                function updateSelectAllState() {
+                  const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                  selectAllCheckbox.checked = allChecked;
+                }
+
+                selectAllCheckbox.addEventListener('change', () => {
+                  checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+                  updateClearButtonVisibility();
+                });
+
+                checkboxes.forEach(checkbox => {
+                  checkbox.addEventListener('change', () => {
+              updateClearButtonVisibility();
+              updateSelectAllState();
+                  });
+                });
+
+                updateClearButtonVisibility();
+              })();
+
+              // Table sorting logic
+              (function handleTableSorting() {
+                const table = document.getElementById('portfolio-updates-table');
+                if (!table) return;
+
+                const tbody = table.querySelector('tbody');
+                const dateHeader = document.getElementById('portfolio-date-sort');
+                const button = dateHeader.querySelector('button');
+                const indicator = dateHeader.querySelector('.sort-indicator');
+
+                let descending = true;
+
+                button.addEventListener('click', () => {
+                  const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                  rows.sort((a, b) => {
+              const dateA = new Date(a.cells[1].textContent.trim());
+              const dateB = new Date(b.cells[1].textContent.trim());
+
+              return descending
+                ? dateB - dateA
+                : dateA - dateB;
+                  });
+
+                  rows.forEach(row => tbody.appendChild(row));
+
+                  descending = !descending;
+
+                  dateHeader.setAttribute(
+              'aria-sort',
+              descending ? 'descending' : 'ascending'
+                  );
+
+                  indicator.innerHTML = descending
+              ? '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>'
+              : '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>';
+                });
+              })();
+            </script>
+        
+
+        <style>
+          .sortable-header {
+            background: none;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 4px;
+          }
+
+          .sort-indicator {
+            display: inline-flex;
+            flex-direction: column;
+            line-height: 1;
+            font-size: 12px;
+            margin-top: 2px;
+          }
+
+          .sort-indicator span {
+            display: block;
+          }
+
+          .nhsuk-table__heading-tab {
+              font-size: 1.3rem;
+          }
+
+          .app-pane {
+            display: flex;
+          }
+
+          .app-pane__side-bar {
+            flex: 0 0 240px;
+          }
+
+          .app-pane__main-content {
+            flex: 1;
+            min-width: 0;
+          }
+
+          .app-side-nav {
+            top: 20px;
+            padding-left: 16px;
+          }
+
+          .app-side-nav__heading {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+          }
+
+          .app-side-nav__list {
+            margin-bottom: 0;
+          }
+
+          .app-side-nav__item {
+            margin-bottom: 8px;
+          }
+
+          .app-side-nav__link {
+            text-decoration: none;
+          }
+
+          .app-side-nav__item--current {
+            border-left: 4px solid #005eb8;
+            margin-left: -20px;
+            padding-left: 16px;
+          }
+
+          .app-side-nav__item--current .app-side-nav__link {
+            font-weight: 700;
+            color: #005eb8;
+          }
+
+          @media (max-width: 768px) {
+            .app-pane {
+              display: block;
+            }
+
+            .app-pane__side-bar {
+              margin-bottom: 24px;
+            }
+
+            .app-side-nav {
+              position: static;
+            }
+          }
+        </style>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+{% endblock %}
