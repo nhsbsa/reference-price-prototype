@@ -28,12 +28,12 @@
 {% if data.source == "updates" %}
   {{ backLink({
     href: "/v7/company/products/updates",
-    text: "Back to product updates"
+    text: "Back"
   }) }}
 {% else %}
   {{ backLink({
     href: "/v7/company/products/index",
-    text: "Back to product portfolio"
+    text: "Back"
   }) }}
 {% endif %}
 
@@ -114,7 +114,7 @@
 
                  <!-- Historic Cash Payment -->
                 <div id="product-information">
-                    <h2 class="nhsuk-heading-m">Historic Cash Payment (HCP)</h2>
+                    <h2 class="nhsuk-heading-m">Historic cash payments (HCP)</h2>
 
                     {{ table({
                         classes: "nhsuk-table-responsive",
@@ -130,6 +130,73 @@
                         ]
                     }) }}
                 </div>
+
+                <!-- VTM type -->
+                <div id="vtm-type">
+                    <h2 class="nhsuk-heading-m">Virtual therapeutic moiety (VTM) type</h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Attribute" },
+                            { text: "Value" }
+                        ],
+                        rows: [
+                            [
+                                { text: "VTM type" },
+                                { text: "None" }
+                            ]
+                        ]
+                    }) }}
+                </div>
+                {% call details({
+                    summaryText: "What is a VTM?",
+                    classes: "nhsuk-u-margin-bottom-5"
+                    }) %}
+                    <p>A Virtual Therapeutic Moiety (VTM) groups products that share the same active substance or therapeutic moiety.</p>
+                    <p>VTMs are used in reference pricing to identify related products and determine reference pricing information.</p>
+                    <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/search-vtm">search for VTMs</a> within the portal.</p>
+                    <p>If a classification is not available, the product may be shown as awaiting classification.</p>
+                    <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/index">Read the full guidance</a></p> -->
+                {% endcall %}
+                
+                <br>
+
+                <!-- Common Drug Reference (CDR) supplier information -->
+                <div id="hierarchy-attributes">
+                    <h2 class="nhsuk-heading-m">Common Drug Reference (CDR) supplier information</h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Name" },
+                            { text: "Value" },
+                            { text: "Start date" },
+                            { text: "End date" }
+                        ],
+                        rows: [
+                            [
+                                { text: "Supplier" },
+                                { text: "Morningside Healthcare Ltd" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ],
+                            [
+                                { text: "Supplier SNOMED code" },
+                                { text: "10246711000001109" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ],
+                            [
+                                { text: "Supplier type indicator" },
+                                { text: "Manufacturer" },
+                                { text: "1 June 2011" },
+                                { text: "1 February 2036" }
+                            ]
+                        ]
+                    }) }}
+                </div>
+                
 
                 <!-- Hierarchy attributes -->
                 <div id="hierarchy-attributes">
@@ -171,34 +238,73 @@
                         ]
                     }) }}
                 </div>
-                <!-- Additional table -->
-                <div id="vtm-type">
-                    <h2 class="nhsuk-heading-m">VTM Type</h2>
 
-                    {{ table({
-                        classes: "nhsuk-table-responsive",
-                        head: [
-                            { text: "Attribute" },
-                            { text: "Value" }
-                        ],
-                        rows: [
-                            [
-                                { text: "VTM Type" },
-                                { text: "None" }
-                            ]
-                        ]
-                    }) }}
-                </div>
-                {% call details({
-                    summaryText: "What is a VTM?",
-                    classes: "nhsuk-u-margin-bottom-5"
-                  }) %}
-                    <p>A Virtual Therapeutic Moiety (VTM) groups products that share the same active substance or therapeutic moiety.</p>
-                    <p>VTMs are used within reference pricing to help identify related products and establish reference pricing information.</p>
-                    <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/search-vtm">search VTMs</a> within the portal.</p>
-                    <p>If a classification is unavailable, the product may be shown as awaiting classification.</p>
-                    <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/index">Read the full guidance</a></p> -->
-                  {% endcall %}
+
+                <!-- Presentation attributes -->
+                <div id="presentation-attributes">
+                    <div id="presentation-attributes"></div>
+                        <h2 class="nhsuk-heading-m">Presentation attributes</h2>
+                        <table class="nhsuk-table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                    <th>Start date</th>
+                                    <th>End date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Low value presentation</td>
+                                    <td>No</td>
+                                    <td>Not applicable</td>
+                                    <td>Not applicable</td>
+                                </tr>
+                                <tr>
+                                    <td>Vaccine</td>
+                                    <td>No</td>
+                                    <td>Not applicable</td>
+                                    <td>Not applicable</td>
+                                </tr>
+                                <tr>
+                                    <td>Small company</td>
+                                    <td>Yes</td>
+                                    <td style="white-space: nowrap;">10 December 2019</td>
+                                    <td style="white-space: nowrap;">1 February 2036</td>
+                                </tr>
+                                <tr>
+                                    <td>£ 1.5 million exemption</td>
+                                    <td>Yes</td>
+                                    <td>10 December 2019</td>
+                                    <td>1 February 2036</td>
+                                </tr>
+                                <tr>
+                                    <td>Common Drug Reference (CDR) discontinued</td>
+                                    <td>Yes</td>
+                                    <td>10 December 2019</td>
+                                    <td>1 February 2036</td>
+                                </tr>
+                                <tr>
+                                    <td>Branded Medicines (BM) discontinued</td>
+                                    <td>Yes</td>
+                                    <td>10 December 2019</td>
+                                    <td>1 February 2036</td>
+                                </tr>
+                                <tr>
+                                    <td>Combination product</td>
+                                    <td>No</td>
+                                    <td>Not applicable</td>
+                                    <td>Not applicable</td>
+                                </tr>
+                                <tr>
+                                    <td>Percentage attribute</td>
+                                    <td style="white-space: nowrap;">15% top-up payment</td>
+                                    <td>10 December 2019</td>
+                                    <td>1 February 2036</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
 
                   <!-- Dispensing attributes -->
@@ -221,7 +327,7 @@
                                 { text: "1 February 2036" }
                             ],
                             [
-                                { text: "Sub pack information" },
+                                { text: "Sub-pack information" },
                                 { text: "2 x 14 tablets" },
                                 { text: "1 June 2011" },
                                 { text: "1 February 2036" }
@@ -248,70 +354,35 @@
                     }) }}
                   </div>
 
-
-                <!-- Presentation attributes -->
+                  
+                <!-- British National Formulary (BNF) information -->
                 <div id="presentation-attributes">
                     <div id="presentation-attributes"></div>
-                        <h2 class="nhsuk-heading-m">Presentation attributes</h2>
-                        {{ table({
-                            classes: "nhsuk-table-responsive",
-                            head: [
-                                { text: "Name" },
-                                { text: "Value" },
-                                { text: "Start date" },
-                                { text: "End date" }
-                            ],
-                            rows: [
-                                [
-                                    { text: "Low value presentation" },
-                                    { text: "No" },
-                                    { text: "Not applicable" },
-                                    { text: "Not applicable" }
-                                ],
-                                [
-                                    { text: "Vaccine" },
-                                    { text: "No" },
-                                    { text: "Not applicable" },
-                                    { text: "Not applicable" }
-                                ],
-                                [
-                                    { text: "Small company" },
-                                    { text: "Yes" },
-                                    { text: "10 December 2019" },
-                                    { text: "1 February 2036" }
-                                ],
-                                [
-                                    { text: "£ 1.5 million exemption" },
-                                    { text: "Yes" },
-                                    { text: "10 December 2019" },
-                                    { text: "1 February 2036" }
-                                ],
-                                [
-                                    { text: "Common Drug Reference (CDR) discontinued" },
-                                    { text: "Yes" },
-                                    { text: "10 December 2019" },
-                                    { text: "1 February 2036" }
-                                ],
-                                [
-                                    { text: "Branded Medicines (BM) discontinued" },
-                                    { text: "Yes" },
-                                    { text: "10 December 2019" },
-                                    { text: "1 February 2036" }
-                                ],
-                                [
-                                    { text: "Combination product" },
-                                    { text: "No" },
-                                    { text: "Not applicable" },
-                                    { text: "Not applicable" }
-                                ],
-                                [
-                                    { text: "Percentage attribute" },
-                                    { text: "15% top-up payment" },
-                                    { text: "10 December 2019" },
-                                    { text: "1 February 2036" }
-                                ]
-                            ]
-                        }) }}
+                        <h2 class="nhsuk-heading-m">British National Formulary (BNF) information</h2>
+                        <table class="nhsuk-table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                    <th>Start date</th>
+                                    <th>End date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>BNF chapter</td>
+                                    <td>06010202</td>
+                                    <td>1 June 2011</td>
+                                    <td>1 February 2036</td>
+                                </tr>
+                                <tr>
+                                    <td>Presentation code (BNF)</td>
+                                    <td>0601022B0BJABAW</td>
+                                    <td>1 June 2011</td>
+                                    <td>1 February 2036</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
 
@@ -326,7 +397,7 @@
                         ],
                         rows: [
                             [
-                                { text: "Plasma Derived Medicine Product (PDMP)" },
+                                { text: "Plasma-derived medicines product (PDMP)" },
                                 { text: "No" }
                             ],
                             [
@@ -334,7 +405,7 @@
                                 { text: "Generic Name AMP" }
                             ],
                             [
-                                { text: "New Active Substance (NAS)" },
+                                { text: "New active substance (NAS)" },
                                 { text: "No" }
                             ],
                             [
@@ -348,14 +419,6 @@
                             [
                                 { text: "Over the counter payment" },
                                 { text: "No" }
-                            ],
-                            [
-                                { text: "Discontinued" },
-                                { text: "No" }
-                            ],
-                            [
-                                { text: "CDR discontinued" },
-                                { text: "Yes" }
                             ]
                         ]
                     }) }}
@@ -364,6 +427,54 @@
             </div>
 
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="pricing-information">
+                <!--Maximum price-->
+                <div id="maximum-price">
+                    <h2 class="nhsuk-heading-m">
+                        Maximum price
+                    </h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Value" },
+                            { text: "Start date" },
+                            { text: "End date" },
+                            { text: "Publish on maximum price list" }
+                        ],
+                        rows: [
+                            [
+                                { text: "£3.67" },
+                                { text: "3 July 2024" },
+                                { text: "1 February 2036" },
+                                { text: "No" }
+                            ]
+                        ]
+                    }) }}
+                </div>
+
+                <!--Temporary price-->
+                <div id="temporary-price">
+                    <h2 class="nhsuk-heading-m">
+                        Temporary price
+                    </h2>
+
+                    {{ table({
+                        classes: "nhsuk-table-responsive",
+                        head: [
+                            { text: "Value" },
+                            { text: "Start date" },
+                            { text: "End date" }
+                        ],
+                        rows: [
+                            [
+                                { text: "£2.86" },
+                                { text: "3 July 2024" },
+                                { text: "1 February 2036" }
+                            ]
+                        ]
+                    }) }}
+                </div>
+                
                 <!--List price-->
                 <div id="list-price">
                     <h2 class="nhsuk-heading-m">
@@ -428,48 +539,6 @@
                         </tbody>
                     </table>
                 </div>
-                <!--Maximum price-->
-                <div id="maximum-price">
-                    <h2 class="nhsuk-heading-m">
-                        Maximum price
-                    </h2>
-
-                    {{ table({
-                        classes: "nhsuk-table-responsive",
-                        head: [
-                            { text: "Value" },
-                            { text: "Start date" },
-                            { text: "End date" },
-                            { text: "Publish on maximum price list" }
-                        ],
-                        rows: [
-                            [
-                                { text: "£3.67" },
-                                { text: "3 July 2024" },
-                                { text: "1 February 2036" },
-                                { text: "No" }
-                            ]
-                        ]
-                    }) }}
-                </div>
-
-                <!--Temporary price-->
-                <div id="temporary-price">
-                    <h2 class="nhsuk-heading-m">
-                        Temporary price
-                    </h2>
-
-                    {{ table({
-                        classes: "nhsuk-table-responsive",
-                        head: [
-                            { text: "Temporary price" },
-                            { text: "Effective date" },
-                            { text: "End date" }
-                        ],
-                        rows: []
-                    }) }}
-                </div>
-
 
             </div>
 
@@ -589,9 +658,9 @@
 
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="exclusivity-information">
 
-                <!---Older/newer presentation-->
+                <!---Older or newer presentation-->
                 <div id="older-newer">
-                    <h2 class="nhsuk-heading-m">Older/newer presentation</h2>
+                    <h2 class="nhsuk-heading-m">Older or newer presentation</h2>
                     {{ table({
                         classes: "nhsuk-table-responsive",
                         head: [
@@ -615,13 +684,13 @@
                     }) }}
 
                     {% call details({
-                        summaryText: "How is classification determined?",
+                        summaryText: "How is medicine classification determined?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>Products are classified as either Older or Newer as part of the reference pricing process.</p>
-                        <p>This classification helps determine how products are considered within the wider reference pricing methodology.</p>
-                        <p>Classification may be reviewed and updated when new information becomes available.</p>
-                        <p>If a classification is unavailable, the product may be shown as awaiting classification.</p>
+                        <p>Products are classified as either an Older medicine or a Newer medicine as part of the reference pricing process.</p>
+                        <p>This helps determine how products are considered within the wider reference pricing methodology.</p>
+                        <p>Classifications may be reviewed and updated when new information becomes available.</p>
+                        <p>If a classification is not available, the product may be shown as awaiting classification.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/provisional-ref-price-guidance">Read the full guidance</a></p> -->
                       {% endcall %}
                     
@@ -649,9 +718,9 @@
                         summaryText: "What is a reference anchor date?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>A reference anchor date (RAD) is a date used within the reference pricing methodology.</p>
+                        <p>A reference anchor date (RAD) is used within the reference pricing methodology.</p>
                         <p>RADs help establish and maintain reference pricing information and may be displayed for products and Virtual Therapeutic Moieties (VTMs).</p>
-                        <p>Some products may not have an available RAD. Where this occurs, the value may be shown as Unknown or No date value present.</p>
+                        <p>Some products may not have a RAD. In these cases, the value may be shown as Unknown or No date value present.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-rad">Read the full guidance</a></p> -->
                       {% endcall %}
                 </div>
@@ -679,7 +748,7 @@
                                 <td class="nhsuk-table__cell" role="cell">Metabet SR</td>
                             </tr>
                             <tr class="nhsuk-table__row" role="row">
-                                <td class="nhsuk-table__cell" role="cell">Market authorisation holder</td>
+                                <td class="nhsuk-table__cell" role="cell">(CDR) Market authorisation holder</td>
                                 <td class="nhsuk-table__cell" role="cell">Morningside Incorporated</td>
                             </tr>            
                             <tr class="nhsuk-table__row" role="row">
@@ -723,13 +792,10 @@
             </div>
 
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ref-price-information">
-                    <h2 class="nhsuk-heading-m">
-                        Reference price information
-                    </h2>
 
-                    <h3 class="nhsuk-heading-s">
+                    <h2 class="nhsuk-heading-s">
                         Reference price for 15 October 2025 to 14 October 2028
-                    </h3>
+                    </h2>
 
 
                     {{ table({
@@ -799,9 +865,9 @@
                         summaryText: "What is a reference price?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>A reference price is used within the VPAG reference pricing methodology and may be displayed alongside products within the portal.</p>
-                        <p>Reference prices may be reviewed and updated over time as additional information becomes available.</p>
-                        <p>The reference price shown reflects the most recent information available for this product.</p>
+                        <p>A reference price is used in the VPAG reference pricing methodology and may be displayed alongside products within the portal.</p>
+                        <p>Reference prices may be reviewed and updated over time as new information becomes available.</p>
+                        <p>The reference price shown reflects the most recent information available for a product.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p> -->
                       {% endcall %}
 <!-- 
@@ -893,8 +959,8 @@
                         summaryText: "What is a comparator?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>Comparator products may be used when establishing reference pricing information.</p>
-                        <p>Comparator information helps explain how reference pricing has been determined.</p>
+                        <p>Comparator products may be used as part of the reference pricing methodology.</p>
+                        <p>Comparator information helps explain how a reference pricing has been determined.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p> -->
                       {% endcall %}
 
