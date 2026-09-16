@@ -69,7 +69,7 @@
               Search for Virtual Therapeutic Moiety (VTMs)
             </h1>
             <p>Search for a VTM to view available originator
-              presentation and Reference Anchor Date (RAD)
+              presentation and reference anchor date (RAD)
               information.</p>
           </div>
         </div>
@@ -80,7 +80,10 @@
           <div class="nhsuk-card__content">
             {{ input({
               label: {
-                text: "Enter a VTM name"
+                text: "Enter the exact VTM name"
+              },
+              hint: {
+                text: "Searches that return no results still count towards your daily limit."
               },
               id: 'inputField1',
               name: 'inputField1'
@@ -94,7 +97,7 @@
             </style>
             
             <p class="nhsuk-hint search-counter">
-              You have 0 searches remaining today.
+              You have 0 searches remaining today
             </p>
 
             <br>

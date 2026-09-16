@@ -69,7 +69,7 @@
               Search for Virtual Therapeutic Moiety (VTMs)
             </h1>
             <p>Search for a VTM to view available originator
-              presentation and Reference Anchor Date (RAD)
+              presentation and reference anchor date (RAD)
               information.</p>
           </div>
         </div>
@@ -80,7 +80,10 @@
           <div class="nhsuk-card__content">
             {{ input({
               label: {
-                text: "Enter a VTM name"
+                text: "Enter the exact VTM name"
+              },
+              hint: {
+                text: "Searches that return no results still count towards your daily limit."
               },
               id: 'inputField1',
               name: 'inputField1'
@@ -94,7 +97,7 @@
             </style>
             
             <p class="nhsuk-hint search-counter">
-              You have 10 searches remaining today.
+              You have 10 searches remaining today
             </p>
 
             <div class="nhsuk-button-group">
@@ -113,12 +116,6 @@
                 }
               }) }}
             </div>
-            {% call details({
-              summaryText: "How does this search work?"
-            }) %}
-              <p>You must search using the exact VTM name.</p>
-              <p>Every search counts towards your daily limit, including searches that return no results.</p>
-            {% endcall %}
           </div>
         </div>
 
@@ -136,18 +133,18 @@
               <ul class="nhsuk-tabs__list">
                 <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
                   <a class="nhsuk-tabs__tab" href="#originator-presentations">
-                    Originator presentation(s)
+                    Originator presentations
                   </a>
                 </li>
                 <li class="nhsuk-tabs__list-item">
                   <a class="nhsuk-tabs__tab" href="#reference-anchor-date">
-                    Reference anchor date(s) (RADs)
+                    Reference anchor dates
                   </a>
                 </li>
         
               </ul>
               <div class="nhsuk-tabs__panel" id="originator-presentations">
-                <h3 class="nhsuk-heading-s">Originator presentation(s)</h3>
+                <h3 class="nhsuk-heading-s">Originator presentations</h3>
         
                 <ul>
                   <li>Glucophage 500mg tablets</li>
@@ -161,7 +158,7 @@
 
                 <table class="nhsuk-table">
                   <caption class="nhsuk-table__caption">
-                  Reference anchor date(s) (RADs)
+                  Reference anchor dates
                   </caption>
                   <thead class="nhsuk-table__head">
                   <tr class="nhsuk-table__row">

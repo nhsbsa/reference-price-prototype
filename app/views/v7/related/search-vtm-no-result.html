@@ -69,7 +69,7 @@
               Search for Virtual Therapeutic Moiety (VTMs)
             </h1>
             <p>Search for a VTM to view available originator
-              presentation and Reference Anchor Date (RAD)
+              presentation and reference anchor date (RAD)
               information.</p>
           </div>
         </div>
@@ -80,11 +80,14 @@
           <div class="nhsuk-card__content">
             {{ input({
               label: {
-                text: "Enter a VTM name"
+                text: "Enter the exact VTM name"
+              },
+              hint: {
+                text: "Searches that return no results still count towards your daily limit."
               },
               id: 'inputField1',
               name: 'inputField1',
-              value: "Augmentin"
+              value: "Big company"
             }) }}
 
             <style>
@@ -95,7 +98,7 @@
             </style>
             
             <p class="nhsuk-hint search-counter">
-              You have 4 searches remaining today.
+              You have 4 searches remaining today
             </p>
 
             <div class="nhsuk-button-group">
@@ -114,13 +117,6 @@
                 }
               }) }}
             </div>
-
-            {% call details({
-              summaryText: "How does this search work?"
-            }) %}
-              <p>You must search using the exact VTM name.</p>
-              <p>Every search counts towards your daily limit, including searches that return no results.</p>
-            {% endcall %}
             
           </div>
         </div>
@@ -128,7 +124,7 @@
 
         <div id="resultsSection" style="display: none;">
 
-          <h2 class="nhsuk-heading-m">No VTM found matching "Augmentin"</h2>
+          <h2 class="nhsuk-heading-m">No result found for the VTM name 'Big company'.</h2>
           <p>Check the spelling and try searching again.</p>
 
         </div>
