@@ -17,37 +17,20 @@
         <h1 id="product-name" class="nhsuk-heading-xl">Check your answers before adding this reference price</h1>
 
           {{ summaryList({
-            rows: [
+              rows: [
               {
                 key: {
-                  text: "Reference price"
+                  text: "Data correct as of"
                 },
                 value: {
-                  text: "£6.41"  
+                  text: "12 October 2025"               
                 },
                 actions: {
                   items: [
                     {
-                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price",
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-calculation-date-day",
                       text: "Change",
-                      visuallyHiddenText: "reference price"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
-                  text: "Reference price start year"
-                },
-                value: {
-                  text: "2024"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-start-year-year",
-                      text: "Change",
-                      visuallyHiddenText: "reference price start year"
+                      visuallyHiddenText: "reference price calculation date"
                     }
                   ]
                 }
@@ -57,7 +40,7 @@
                   text: "Reference price type"
                 },
                 value: {
-                  text: "	List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                  text: "	List price minus 12.5%"
                 },
                 actions: {
                   items: [
@@ -105,23 +88,6 @@
               },
               {
                 key: {
-                  text: "Data correct as of"
-                },
-                value: {
-                  text: "12 October 2025"               
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price-calculation-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price calculation date"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
                   text: "Adjustments"
                 },
                 value: {
@@ -136,6 +102,23 @@
                       href: "/v5/dhsc/edit-product/add-reference-price#adjustments",
                       text: "Change",
                       visuallyHiddenText: "reference price adjustments"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price"
+                },
+                value: {
+                  text: "£6.41"  
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/v5/dhsc/edit-product/add-reference-price#reference-price",
+                      text: "Change",
+                      visuallyHiddenText: "reference price"
                     }
                   ]
                 }
