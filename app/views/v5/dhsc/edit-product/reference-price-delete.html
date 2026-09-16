@@ -17,7 +17,7 @@
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
         <h1 id="product-name" class="nhsuk-heading-xl">Delete reference price</h1>
 
-        <h2 class="nhsuk-heading-m">Reference price details</h2>
+        <!-- <h2 class="nhsuk-heading-m">Reference price details</h2> -->
 
         {{ summaryList({
           rows: [
@@ -26,7 +26,7 @@
                 text: "Type"
               },
               value: {
-                text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                text: "List price minus 12.5%"
               }
             },
             {
@@ -56,9 +56,9 @@
           ]
         }) }}
 
-        <p>Are you sure you want to delete?</p>
+        <p>Are you sure you want to delete this reference price?</p>
 
-        <p>This action cannot be undone.</p>
+        <p>If you delete this item, you will not be able to get it back.</p>
       
       
       <div class="nhsuk-button-group">
@@ -78,13 +78,9 @@
       <script>
       document.getElementById('delete-reference-price').addEventListener('click', function () {
       
-          sessionStorage.setItem('bannerTab', 'Reference price');
-          sessionStorage.setItem('bannerHeading', 'Reference price information');
-          sessionStorage.setItem('lastEditedFieldLabel', 'reference price for [start date] to [end date]');
-          sessionStorage.setItem('bannerAction', 'deleted');
-      
-          window.location.href =
-              '/v5/dhsc/product-details?saved=true&tab=%23ref-price-information';
+        window.location.href =
+        '/v5/dhsc/product-details?saved=false&deleted=true#ref-price-information';
+
       });
       </script>
       </div>

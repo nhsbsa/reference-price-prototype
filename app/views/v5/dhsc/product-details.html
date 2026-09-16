@@ -41,7 +41,7 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
-            Reference price information
+            Reference price
             </h3>
             <p>The reference price for 15 October 2025 to 14 October 2028 has been updated.</p>
 
@@ -51,7 +51,7 @@
         {{ notificationBanner({
             html: html,
             type: "success",
-            titleText: "Reference price"
+            titleText: "Updated"
         }) }}
 
         {% endif %}
@@ -61,9 +61,9 @@
 
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading" id="banner-heading">
-            Reference price information
+            Reference price
             </h3>
-            <p>The new reference price for 15 October 2025 to 14 October 2028 has been added.</p>
+            <p>New reference price for 15 October 2025 to 14 October 2028 added.</p>
 
             <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
         {% endset %}
@@ -71,7 +71,7 @@
         {{ notificationBanner({
             html: html,
             type: "success",
-            titleText: "Reference price"
+            titleText: "Created"
         }) }}
 
         {% endif %}
@@ -81,7 +81,7 @@
         
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
-            Reference price information
+            Reference price
             </h3>
             <p>The reference price for 15 October 2025 to 14 October 2028 has been deleted.</p>
 
@@ -91,7 +91,7 @@
         {{ notificationBanner({
             html: html,
             type: "success",
-            titleText: "Reference price"
+            titleText: "Deleted"
         }) }}
 
         {% endif %}
@@ -305,8 +305,8 @@
                             <tr class="nhsuk-table__row">
                                 <td class="nhsuk-table__cell">Small company</td>
                                 <td class="nhsuk-table__cell">Yes</td>
-                                <td class="nhsuk-table__cell">10 December 2019</td>
-                                <td class="nhsuk-table__cell">1 February 2036</td>
+                                <td class="nhsuk-table__cell" style="white-space: nowrap;">10 December 2019</td>
+                                <td class="nhsuk-table__cell" style="white-space: nowrap;">1 February 2036</td>
                                 <td class="nhsuk-table__cell"><a href="#"></a></td>
                             </tr>
                             <tr class="nhsuk-table__row">
@@ -1191,14 +1191,6 @@
                         ],
                         [
                             {
-                                text: "Comparator year"
-                            },
-                            {
-                                text: "2024"
-                            }
-                        ],
-                        [
-                            {
                                 text: "Reference price type"
                             },
                             {
@@ -1284,7 +1276,7 @@
                 <details class="nhsuk-details">
                     <summary class="nhsuk-details__summary">
                         <span class="nhsuk-details__summary-text">
-                            Add or view supporting evidence
+                            Upload or download supporting evidence
                         </span>
                     </summary>
                     <div class="nhsuk-details__text">
@@ -1300,63 +1292,53 @@
                                       sessionStorage.setItem(
                                         'referencePricePeriod', 
                                         '15 October 2025 to 14 October 2028'
-                                      )">Add supporting evidence</a>
+                                      )">Upload supporting evidence</a>
                                 </li>
                             </ul>
                         </div>
-
                         <table class="nhsuk-table-responsive" role="table">
                             <thead class="nhsuk-table__head" role="rowgroup">
                                 <tr role="row">
                                     <th scope="col" class="nhsuk-table__header" role="columnheader">Date</th>
                                     <th scope="col" class="nhsuk-table__header" role="columnheader">File name</th>
                                     <th scope="col" class="nhsuk-table__header" role="columnheader">Note</th>
-                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
-                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Delete</th>
+                                    <th scope="col" class="nhsuk-table__header" role="columnheader">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="nhsuk-table__body">
                                 <tr class="nhsuk-table__row" role="row">
-                                    <td class="nhsuk-table__cell" role="cell">12 October 2025</td>
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">12 October 2025</td>
                                     <td class="nhsuk-table__cell" role="cell">court-ruling-relevant-to-case-12345.pdf</td>
                                     <td class="nhsuk-table__cell" role="cell">This document contains the court ruling relevant to the reference price adjustment for case 12345.</td>
-                                    <td class="nhsuk-table__cell" role="cell">
-                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
-                                    </td>
-                                    <td class="nhsuk-table__cell" role="cell">
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a> | 
                                         <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                     </td>
                                 </tr>
                                 <tr class="nhsuk-table__row" role="row">
-                                    <td class="nhsuk-table__cell" role="cell">10 October 2025</td>
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">10 October 2025</td>
                                     <td class="nhsuk-table__cell" role="cell">email-correspondence-with-supplier.msg</td>
                                     <td class="nhsuk-table__cell" role="cell">Email correspondence with the supplier discussing the reference price calculation and adjustments.</td>
-                                    <td class="nhsuk-table__cell" role="cell">
-                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
-                                    </td>
-                                    <td class="nhsuk-table__cell" role="cell">
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a> | 
                                         <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                     </td>
                                 </tr>
                                 <tr class="nhsuk-table__row" role="row">
-                                    <td class="nhsuk-table__cell" role="cell">5 October 2023</td>
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">5 October 2023</td>
                                     <td class="nhsuk-table__cell" role="cell">pricing-history-2023-2025.pdf</td>
-                                    <td class="nhsuk-table__cell" role="cell">Historical pricing data and analysis for 2023-2025.</td>
-                                    <td class="nhsuk-table__cell" role="cell">
-                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
-                                    </td>
-                                    <td class="nhsuk-table__cell" role="cell">
+                                    <td class="nhsuk-table__cell" role="cell">Historical pricing data and analysis for 2023 to 2025.</td>
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a> | 
                                         <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                     </td>
                                 </tr>
                                 <tr class="nhsuk-table__row" role="row">
-                                    <td class="nhsuk-table__cell" role="cell">3 October 2023</td>
+                                    <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">3 October 2023</td>
                                     <td class="nhsuk-table__cell" role="cell">methodology-review.docx</td>
-                                    <td class="nhsuk-table__cell" role="cell">Review of adjustment methodology with recommendations.</td>
+                                    <td class="nhsuk-table__cell" role="cell">Review of the adjustment of our methodology with provided recommendations.</td>
                                     <td class="nhsuk-table__cell" role="cell">
-                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
-                                    </td>
-                                    <td class="nhsuk-table__cell" role="cell">
+                                        <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a> | 
                                         <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '15 October 2025 to 14 October 2028')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                     </td>
                                 </tr>
@@ -1523,104 +1505,106 @@
                                 Reference price for 6 August 2022 to 1 October 2024
                             </h3>
 
-                            {{ summaryList({
+                            {{ table({
+                                firstCellIsHeader: true,
+                                classes: "nhsuk-table-responsive",
+                                head: [
+                                    {
+                                        text: "Name"
+                                    },
+                                    {
+                                        text: "Value"
+                                    }
+                                ],
                                 rows: [
-                                    {
-                                    key: {
-                                        text: "Comparator year"
-                                    },
-                                    value: {
-                                        text: "2023"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Reference price type"
-                                    },
-                                    value: {
-                                        text: "List price minus 12.5%"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Reference price start date"
-                                    },
-                                    value: {
-                                        text: "15 October 2022"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Reference price end date"
-                                    },
-                                    value: {
-                                        text: "14 October 2023"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Reference anchor date"
-                                    },
-                                    value: {
-                                        text: "1 January 2024"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Medicine classification"
-                                    },
-                                    value: {
-                                        text: "Older medicine"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Date presentation becomes an older medicine"
-                                    },
-                                    value: {
-                                        text: "14 October 2024"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Originator classification"
-                                    },
-                                    value: {
-                                        text: "New entrant"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Interformulation adjustment"
-                                    },
-                                    value: {
-                                        text: "0.5"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Pack size adjustment"
-                                    },
-                                    value: {
-                                        text: "0.5"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Reference price adjustment"
-                                    },
-                                    value: {
-                                        text: "0.5"
-                                    }
-                                    },
-                                    {
-                                    key: {
-                                        text: "Reference price"
-                                    },
-                                    value: {
-                                        text: "£6.41"
-                                    }
-                                    }
+                                    [
+                                        {
+                                            text: "Reference price type"
+                                        },
+                                        {
+                                            text: "List price minus 12.5%"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price start date"
+                                        },
+                                        {
+                                            text: "6 August 2022"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price end date"
+                                        },
+                                        {
+                                            text: "1 October 2024"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference anchor date"
+                                        },
+                                        {
+                                            text: "1 January 2024"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Medicine classification"
+                                        },
+                                        {
+                                            text: "Older medicine"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Date presentation becomes an older medicine"
+                                        },
+                                        {
+                                            text: "1 October 2024"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Originator classification"
+                                        },
+                                        {
+                                            text: "New entrant"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Interformulation adjustment"
+                                        },
+                                        {
+                                            text: "0.5"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Pack size adjustment"
+                                        },
+                                        {
+                                            text: "0.5"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price adjustment"
+                                        },
+                                        {
+                                            text: "0.5"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            text: "Reference price"
+                                        },
+                                        {
+                                            text: "£6.41"
+                                        }
+                                    ]
                                 ]
                             }) }}
 
@@ -1637,7 +1621,7 @@
                                             sessionStorage.setItem(
                                                 'referencePricePeriod', 
                                                 '6 August 2022 to 1 October 2024'
-                                            )">Add supporting evidence</a>
+                                            )">Upload supporting evidence</a>
                                     </li>
             
                                 </ul>
@@ -1649,52 +1633,43 @@
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Date</th>
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">File name</th>
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Note</th>
-                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
-                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Delete</th>
+                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody class="nhsuk-table__body">
+                                <tbody class="nhsuk-table__body"></tbody>
                                     <tr class="nhsuk-table__row" role="row">
-                                        <td class="nhsuk-table__cell" role="cell">12 October 2025</td>
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">12 October 2025</td>
                                         <td class="nhsuk-table__cell" role="cell">court-ruling-relevant-to-case-12345.pdf</td>
                                         <td class="nhsuk-table__cell" role="cell">This document contains the court ruling relevant to the reference price adjustment for case 12345.</td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a> | 
                                             <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                         </td>
                                     </tr>
                                     <tr class="nhsuk-table__row" role="row">
-                                        <td class="nhsuk-table__cell" role="cell">10 October 2025</td>
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">10 October 2025</td>
                                         <td class="nhsuk-table__cell" role="cell">email-correspondence-with-supplier.msg</td>
                                         <td class="nhsuk-table__cell" role="cell">Email correspondence with the supplier discussing the reference price calculation and adjustments.</td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a> | 
                                             <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                         </td>
                                     </tr>
                                     <tr class="nhsuk-table__row" role="row">
-                                        <td class="nhsuk-table__cell" role="cell">05 October 2023</td>
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">5 October 2023</td>
                                         <td class="nhsuk-table__cell" role="cell">pricing-history-2023-2025.pdf</td>
-                                        <td class="nhsuk-table__cell" role="cell">Historical pricing data and analysis for 2023-2025.</td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
+                                        <td class="nhsuk-table__cell" role="cell">Historical pricing data and analysis for 2023 to 2025.</td>
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a> | 
                                             <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                         </td>
                                     </tr>
                                     <tr class="nhsuk-table__row" role="row">
-                                        <td class="nhsuk-table__cell" role="cell">03 October 2023</td>
+                                        <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">3 October 2023</td>
                                         <td class="nhsuk-table__cell" role="cell">methodology-review.docx</td>
-                                        <td class="nhsuk-table__cell" role="cell">Review of adjustment methodology with recommendations.</td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a>
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
+                                        <td class="nhsuk-table__cell" role="cell">Review of the adjustment of our methodology with provided recommendations.</td>
+                                        <td class="nhsuk-table__cell" role="cell"style="white-space: nowrap;">
+                                            <a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Download<span class="nhsuk-u-visually-hidden"></span></a> | 
                                             <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v5/dhsc/delete-evidence" onclick="sessionStorage.setItem('referencePricePeriod', '6 August 2022 to 1 October 2024')">Delete<span class="nhsuk-u-visually-hidden"> supporting evidence</span></a>
                                         </td>
                                     </tr>
@@ -1972,17 +1947,6 @@
 
                 bannerTab.textContent = tabText;
 
-                const activeTab =
-                    tabParam ||
-                    sessionStorage.getItem('activeTab');
-
-                const activeTabLink =
-                    document.querySelector(`a[href="${activeTab}"]`);
-
-                if (bannerTab && activeTabLink) {
-                    bannerTab.textContent = activeTabLink.textContent.trim();
-                }
-
                 const evidenceFileName =
                     sessionStorage.getItem('evidenceFileName');
 
@@ -2004,18 +1968,27 @@
                         referencePricePeriod
                     ) {
 
+                        if (evidenceAction === 'added') {
+                            bannerTab.textContent = 'Uploaded';
+                        } else {
+                            bannerTab.textContent = 'Deleted';
+                        }
+
                         bannerHeading.textContent =
                             'Supporting evidence';
 
                         if (evidenceAction === 'added') {
+                            bannerTab.textContent = 'Uploaded';
 
                             bannerMessage.textContent =
-                                `The new evidence ${evidenceFileName} in reference price for ${referencePricePeriod} has been added`;
+                                `The file ${evidenceFileName} was uploaded in support of the reference price dated ${referencePricePeriod}.`;
 
                         } else {
 
-                            bannerMessage.textContent =
-                                `The evidence ${evidenceFileName} in reference price for ${referencePricePeriod} has been deleted`;
+                        bannerHeading.textContent = 'Supporting evidence';
+
+                        bannerMessage.textContent =
+                            `The file ${evidenceFileName} and any notes in support of the reference price dated ${referencePricePeriod} were deleted.`;
 
                         }
 
@@ -2029,11 +2002,22 @@
                     ['added', 'updated', 'deleted'].includes(action)
                 ) {
 
-                    bannerHeading.textContent =
-                        'Comparator products used';
+                    if (action === 'added') {
+                        bannerTab.textContent = 'Added';
+                        bannerMessage.textContent =
+                        `${comparatorName} has been ${action} as a comparator for the reference price calculation dated ${referencePricePeriod}.`;
+                    } else if (action === 'updated') {
+                        bannerTab.textContent = 'Updated';
+                        bannerMessage.textContent =
+                        `The comparator ${comparatorName} was ${action}. It is used to calculate the reference price dated ${referencePricePeriod}.`;
+                    } else if (action === 'deleted') {
+                        bannerTab.textContent = 'Removed';
+                        bannerMessage.textContent =
+                        `The comparator ${comparatorName} has been removed. It was used to calculate the reference price dated ${referencePricePeriod}.`;
+                    }
 
-                    bannerMessage.textContent =
-                        `The comparator ${comparatorName} in reference price for ${referencePricePeriod} has been ${action}`;
+                    bannerHeading.textContent =
+                        'Comparator';
 
                     sessionStorage.removeItem('comparatorName');
                     sessionStorage.removeItem('referencePricePeriod');
@@ -2041,13 +2025,35 @@
 
                 } else {
                     const fieldLabel =
-                        sessionStorage.getItem('lastEditedFieldLabel') || 'field';
+                        sessionStorage.getItem('bannerFieldLabel') || 'field';
 
                     bannerHeading.textContent =
                         sessionStorage.getItem('bannerHeading') || fieldLabel;
 
-                    bannerMessage.textContent =
-                        `The ${fieldLabel} has been ${action}`;
+                        const newCompanyAdded =
+                            sessionStorage.getItem('newCompanyAdded') === 'true';
+
+                        if (newCompanyAdded) {
+
+                            bannerMessage.textContent =
+                                `VTM ${fieldLabel} changed to new company name.`;
+
+                            sessionStorage.removeItem('newCompanyAdded');
+
+                        } else if (
+                            fieldLabel === '(CDR) market authorisation holder' ||
+                            fieldLabel === '(CDR) Supplementary Protection Certificate holder'
+                        ) {
+
+                            bannerMessage.textContent =
+                                `VTM ${fieldLabel} ${action}.`;
+
+                        } else {
+
+                            bannerMessage.textContent =
+                                `${fieldLabel} ${action}.`;
+
+                        }
                 }
 
                 banner.style.display = 'block';

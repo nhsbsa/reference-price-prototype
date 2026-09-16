@@ -36,91 +36,6 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-
-        <!-- Reference price evidence added notification banner -->
-        {% if data['saved'] == 'ref-price-information' %}
-
-        {% set html %}
-            <h3 class="nhsuk-notification-banner__heading">
-            Reference price information updated
-            </h3>
-            <p>Supporting evidence has been added to the reference price for [start date] to [end date].</p>
-
-            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
-        {% endset %}
-
-        {{ notificationBanner({
-            html: html,
-            type: "success",
-            titleText: "Reference price"
-        }) }}
-
-        {% endif %}
-
-
-        <!-- Add reference price notification banner -->
-        {% if data['saved'] == 'reference-price' %}
-
-        {% set html %}
-            <h3 class="nhsuk-notification-banner__heading">
-            Reference price information added
-            </h3>
-            <p>The new reference price for [start date] to [end date] has been saved.</p>
-
-            <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
-        {% endset %}
-
-        {{ notificationBanner({
-            html: html,
-            type: "success",
-            titleText: "Reference price"
-        }) }}
-
-        {% endif %}
-
-
-
-    <!-- Edit reference price information notification banner -->
-    {% if data['saved'] == 'reference-price-details' %}
-
-    {% set html %}
-        <h3 class="nhsuk-notification-banner__heading">
-        Reference price information updated
-        </h3>
-        <p>The reference price for [start date] to [end date] has been updated.</p>
-
-        <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
-    {% endset %}
-
-    {{ notificationBanner({
-        html: html,
-        type: "success",
-        titleText: "Reference price"
-    }) }}
-
-    {% endif %}
-
-
-    <!-- Reference price deleted notification banner -->
-    {% if data['deleted'] == 'true' %}
-
-    {% set html %}
-        <h3 class="nhsuk-notification-banner__heading">
-        Reference price information deleted
-        </h3>
-        <p>The reference price has been deleted.</p>
-
-        <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
-    {% endset %}
-
-    {{ notificationBanner({
-        html: html,
-        type: "success",
-        titleText: "Reference price"
-    }) }}
-
-    {% endif %}
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.js-close-banner').forEach(link => {
@@ -1220,18 +1135,10 @@
                             ],
                             [
                                 {
-                                    text: "Comparator year"
-                                },
-                                {
-                                    text: "2024"
-                                }
-                            ],
-                            [
-                                {
                                     text: "Reference price type"
                                 },
                                 {
-                                    text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                    text: "List price minus 12.5%"
                                 }
                             ],
                             [
@@ -1313,7 +1220,7 @@
                     <details class="nhsuk-details">
                         <summary class="nhsuk-details__summary">
                             <span class="nhsuk-details__summary-text">
-                                Add or view supporting evidence
+                                Upload or download supporting evidence
                             </span>
                         </summary>
                         <div class="nhsuk-details__text">
@@ -1323,7 +1230,7 @@
                                 </h3>
                                 <ul class="nhsuk-card__actions">
                                     <li class="nhsuk-card__action">
-                                        <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/experimental/add-reference-price-evidence">Add supporting evidence</a>
+                                        <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/experimental/add-reference-price-evidence">Upload supporting evidence</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1499,18 +1406,10 @@
                                 rows: [
                                     [
                                         {
-                                            text: "Comparator year"
-                                        },
-                                        {
-                                            text: "2023"
-                                        }
-                                    ],
-                                    [
-                                        {
                                             text: "Reference price type"
                                         },
                                         {
-                                            text: "List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
+                                            text: "List price minus 12.5%"
                                         }
                                     ],
                                     [
@@ -1518,7 +1417,7 @@
                                             text: "Reference price start date"
                                         },
                                         {
-                                            text: "15 October 2022"
+                                            text: "6 August 2022"
                                         }
                                     ],
                                     [
@@ -1526,7 +1425,7 @@
                                             text: "Reference price end date"
                                         },
                                         {
-                                            text: "14 October 2023"
+                                            text: "1 October 2024"
                                         }
                                     ],
                                     [
@@ -1550,7 +1449,7 @@
                                             text: "Date presentation becomes an older medicine"
                                         },
                                         {
-                                            text: "14 October 2024"
+                                            text: "1 October 2024"
                                         }
                                     ],
                                     [
