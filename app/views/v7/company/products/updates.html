@@ -30,6 +30,38 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 
+{% if cleared == 'true' %}
+
+{% set html %}
+  <h3 class="nhsuk-notification-banner__heading">
+    Updates cleared
+  </h3>
+
+  <p id="cleared-banner-message"></p>
+
+  <a class="nhsuk-notification-banner__link js-close-banner" href="#">Close</a>
+
+{% endset %}
+
+{{ notificationBanner({
+  html: html,
+  type: "success",
+  titleText: "Cleared"
+}) }}
+
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.js-close-banner').forEach(link => {
+      link.addEventListener('click', function (e) {
+          e.preventDefault();
+          this.closest('.nhsuk-notification-banner').style.display = 'none';
+      });
+      });
+  });
+</script>
+
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
@@ -104,157 +136,450 @@
             }) }}
           </div>
 
-          <p>Showing 1 to 10 of 72 updates for this portfolio.</p>
+          <div id="updates-content">
 
-          <table class="nhsuk-table-responsive" id="portfolio-updates-table">
-            <caption class="nhsuk-u-visually-hidden">Portfolio updates table</caption>
-            <thead class="nhsuk-table__head">
-              <tr class="nhsuk-table__row">
-          <th scope="col" aria-sort="descending" id="portfolio-date-sort">
-            <button type="button" class="sortable-header">
-              Date
-              <span class="sort-indicator" aria-hidden="true">
-                <span>▲</span>
-                <span>▼</span>
-              </span>
-            </button>
-          </th>
-          <th scope="col">Presentation</th>
-          <th scope="col">Update</th>
-              </tr>
-            </thead>
-          
-            <tbody class="nhsuk-table__body">
-            <tr>
-              <td style="white-space: nowrap;">5 August 2026</td>
-              <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-            <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
-          </a>
-              </td>
-          <td>Reference price updated for 15 June 2026 to 15 December 2027</td>
-            </tr>
-            <tr>
-              <td>5 August 2026</td>
-              <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-            <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
-          </a>
-              </td>
-              <td>Reference anchor date (RAD) updated</td>
-            </tr>
-            <tr>
-              <td>15 July 2026</td>
-              <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-            <span class="nhsuk-u-visually-hidden">View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)
-          </a>
-              </td>
-          <td>Reference price added for 1 July 2026 to 31 July 2028</td>
-            </tr>
-            <tr>
-              <td>3 June 2026</td>
-              <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-            <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
-          </a>
-              </td>
-              <td>Reference anchor date (RAD) updated</td>
-            </tr>
-            <tr>
-              <td style="white-space: nowrap;">18 February 2026</td>
-              <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-            <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
-          </a>
-              </td>
-              <td>Date presentation becomes an older medicine updated</td>
-            </tr>
-            <tr>
-              <td>10 January 2026</td>
-              <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-            <span class="nhsuk-u-visually-hidden">View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)
-          </a>
-              </td>
-          <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
-            </tr>
-          </tbody>
-        </table>
+            <p id="updates-count">Showing 10 of 10 updates for this portfolio.</p>
 
-        {% from "pagination/macro.njk" import pagination %}
+            <div style="display: flex; align-items: center; white-space: nowrap;">
+            {{ checkboxes({
+            idPrefix: "example",
+            name: "example",
+            small: true,
+            items: [
+            {
+            value: "select-all",
+            text: "Select all updates",
+            checked: false
+            }
+            ]
+            }) }}
 
-        {{ pagination({
-          next: {
+            <div style="margin-left: auto;" id="clear-updates-button">
+            {{ button({
+            text: "Clear selected updates",
+            small: true,
+            variant: "secondary"
+            }) }}
+            </div>
+            </div>
+            <p id="selected-count" class="nhsuk-hint" style="display:none;">
+          </p>
+
+        <table class="nhsuk-table-responsive" id="portfolio-updates-table">
+        <caption class="nhsuk-u-visually-hidden">Portfolio updates table</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+        <th scope="col"></th>
+        <th scope="col" aria-sort="descending" id="portfolio-date-sort">
+        <button type="button" class="sortable-header">
+          Date
+          <span class="sort-indicator" aria-hidden="true">
+        <span>▲</span>
+        <span>▼</span>
+          </span>
+        </button>
+        </th>
+        <th scope="col">Presentation</th>
+        <th scope="col">Update</th>
+          </tr>
+        </thead>
+        
+        <tbody class="nhsuk-table__body">
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update1" type="checkbox" name="select-update" value="update1">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update1"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td style="white-space: nowrap;">5 August 2026</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+        </a>
+          </td>
+        <td>Reference price updated for 15 June 2026 to 15 December 2027</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update2" type="checkbox" name="select-update" value="update2">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update2"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td>5 August 2026</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+        </a>
+          </td>
+          <td>Reference price added for 1 April 2024 to 31 December 9999</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update3" type="checkbox" name="select-update" value="update3">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update3"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td>15 July 2026</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)
+        </a>
+          </td>
+        <td>Reference price added for 1 July 2026 to 31 July 2028</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update4" type="checkbox" name="select-update" value="update4">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update4"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td>3 June 2026</td>
+          <td>
+          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
+          </a>
+          </td>
+          <td>Reference price deleted for 1 April 2024 to 31 December 9999</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update5" type="checkbox" name="select-update" value="update5">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update5"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td style="white-space: nowrap;">18 February 2026</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
+        </a>
+          </td>
+          <td>Reference price updated for 1 April 2024 to 14 December 2025</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update6" type="checkbox" name="select-update" value="update6">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update6"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td>10 January 2026</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)
+        </a>
+          </td>
+        <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update7" type="checkbox" name="select-update" value="update7">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update7"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td style="white-space: nowrap;">25 December 2025</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Omeprazole 40mg capsules (28 capsules - 2 x 14 capsules)
+        </a>
+          </td>
+        <td>Reference price added for 1 December 2025 to 30 November 2026</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update8" type="checkbox" name="select-update" value="update8">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update8"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td>1 December 2025</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Amlodipine 5mg tablets (28 tablets - 2 x 14 tablets)
+        </a>
+          </td>
+        <td>Reference price updated for 1 November 2025 to 31 October 2026</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update9" type="checkbox" name="select-update" value="update9">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update9"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td style="white-space: nowrap;">15 November 2025</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Losartan 50mg tablets (28 tablets - 2 x 14 tablets)
+        </a>
+          </td>
+        <td>Reference price deleted for 1 October 2025 to 31 December 2025</td>
+        </tr>
+        <tr>
+          <td>
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+        <input class="nhsuk-checkboxes__input" id="select-update10" type="checkbox" name="select-update" value="update10">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update10"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+        </div>
+          </td>
+          <td>1 November 2025</td>
+          <td>
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Simvastatin 20mg tablets (28 tablets - 2 x 14 tablets)
+        </a>
+          </td>
+        <td>Reference price added for 1 October 2025 to 30 September 2026</td>
+        </tr></a>
+        </tbody>
+      </table>
+<!-- 
+      {% from "pagination/macro.njk" import pagination %}
+
+      {{ pagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: "#",
+            current: true
+          },
+          {
+            number: 2,
             href: "#"
           },
-          items: [
-            {
-              number: 1,
-              href: "#",
-              current: true
-            },
-            {
-              number: 2,
-              href: "#"
-            },
-            {
-              number: 3,
-              href: "#"
-            },
-            {
-              ellipsis: true
-            },
-            {
-              number: 7,
-              href: "#"
-            }
-          ]
-        }) }}
+          {
+            number: 3,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 7,
+            href: "#"
+          }
+        ]
+      }) }} -->
+      
+      </div>
 
-        <script>
-          (function () {
-            const table = document.getElementById('portfolio-updates-table');
-            if (!table) return;
-          
-            const tbody = table.querySelector('tbody');
-            const dateHeader = document.getElementById('portfolio-date-sort');
-            const button = dateHeader.querySelector('button');
-            const indicator = dateHeader.querySelector('.sort-indicator');
-          
-            let descending = true;
-          
-            button.addEventListener('click', () => {
-              const rows = Array.from(tbody.querySelectorAll('tr'));
-          
-              rows.sort((a, b) => {
-                const dateA = new Date(a.cells[0].textContent.trim());
-                const dateB = new Date(b.cells[0].textContent.trim());
-          
-                return descending
-                  ? dateA - dateB
-                  : dateB - dateA;
-              });
-          
-              rows.forEach(row => tbody.appendChild(row));
-          
-              descending = !descending;
-          
-              dateHeader.setAttribute(
-                'aria-sort',
-                descending ? 'descending' : 'ascending'
-              );
-          
-              if (descending) {
-                indicator.innerHTML =
-                  '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>';
-              } else {
-                indicator.innerHTML =
-                  '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>';
-              }
+      <div id="empty-state" style="display:none;">
+        <h2 class="nhsuk-heading-m">No updates</h2>
+        <p>New updates will appear here when changes are made to products in your portfolio.</p>
+      </div>
+
+      <script>
+        (function () {
+        
+          const visibleUpdates = 10;
+        
+          const checkboxes = document.querySelectorAll(
+            'input[type="checkbox"][name="select-update"]'
+          );
+        
+          const selectAllCheckbox = document.querySelector(
+            'input[type="checkbox"][value="select-all"]'
+          );
+        
+          const clearButtonContainer =
+            document.getElementById('clear-updates-button');
+        
+          const clearButton =
+            clearButtonContainer?.querySelector('button');
+        
+          const selectedCountText =
+            document.getElementById('selected-count');
+        
+          const updatesContent =
+            document.getElementById('updates-content');
+        
+          const emptyState =
+            document.getElementById('empty-state');
+        
+          const table =
+            document.getElementById('portfolio-updates-table');
+        
+          const tbody =
+            table?.querySelector('tbody');
+        
+          const dateHeader =
+            document.getElementById('portfolio-date-sort');
+        
+          const sortButton =
+            dateHeader?.querySelector('button');
+        
+          const indicator =
+            dateHeader?.querySelector('.sort-indicator');
+        
+          let descending = true;
+        
+          function updateSelectionState() {
+        
+            const selectedCount = Array
+              .from(checkboxes)
+              .filter(checkbox => checkbox.checked)
+              .length;
+        
+            clearButtonContainer.style.display =
+              selectedCount > 0 ? 'flex' : 'none';
+        
+            if (selectedCount > 0) {
+        
+              selectedCountText.style.display = 'block';
+        
+              selectedCountText.textContent =
+                `${selectedCount} of ${visibleUpdates} updates selected.`;
+        
+            } else {
+        
+              selectedCountText.style.display = 'none';
+        
+            }
+          }
+        
+          function updateSelectAllState() {
+        
+            const allChecked = Array
+              .from(checkboxes)
+              .every(checkbox => checkbox.checked);
+        
+            if (selectAllCheckbox) {
+              selectAllCheckbox.checked = allChecked;
+            }
+        
+          }
+        
+          function sortTable() {
+        
+            if (!table || !tbody || !dateHeader) return;
+        
+            const rows = Array.from(
+              tbody.querySelectorAll('tr')
+            );
+        
+            rows.sort((a, b) => {
+        
+              const dateA =
+                new Date(a.cells[1].textContent.trim());
+        
+              const dateB =
+                new Date(b.cells[1].textContent.trim());
+        
+              return descending
+                ? dateB - dateA
+                : dateA - dateB;
+        
             });
-          })();
-          </script>
+        
+            rows.forEach(row => tbody.appendChild(row));
+        
+            descending = !descending;
+        
+            dateHeader.setAttribute(
+              'aria-sort',
+              descending ? 'ascending' : 'descending'
+            );
+        
+            if (indicator) {
+        
+              indicator.innerHTML = descending
+                ? '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>'
+                : '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>';
+        
+            }
+        
+          }
+        
+          selectAllCheckbox?.addEventListener('change', () => {
+        
+            checkboxes.forEach(checkbox => {
+              checkbox.checked = selectAllCheckbox.checked;
+            });
+        
+            updateSelectionState();
+        
+          });
+        
+          checkboxes.forEach(checkbox => {
+        
+            checkbox.addEventListener('change', () => {
+        
+              updateSelectionState();
+              updateSelectAllState();
+        
+            });
+        
+          });
+        
+          clearButton?.addEventListener('click', (e) => {
+        
+            e.preventDefault();
+        
+            const selectedCount = Array
+              .from(checkboxes)
+              .filter(checkbox => checkbox.checked)
+              .length;
+        
+            sessionStorage.setItem(
+              'selectedUpdatesCount',
+              selectedCount
+            );
+        
+            window.location.href = 'clear-updates-confirm';
+        
+          });
+        
+          const wasCleared =
+            new URLSearchParams(window.location.search)
+              .get('cleared') === 'true';
+        
+              if (wasCleared) {
+
+              const selectedCount =
+                Number(sessionStorage.getItem('selectedUpdatesCount'));
+
+              if (selectedCount >= 10) {
+
+                updatesContent.style.display = 'none';
+                emptyState.style.display = 'block';
+
+              }        
+            const bannerMessage =
+              document.getElementById('cleared-banner-message');
+        
+            if (bannerMessage) {
+        
+              bannerMessage.textContent =
+                `${selectedCount} update${selectedCount === '1' ? '' : 's'} ${
+                  selectedCount === '1' ? 'has' : 'have'
+                } been removed from your updates list.`;
+        
+            }
+        
+            sessionStorage.removeItem(
+              'selectedUpdatesCount'
+            );
+        
+          }
+        
+          sortButton?.addEventListener(
+            'click',
+            sortTable
+          );
+        
+          updateSelectionState();
+        
+        })();
+        </script>
+        
+        
         
 
         <style>

@@ -178,7 +178,7 @@
             <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
             </a>
               </td>
-              <td>Reference anchor date (RAD) updated</td>
+              <td>Reference price added for 1 April 2024 to 31 December 9999</td>
             </tr>
             <tr>
               <td>
@@ -208,7 +208,7 @@
             <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
               </a>
               </td>
-              <td>Reference anchor date (RAD) updated</td>
+              <td>Reference price deleted for 1 April 2024 to 31 December 9999</td>
             </tr>
             <tr>
               <td>
@@ -223,7 +223,7 @@
             <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
             </a>
               </td>
-              <td>Date presentation becomes an older medicine updated</td>
+              <td>Reference price updated for 1 April 2024 to 14 December 2025</td>
             </tr>
             <tr>
               <td>
@@ -240,9 +240,69 @@
               </td>
             <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
             </tr>
+            <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update7" type="checkbox" name="select-update" value="update7">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update7"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
+              <td style="white-space: nowrap;">25 December 2025</td>
+              <td>
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <span class="nhsuk-u-visually-hidden">View </span>Omeprazole 40mg capsules (28 capsules - 2 x 14 capsules)
+            </a>
+              </td>
+            <td>Reference price added for 1 December 2025 to 30 November 2026</td>
+            </tr>
+            <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update8" type="checkbox" name="select-update" value="update8">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update8"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
+              <td>1 December 2025</td>
+              <td>
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <span class="nhsuk-u-visually-hidden">View </span>Amlodipine 5mg tablets (28 tablets - 2 x 14 tablets)
+            </a>
+              </td>
+            <td>Reference price updated for 1 November 2025 to 31 October 2026</td>
+            </tr>
+            <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update9" type="checkbox" name="select-update" value="update9">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update9"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
+              <td style="white-space: nowrap;">15 November 2025</td>
+              <td>
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <span class="nhsuk-u-visually-hidden">View </span>Losartan 50mg tablets (28 tablets - 2 x 14 tablets)
+            </a>
+              </td>
+            <td>Reference price deleted for 1 October 2025 to 31 December 2025</td>
+            </tr>
+            <tr>
+              <td>
+            <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small app-table-select-checkbox">
+            <input class="nhsuk-checkboxes__input" id="select-update10" type="checkbox" name="select-update" value="update10">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="select-update10"><span class="nhsuk-u-visually-hidden">Select update</span></label>
+            </div>
+              </td>
+              <td>1 November 2025</td>
+              <td>
+            <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+            <span class="nhsuk-u-visually-hidden">View </span>Simvastatin 20mg tablets (28 tablets - 2 x 14 tablets)
+            </a>
+              </td>
+            <td>Reference price added for 1 October 2025 to 30 September 2026</td>
+            </tr></a>
             </tbody>
           </table>
-
+<!-- 
           {% from "pagination/macro.njk" import pagination %}
 
           {{ pagination({
@@ -271,7 +331,7 @@
                 href: "#"
               }
             ]
-          }) }}
+          }) }} -->
 
           <script>
             (function () {
@@ -295,7 +355,7 @@
                 selectAllCheckbox.checked = allChecked;
               }
 
-              function sortTable() {
+                function sortTable() {
                 if (!table || !tbody || !dateHeader) return;
 
                 const rows = Array.from(tbody.querySelectorAll('tr'));
@@ -308,11 +368,11 @@
                 rows.forEach(row => tbody.appendChild(row));
                 descending = !descending;
 
-                dateHeader.setAttribute('aria-sort', descending ? 'descending' : 'ascending');
+                dateHeader.setAttribute('aria-sort', descending ? 'ascending' : 'descending');
                 indicator.innerHTML = descending
-                  ? '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>'
-                  : '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>';
-              }
+                  ? '<span style="opacity:1">▲</span><span style="opacity:.3">▼</span>'
+                  : '<span style="opacity:.3">▲</span><span style="opacity:1">▼</span>';
+                }
 
               selectAllCheckbox.addEventListener('change', () => {
                 checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
