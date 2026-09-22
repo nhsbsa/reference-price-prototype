@@ -45,4 +45,17 @@ router.get('/v5/dhsc/provisional/add/review', function (req, res) {
   res.render('v5/dhsc/provisional/add/review');
 });
 
+//clear product updates notification banner
+router.get('/v7/company/products/updates', function (req, res) {
+
+  const cleared = req.session.data.cleared;
+
+  res.render('v7/company/products/updates', {
+    cleared: cleared
+  });
+
+  req.session.data.cleared = null;
+
+});
+
 module.exports = router
