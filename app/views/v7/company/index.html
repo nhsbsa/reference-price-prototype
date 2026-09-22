@@ -33,6 +33,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
+        {% if data['showUpdatesBanner'] == 'true' %}
         {% set html %}
             <h3 class="nhsuk-notification-banner__heading">
             Product updates
@@ -47,6 +48,7 @@
             html: html,
             titleText: "Important"
         }) }}
+        {% endif %}
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

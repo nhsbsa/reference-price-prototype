@@ -45,7 +45,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1 class="nhsuk-heading-l">Metabet SR 1000mg tablets (28 tablet - 2 x 14 tablets)</h1>
+        <h1 class="nhsuk-heading-l">{{ data.product or "Metabet SR 1000mg tablets (28 tablet - 2 x 14 tablets)" }}</h1>
         
         <div class="nhsuk-tabs" data-module="nhsuk-tabs">
 
@@ -163,7 +163,7 @@
                 <br>
 
                 <!-- Common Drug Reference (CDR) supplier information -->
-                <div id="hierarchy-attributes">
+                <div id="cdr-supplier-information">
                     <h2 class="nhsuk-heading-m">Common Drug Reference (CDR) supplier information</h2>
 
                     {{ table({
@@ -1217,7 +1217,7 @@
                         </div>
                     </details> -->
 
-                    <p>Showing 1 to 20 of 150 updates for this product.</p>
+                    <p>Showing 1 to 20 of 20 updates for this product.</p>
 
                     <div class="nhsuk-table-responsive">
                       <table class="nhsuk-table-responsive" id="portfolio-updates-table">
@@ -1415,7 +1415,7 @@
                       </table>
                     </div>
                     
-                    {% from "pagination/macro.njk" import pagination %}
+                    <!-- {% from "pagination/macro.njk" import pagination %}
 
                     {{ pagination({
                       next: {
@@ -1443,7 +1443,7 @@
                           href: "#"
                         }
                       ]
-                    }) }}
+                    }) }} -->
                 </div>
             </div>
 

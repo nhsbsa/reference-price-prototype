@@ -65,107 +65,107 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <div class="app-pane">
+      <div class="app-pane">
 
-          <aside class="app-pane__side-bar">
-            <nav class="app-side-nav">
-        
-              <h2 class="app-side-nav__heading">Navigation</h2>
-        
-              <ul class="nhsuk-list app-side-nav__list">
-                <li class="app-side-nav__item">
-                  <a class="app-side-nav__link" href="/v7/company/products/index">
-                    Product portfolio
-                  </a>
-                </li>
-        
-                <li class="app-side-nav__item app-side-nav__item--current">
-                  <a class="app-side-nav__link">
-                    Product updates
-                  </a>
-                </li>
+        <aside class="app-pane__side-bar">
+        <nav class="app-side-nav">
+      
+          <h2 class="app-side-nav__heading">Navigation</h2>
+      
+          <ul class="nhsuk-list app-side-nav__list">
+          <li class="app-side-nav__item">
+            <a class="app-side-nav__link" href="/v7/company/products/index">
+            Product portfolio
+            </a>
+          </li>
+      
+          <li class="app-side-nav__item app-side-nav__item--current">
+            <a class="app-side-nav__link">
+            Product updates
+            </a>
+          </li>
 
-                <li class="app-side-nav__item">
-                  <a class="app-side-nav__link" href="/v7/company/products/search-vtm">
-                    Search VTMs
-                  </a>
-                </li>
-              </ul>
+          <li class="app-side-nav__item">
+            <a class="app-side-nav__link" href="/v7/company/products/search-vtm">
+            Search VTMs
+            </a>
+          </li>
+          </ul>
+      
+        </nav>
+        </aside>
+      
+        <div class="app-pane__main-content">
+      
+        <h1 class="nhsuk-heading-l">
+          Product updates
+        </h1>
+        </div>
+      </div>
+
+        <div class="nhsuk-table__panel-with-heading-tab">
+        <h2 class="nhsuk-table__heading-tab">
+          Company details
+        </h2>
         
-            </nav>
-          </aside>
-        
-          <div class="app-pane__main-content">
-        
-            <h1 class="nhsuk-heading-l">
-              Product updates
-            </h1>
-          </div>
+        {{ table({
+          head: [
+        {
+          text: "Company"
+        },
+        {
+          text: "SNOMED"
+        },
+        {
+          text: "Reference"
+        }
+        ],
+          rows: [
+        [
+        {
+          text: "Aspire Pharma Ltd"
+        },
+        {
+          text: "22"
+        },
+        {
+          text: "419"
+        }
+        ]
+          ]
+        }) }}
         </div>
 
-          <div class="nhsuk-table__panel-with-heading-tab">
-            <h2 class="nhsuk-table__heading-tab">
-              Company details
-            </h2>
-          
-            {{ table({
-              head: [
-          {
-              text: "Company"
-          },
-          {
-              text: "SNOMED"
-          },
-          {
-              text: "Reference"
-          }
-          ],
-              rows: [
-          [
-            {
-              text: "Aspire Pharma Ltd"
-            },
-            {
-              text: "22"
-            },
-            {
-              text: "419"
-            }
-          ]
-              ]
-            }) }}
-          </div>
+        <div id="updates-content">
 
-          <div id="updates-content">
+        <p id="updates-count">Showing 10 of 10 updates for this portfolio.</p>
 
-            <p id="updates-count">Showing 10 of 10 updates for this portfolio.</p>
+        <div style="display: flex; align-items: center; white-space: nowrap;">
+        {{ checkboxes({
+        idPrefix: "example",
+        name: "example",
+        small: true,
+        items: [
+        {
+        value: "select-all",
+        text: "Select all updates",
+        checked: false
+        }
+        ]
+        }) }}
 
-            <div style="display: flex; align-items: center; white-space: nowrap;">
-            {{ checkboxes({
-            idPrefix: "example",
-            name: "example",
-            small: true,
-            items: [
-            {
-            value: "select-all",
-            text: "Select all updates",
-            checked: false
-            }
-            ]
-            }) }}
+        <div style="margin-left: auto;" id="clear-updates-button">
+        {{ button({
+        text: "Clear selected updates",
+        small: true,
+        variant: "secondary"
+        }) }}
+        </div>
+        </div>
+        <p id="selected-count" class="nhsuk-hint" style="display:none;">
+        </p>
 
-            <div style="margin-left: auto;" id="clear-updates-button">
-            {{ button({
-            text: "Clear selected updates",
-            small: true,
-            variant: "secondary"
-            }) }}
-            </div>
-            </div>
-            <p id="selected-count" class="nhsuk-hint" style="display:none;">
-          </p>
-
-        <table class="nhsuk-table-responsive" id="portfolio-updates-table">
+      <table class="nhsuk-table-responsive" id="portfolio-updates-table">
         <caption class="nhsuk-u-visually-hidden">Portfolio updates table</caption>
         <thead class="nhsuk-table__head">
           <tr class="nhsuk-table__row">
@@ -194,7 +194,7 @@
           </td>
           <td style="white-space: nowrap;">5 August 2026</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)#history">
         <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
         </a>
           </td>
@@ -209,8 +209,8 @@
           </td>
           <td>5 August 2026</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)
         </a>
           </td>
           <td>Reference price added for 1 April 2024 to 31 December 9999</td>
@@ -224,8 +224,8 @@
           </td>
           <td>15 July 2026</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Sildenafil 50mg film-coated tablets (8 tablets - 1 x 8 tablets)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)
         </a>
           </td>
         <td>Reference price added for 1 July 2026 to 31 July 2028</td>
@@ -239,8 +239,8 @@
           </td>
           <td>3 June 2026</td>
           <td>
-          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Esomeprazole 20mg gastro-resistant tablets (28 tablets - 2 x 14 tablets)
+          <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)
           </a>
           </td>
           <td>Reference price deleted for 1 April 2024 to 31 December 9999</td>
@@ -254,8 +254,8 @@
           </td>
           <td style="white-space: nowrap;">18 February 2026</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Atorvastatin 20mg film-coated tablets (28 tablets - 2 x 14 tablets)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
         </a>
           </td>
           <td>Reference price updated for 1 April 2024 to 14 December 2025</td>
@@ -269,8 +269,8 @@
           </td>
           <td>10 January 2026</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Ramipril 10mg capsules (28 capsules - 4 x 7 capsules)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)
         </a>
           </td>
         <td>Reference price updated for 1 January 2026 to 31 December 2026</td>
@@ -284,8 +284,8 @@
           </td>
           <td style="white-space: nowrap;">25 December 2025</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Omeprazole 40mg capsules (28 capsules - 2 x 14 capsules)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)
         </a>
           </td>
         <td>Reference price added for 1 December 2025 to 30 November 2026</td>
@@ -299,8 +299,8 @@
           </td>
           <td>1 December 2025</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Amlodipine 5mg tablets (28 tablets - 2 x 14 tablets)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Pregabalin 150mg capsules (56 capsules - 4 x 14 capsules)
         </a>
           </td>
         <td>Reference price updated for 1 November 2025 to 31 October 2026</td>
@@ -314,8 +314,8 @@
           </td>
           <td style="white-space: nowrap;">15 November 2025</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Losartan 50mg tablets (28 tablets - 2 x 14 tablets)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (56 tablets - 4 x 14 tablets)
         </a>
           </td>
         <td>Reference price deleted for 1 October 2025 to 31 December 2025</td>
@@ -329,8 +329,8 @@
           </td>
           <td>1 November 2025</td>
           <td>
-        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates#history">
-        <span class="nhsuk-u-visually-hidden">View </span>Simvastatin 20mg tablets (28 tablets - 2 x 14 tablets)
+        <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/product-details?source=updates&product=Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)#history">
+        <span class="nhsuk-u-visually-hidden">View </span>Metabet SR 1000mg tablets (28 tablets - 2 x 14 tablets)
         </a>
           </td>
         <td>Reference price added for 1 October 2025 to 30 September 2026</td>
