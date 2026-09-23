@@ -108,30 +108,33 @@
 
         <p id="updates-count">Showing 10 of 10 updates for this portfolio.</p>
 
-        <div style="display: flex; align-items: center; white-space: nowrap;">
         {{ checkboxes({
-        idPrefix: "example",
-        name: "example",
-        small: true,
-        items: [
-        {
-        value: "select-all",
-        text: "Select all updates",
-        checked: false
-        }
-        ]
+          idPrefix: "example",
+          name: "example",
+          small: true,
+          items: [
+            {
+            value: "select-all",
+            text: "Select all updates",
+            checked: false
+            }
+          ]
         }) }}
 
-        <div style="margin-left: auto;" id="clear-updates-button">
-        {{ button({
-        text: "Clear selected updates",
-        small: true,
-        variant: "secondary"
-        }) }}
+        <div style="display: flex; align-items: flex-start; white-space: nowrap;">
+
+          <p id="selected-count" class="nhsuk-hint" style="display:none;"></p>
+
+
+          <div style="margin-left: auto;" id="clear-updates-button">
+            {{ button({
+            text: "Clear selected updates",
+            small: true,
+            variant: "secondary"
+            }) }}
+          </div>
+
         </div>
-        </div>
-        <p id="selected-count" class="nhsuk-hint" style="display:none;">
-        </p>
 
       <table class="nhsuk-table-responsive" id="portfolio-updates-table">
         <caption class="nhsuk-u-visually-hidden">Portfolio updates table</caption>
