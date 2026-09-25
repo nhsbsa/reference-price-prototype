@@ -112,6 +112,9 @@
           idPrefix: "example",
           name: "example",
           small: true,
+          hint: {
+            text: "Select updates and choose Delete updates to remove them from the list."
+          },
           items: [
             {
             value: "select-all",
@@ -128,7 +131,7 @@
 
           <div style="margin-left: auto;" id="clear-updates-button">
             {{ button({
-            text: "Clear selected updates",
+            text: "Delete updates",
             small: true,
             variant: "secondary"
             }) }}

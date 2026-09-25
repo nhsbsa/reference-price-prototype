@@ -40,7 +40,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-      <h1 class="nhsuk-heading-l">Clear selected updates</h1>
+      <h1 class="nhsuk-heading-l">Delete selected updates</h1>
 
       <p id="clear-count-message">
         The selected updates will be removed from your product updates list. You will not be able to recover them.
@@ -56,7 +56,7 @@
       <div class="nhsuk-button-group">
     
         <button class="nhsuk-button nhsuk-button--warning" data-module="nhsuk-button" type="submit">
-          Yes, clear selected updates
+          Yes, delete selected updates
         </button>     
     
         <a href="javascript:history.back()" class="nhsuk-button nhsuk-button--secondary">
@@ -74,7 +74,7 @@
           sessionStorage.getItem('selectedUpdatesCount') || '0';
 
         document.getElementById('clear-count-message').textContent =
-          `You are about to clear ${selectedCount} update${selectedCount === '1' ? '' : 's'} from your product updates list.`;
+          `${selectedCount} update${selectedCount === '1' ? '' : 's'} will be deleted from your product updates list.`;
 
         </script>
 
