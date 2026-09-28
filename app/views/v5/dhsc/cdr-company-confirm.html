@@ -41,6 +41,22 @@
     const newValue = params.get('companyName') || '';
     const metadata = fieldMetadata[fieldKey] || fieldMetadata['cdr-market-authorisation-holder'];
 
+    if (fieldKey === 'cdr-market-authorisation-holder') {
+
+    sessionStorage.setItem(
+        'bannerHeading',
+        'VTM Market Authorisation information'
+    );
+
+    } else if (fieldKey === 'cdr-spc-holder') {
+
+    sessionStorage.setItem(
+        'bannerHeading',
+        'VTM Supplementary Protection Certificate information'
+    );
+
+    }
+
     // Build confirmation content
     const calloutHtml = `
       <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
@@ -57,50 +73,101 @@
 
     const manualCompany = params.get('manualCompany') === 'true';
 
-const confirmationHtml = manualCompany ? `
-  <div class="nhsuk-u-margin-top-4">
-    <h2 class="nhsuk-heading-m">Enter a new company name</h2>
-    <p>You are about to change <strong>${metadata.label}</strong> for all products linked to the VTM 'Metformin'.</p>
-    <p>Current value: <strong>Morningside Healthcare Ltd</strong></p>
+    const displayLabel =
+    metadata.label.replace('(SPC) ', '');
 
-    <div class="nhsuk-form-group">
-      <label class="nhsuk-label" for="company-name">
-        New value
-      </label>
-      <input
-        class="nhsuk-input nhsuk-u-width-two-thirds"
-        id="company-name"
-        name="companyName"
-        type="text"
-        value="${newValue}">
-    </div>
-  </div>
-` : `
-  <div class="nhsuk-u-margin-top-4">
-    <h2 class="nhsuk-heading-m">Confirm change</h2>
-    <p>You are about to change <strong>${metadata.label}</strong> for all products linked to the VTM 'Metformin'.</p>
+    const confirmText =
+        `Changing ${displayLabel} for the VTM 'Metformin' will update all linked products.`;
 
-    <dl class="nhsuk-summary-list">
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">Previous value</dt>
-        <dd class="nhsuk-summary-list__value">Morningside Healthcare Ltd</dd>
+    const manualCompanyText =
+        `This will change the <strong>${displayLabel}</strong> for all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'.`;
+
+    const confirmationHtml = manualCompany ? `
+      <div class="nhsuk-u-margin-top-4">
+        <h2 class="nhsuk-heading-m">Enter a new company name</h2>
+
+        <p>${manualCompanyText}</p>
+
+        <p>Current company name: <strong>Morningside Healthcare Ltd</strong></p>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="company-name">
+            New company name
+          </label>
+          <input
+            class="nhsuk-input nhsuk-u-width-two-thirds"
+            id="company-name"
+            name="companyName"
+            type="text"
+            value="${newValue}">
+        </div>
       </div>
+    ` : `
+      <div class="nhsuk-u-margin-top-4">
 
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">New value</dt>
-        <dd class="nhsuk-summary-list__value">${newValue}</dd>
+        <h2 class="nhsuk-heading-m">
+          Confirm change of ${displayLabel}
+        </h2>
+
+        <p>${confirmText}</p>
+
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Previous company name</dt>
+            <dd class="nhsuk-summary-list__value">Morningside Healthcare Ltd</dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">New company name</dt>
+            <dd class="nhsuk-summary-list__value">${newValue}</dd>
+          </div>
+        </dl>
+
       </div>
-    </dl>
-  </div>
-`;
+    `;
 
     document.getElementById('confirmation-content').insertAdjacentHTML('afterbegin', confirmationHtml);
 
     // Save button handler
     document.getElementById('confirm-btn').addEventListener('click', function () {
-        sessionStorage.setItem('lastEditedFieldLabel', metadata.label);
-        const tab = '#exclusivity-information';
-        window.location.href = '/v5/dhsc/product-details?saved=true&tab=' + encodeURIComponent(tab);
+
+    sessionStorage.setItem('lastEditedFieldLabel', displayLabel);
+    sessionStorage.setItem('bannerFieldLabel', displayLabel);
+
+    if (fieldKey === 'cdr-market-authorisation-holder') {
+
+        sessionStorage.setItem(
+            'bannerHeading',
+            'VTM Market Authorisation information'
+        );
+
+    } else if (fieldKey === 'cdr-spc-holder') {
+
+        sessionStorage.setItem(
+            'bannerHeading',
+            'VTM Supplementary Protection Certificate information'
+        );
+
+    }
+
+    if (manualCompany) {
+
+    sessionStorage.setItem('bannerTab', 'New company name added');
+    sessionStorage.setItem('newCompanyAdded', 'true');
+
+    } else {
+
+    sessionStorage.setItem('bannerTab', 'Updated');
+    sessionStorage.removeItem('newCompanyAdded');
+
+    }
+
+    const tab = '#exclusivity-information';
+
+    window.location.href =
+        '/v5/dhsc/product-details?saved=true&tab=' +
+        encodeURIComponent(tab);
+
     });
 
     // Cancel button handler - go back to search

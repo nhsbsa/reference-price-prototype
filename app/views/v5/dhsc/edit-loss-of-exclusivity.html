@@ -101,6 +101,7 @@
             },
             "market-authorisation-number": {
                 label: "market authorisation number",
+                bannerLabel: "Market authorisation number",
                 type: "text",
                 value: "PL 20117/0184",
                 labelPrefix: "the",
@@ -109,6 +110,7 @@
             },
             "ma-product-name": {
                 label: "market authorisation product name",
+                bannerLabel: "Market authorisation product name",
                 type: "text",
                 value: "Metabet SR",
                 labelPrefix: "the",
@@ -117,6 +119,7 @@
             },
             "mhra-market-authorisation-holder": {
                 label: "(MHRA) market authorisation holder",
+                bannerLabel: "(MHRA) Market authorisation holder",
                 type: "text",
                 value: "Morningside Incorporated",
                 labelPrefix: "the",
@@ -125,6 +128,7 @@
             },
             "cdr-market-authorisation-holder": {
                 label: "(CDR) market authorisation holder",
+                bannerLabel: "(CDR) Market authorisation holder",
                 type: "autocomplete",
                 value: "Morningside Healthcare Ltd",
                 labelPrefix: "the",
@@ -133,6 +137,7 @@
             },
             "market-authorisation-date": {
                 label: "market authorisation date",
+                bannerLabel: "Market authorisation date",
                 type: "date",
                 value: "2011-06-01",
                 labelPrefix: "the",
@@ -141,6 +146,7 @@
             },
             "spc-expiry-date": {
                 label: "Supplementary Protection Certificate (SPC) expiry date",
+                bannerLabel: "VTM Supplementary Protection Certificate expiry date",
                 type: "date",
                 value: "2011-06-01",
                 labelPrefix: "the",
@@ -149,6 +155,7 @@
             },
             "spc-number": {
                 label: "Supplementary Protection Certificate (SPC) number",
+                bannerLabel: "VTM Supplementary Protection Certificate number",
                 type: "text",
                 value: "IPO456789",
                 labelPrefix: "the",
@@ -157,6 +164,7 @@
             },
             "spc-number-alternative": {
                 label: "Supplementary Protection Certificate (SPC) number alternative",
+                bannerLabel: "VTM Supplementary Protection Certificate number alternative",
                 type: "text",
                 value: "",
                 labelPrefix: "the",
@@ -165,6 +173,7 @@
             },
             "spc-product-description": {
                 label: "Supplementary Protection Certificate (SPC) product description",
+                bannerLabel: "VTM Supplementary Protection Certificate product description",
                 type: "text",
                 value: "Metabet Ultra",
                 labelPrefix: "the",
@@ -173,6 +182,7 @@
             },
             "cdr-spc-holder": {
                 label: "Supplementary Protection Certificate (SPC) holder",
+                bannerLabel: "VTM (CDR) Supplementary Protection Certificate holder",
                 type: "autocomplete",
                 value: "Morningside Healthcare Ltd",
                 labelPrefix: "the (CDR)",
@@ -181,6 +191,7 @@
             },
             "ipo-spc-holder": {
                 label: "(IPO) Supplementary Protection Certificate (SPC) holder",
+                bannerLabel: "VTM (IPO) Supplementary Protection Certificate holder",
                 type: "text",
                 value: "Morningside Healthcare Ltd",
                 labelPrefix: "the",
@@ -195,8 +206,12 @@
 
         sessionStorage.setItem('lastEditedField', fieldKey);
         sessionStorage.setItem('lastEditedFieldLabel', toLowercase(field.label));
+        sessionStorage.setItem(
+            'bannerFieldLabel',
+            field.bannerLabel || field.label
+        );
         sessionStorage.setItem('bannerAction', 'updated');
-        sessionStorage.setItem('bannerTab', 'Loss of exclusivity');
+        sessionStorage.setItem('bannerTab', 'Updated');
 
         const maFields = [
             'market-authorisation-number',
@@ -218,9 +233,9 @@
         let bannerHeading = 'Loss of exclusivity information';
 
         if (maFields.includes(fieldKey)) {
-            bannerHeading = 'VTM Market Authorisation (MA) information';
+            bannerHeading = 'VTM Market Authorisation information';
         } else if (spcFields.includes(fieldKey)) {
-            bannerHeading = 'VTM Supplementary Protection Certificate (SPC) information';
+            bannerHeading = 'VTM Supplementary Protection Certificate information';
         } else if (fieldKey === 'reference-anchor-date') {
             bannerHeading = 'Reference anchor date';
         } else if (

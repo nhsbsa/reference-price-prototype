@@ -20,10 +20,10 @@
 
         <div class="nhsuk-form-group">
             <h2 class="nhsuk-heading-m">
-                Editing: <span id="field-label-display"></span>
+                <span id="field-label-display"></span>
             </h2>
             <p class="nhsuk-body">
-                Current value: <strong id="current-value-display"></strong>
+                Current company name: <strong id="current-value-display"></strong>
             </p>
         </div>
 
@@ -37,34 +37,18 @@
             </div>
         </div>
 
-        <div id="results-container" style="display:none; margin-top:1rem;">
-            <h2 class="nhsuk-heading-m">Search results</h2>
-            <p>There are <span id="results-count">0</span> results with the search terms: '<span id="search-terms"></span>' </p>
-            <table class="nhsuk-table-responsive" role="table" id="results-table">
-                <thead class="nhsuk-table__head">
-                    <tr>
-                        <th class="nhsuk-table__header">Company name</th>
-                        <th class="nhsuk-table__header">Action</th>
-                    </tr>
-                </thead>
-                <tbody class="nhsuk-table__body" id="results-body">
-                    <!-- filled dynamically -->
-                </tbody>
-            </table>
-        </div>
-
+        <br>
 
         <div id="search-results" hidden>
 
-            <h2 class="nhsuk-heading-m">
-              157 companies found
-            </h2>
+          <p class="nhsuk-body">There are <strong>3</strong> results with the company name: 'Big company'.</p>
+
+            <h3 class="nhsuk-heading-s">
+              Search results
+            </h3>     
         
-          <p class="nhsuk-body nhsuk-u-margin-bottom-5">Searched all companies with the word "Morningside" in the name</p>
-        
-        
-            <p class="nhsuk-hint nhsuk-u-margin-bottom-2">
-              Select a company name. If you cannot find it in the list, enter it manually by selecting Add company name at the bottom of the page.
+            <p class="nhsuk-hint">
+              Select a company name. If you cannot find it in the list, select Add company name to enter it manually.
             </p>
             
               {{ table({
@@ -101,102 +85,6 @@
                     {
                         html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside UK Ltd&manualCompany=false">Select</a>'
                     }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Medical Services Ltd</p>'
-                    },
-                    {
-                        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Medical Services Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Biologics Ltd</p>'
-                    },
-                    {
-                        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Biologics Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Pharma Holdings Ltd</p>'
-                    },
-                    {
-                        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Pharma Holdings Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Therapeutics Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Therapeutics Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Healthcare UK Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Healthcare UK Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Medical Products Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Medical Products Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningside Clinical Research Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningside Clinical Research Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningstar Medical Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningstar Medical Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningview Pharmaceuticals Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningview Pharmaceuticals Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Mornington Healthcare Ltd</p>'
-                    },
-                    {
-                    html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Mornington Healthcare Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morningwell Therapeutics Ltd</p>'
-                    },
-                    {
-                      html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morningwell Therapeutics Ltd&manualCompany=false">Select</a>'
-                    }
-                  ],
-                  [
-                    {
-                      html: '<p class="nhsuk-body">Morning Labs Ltd</p>'
-                    },
-                    {
-                        html: '<a class="nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-u-margin-bottom-1" href="/v5/dhsc/cdr-company-confirm?field=cdr-market-authorisation-holder&companyName=Morning Labs Ltd&manualCompany=false">Select</a>'
-                    }
                   ]
                   ]
                 }) }}
@@ -218,29 +106,11 @@
                   {
                     number: 3,
                     href: "#"
-                  },
-                  {
-                    ellipsis: true
-                  },
-                  {
-                    number: 8,
-                    href: "#"
-                  },
-                  {
-                    number: 9,
-                    href: "#"
-                  },
-                  {
-                    number: 10,
-                    href: "#"
                   }
                 ]
               }) }}
         
-              <hr>
-        
-        
-          <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Manually enter company name if you cannot find it in the list.</p>
+          <p>Manually enter company name if you cannot find it in the list.</p>
           
           {{ button({
             text: "Add company name",
@@ -335,7 +205,11 @@
     const metadata = fieldMetadata[fieldKey] || fieldMetadata['cdr-market-authorisation-holder'];
 
     // Display field info and callout
-    document.getElementById('field-label-display').textContent = metadata.label;
+    const displayLabel =
+    metadata.label.replace('(SPC) ', '');
+
+    document.getElementById('field-label-display').textContent = `Change ${displayLabel}`;    
+    
     document.getElementById('current-value-display').textContent = metadata.currentValue;
 
     const calloutHtml = `
