@@ -1081,36 +1081,24 @@
             </div>
 
             <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ref-price-information">
-                <div class="heading-with-actions" id="ref-price-info" style="margin-bottom: 2rem;">
-                    <h2 class="nhsuk-heading-m">
-                        Reference price information
-                    </h2>
-                    <ul class="nhsuk-card__actions">
-                        <li class="nhsuk-card__action">
-                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="add-reference-price">
-                                Add a new reference price</a>
-                        </li>
-
-                    </ul>
+                <div style="text-align: right;">
+                    <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">
+                        Add a new reference price</a>
                 </div>
 
+                <br>
 
                 <div class="heading-with-actions">
                     <h3 class="nhsuk-heading-s">
                         Reference price for 15 October 2025 to 14 October 2028
                     </h3>
-                    <ul class="nhsuk-card__actions">
-                        <li class="nhsuk-card__action">
-                            <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                href="edit-reference-price">Edit<span class="nhsuk-u-visually-hidden"> reference price</span></a>
-                        </li>
+                    <p>
+                    <a class="nhsuk-link--no-visited-state nhsuk-link"
+                        href="#">Edit<span class="nhsuk-u-visually-hidden"> reference price</span></a> |
+                    <a class="nhsuk-link--no-visited-state nhsuk-link"
+                        href="#">Delete<span class="nhsuk-u-visually-hidden"> reference price</span></a>
+                    </p>
 
-                        <li class="nhsuk-card__action">
-                            <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                href="reference-price-delete">Delete<span class="nhsuk-u-visually-hidden"> reference price</span></a>
-                        </li>
-
-                    </ul>
                 </div>
 
                     {{ table({
@@ -1191,7 +1179,7 @@
                             ],
                             [
                                 {
-                                    text: "Reference price adjustment"
+                                    text: "Strength adjustment"
                                 },
                                 {
                                     text: "Yes"
@@ -1228,12 +1216,11 @@
                                 <h3 class="nhsuk-heading-s">
                                     Supporting evidence
                                 </h3>
-                                <ul class="nhsuk-card__actions">
-                                    <li class="nhsuk-card__action">
-                                        <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/experimental/add-reference-price-evidence">Upload supporting evidence</a>
-                                    </li>
-                                </ul>
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/add-reference-price-evidence">Upload supporting evidence</a>
+
                             </div>
+
+                            <br>
 
                             <p>No supporting evidence added.</p>
                         </div>
@@ -1244,16 +1231,11 @@
 
                         <h3 class="nhsuk-heading-s">Comparator products used </h3>
                         <!-- to calculate reference price for period: 01/10/2024 - 1 February 2036 -->
-                        <ul class="nhsuk-card__actions">
-                            <!-- <li class="nhsuk-card__action">
-                                <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                    href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a>
-                            </li> -->
-                            <li class="nhsuk-card__action">
-                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/comparator-search">Add a new comparator</a>
-                            </li>
-
-                        </ul>
+                        <p>
+                            <!-- <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a> -->
+                            <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/comparator-search">Add a new comparator</a>
+                        </p>
                     </div>
                     
 
@@ -1263,7 +1245,6 @@
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Name of comparator</th>
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Year of comparator price</th>
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator price</th>
-                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator flat price</th>
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Action</th>
                                     </tr>
                                 </thead>
@@ -1271,20 +1252,16 @@
                                 <tbody class="nhsuk-table__body">
                                     <tr class="nhsuk-table__row" role="row" data-comparator-id="1">
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
                                             Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
                                             2023
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
                                             £6.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator flat Price</span>
-                                            Yes
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-product/comparator-details?id=1">Edit</a>
@@ -1293,20 +1270,16 @@
 
                                     <tr class="nhsuk-table__row" role="row" data-comparator-id="2">
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
                                             Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
                                             2016
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
                                             £6.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator flat Price</span>
-                                            No
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-product/comparator-details?id=2">Edit</a>
@@ -1315,20 +1288,16 @@
 
                                     <tr class="nhsuk-table__row" role="row" data-comparator-id="3">
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Product</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
                                             Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
                                             2025
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
                                             £8.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator flat Price</span>
-                                            Yes
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-product/comparator-details?id=3">Edit</a>
@@ -1341,16 +1310,12 @@
                                             Migard 2.5mg tablets (TestCompanyA) 6 tablet
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
                                             2011
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
                                             £9.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator flat Price</span>
-                                            No
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-product/comparator-details?id=4">Edit</a>
@@ -1363,16 +1328,12 @@
                                             Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
                                             2020
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price</span>
+                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
                                             £8.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator flat Price</span>
-                                            Yes
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <a class="nhsuk-link--no-visited-state nhsuk-link" href="/v5/dhsc/edit-product/comparator-details?id=5">Edit</a>
@@ -1500,14 +1461,11 @@
                                 <h3 class="nhsuk-heading-s">
                                     Supporting evidence
                                 </h3>
-                                <ul class="nhsuk-card__actions">
-                                    <li class="nhsuk-card__action">
-                                        <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                            href="/v5/dhsc/experimental/add-reference-price-evidence">Upload supporting evidence</span></a>
-                                    </li>
-            
-                                </ul>
+                                <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                    href="/v5/dhsc/add-reference-price-evidence">Upload supporting evidence</a>
                             </div>
+
+                            <br>
 
                             <p>No supporting evidence added.</p>
                             <br>
@@ -1517,19 +1475,12 @@
 
                             <h3 class="nhsuk-heading-s">Comparator products used </h3>
                             <!-- to calculate reference price for period: 01/10/2024 - 1 February 2036 -->
-                            <ul class="nhsuk-card__actions">
-                                <li class="nhsuk-card__action">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a>
-                                </li>
-                                <li class="nhsuk-card__action">
-                                    <a class="nhsuk-link--no-visited-state nhsuk-link"
-                                        href="/v5/dhsc/comparator-search">Add
-                                        a
-                                        new comparator</a>
-                                </li>
-
-                            </ul>
+                            <p>
+                                <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                    href="/v5/dhsc/edit-product/comparator-info">Edit and remove comparators</a> |
+                                <a class="nhsuk-link--no-visited-state nhsuk-link"
+                                    href="/v5/dhsc/comparator-search">Add a new comparator</a>
+                            </p>
                         </div>
 
                             <table class="nhsuk-table-responsive" role="table">
@@ -1545,8 +1496,6 @@
                                         </th>
                                         <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator price
                                         </th>
-                                        <th scope="col" class="nhsuk-table__header" role="columnheader">Comparator flat
-                                            price</th>
 
                                     </tr>
                                 </thead>
@@ -1556,145 +1505,110 @@
                                     <tr class="nhsuk-table__row" role="row">
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Product
+                                                product
                                             </span>
                                             Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
                                         </td>
 
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                                 Year </span>
                                             2023
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                             </span>
                                             £6.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                flat
-                                                Price
-                                            </span>
-                                            Yes
                                         </td>
                                     </tr>
 
                                     <tr class="nhsuk-table__row" role="row">
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Product
+                                                product
                                             </span>
                                             Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets
                                         </td>
 
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                                 Year </span>
                                             2016
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                             </span>
                                             £6.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                flat
-                                                Price
-                                            </span>
-                                            No
                                         </td>
                                     </tr>
 
                                     <tr class="nhsuk-table__row" role="row">
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Product
+                                                product
                                             </span>
                                             Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
                                         </td>
 
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                                 Year </span>
                                             2025
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                             </span>
                                             £8.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                flat
-                                                Price
-                                            </span>
-                                            Yes
                                         </td>
                                     </tr>
 
                                     <tr class="nhsuk-table__row" role="row">
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Product
+                                                product
                                             </span>
                                             Migard 2.5mg tablets (TestCompanyA) 6 tablet
                                         </td>
 
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                                 Year </span>
                                             2011
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                             </span>
                                             £9.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                flat
-                                                Price
-                                            </span>
-                                            No
                                         </td>
                                     </tr>
 
                                     <tr class="nhsuk-table__row" role="row">
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Product
+                                                product
                                             </span>
                                             Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
                                         </td>
 
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                                 Year </span>
                                             2020
                                         </td>
                                         <td class="nhsuk-table__cell" role="cell">
                                             <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                Price
+                                                price
                                             </span>
                                             £8.30
-                                        </td>
-                                        <td class="nhsuk-table__cell" role="cell">
-                                            <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator
-                                                flat
-                                                Price
-                                            </span>
-                                            Yes
                                         </td>
                                     </tr>
 
