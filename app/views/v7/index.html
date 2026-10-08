@@ -34,15 +34,15 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-full">
 
       <h1 class="nhsuk-heading-l">Branded Medicines</h1>
 
-      <h2 class="nhsuk-heading-m">Share prototype version 1 (July 2026)</h2>
+      <h2 class="nhsuk-heading-m">Share prototype (July 2026)</h2>
       <p>This includes designs for the minimum viable product (MVP) contained in Share version 10 requirements</p>
 
       {{ button({
-        text: "Begin full company journey v1",
+        text: "Begin full company journey",
         href: "/v7/company/index"
       }) }}
 
@@ -57,7 +57,7 @@
       </ul>
 
 
-      <br><br>
+      <br>
 
       <h2 class="nhsuk-heading-m">Experimental pages</h2>
       <ul>
@@ -66,7 +66,39 @@
         <!-- <li><a class="nhsuk-link nhsuk-link--no-visited-state" href="experimental/updates-select-all-below">Product updates - Select and clear - Button below table</a></li>
         <li><a class="nhsuk-link nhsuk-link--no-visited-state" href="experimental/updates-select-all-both">Product updates - Select and clear - Buttons above and below table</a></li> -->
       </ul>
-            
+
+
+      <br><br>
+
+      <h2 class="nhsuk-heading-m">Change log</h2>
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Summary of changes
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+            <table class="nhsuk-table">
+            <thead>
+              <tr style="white-space: nowrap;">
+              <th>Date</th>
+              <th>Page</th>
+              <th>Change</th>
+              <th>Prototype link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>October 2026</td>
+              <td>Product updates page</td>
+              <td>Content in updates column changed to include LOE and RAD updates with "from" and "to" values due to technical constraints identified by dev.</td>
+              <td><a href="/v7/company/products/updates-2">Product updates</a></td>
+              </tr>
+            </tbody>
+            </table>
+      
+        </div>
+      </details>
 
 
        
