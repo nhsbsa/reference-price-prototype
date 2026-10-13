@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout.html' %}
+{% extends 'layout-company-eua.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "You have not accepted the end user agreement" %}
+{% set pageName = "You have declined the end user agreement" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -31,20 +31,13 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1 class="nhsuk-heading-l">You have not accepted the end user agreement</h1>
+        <h1 class="nhsuk-heading-l">You have declined the end user agreement</h1>
         
         <p>You cannot access this service until you accept the terms in the end user agreement.</p>
 
-        <div class="nhsuk-button-group">
-            <button class="nhsuk-button nhsuk-button--warning" data-module="nhsuk-button" type="submit">
-              Confirm decline
-            </button>
-          
-            <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit">
-              Return to agreement
-            </button>
-          
-          </div>
+        <a href="end-user-agreement" class="nhsuk-button" data-module="nhsuk-button" role="button">
+        View agreement
+      </a>
           
 
         <!-- End of content -->
