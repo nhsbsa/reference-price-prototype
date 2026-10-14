@@ -153,10 +153,11 @@
                     summaryText: "What is a VTM?",
                     classes: "nhsuk-u-margin-bottom-5"
                     }) %}
-                    <p>A Virtual Therapeutic Moiety (VTM) groups products that share the same active substance or therapeutic moiety.</p>
+                    <p>A Virtual Therapeutic Moiety (VTM) is an abstract representation of the substance or substances that make up a medicine, irrespective of form, strength or pack size (e.g. Amoxicillin or Co-amoxiclav).</p>
+                    <p>In Reference Pricing, older/newer status and originator classification are determined at VTM level.</p>
                     <p>VTMs are used in reference pricing to identify related products and determine reference pricing information.</p>
-                    <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/search-vtm">search for VTMs</a> within the portal.</p>
-                    <p>If a classification is not available, the product may be shown as awaiting classification.</p>
+                    <p>You can <a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/products/search-vtm">search for VTMs</a> within the portal, to view data on products containing the same active substance(s).</p>
+                    <p>If a VTM classification is not available, the product may be shown as awaiting classification.</p>
                     <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/index">Read the full guidance</a></p> -->
                 {% endcall %}
                 
@@ -687,10 +688,18 @@
                         summaryText: "How is medicine classification determined?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>Products are classified as either an Older medicine or a Newer medicine as part of the reference pricing process.</p>
-                        <p>This helps determine how products are considered within the wider reference pricing methodology.</p>
+                        <p>Products are classified as either an Older medicine or Newer medicine as part of the reference pricing process.</p>
+                        <p>This determines whether a product is subject to  the older medicines price erosion mechanism, and therefore if it requires a reference price.</p>
+                        <p><strong>Newer Medicines</strong></p>
+                        <p>Single active substance product: A branded medicinal product that is an Originator and for which either a valid or active SPC (supplementary protection certificate) exists, or for Non-SPC products, is within 12 years of the first Marketing Authorisation (MA) date.</p>
+                        <p>Combination product: A product that is an Originator, and for which a valid or active SPC for the combination of active substances OR for one or more of the active substances exists. If an SPC was never issued, for 12 years after the first MA date of the most recent active substance in the combination.</p>
+                        <p>Only Originator products can be Newer Medicines.</p>
+                        <p><strong>Older Medicines</strong></p>
+                        <p>Any branded medicinal product that does not meet the definition of a Newer Medicine.</p>
+                        <hr>
                         <p>Classifications may be reviewed and updated when new information becomes available.</p>
                         <p>If a classification is not available, the product may be shown as awaiting classification.</p>
+                        <p>Classifying vaccines is different to other products. Please refer to the Reference Pricing Guidance document for information on this.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/provisional-ref-price-guidance">Read the full guidance</a></p> -->
                       {% endcall %}
                     
@@ -718,9 +727,9 @@
                         summaryText: "What is a reference anchor date?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>A reference anchor date (RAD) is used within the reference pricing methodology.</p>
-                        <p>RADs help establish and maintain reference pricing information and may be displayed for products and Virtual Therapeutic Moieties (VTMs).</p>
-                        <p>Some products may not have a RAD. In these cases, the value may be shown as Unknown or No date value present.</p>
+                        <p>A reference anchor date (RAD) is always 1st January the year before the LOE (loss of exclusivity) date.</p>
+                        <p>The LOE is the date at which the basis for an Originator medicinal product being classified as Newer expires e.g. an SPC expiry date or 12 years after the first MA (marketing authorisation) elapses. Also known as the Older Medicine Date.</p>
+                        <p>Some products may not have a RAD. In these cases, the value may be shown as Unknown or No date value present. A RAD will be provided for these products in due course as part of regular checks.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-rad">Read the full guidance</a></p> -->
                       {% endcall %}
                 </div>
@@ -763,6 +772,23 @@
                     </table>
                 </div>
 
+                {% call details({
+                    summaryText: "What is an Originator?"
+                  }) %}
+                    <p>The term Originator is used to identify the earliest product, or company to own a product, in a VTM. There are Originator products, companies and licensees.</p>
+                    <p>Originator product: The first branded product in a VTM to have received an MA (marketing authorisation), or for which a valid SPC (see SPC) exists.</p>
+                    <p>Originator company: The company which holds the first MA, or the SPC for, and is responsible for marketing an Originator Product.</p>
+                    <p>Originator licensee: Company (successor, acquirer or member of same group) responsible for the marketing of an Originator product before it becomes Older.</p>
+                    <p>For some VTMs, Originators are not possible to identify. An unknown originator does not necessarily indicate an error.</p>
+                    <p>A branded presentation will be flagged as an originator if it is:</p>
+                    <ul>
+                        <li> the branded presentation that has the earliest MA date (according to MHRA data or review by a subject matter expert) of any branded presentation within a given VTM, and any branded presentations within that VTM of the same brand name; or,</li>
+                        <li>a branded presentation licensed by the MHRA (or EMA where relevant) as a new active substance (NAS) (according to MHRA or EMA data), and any branded presentations within that VTM of the same brand name; or,</li>
+                        <li>a branded presentation to which an SPC applies or applied or a branded presentation of that VTM sold by a company that holds or held a valid SPC for that VTM (according to IPO data); or,</li>
+                        <li>a branded presentation of that VTM sold by a company that markets or marketed a branded presentation identified as an originator; or,</li>
+                        <li>a branded presentation of that VTM sold by a company identified as an originator licensee (as below).</li>
+                    </ul>
+                  {% endcall %}
 
                 <!--Supplemtary Protection Certification Information-->
                 <div id="spc-info">
@@ -875,7 +901,10 @@
                         summaryText: "What is a reference price?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>A reference price is used in the VPAG reference pricing methodology and may be displayed alongside products within the portal.</p>
+                        <p>A reference price is a benchmark for the price at which a branded presentation was likely being sold prior to the loss of exclusivity (LOE) of the originator medicine(s).</p>
+                        <p>For an Originator product, it is the observed average selling price of the product on the 1st January the year before the LOE (loss of exclusivity) date, which is the Reference Anchor Date (RAD). Adjusted list price data may be used where average selling price data is not available.</p>
+                        <p>For a New Entrant it is the list price of the Originator Comparator adjusted downwards by 12.5%.</p>
+                        <p>£2 is the minimum Reference Price, as this is the threshold for presentations to be considered low-value presentations.</p>
                         <p>Reference prices may be reviewed and updated over time as new information becomes available.</p>
                         <p>The reference price shown reflects the most recent information available for a product.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p> -->
@@ -969,8 +998,9 @@
                         summaryText: "What is a comparator?",
                         classes: "nhsuk-u-margin-bottom-5"
                       }) %}
-                        <p>Comparator products may be used as part of the reference pricing methodology.</p>
-                        <p>Comparator information helps explain how a reference pricing has been determined.</p>
+                        <p>We aim to set reference prices in relation to closest available comparators. Comparator products are those that most closely match the branded medicine receiving a reference price for which there is available list price or average selling price data.</p>
+                        <p>For originator products that became older medicines after 2015 DHSC will use the closest available comparator marketed by the same company for which relevant average selling price data is available prior to the RAD. For originator products that became older medicines before 2015, DHSC will use the closest available comparator marketed by the same company for which relevant list price data is available.</p>
+                        <p>For any branded presentation the preferred comparator will be one of the same VMPP (or AMPP if multiple VMPP comparators are available). Where this is not available, DHSC has developed a structured hierarchy to select the next most relevant comparator from available comparators within a VTM. Please refer to the Reference Pricing Guidance document for more information on this hieararchy.</p>
                         <!-- <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v7/company/help-and-support/ref-price-comparator-methodology">Read the full guidance</a></p> -->
                       {% endcall %}
 
