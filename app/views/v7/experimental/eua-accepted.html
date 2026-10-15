@@ -117,10 +117,19 @@
 
                 <div id="error-summary-container"></div>
 
-              <h1>Read and sign the user agreement</h1>
-              <p>You must read and sign this agreement before you can use or continue to use the Branded Medicines, Price Concessions or Quarterly Collections services.</p>
+
+              <div class="nhsuk-notification-banner" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title">
+                <div class="nhsuk-notification-banner__header">
+                  <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+                    Information
+                  </h2>
+                </div>
+                <div class="nhsuk-notification-banner__content">
+                <h2 class="nhsuk-notification-banner__heading">You accepted the Department of Health and Social Care Medicines Reporting User Agreement on <span id="accepted-date-time"></span>
+                </div>
+            </div>   
                 
-              <h2>Department of Health and Social Care Medicines Reporting User Agreement (MRUA)</h2>
+              <h1 class="nhsuk-heading-l">Department of Health and Social Care Medicines Reporting User Agreement (MRUA)</h1>
 
               <!-- <p class="nhsuk-body-s nhsuk-u-secondary-text-colour">
                 Last updated: 12 October 2026
@@ -270,11 +279,6 @@
               Updated: October 2026<br>
             </p>
 
-            <div class="nhsuk-inset-text">
-              <p class="nhsuk-heading-s">You have accepted the Department of Health and Social Care Medicines Reporting User Agreement.</p>
-            <p>Accepted on: <span id="accepted-date-time"></span></p>
-          </div>
-
           <script>
             const acceptedDateTime = new Date().toLocaleString('en-GB', {
             day: '2-digit',
@@ -290,6 +294,9 @@
       </div>
     </div>
             <style>
+            .nhsuk-notification-banner__heading {
+                max-width: 48em;
+            }
             .app-pane {
               display: flex;
             }

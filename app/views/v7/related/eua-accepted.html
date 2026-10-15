@@ -33,8 +33,16 @@
 
         <!-- <h1 class="nhsuk-heading-l">End User Agreement</h1> -->
 
-        <h1>Read and sign the user agreement</h1>
-        <p>You must read and sign this agreement before you can use or continue to use the Branded Medicines, Price Concessions or Quarterly Collections services.</p>
+        <div class="nhsuk-notification-banner" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title">
+            <div class="nhsuk-notification-banner__header">
+              <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+                Information
+              </h2>
+            </div>
+            <div class="nhsuk-notification-banner__content">
+            <h2 class="nhsuk-notification-banner__heading">You accepted the Department of Health and Social Care Medicines Reporting User Agreement on <span id="accepted-date-time"></span>
+            </div>
+        </div>          
         
         <div class="agreement-wrapper">
             <div
@@ -45,7 +53,7 @@
               style="height: 90vh; overflow-y: auto; border: 8px solid #d8dde0; padding: 2rem;"
             >
 
-            <h2 id="agreement-heading" class="nhsuk-heading-m">Department of Health and Social Care Medicines Reporting User Agreement (MRUA)</h2>            
+            <h1 id="agreement-heading" class="nhsuk-heading-l">Department of Health and Social Care Medicines Reporting User Agreement (MRUA)</h1>            
             
             <p class="nhsuk-body-s nhsuk-u-secondary-text-colour">
                 Last updated: 12 October 2026
@@ -68,12 +76,12 @@
             </ul>
             <p>The right of access cannot be transferred to anyone else.</p>
 
-            <h3 class="nhsuk-heading-s">Definitions</h3>
+            <h3 class="nhsuk-heading-m">Definitions</h3>
             <p>Confidential information means any information containing personal data, financial information and any other information clearly designated as being confidential (whether it is marked as 'confidential' or not) or which would reasonably be considered confidential.</p>
             <p>Data breach means a breach of security or security incident which leads to the accidental, wrongful or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to data or information contained within or obtained via the Department of Health Medicines Reporting Service.</p>
             <p>Personal data means information relating to natural persons who can be identified or who are identifiable directly from the information or who can be indirectly identified from the information in combination with other information.</p>
 
-            <h3 class="nhsuk-heading-s">User obligations</h3>
+            <h3 class="nhsuk-heading-m">User obligations</h3>
             <p>The Department of Health Medicines Reporting Service portal is provided to facilitate the submission, management and review of medicines-related information required by the Department of Health and Social Care.</p>
             <p>This includes:</p>
             <ul>
@@ -129,16 +137,16 @@
 
 
 
-            <h3 class="nhsuk-heading-s">Freedom of information requests</h3>
+            <h3 class="nhsuk-heading-m">Freedom of information requests</h3>
             <p>For the purposes of Freedom of Information (FOI) legislation, Department of Health Medicines Reporting Service portal information is held by the DHSC. You agree not to use the Department of Health Medicines Reporting Service portal to download information to answer an FOI request.  You must refer the FOI requester to <a class="nhsuk-link nhsuk-link--no-visited-state" href="#">mailto:foirequests@nhsbsa.nhs.uk</a>.</p>
 
             <p>The only exception to this is where you have downloaded Department of Health Medicines Reporting Service portal information to your local systems before the FOI request was received.  Where this is the case, you agree to consult with DHSC at <a class="nhsuk-link nhsuk-link--no-visited-state" href="#">DataServicesSupport@nhsbsa.nhs.uk</a> before responding to the FOI request.</p>
 
-            <h3 class="nhsuk-heading-s">Subject access requests</h3>
+            <h3 class="nhsuk-heading-m">Subject access requests</h3>
             <p>You can request a copy of the information we hold about you. View <a class="nhsuk-link nhsuk-link--no-visited-state" href="#">DHSC’s Privacy Policy</a> for information on how to make a subject access request.</p>
 
 
-            <h3 class="nhsuk-heading-s">Personal data</h3>
+            <h3 class="nhsuk-heading-m">Personal data</h3>
             <p>You agree that you will:</p>
             <ul>
                 <li>comply with all data and security standards, policies and procedures applicable to you as an employee or contractor of the NHS or wider Government commissioned service</li>
@@ -155,7 +163,7 @@
             <p>Any small number, rate or percentage derived from DHSC data must be suppressed if there is a risk of identification. Figures that may identify individuals when subtracted from totals, subtotals or other published figures must also be suppressed.</p>
 
 
-            <h3 class="nhsuk-heading-s">Confidentiality</h3>
+            <h3 class="nhsuk-heading-m">Confidentiality</h3>
             <p>You acknowledge that in using the Department of Health Medicines Reporting Service portal you may have access to confidential information with respect to medicines pricing information, commercial sales data, scheme payment information, product information, purchase and sales information, stock and supply information, organisation-specific submissions and reports and other commercially sensitive information submitted through the Service.</p>
 
             <p>You agree that you shall hold any confidential information in confidence and, unless required by law, shall not:</p>
@@ -167,13 +175,13 @@
             </ul>
 
 
-            <h3 class="nhsuk-heading-s">Cookies</h3>
+            <h3 class="nhsuk-heading-m">Cookies</h3>
             <p>You agree that cookies are enabled on the Department of Health Medicines Reporting Service portal. The purpose of the cookie is to aid the login process by ensuring your user details do not have to be re-entered.</p>
 
             <p>The information relating to cookies can be found within the applicable privacy and cookie policies published by DHSC and/or NHS Business Services Authority.</p>
 
 
-            <h3 class="nhsuk-heading-s">Login details</h3>
+            <h3 class="nhsuk-heading-m">Login details</h3>
             <p>All the information you provide when you register will be used to manage access to the Department of Health Medicines Reporting Service portal.</p>
 
             <p>The email address you provide may also be used by DHSC for service-related communications and sending you newsletters relevant to our Information Systems.</p>
@@ -192,11 +200,7 @@
             <p>We do not disclose this information to third party organisations.</p>
 
         </div>
-          
-            <div class="nhsuk-inset-text">
-                <p class="nhsuk-heading-s" style="width: 56rem;">You have accepted the Department of Health and Social Care Medicines Reporting User Agreement.</p>
-              <p>Accepted on: <span id="accepted-date-time"></span></p>
-            </div>
+
 
             <script>
               const acceptedDateTime = new Date().toLocaleString('en-GB', {
@@ -212,6 +216,9 @@
 
 
         <style>
+            .nhsuk-notification-banner__heading {
+                max-width: 48em;
+            }
             #agreement-content:focus {
             outline: 6px solid #ffeb3b;
             }
