@@ -1924,20 +1924,20 @@
 
                     if (action === 'added') {
                         bannerTab.textContent = 'Added';
-                        bannerMessage.textContent =
-                        `${comparatorName} has been ${action} as a comparator for the reference price calculation dated ${referencePricePeriod}.`;
+                        bannerMessage.innerHTML =
+                        `The comparator ${comparatorName} was ${action}.<br><br>It is used to calculate the reference price dated ${referencePricePeriod}.`;
                     } else if (action === 'updated') {
                         bannerTab.textContent = 'Updated';
-                        bannerMessage.textContent =
-                        `The comparator ${comparatorName} was ${action}. It is used to calculate the reference price dated ${referencePricePeriod}.`;
+                        bannerMessage.innerHTML =
+                        `The comparator ${comparatorName} was ${action}.<br><br>It is used to calculate the reference price dated ${referencePricePeriod}.`;
                     } else if (action === 'deleted') {
                         bannerTab.textContent = 'Removed';
-                        bannerMessage.textContent =
-                        `The comparator ${comparatorName} has been removed. It was used to calculate the reference price dated ${referencePricePeriod}.`;
+                        bannerMessage.innerHTML =
+                        `The comparator ${comparatorName} was removed.<br><br>It was used to calculate the reference price dated ${referencePricePeriod}.`;
                     }
 
                     bannerHeading.textContent =
-                        'Comparator';
+                        'Comparator products used';
 
                     sessionStorage.removeItem('comparatorName');
                     sessionStorage.removeItem('referencePricePeriod');
