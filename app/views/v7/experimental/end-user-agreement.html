@@ -280,7 +280,7 @@
                   <label
                     class="nhsuk-label nhsuk-checkboxes__label"
                     for="accept-agreement">
-                    I accept the Department of Health and Social Care Medicines Reporting User Agreement.
+                      I have read the Department of Health and Social Care Medicines Reporting User Agreement
                   </label>
                 </div>
               </div>
@@ -308,60 +308,115 @@
           
           </form>
           
-          <script>
-          document.getElementById('eua-form').addEventListener('submit', function (e) {
+            <script>
+            document.getElementById('eua-form').addEventListener('submit', function (e) {
             const checkbox = document.getElementById('accept-agreement');
             const errorContainer = document.getElementById('error-summary-container');
             const checkboxGroup = document.getElementById('checkbox-group');
-          
+            
             errorContainer.innerHTML = '';
             checkboxGroup.classList.remove('nhsuk-form-group--error');
-          
+            
             const existingError = document.getElementById('accept-agreement-error');
             if (existingError) {
               existingError.remove();
             }
-          
+            
             if (!checkbox.checked) {
               e.preventDefault();
-          
+            
               checkboxGroup.classList.add('nhsuk-form-group--error');
-          
+            
               const errorHtml = `
-                <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
-                  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-                    There is a problem
-                  </h2>
-          
-                  <div class="nhsuk-error-summary__body">
-                    <ul class="nhsuk-list nhsuk-error-summary__list">
-                      <li>
-                        <a href="#accept-agreement">
-                          Select the Medicines Reporting User Agreement acceptance before continuing
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+              <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+                <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+                There is a problem
+                </h2>
+            
+                <div class="nhsuk-error-summary__body">
+                <ul class="nhsuk-list nhsuk-error-summary__list">
+                  <li>
+                  <a href="#accept-agreement">
+                    Select that you have read the Department of Health and Social Care Medicines Reporting User Agreement
+                  </a>
+                  </li>
+                </ul>
                 </div>
+              </div>
               `;
-          
+            
               errorContainer.innerHTML = errorHtml;
-          
+            
               const errorMessage = document.createElement('span');
               errorMessage.className = 'nhsuk-error-message';
               errorMessage.id = 'accept-agreement-error';
               errorMessage.innerHTML =
-                '<span class="nhsuk-u-visually-hidden">Error:</span> Select the Medicines Reporting User Agreement acceptance before continuing';
-          
+              '<span class="nhsuk-u-visually-hidden">Error:</span> Select that you have read the Department of Health and Social Care Medicines Reporting User Agreement';
+            
+              checkboxGroup.insertBefore(
+              errorMessage,
+              checkboxGroup.querySelector('.nhsuk-checkboxes')
+              );
+            
+              document.querySelector('.nhsuk-error-summary').focus();
+            }
+            });
+
+            document.querySelectorAll('#agreement-actions button, #agreement-actions a').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+              const checkbox = document.getElementById('accept-agreement');
+              const errorContainer = document.getElementById('error-summary-container');
+              const checkboxGroup = document.getElementById('checkbox-group');
+            
+              errorContainer.innerHTML = '';
+              checkboxGroup.classList.remove('nhsuk-form-group--error');
+            
+              const existingError = document.getElementById('accept-agreement-error');
+              if (existingError) {
+              existingError.remove();
+              }
+            
+              if (!checkbox.checked) {
+              e.preventDefault();
+            
+              checkboxGroup.classList.add('nhsuk-form-group--error');
+            
+              const errorHtml = `
+                <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+                <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+                  There is a problem
+                </h2>
+            
+                <div class="nhsuk-error-summary__body">
+                  <ul class="nhsuk-list nhsuk-error-summary__list">
+                  <li>
+                    <a href="#accept-agreement">
+                    Select that you have read the Department of Health and Social Care Medicines Reporting User Agreement
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+                </div>
+              `;
+            
+              errorContainer.innerHTML = errorHtml;
+            
+              const errorMessage = document.createElement('span');
+              errorMessage.className = 'nhsuk-error-message';
+              errorMessage.id = 'accept-agreement-error';
+              errorMessage.innerHTML =
+                '<span class="nhsuk-u-visually-hidden">Error:</span> Select that you have read the Department of Health and Social Care Medicines Reporting User Agreement';
+            
               checkboxGroup.insertBefore(
                 errorMessage,
                 checkboxGroup.querySelector('.nhsuk-checkboxes')
               );
-          
+            
               document.querySelector('.nhsuk-error-summary').focus();
-            }
-          });
-          </script>
+              }
+            });
+            });
+            </script>
 
         <p class="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
           Updated: October 2026<br>
