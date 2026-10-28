@@ -3,11 +3,6 @@
 
 {% block beforeContent %}
 
-{{ backLink({
-    href: '/v5/dhsc/product-details?saved=false&deleted=false#ref-price-information',
-    text: 'Back'
-  }) }}
-
 {% endblock %}
 
 {% block content %}
@@ -154,10 +149,17 @@
             <p class="nhsuk-body">No supporting evidence added.</p>
             </fieldset> -->
 
-            {{ button({
-              text: "Continue",
-               href: "/v5/dhsc/edit-product/confirm-reference-price"
-            }) }}
+            <div class="nhsuk-button-group">
+              {{ button({
+                text: "Continue",
+                href: "/v5/dhsc/edit-product/confirm-reference-price"
+              }) }}
+              {{ button({
+                text: "Cancel",
+                href: "/v5/dhsc/product-details?saved=false&deleted=false#ref-price-information",
+                classes: "nhsuk-button--secondary"
+              }) }}
+            </div>
 
         <style>
           .nhsuk-summary-list__key, .nhsuk-summary-list__value {
