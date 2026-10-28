@@ -1,0 +1,388 @@
+{% extends 'layout-dhsc-dev.html' %}
+{% set pageName = "Edit loss of exclusivity" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Loss of exclusivity</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet
+            - 2 x 14 tablets)</h1>
+
+        <div class="nhsuk-form-group">
+            <h2 id="field-heading" class="nhsuk-heading-m nhsuk-u-visually-hidden">Edit field</h2>
+        </div>
+
+        <form id="edit-form">
+            <div id="field-container"></div>
+
+            <div class="nhsuk-button-group">
+                <button class="nhsuk-button" type="submit">Save</button>
+                <button class="nhsuk-button nhsuk-button--secondary" type="button"
+                    onclick="window.location.href='/v8/dhsc/product-details#exclusivity-information'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<datalist id="company-names">
+    <option value="Morningside Healthcare Ltd"></option>
+    <option value="Morningside Incorporated"></option>
+    <option value="Test Pharma Ltd"></option>
+    <option value="Acme Medics Ltd"></option>
+    <option value="Northwind Therapeutics Ltd"></option>
+</datalist>
+
+
+<script>
+    function toLowercase(str) {
+        const exceptions = [
+            "Supplementary Protection Certificate",
+            "Market Authorisation",
+            "Virtual Therapeutic Moiety"
+        ];
+
+        if (!str) return "";
+
+        // Lowercase words but preserve acronyms (2+ uppercase letters)
+        function lowerWords(s) {
+            return s.split(/\s+/).filter(Boolean).map(word => {
+                // consider only letters when detecting acronyms (so "IPO456" still treated as acronym)
+                const lettersOnly = word.replace(/[^A-Za-z]/g, '');
+                if (lettersOnly.length > 1 && lettersOnly === lettersOnly.toUpperCase()) return word;
+                return word.toLowerCase();
+            }).join(' ');
+        }
+
+        const trimmed = str.trim();
+
+        for (const phrase of exceptions) {
+            const lowerTrimmed = trimmed.toLowerCase();
+            const lowerPhrase = phrase.toLowerCase();
+            const idx = lowerTrimmed.indexOf(lowerPhrase);
+            // only treat it as a leading exception if it occurs at the start or after only non-alphanumerics (e.g. "(")
+            if (idx !== -1 && /^[^A-Za-z0-9]*$/.test(trimmed.slice(0, idx))) {
+                const prefix = trimmed.slice(0, idx); // keep any leading punctuation/space
+                const originalPhrase = trimmed.substr(idx, phrase.length); // preserve original casing of the phrase
+                const rest = trimmed.slice(idx + phrase.length).trim();
+                return (prefix + originalPhrase + (rest ? ' ' + lowerWords(rest) : '')).trim();
+            }
+        }
+
+        return lowerWords(trimmed);
+    }
+
+    (function () {
+        const fields = {
+            "date-categorised-as-older-medicine": {
+                label: "Date presentation becomes an older medicine",
+                type: "date",
+                value: "2009-10-12"
+            },
+            "medicine-classification": {
+                label: "Medicine classification",
+                type: "select",
+                options: ["Older medicine", "Newer medicine"],
+                value: "Older medicine"
+            },
+            "originator-status": {
+                label: "Originator status",
+                type: "select",
+                options: ["Originator", "Newer entrant", "Unclassified"],
+                value: "Newer entrant"
+            },
+            "reference-anchor-date": {
+                label: "Reference anchor date",
+                type: "date",
+                value: "2008-01-01"
+            },
+            "market-authorisation-number": {
+                label: "market authorisation number",
+                bannerLabel: "Market authorisation number",
+                type: "text",
+                value: "PL 20117/0184",
+                labelPrefix: "the",
+                calloutHeading: "Changing the market authorisation number",
+                calloutContent: "Changing the market authorisation number will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            },
+            "ma-product-name": {
+                label: "market authorisation product name",
+                bannerLabel: "Market authorisation product name",
+                type: "text",
+                value: "Metabet SR",
+                labelPrefix: "the",
+                calloutHeading: "Changing the market authorisation product name",
+                calloutContent: "Changing the market authorisation product name will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            },
+            "mhra-market-authorisation-holder": {
+                label: "(MHRA) market authorisation holder",
+                bannerLabel: "(MHRA) Market authorisation holder",
+                type: "text",
+                value: "Morningside Incorporated",
+                labelPrefix: "the",
+                calloutHeading: "Changing the (MHRA) market authorisation holder",
+                calloutContent: "Changing the (MHRA) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            },
+            "cdr-market-authorisation-holder": {
+                label: "(CDR) market authorisation holder",
+                bannerLabel: "(CDR) Market authorisation holder",
+                type: "autocomplete",
+                value: "Morningside Healthcare Ltd",
+                labelPrefix: "the",
+                calloutHeading: "Changing the (CDR) market authorisation holder",
+                calloutContent: "Changing the (CDR) market authorisation holder will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            },
+            "market-authorisation-date": {
+                label: "market authorisation date",
+                bannerLabel: "Market authorisation date",
+                type: "date",
+                value: "2011-06-01",
+                labelPrefix: "the",
+                calloutHeading: "Changing the market authorisation date",
+                calloutContent: "Changing the market authorisation date will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'."
+            },
+            "spc-expiry-date": {
+                label: "Supplementary Protection Certificate (SPC) expiry date",
+                bannerLabel: "VTM Supplementary Protection Certificate expiry date",
+                type: "date",
+                value: "2011-06-01",
+                labelPrefix: "the",
+                calloutHeading: "Changing the SPC expiry date",
+                calloutContent: "Changing the SPC expiry date for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            },
+            "spc-number": {
+                label: "Supplementary Protection Certificate (SPC) number",
+                bannerLabel: "VTM Supplementary Protection Certificate number",
+                type: "text",
+                value: "IPO456789",
+                labelPrefix: "the",
+                calloutHeading: "Changing the SPC number",
+                calloutContent: "Changing the SPC number for SPC product description: [product description] will affect all products linked to the VTM 'Metformin'."
+            },
+            "spc-number-alternative": {
+                label: "Supplementary Protection Certificate (SPC) number alternative",
+                bannerLabel: "VTM Supplementary Protection Certificate number alternative",
+                type: "text",
+                value: "",
+                labelPrefix: "the",
+                calloutHeading: "Changing the SPC number alternative",
+                calloutContent: "Changing the SPC number alternative for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            },
+            "spc-product-description": {
+                label: "Supplementary Protection Certificate (SPC) product description",
+                bannerLabel: "VTM Supplementary Protection Certificate product description",
+                type: "text",
+                value: "Metabet Ultra",
+                labelPrefix: "the",
+                calloutHeading: "Changing the SPC product description",
+                calloutContent: "Changing the SPC product description for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            },
+            "cdr-spc-holder": {
+                label: "Supplementary Protection Certificate (SPC) holder",
+                bannerLabel: "VTM (CDR) Supplementary Protection Certificate holder",
+                type: "autocomplete",
+                value: "Morningside Healthcare Ltd",
+                labelPrefix: "the (CDR)",
+                calloutHeading: "Changing the (CDR) SPC holder",
+                calloutContent: "Changing the (CDR) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            },
+            "ipo-spc-holder": {
+                label: "(IPO) Supplementary Protection Certificate (SPC) holder",
+                bannerLabel: "VTM (IPO) Supplementary Protection Certificate holder",
+                type: "text",
+                value: "Morningside Healthcare Ltd",
+                labelPrefix: "the",
+                calloutHeading: "Changing the (IPO) SPC holder",
+                calloutContent: "Changing the (IPO) SPC holder for SPC number xxxx will affect all products linked to the VTM 'Metformin'."
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const fieldKey = params.get("field") || "date-categorised-as-older-medicine";
+        const field = fields[fieldKey] || fields["date-categorised-as-older-medicine"];
+
+        sessionStorage.setItem('lastEditedField', fieldKey);
+        sessionStorage.setItem('lastEditedFieldLabel', toLowercase(field.label));
+        sessionStorage.setItem(
+            'bannerFieldLabel',
+            field.bannerLabel || field.label
+        );
+        sessionStorage.setItem('bannerAction', 'updated');
+        sessionStorage.setItem('bannerTab', 'Updated');
+
+        const maFields = [
+            'market-authorisation-number',
+            'ma-product-name',
+            'mhra-market-authorisation-holder',
+            'cdr-market-authorisation-holder',
+            'market-authorisation-date'
+        ];
+
+        const spcFields = [
+            'spc-expiry-date',
+            'spc-number',
+            'spc-number-alternative',
+            'spc-product-description',
+            'cdr-spc-holder',
+            'ipo-spc-holder'
+        ];
+
+        let bannerHeading = 'Loss of exclusivity information';
+
+        if (maFields.includes(fieldKey)) {
+            bannerHeading = 'VTM Market Authorisation information';
+        } else if (spcFields.includes(fieldKey)) {
+            bannerHeading = 'VTM Supplementary Protection Certificate information';
+        } else if (fieldKey === 'reference-anchor-date') {
+            bannerHeading = 'Reference anchor date';
+        } else if (
+            fieldKey === 'medicine-classification' ||
+            fieldKey === 'date-categorised-as-older-medicine' ||
+            fieldKey === 'originator-status'
+        ) {
+            bannerHeading = 'Older/newer presentation';
+        }
+
+        sessionStorage.setItem('bannerHeading', bannerHeading);
+
+        const heading = document.getElementById("field-heading");
+        const lowercaseLabel = toLowercase(field.label);
+
+        // Sentence-case the label (capitalise first letter) then prepend "Edit" and optional "the"
+        const sentenceCaseLabel = lowercaseLabel.charAt(0).toUpperCase() + lowercaseLabel.slice(1);
+        const displayLabel = field.labelPrefix
+            ? `Edit ${field.labelPrefix} ${lowercaseLabel}`
+            : `Edit ${lowercaseLabel}`;
+
+        heading.textContent = displayLabel;
+
+        const container = document.getElementById("field-container");
+
+        const calloutExcluded = [
+            "date-categorised-as-older-medicine",
+            "medicine-classification",
+            "originator-status",
+            "reference-anchor-date"
+        ];
+
+        const calloutHeading = field.calloutHeading || `Editing VTM: Metformin`;
+        const calloutContent = field.calloutContent || `Editing ${lowercaseLabel} will affect all products linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'.`;
+
+        const warningCalloutHtml = `
+      <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">
+            <span role="text">
+              <span class="nhsuk-u-visually-hidden">Important:</span> ${calloutHeading}
+            </span>
+          </h3>
+          <p class="nhsuk-card__description">${calloutContent}</p>
+        </div>
+      </div>
+      <br>
+    `;
+
+        if (!calloutExcluded.includes(fieldKey)) {
+            container.insertAdjacentHTML('beforebegin', warningCalloutHtml);
+        }
+
+        function renderInput() {
+            if (field.type === "select") {
+                return `
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                    <select class="nhsuk-select" id="field-input" name="field-input">
+                        ${field.options.map(option => `<option value="${option}" ${option === field.value ? "selected" : ""}>${option}</option>`).join("")}
+                    </select>
+                </div>
+            `;
+            }
+
+            if (field.type === "autocomplete") {
+                return `
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                    <div class="nhsuk-hint">Start typing to see suggested company names</div>
+                    <input class="nhsuk-input" id="field-input" name="field-input" type="text" list="company-names" value="${field.value}">
+                </div>
+            `;
+            }
+
+            if (field.type === "date") {
+                let day = "", month = "", year = "";
+                if (field.value) {
+                    const parts = field.value.split("-");
+                    year = parts[0] || "";
+                    month = parts[1] || "";
+                    day = parts[2] || "";
+                }
+                return `
+                <div class="nhsuk-form-group">
+                    <fieldset class="nhsuk-fieldset" role="group">
+                        <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                        <div class="nhsuk-date-input">
+                            <div class="nhsuk-date-input__item">
+                                <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="field-day">Day</label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                           id="field-day"
+                                           name="field-day"
+                                           type="text"
+                                           inputmode="numeric"
+                                           pattern="[0-9]*"
+                                           value="${parseInt(day, 10) || ""}">
+                                </div>
+                            </div>
+                            <div class="nhsuk-date-input__item">
+                                <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="field-month">Month</label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                           id="field-month"
+                                           name="field-month"
+                                           type="text"
+                                           inputmode="numeric"
+                                           pattern="[0-9]*"
+                                           value="${parseInt(month, 10) || ""}">
+                                </div>
+                            </div>
+                            <div class="nhsuk-date-input__item">
+                                <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="field-year">Year</label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
+                                           id="field-year"
+                                           name="field-year"
+                                           type="text"
+                                           inputmode="numeric"
+                                           pattern="[0-9]*"
+                                           value="${year}">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            `;
+            }
+
+            return `
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="field-input">${displayLabel}</label>
+                <input class="nhsuk-input" id="field-input" name="field-input" type="text" value="${field.value}">
+            </div>
+        `;
+        }
+
+        container.innerHTML = renderInput();
+
+        document.getElementById("edit-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const activeTab = sessionStorage.getItem('activeTab') || '#exclusivity-information';
+            console.log('Redirecting with tab:', activeTab);
+            window.location.href = "/v8/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
+        });
+    }());
+</script>
+
+{% endblock %}

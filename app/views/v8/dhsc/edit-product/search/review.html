@@ -1,0 +1,356 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Provisional Products" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v8/dhsc">Dashboard</a>
+        </li>
+        <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v8/dhsc/provisional/index">Add a provisional product</a>
+        </li>
+        <!-- <li class="nhsuk-breadcrumb__list-item">
+            <a class="nhsuk-breadcrumb__link" href="/v8/dhsc/provisional/view">View provisional products</a>
+        </li> -->
+    </ol>
+    <!-- 
+  <a class="nhsuk-back-link" href="#">
+    <span class="nhsuk-u-visually-hidden">Back to</span> Hospitals
+  </a> -->
+
+</nav>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+            <h1 class="nhsuk-heading-xl" id="pageHeading">
+           Edit market authorisation holder
+            </h1>
+
+            <p>Review your answers before creating this provisional product</p>
+
+<script>
+// Helper function to convert to lower case
+// Helper function to convert to lowercase, preserving abbreviations
+function toLowercase(str) {
+    return str
+        .split(/\s+/)
+        .map(word => {
+            if (word === word.toUpperCase() && word.length > 1) {
+                return word;
+            }
+            return word.toLowerCase();
+        })
+        .join(' ');
+}
+
+(function () {
+    const fields = {
+        "date-categorised-as-older-medicine": {
+            label: "Date presentation becomes an older medicine",
+            type: "date",
+            value: "2009-10-12"
+        },
+        "medicine-classification": {
+            label: "Medicine classification",
+            type: "select",
+            options: ["Older medicine", "Newer medicine"],
+            value: "Older medicine"
+        },
+        "originator-status": {
+            label: "Originator status",
+            type: "select",
+            options: ["Originator", "Newer entrant", "Unclassified"],
+            value: "Newer entrant"
+        },
+        "reference-anchor-date": {
+            label: "Reference anchor date",
+            type: "date",
+            value: "2008-01-01"
+        },
+        "market-authorisation-number": {
+            label: "Market authorisation number",
+            type: "text",
+            value: "PL 20117/0184"
+        },
+        "ma-product-name": {
+            label: "Market authorisation product name",
+            type: "text",
+            value: "Metabet SR"
+        },
+        "mhra-market-authorisation-holder": {
+            label: "(MHRA) Market authorisation holder",
+            type: "text",
+            value: "Morningside Incorporated"
+        },
+        "cdr-market-authorisation-holder": {
+            label: "(CDR) Market authorisation holder",
+            type: "autocomplete",
+            value: "Morningside Healthcare Ltd"
+        },
+        "market-authorisation-date": {
+            label: "Market authorisation date",
+            type: "date",
+            value: "2011-06-01"
+        },
+        "spc-expiry-date": {
+            label: "Supplementary Protection Certificate (SPC) expiry date",
+            type: "date",
+            value: "2011-06-01"
+        },
+        "spc-number": {
+            label: "Supplementary Protection Certificate (SPC) number",
+            type: "text",
+            value: "IPO456789"
+        },
+        "spc-number-alternative": {
+            label: "Supplementary Protection Certificate (SPC) number alternative",
+            type: "text",
+            value: ""
+        },
+        "spc-product-description": {
+            label: "Supplementary Protection Certificate (SPC) product description",
+            type: "text",
+            value: "Metabet Ultra"
+        },
+        "cdr-spc-holder": {
+            label: "(CDR) Supplementary Protection Certificate (SPC) holder",
+            type: "autocomplete",
+            value: "Morningside Healthcare Ltd"
+        },
+        "ipo-spc-holder": {
+            label: "(IPO) Supplementary Protection Certificate (SPC) holder",
+            type: "text",
+            value: "Morningside Healthcare Ltd"
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const fieldKey = params.get("field") || "date-categorised-as-older-medicine";
+    const field = fields[fieldKey] || fields["date-categorised-as-older-medicine"];
+
+    // Store field key for later use in product-details
+    sessionStorage.setItem('lastEditedField', fieldKey);
+    sessionStorage.setItem('lastEditedFieldLabel', field.label);
+
+   const heading = document.getElementById("field-heading");
+    const lowercaseLabel = toLowercase(field.label);
+    heading.textContent = `Edit ${lowercaseLabel}`;
+
+    const container = document.getElementById("field-container");
+
+    // show warning for most fields but NOT these keys
+    const calloutExcluded = [
+        "date-categorised-as-older-medicine",
+        "medicine-classification",
+        "originator-status",
+        "reference-anchor-date"
+    ];
+
+    const warningCalloutHtml = `
+      <div class="nhsuk-card nhsuk-card--warning nhsuk-u-margin-bottom-2">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">
+            <span role="text">
+              <span class="nhsuk-u-visually-hidden">Important:</span> Editing VTM: Metformin
+            </span>
+          </h3>
+          <p class="nhsuk-card__description">Editing ${lowercaseLabel} will affect all products with linked to the Virtual Therapeutic Moiety (VTM) 'Metformin'</p>
+        </div>
+      </div>
+    `;
+
+    if (!calloutExcluded.includes(fieldKey)) {
+        // insert the warning callout above the field container
+        container.insertAdjacentHTML('beforebegin', warningCalloutHtml);
+    }
+
+    function renderInput() {
+        if (field.type === "select") {
+            return `
+                <div class="nhsuk-form-group">
+                 <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
+                    <select class="nhsuk-select" id="field-input" name="field-input">
+                        ${field.options.map(option => `<option value="${option}" ${option === field.value ? "selected" : ""}>${option}</option>`).join("")}
+                    </select>
+                </div>
+            `;
+        }
+
+        if (field.type === "autocomplete") {
+            return `
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
+                    <div class="nhsuk-hint">Start typing to see suggested company names</div>
+                    <input class="nhsuk-input" id="field-input" name="field-input" type="text" list="company-names" value="${field.value}">
+                </div>
+            `;
+        }
+
+        if (field.type === "date") {
+            let day = "", month = "", year = "";
+            if (field.value) {
+                const parts = field.value.split("-");
+                year = parts[0] || "";
+                month = parts[1] || "";
+                day = parts[2] || "";
+            }
+            return `
+                <div class="nhsuk-form-group">
+                    <fieldset class="nhsuk-fieldset" role="group">
+                        <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
+                        <div class="nhsuk-date-input">
+                            <div class="nhsuk-date-input__item">
+                                <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="field-day">Day</label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                           id="field-day"
+                                           name="field-day"
+                                           type="text"
+                                           inputmode="numeric"
+                                           pattern="[0-9]*"
+                                           value="${parseInt(day, 10) || ""}">
+                                </div>
+                            </div>
+                            <div class="nhsuk-date-input__item">
+                                <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="field-month">Month</label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                                           id="field-month"
+                                           name="field-month"
+                                           type="text"
+                                           inputmode="numeric"
+                                           pattern="[0-9]*"
+                                           value="${parseInt(month, 10) || ""}">
+                                </div>
+                            </div>
+                            <div class="nhsuk-date-input__item">
+                                <div class="nhsuk-form-group">
+                                    <label class="nhsuk-label nhsuk-date-input__label" for="field-year">Year</label>
+                                    <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
+                                           id="field-year"
+                                           name="field-year"
+                                           type="text"
+                                           inputmode="numeric"
+                                           pattern="[0-9]*"
+                                           value="${year}">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="nhsuk-form-group">
+               <label class="nhsuk-label" for="field-input">Edit ${lowercaseLabel}</label>
+                <input class="nhsuk-input" id="field-input" name="field-input" type="text" value="${field.value}">
+            </div>
+        `;
+    }
+
+    container.innerHTML = renderInput();
+
+document.getElementById("edit-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const activeTab = sessionStorage.getItem('activeTab') || '#exclusivity-information';
+     console.log('Redirecting with tab:', activeTab); // Debug log
+    window.location.href = "/v8/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
+});
+}());
+
+
+</script>
+
+
+
+            <div id="productDetails">
+                <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-1">
+                    Product details
+                </h2>
+                <ul class="nhsuk-card__actions">
+                    <li class="nhsuk-card__action">
+                        <a class="nhsuk-link" href="/v8/dhsc/provisional/add/index">Edit<span
+                                class="nhsuk-u-visually-hidden"> product details</span></a>
+                    </li>
+
+                </ul>
+            </div>
+            <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Product name
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        AAH Medical
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Virtual Therapeutic Moiety (VTM) (optional)
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Medication q 200mg tablets (2 x 24)
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Company name (optional)
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Metsulin
+                    </dd>
+
+                </div>
+
+            </dl>
+
+
+<!-- With this: -->
+<button class="nhsuk-button" onclick="handleConfirm()">
+    Confirm
+</button>
+
+<script>
+function handleConfirm() {
+    const activeTab = sessionStorage.getItem('activeTab') || '#exclusivity-information';
+    window.location.href = "/v8/dhsc/product-details?saved=true&tab=" + encodeURIComponent(activeTab);
+}
+</script>
+        <a href="/v8/dhsc/provisional/" class="nhsuk-button nhsuk-button--secondary">
+           Cancel
+        </a>
+    </div>
+    <!-- End of content -->
+
+</div>
+</div>
+{% endblock %}

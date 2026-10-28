@@ -34,6 +34,25 @@ router.get('/v5/dhsc/provisional/delete-confirm', function (req, res) {
   });
 });
 
+
+//delete provisional product v8
+router.post('/v8/dhsc/provisional/delete', function (req, res) {
+  const answer = req.body.cdrAdded;
+
+  if (answer === 'yes') {
+    res.redirect('/v8/dhsc/provisional/delete-confirm?status=deleted');
+  } else {
+    res.redirect('/v8/dhsc/provisional/single');
+  }
+});
+
+router.get('/v8/dhsc/provisional/delete-confirm', function (req, res) {
+  res.render('v8/dhsc/provisional/delete-confirm', {
+    status: req.query.status,
+    productName: 'Medication q 200mg tablets (2 x 24 tablets)'
+  });
+});
+
 //Clear return URL when navigating to add a new provisional product
 router.get('/v5/dhsc/provisional/add/index', function (req, res) {
   delete req.session.data.returnUrl;
@@ -56,6 +75,12 @@ router.get('/v7/company/products/updates', function (req, res) {
 
   req.session.data.cleared = null;
 
+});
+
+//provisional search
+router.get('/v8/dhsc/provisional/add/search', function (req, res) {
+  delete req.session.data.returnUrl;
+  res.render('v8/dhsc/provisional/add/search');
 });
 
 module.exports = router

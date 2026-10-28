@@ -1,0 +1,178 @@
+{% extends 'layout-dhsc-dev.html' %}
+{% set pageName = "Add reference price" %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
+
+        <fieldset class="nhsuk-fieldset">
+          {{ input({
+            label: {
+                text: "Reference price",
+                size: "m"
+            },
+            hint: {
+                text: "Price in pounds (£) for example, 7,500.56"
+            },
+            id: "reference-price",
+            name: "referencePrice",
+            classes: "nhsuk-input--width-5"
+          }) }}
+        </fieldset>
+
+        <br>
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price type</h2>
+          </legend>
+          {{ radios({
+            idPrefix: "reference-price-type",
+            name: "referencePriceType",
+            items: [
+            {
+              value: "average-selling-price",
+              text: "Average selling price"
+            },
+            {
+              value: "list-price-minus-12.5",
+              text: "List price minus 12.5%"
+            }
+            ]
+          }) }}
+        </fieldset>
+
+        <br>
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price start date</h2>
+          </legend>
+          <p class="nhsuk-hint">For example, 15 3 1984</p>
+          {{ dateInput({
+            id: "reference-price-start-date",
+            namePrefix: "startDate",
+            items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+            ]
+          }) }}
+        </fieldset>
+
+        <br>
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <h2 class="nhsuk-fieldset__heading">Reference price end date</h2>
+          </legend>
+          <p class="nhsuk-hint">For example, 15 3 1984</p>
+          {{ dateInput({
+          id: "reference-price-end-date",
+          namePrefix: "endDate",
+          items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+          }) }}
+        </fieldset>
+
+        <br>
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Data correct as of</h2>
+          </legend>
+          <p class="nhsuk-hint">For example, 15 3 1984</p>
+          {{ dateInput({
+            id: "reference-price-calculation-date",
+            items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+            ]
+          }) }}
+        </fieldset>
+
+        <br>
+
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Adjustments</h2>
+          </legend>
+          {{ checkboxes({
+            idPrefix: "adjustments",
+            name: "adjustments",
+            classes: "adjustments-checkboxes",
+            items: [
+              { value: "interformulation-adjustment", text: "Interformulation adjustment" },
+              { value: "pack-size-adjustment", text: "Pack size adjustment" },
+              { value: "strength-adjustment", text: "Strength adjustment" },
+              { value: "retrospective-adjustment", text: "Retrospective adjustment" },
+              { value: "prospective-adjustment", text: "Prospective adjustment" }
+            ]
+          }) }}
+        </fieldset>
+
+        <br>
+          
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend">
+            <h2 class="nhsuk-fieldset__heading">Change following review of previous version</h2>
+          </legend>
+          <p class="nhsuk-hint">Optional</p>
+          {{ textarea({
+            name: "changeFollowingReview",
+            id: "changeFollowingReview"
+          }) }}
+        </fieldset>
+<!-- 
+            <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Supporting evidence (optional)</h2>
+            </legend>
+            <p class="nhsuk-hint">Upload any supporting evidence.</p>
+            <p class="nhsuk-body">No supporting evidence added.</p>
+            </fieldset> -->
+
+            <div class="nhsuk-button-group">
+              {{ button({
+                text: "Submit",
+                href: "/v8/dhsc/product-details?#ref-price-information"
+              }) }}
+              {{ button({
+                text: "Cancel",
+                href: "/v8/dhsc/product-details?#ref-price-information",
+                classes: "nhsuk-button--secondary"
+              }) }}
+            </div>
+
+        <style>
+          .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+            padding-top: 16px;
+            padding-bottom: 16px;
+          }
+
+          .adjustments-checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 32px;
+          }
+
+          .adjustments-checkboxes .nhsuk-checkboxes__item {
+            width: calc(33.333% - 22px);
+          }
+        </style>
+    </div>
+</div>
+{% endblock %}

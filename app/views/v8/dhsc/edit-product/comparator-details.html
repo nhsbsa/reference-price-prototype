@@ -1,0 +1,112 @@
+{% extends 'layout-dhsc-dev.html' %}
+
+{% set pageName = "Edit Comparator" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+<span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+    <h1>Edit comparator details</h1>
+
+    <form method="POST" action="/v8/dhsc/edit-product/comparator-details" id="edit-comparator-form">
+      
+
+      <label class="nhsuk-label nhsuk-label--s">
+        Comparator product name
+      </label>
+      <p class="nhsuk-body nhsuk-u-margin-bottom-3" id="comparator-product-display">
+      </p>
+      <br>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="year-of-price">
+          Year of comparator price
+        </label>
+        <input class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input" id="year-of-price" name="yearOfPrice" type="text" required>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="comparator-price">
+          Comparator price
+        </label>
+        <div class="nhsuk-input-wrapper">
+          <div class="nhsuk-input-wrapper__prefix" aria-hidden="true">£</div>
+          <input class="nhsuk-input nhsuk-input--width-5" id="comparator-price" name="comparatorPrice" type="text" spellcheck="false" required>
+        </div>
+      </div>
+      <br>
+
+      <button type="button" id="save-compare" class="nhsuk-button">
+        Save changes
+      </button>
+
+      <a href="/v8/dhsc/product-details#ref-price-information" class="nhsuk-button nhsuk-button--secondary">
+        Cancel
+      </a>
+    </form>
+
+    <form method="GET" action="/v8/dhsc/edit-product/comparator-delete-confirm" id="remove-form">
+      <input type="hidden" id="comparator-id-input" name="id" value="">
+      <button type="submit" class="nhsuk-button nhsuk-button--secondary" id="remove-btn">
+        Remove this comparator
+      </button>
+    </form>
+
+    <script>
+      // Comparator data
+      const comparatorData = {
+        1: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2023', price: '6.30', flatPrice: 'yes' },
+        2: { name: 'Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets', year: '2016', price: '6.30', flatPrice: 'no' },
+        3: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2025', price: '8.30', flatPrice: 'yes' },
+        4: { name: 'Migard 2.5mg tablets (TestCompanyA) 6 tablet', year: '2011', price: '9.30', flatPrice: 'no' },
+        5: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2020', price: '8.30', flatPrice: 'yes' }
+      };
+
+      // Get the ID from query parameters
+      const params = new URLSearchParams(window.location.search);
+      const comparatorId = params.get('id');
+
+      if (comparatorId && comparatorData[comparatorId]) {
+        const data = comparatorData[comparatorId];
+        
+        // Populate form fields
+        document.getElementById('year-of-price').value = data.year;
+        document.getElementById('comparator-price').value = data.price;
+        document.getElementById('comparator-id-input').value = comparatorId;
+        document.getElementById('comparator-product-display').textContent = data.name;
+      }
+
+       (function () {
+        const saveBtn = document.getElementById('save-compare');
+        if (!saveBtn) return;
+
+        saveBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+         
+          // label used by product-details to render the success banner
+          const comparatorName =
+            document.getElementById('comparator-product-display').textContent;
+
+            sessionStorage.setItem(
+            'lastEditedField',
+            'comparator-information'
+        );
+
+        sessionStorage.setItem(
+            'bannerAction',
+            'updated'
+        );
+
+          // prefer any stored activeTab, otherwise default to ref-price-information
+          const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';
+          window.location.href = '/v8/dhsc/product-details?saved=true&tab=' + encodeURIComponent(activeTab);
+        });
+      }());
+    </script>
+  </div>
+</div>
+{% endblock %}

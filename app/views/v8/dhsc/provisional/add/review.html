@@ -1,0 +1,197 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc-dev.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Add a Provisional Product" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-grid-column-full">
+
+            <span class="nhsuk-caption-l">Add a provisional product</span>
+            <h1 class="nhsuk-heading-xl" id="pageHeading">
+           Check your answers
+            </h1>
+
+            <p>Review your answers before creating this provisional product.</p>
+            <div id="productDetails">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 class="nhsuk-heading-m">
+                        Product details
+                    </h2>
+                    <p><strong><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v8/dhsc/provisional/add/index?manualCompany=false&returnUrl=/v8/dhsc/provisional/add/review">
+                        Edit<span class="nhsuk-u-visually-hidden"> product details</span>
+                    </a></strong></p>
+                </div>
+            </div>
+            <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Company name
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        {{ data.companyName or 'AAH Medical' }}
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Product name
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Medication q 200mg tablets (2 x 24)
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Active substance(s)
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Metsulin
+                    </dd>
+
+                </div>
+
+            </dl>
+            <br>
+            <br>
+            <div id="originatorDetails">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 class="nhsuk-heading-m">
+                        Originator details
+                    </h2>
+                    <p><strong><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v8/dhsc/provisional/add/p2?returnUrl=/v8/dhsc/provisional/add/review">
+                        Edit<span class="nhsuk-u-visually-hidden"> originator details</span>
+                    </a></strong></p>
+                </div>
+            </div>
+
+
+            <dl class="nhsuk-summary-list ">
+
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Originator brand name
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Abagna LTD
+                    </dd>
+
+                </div>
+
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Originator status
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Unknown
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Date presentation becomes an older medicine
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        19 December 2026
+                    </dd>
+
+                </div>
+
+            </dl>
+
+            <br>
+            <br>
+            <div class="nhsuk-grid-row" id="refpriceDetails">
+                <div class="nhsuk-grid-column-full">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h2 class="nhsuk-heading-m">
+                            Reference price details
+                        </h2>
+                        <p><strong><a class="nhsuk-link nhsuk-link--no-visited-state" href="/v8/dhsc/provisional/add/p3?returnUrl=/v8/dhsc/provisional/add/review">
+                            Edit<span class="nhsuk-u-visually-hidden"> reference price details</span>
+                        </a></strong></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <dl class="nhsuk-summary-list ">
+
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Reference anchor date
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        1 January 2025
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Medicine classification
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        Newer entrant
+                    </dd>
+
+                </div>
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                        Reference price
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                        £7.32
+                    </dd>
+
+                </div>
+            </dl>
+
+
+        </div>
+
+
+    <div class="nhsuk-button-group">
+        {{ button({
+          text: "Create",
+          href: '/v8/dhsc/provisional/add/confirm'
+        }) }}
+      
+        {{ button({
+          text: "Cancel",
+          classes: "nhsuk-button--secondary",
+          href: '/v8/dhsc/provisional/index?deleted=false'
+        }) }}
+    </div>
+
+    <!-- End of content -->
+
+</div>
+</div>
+{% endblock %}

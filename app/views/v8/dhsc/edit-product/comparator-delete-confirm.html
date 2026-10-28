@@ -1,0 +1,96 @@
+{% extends 'layout-dhsc-dev.html' %}
+
+{% set pageName = "Confirm you want to remove comparator" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+  <span class="nhsuk-caption-l">Remove comparator</span>
+    <h1>Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+  <dl class="nhsuk-summary-list">
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+      Comparator name
+      </dt>
+      <dd class="nhsuk-summary-list__value" id="comparator-summary-name">
+        
+      </dd>
+    
+    </div>
+  </dl>
+
+      <p>Removing this comparator will permanently remove it from the reference price calculation. This action cannot be undone.</p>
+    
+
+    <!-- <p id="comparator-name-display"></p> -->
+
+    <form method="POST" action="/v8/dhsc/product-details#ref-price-information" style="display: inline;" id="delete-form">
+      <input type="hidden" id="comparator-id-hidden" name="id" value="">
+      <div class="nhsuk-button-group">
+      <button type="button" id="save-compare" class="nhsuk-button nhsuk-button--warning">
+        Remove comparator
+      </button>
+    </form>
+
+    <a href="" id="cancel-link" class="nhsuk-button nhsuk-button--secondary">
+      Cancel
+    </a>
+  </div>
+
+ 
+  </div>
+</div>
+
+  <script>
+      const comparatorData = {
+        1: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets' },
+        2: { name: 'Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets' },
+        3: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets' },
+        4: { name: 'Migard 2.5mg tablets (TestCompanyA) 6 tablet' },
+        5: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets' }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const comparatorId = params.get('id');
+
+      if (comparatorId && comparatorData[comparatorId]) {
+        const name = comparatorData[comparatorId].name;
+        document.getElementById('comparator-summary-name').textContent = name;
+        document.getElementById('comparator-id-hidden').value = comparatorId;
+      }
+
+      // Set cancel link to go back to edit page
+      document.getElementById('cancel-link').href = `javascript:history.go(-1)`;
+
+      (function () {
+        const saveBtn = document.getElementById('save-compare');
+        if (!saveBtn) return;
+
+        saveBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          sessionStorage.setItem(
+            'lastEditedField',
+            'comparator-information'
+        );
+
+        sessionStorage.setItem(
+            'bannerAction',
+            'updated'
+        );
+
+          const activeTab =
+            sessionStorage.getItem('activeTab') || '#ref-price-information';
+
+          window.location.href =
+            '/v8/dhsc/product-details?saved=true&tab=' +
+            encodeURIComponent(activeTab);
+        });
+      }());
+    </script>
+{% endblock %}

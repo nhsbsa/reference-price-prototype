@@ -1,0 +1,72 @@
+{% extends 'layout-dhsc-dev.html' %}
+{% set pageName = "Would you like to delete this reference price?" %}
+
+{% block beforeContent %}
+
+<!-- {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 id="product-name" class="nhsuk-heading-xl">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</h1>
+
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hints-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h2 class="nhsuk-fieldset__heading">
+                Would you like to delete this reference price?
+              </h2>
+            </legend>
+            <div class="nhsuk-radios" data-module="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-hints" name="exampleHints" type="radio" value="yes">
+                <label class="nhsuk-label nhsuk-radios__label" for="example-hints">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-hints-2" name="exampleHints" type="radio" value="no">
+                <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+      
+      
+        {{ button({
+          id: "delete-reference-price",
+          text: "Continue"
+        }) }}
+      
+        <script>
+          document.getElementById('delete-reference-price').addEventListener('click', function (e) {
+            e.preventDefault();
+          
+            const selectedOption = document.querySelector('input[name="exampleHints"]:checked');
+          
+            if (!selectedOption) {
+              return; // Optionally show an error message here
+            }
+          
+            if (selectedOption.value === 'yes') {
+              window.location.href =
+                '/v8/dhsc/product-details?saved=false&deleted=true#ref-price-information';
+            } else {
+              window.location.href =
+                '/v8/dhsc/product-details?saved=false&deleted=false#ref-price-information';
+            }
+          });
+          </script>
+      </div>
+    </div>
+</div>
+{% endblock %}
