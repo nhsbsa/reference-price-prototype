@@ -1,0 +1,131 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc-dev.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Review new comparator" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{{
+    backLink({
+        href: "comparator-search",
+        text: "Back"
+    })
+}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14
+            tablets)</span>
+        <h1>Review new comparator</h1>
+
+        <label class="nhsuk-label nhsuk-label--s">
+          Comparator product name
+        </label>
+        <p class="nhsuk-body nhsuk-u-margin-bottom-3">Metformin 1g modified-release tablets</p>
+        <br>
+
+
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="example-hints-hint">
+            <legend class="nhsuk-fieldset__legend">
+              <h1 class="nhsuk-fieldset__heading">
+                Comparator price and year from CDR
+              </h1>
+            </legend>
+            <div class="nhsuk-hint" id="example-hints-hint">
+              Select the comparator price to use.
+            </div>
+            <div class="nhsuk-radios" data-module="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-hints" name="exampleHints" type="radio" value="mobile" aria-describedby="example-hints-item-hint">
+                <label class="nhsuk-label nhsuk-radios__label" for="example-hints">
+                  £7.50 (2025)
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-item-hint">
+                  Current CDR list price
+                </div>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-hints-2" name="exampleHints" type="radio" value="phone">
+                <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+                  £6.90 (2024)
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-hints-3" name="exampleHints" type="radio" value="text">
+                <label class="nhsuk-label nhsuk-radios__label" for="example-hints-3">
+                  £6.30 (2023)
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="example-hints-4" name="exampleHints" type="radio" value="text">
+                <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
+                  £5.95 (2022)
+                </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <p><a class="nhsuk-link nhsuk-link--no-visited-state" href="comparator-confirm">Comparator price and year not listed</a></p>
+        
+
+            <button id="save-compare" class="nhsuk-button">
+              Confirm details
+            </button>
+
+        <!-- End of content -->
+
+    </div>
+</div>
+
+
+<script>
+  (function () {
+    const saveBtn = document.getElementById('save-compare');
+    if (!saveBtn) return;
+  
+    saveBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+  
+      sessionStorage.setItem(
+            'lastEditedField',
+            'comparator-information'
+        );
+
+        sessionStorage.setItem(
+            'bannerAction',
+            'updated'
+        );
+  
+      const activeTab =
+        sessionStorage.getItem('activeTab') ||
+        '#ref-price-information';
+  
+      window.location.href =
+        'product-details?saved=true&tab=' +
+        encodeURIComponent(activeTab);
+    });
+  }());
+  </script>
+{% endblock %}
