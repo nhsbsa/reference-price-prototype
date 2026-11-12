@@ -63,16 +63,16 @@
 
 <div id="search-results" hidden>
 
-    <h2 class="nhsuk-heading-m">
-      157 companies found
-    </h2>
+  <h2 class="nhsuk-heading-m">
+    157 companies found
+  </h2>
 
-  <p class="nhsuk-body nhsuk-u-margin-bottom-5">Searched all companies with the word "Morningside" in the name</p>
+<p class="nhsuk-body nhsuk-u-margin-bottom-5">Searched all companies with the word "Morningside" in the name</p>
 
 
-    <p class="nhsuk-hint nhsuk-u-margin-bottom-2">
-      Select a company name to continue
-    </p>
+  <p class="nhsuk-hint nhsuk-u-margin-bottom-2">
+    Select a company name. If you cannot find it in the list, enter it manually by selecting Add company name at the bottom of the page.
+  </p>
     
       {{ table({
         firstCellIsHeader: true,
@@ -247,10 +247,10 @@
       <hr>
 
 
-  <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Can't find the company you're looking for?</p>
+      <p class="nhsuk-heading-s nhsuk-u-margin-top-5">Manually enter company name if you cannot find it in the list.</p>
   
   {{ button({
-    text: "Continue with a new company name",
+    text: "Add company name",
     classes: "nhsuk-button--secondary",
     href: "/v5/dhsc/provisional/edit/index?manualCompany=true"
   }) }}
