@@ -44,7 +44,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <div class="nhsuk-notification-banner" id="success-banner" style="display:none;" role="region"
+        <div class="nhsuk-notification-banner nhsuk-notification-banner--success" id="success-banner" style="display:none;" role="region"
             aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
             <div class="nhsuk-notification-banner__header">
                 <h2 class="nhsuk-notification-banner__title" id="banner-tab">
@@ -59,7 +59,7 @@
                     Changes saved
                 </p>
 
-                <a href="#" class="nhsuk-notification-banner__link nhsuk-heading-m"
+                <a href="#" class="nhsuk-notification-banner__link"
                     onclick="this.closest('.nhsuk-notification-banner').style.display='none'; return false;">
                     Close
                 </a>
@@ -1199,7 +1199,7 @@
                         <!-- to calculate reference price for period: 01/10/2024 - 1 February 2036 -->
                         <div style="text-align: right; margin-top: 16px;">
                             <a class="nhsuk-link--no-visited-state nhsuk-link"   
-                            href="comparator-search"
+                            href="#"
                             onclick="
                             sessionStorage.setItem(
                                 'referencePricePeriod',
@@ -1644,177 +1644,227 @@
         </style>
 
 
-        <script>
+<script>
 
-            // Capture the original query parameters once (before we replaceState)
-            const initialParams = new URLSearchParams(window.location.search);
-            const wasSaved = initialParams.get('saved') === 'true';
-            const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
-            const initialHash = window.location.hash;
+    // Capture the original query parameters once (before we replaceState)
+    const initialParams = new URLSearchParams(window.location.search);
+    const wasSaved = initialParams.get('saved') === 'true';
+    const tabParam = initialParams.get('tab'); // decoded by URLSearchParams
+    const initialHash = window.location.hash;
 
-            if (wasSaved) {
+    if (wasSaved) {
 
-            document.querySelectorAll('.nhsuk-notification-banner:not(#success-banner)')
-            .forEach(banner => banner.style.display = 'none');
+    document.querySelectorAll('.nhsuk-notification-banner:not(#success-banner)')
+    .forEach(banner => banner.style.display = 'none');
 
-            const banner = document.getElementById('success-banner');
-            const bannerMessage = document.getElementById('banner-message');
-            const bannerHeading = document.getElementById('banner-heading');
+    const banner = document.getElementById('success-banner');
+    const bannerMessage = document.getElementById('banner-message');
+    const bannerHeading = document.getElementById('banner-heading');
 
-            if (banner && bannerMessage && bannerHeading) {
+    if (banner && bannerMessage && bannerHeading) {
 
-                const bannerTab = document.getElementById('banner-tab');
+        const bannerTab = document.getElementById('banner-tab');
 
-                const tabText =
-                    sessionStorage.getItem('bannerTab') || 'Product';
+        const tabText =
+            sessionStorage.getItem('bannerTab') || 'Product';
 
-                bannerTab.textContent = tabText;
+        bannerTab.textContent = tabText;
 
-                const action =
-                    sessionStorage.getItem('bannerAction');
+        const action =
+            sessionStorage.getItem('bannerAction');
 
-                const lastEditedField =
-                    sessionStorage.getItem('lastEditedField');
+        const lastEditedField =
+            sessionStorage.getItem('lastEditedField');
 
-                const customMessages = {
-                    'comparator-information':
-                        'The comparator information has been updated.',
+        const comparatorName =
+            sessionStorage.getItem('comparatorName');
 
-                    'date-categorised-as-older-medicine':
-                        'The date presentation becomes an older medicine has been updated.',
+        const referencePricePeriod =
+            sessionStorage.getItem('referencePricePeriod');
 
-                    'originator-status':
-                        'The originator status has been updated.',
+        const customMessages = {
+            'comparator-information':
+                'The comparator information has been updated.',
 
-                    'reference-anchor-date':
-                        'The reference anchor date has been updated.',
+            'date-categorised-as-older-medicine':
+                'The date presentation becomes an older medicine has been updated.',
 
-                    'market-authorisation-number':
-                        'The market authorisation number has been updated.',
+            'originator-status':
+                'The originator status has been updated.',
 
-                    'ma-product-name':
-                        'The market authorisation product name has been updated.',
+            'reference-anchor-date':
+                'The reference anchor date has been updated.',
 
-                    'mhra-market-authorisation-holder':
-                        'The MHRA market authorisation holder has been updated.',
+            'market-authorisation-number':
+                'The market authorisation number has been updated.',
 
-                    'cdr-market-authorisation-holder':
-                        'The CDR market authorisation holder has been updated.',
+            'ma-product-name':
+                'The market authorisation product name has been updated.',
 
-                    'market-authorisation-date':
-                        'The market authorisation date has been updated.',
+            'mhra-market-authorisation-holder':
+                'The MHRA market authorisation holder has been updated.',
 
-                    'spc-expiry-date':
-                        'The Supplementary Protection Certificate expiry date has been updated.',
+            'cdr-market-authorisation-holder':
+                'The CDR market authorisation holder has been updated.',
 
-                    'spc-number':
-                        'The Supplementary Protection Certificate number has been updated.',
+            'market-authorisation-date':
+                'The market authorisation date has been updated.',
 
-                    'spc-number-alternative':
-                        'The Supplementary Protection Certificate number alternative has been updated.',
+            'spc-expiry-date':
+                'The Supplementary Protection Certificate expiry date has been updated.',
 
-                    'spc-product-description':
-                        'The Supplementary Protection Certificate product description has been updated.',
+            'spc-number':
+                'The Supplementary Protection Certificate number has been updated.',
 
-                    'cdr-spc-holder':
-                        'The CDR Supplementary Protection Certificate holder has been updated.',
+            'spc-number-alternative':
+                'The Supplementary Protection Certificate number alternative has been updated.',
 
-                    'ipo-spc-holder':
-                        'The IPO Supplementary Protection Certificate holder has been updated.'
-                };
+            'spc-product-description':
+                'The Supplementary Protection Certificate product description has been updated.',
 
-                if (customMessages[lastEditedField]) {
+            'cdr-spc-holder':
+                'The CDR Supplementary Protection Certificate holder has been updated.',
 
-                    bannerTab.textContent = 'Changes saved';
+            'ipo-spc-holder':
+                'The IPO Supplementary Protection Certificate holder has been updated.'
+        };
 
-                    bannerHeading.textContent =
-                        customMessages[lastEditedField];
+        const bannerAction =
+            initialParams.get('action');
 
-                    bannerMessage.style.display = 'none';
+        if (bannerAction === 'reference-price-added') {
 
-                    sessionStorage.removeItem('lastEditedField');
+            bannerTab.textContent = 'Created';
 
-                } else {
+            bannerHeading.textContent =
+                'Reference price';
 
-                    const fieldLabel =
-                        sessionStorage.getItem('bannerFieldLabel') || 'field';
+            bannerMessage.textContent =
+                'New reference price for 10 November 2025 to 9 November 2028 added.';
 
-                    bannerHeading.textContent =
-                        sessionStorage.getItem('bannerHeading') || fieldLabel;
+            sessionStorage.removeItem('lastEditedField');
 
-                        const newCompanyAdded =
-                            sessionStorage.getItem('newCompanyAdded') === 'true';
+        }
+        else if (
+            comparatorName &&
+            referencePricePeriod &&
+            ['added', 'updated', 'deleted'].includes(action)
+        ) {
 
-                        if (newCompanyAdded) {
-
-                            bannerMessage.textContent =
-                                `VTM ${fieldLabel} changed to new company name.`;
-
-                            sessionStorage.removeItem('newCompanyAdded');
-
-                        } else if (
-                            fieldLabel === '(CDR) market authorisation holder' ||
-                            fieldLabel === '(CDR) Supplementary Protection Certificate holder'
-                        ) {
-
-                            bannerMessage.textContent =
-                                `VTM ${fieldLabel} ${action}.`;
-
-                        } else {
-
-                            bannerMessage.textContent =
-                                `${fieldLabel} ${action}.`;
-
-                        }
-                }
-
-                banner.style.display = 'block';
-
-                }
-
-            } else if (initialHash) {
-                const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
-                if (tabLink) {
-                    setTimeout(function () {
-                        tabLink.click();
-                    }, 200);
-                }
+            if (action === 'added') {
+                bannerTab.textContent = 'Added';
+                bannerMessage.innerHTML =
+                    `The comparator ${comparatorName} was added.<br><br>It is used to calculate the reference price dated ${referencePricePeriod}.`;
+            } else if (action === 'updated') {
+                bannerTab.textContent = 'Updated';
+                bannerMessage.innerHTML =
+                    `The comparator ${comparatorName} was updated.<br><br>It is used to calculate the reference price dated ${referencePricePeriod}.`;
+            } else if (action === 'deleted') {
+                bannerTab.textContent = 'Removed';
+                bannerMessage.innerHTML =
+                    `The comparator ${comparatorName} was removed.<br><br>It was used to calculate the reference price dated ${referencePricePeriod}.`;
             }
 
-                    // Remove querystring from the URL now that we've captured values
-                    window.history.replaceState({}, document.title, window.location.pathname);
+            bannerHeading.textContent =
+                'Comparator products used';
 
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const tabs = document.querySelectorAll('.nhsuk-tabs__tab');
+            sessionStorage.removeItem('comparatorName');
+            sessionStorage.removeItem('referencePricePeriod');
+            sessionStorage.removeItem('bannerAction');
 
-                        // Ensure sessionStorage has the currently active tab (use selected li or first tab)
-                        const selectedTabLink = document.querySelector('.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab') ||
-                            document.querySelector('.nhsuk-tabs__tab[href^="#"]');
-                        if (selectedTabLink) {
-                            sessionStorage.setItem('activeTab', selectedTabLink.getAttribute('href'));
-                        }
+        }
+        else if (customMessages[lastEditedField]) {
 
-                        // Track tab clicks
-                        tabs.forEach(tab => {
-                            tab.addEventListener('click', function () {
-                                sessionStorage.setItem('activeTab', this.getAttribute('href'));
-                            });
-                        });
+            bannerTab.textContent = 'Changes saved';
 
-                        // Restore tab after save (use captured tabParam first, fallback to sessionStorage)
-                        if (wasSaved) {
-                            const tabToRestore = tabParam || sessionStorage.getItem('activeTab') || '#product-information';
-                            const tabLink = document.querySelector(`a[href="${tabToRestore}"]`);
+            bannerHeading.textContent =
+                customMessages[lastEditedField];
 
-                            // Delay to allow NHS tabs module to initialise
-                            if (tabLink) {
-                                setTimeout(function () {
-                                    tabLink.click();
-                                }, 200);
-                            }
-                        }
+            bannerMessage.style.display = 'none';
+
+            sessionStorage.removeItem('lastEditedField');
+
+        } else {
+
+            const fieldLabel =
+                sessionStorage.getItem('bannerFieldLabel') || 'field';
+
+            bannerHeading.textContent =
+                sessionStorage.getItem('bannerHeading') || fieldLabel;
+
+            const newCompanyAdded =
+                sessionStorage.getItem('newCompanyAdded') === 'true';
+
+            if (newCompanyAdded) {
+
+                bannerMessage.textContent =
+                    `VTM ${fieldLabel} changed to new company name.`;
+
+                sessionStorage.removeItem('newCompanyAdded');
+
+            } else if (
+                fieldLabel === '(CDR) market authorisation holder' ||
+                fieldLabel === '(CDR) Supplementary Protection Certificate holder'
+            ) {
+
+                bannerMessage.textContent =
+                    `VTM ${fieldLabel} ${action}.`;
+
+            } else {
+
+                bannerMessage.textContent =
+                    `${fieldLabel} ${action}.`;
+
+            }
+        }
+
+        banner.style.display = 'block';
+
+        }
+
+    } else if (initialHash) {
+        const tabLink = document.querySelector('.nhsuk-tabs__tab[href="' + initialHash + '"]');
+        if (tabLink) {
+            setTimeout(function () {
+                tabLink.click();
+            }, 200);
+        }
+    }
+
+            // Remove querystring from the URL now that we've captured values
+            window.history.replaceState({}, document.title, window.location.pathname);
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nhsuk-tabs__tab');
+
+                // Ensure sessionStorage has the currently active tab (use selected li or first tab)
+                const selectedTabLink = document.querySelector('.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab') ||
+                    document.querySelector('.nhsuk-tabs__tab[href^="#"]');
+                if (selectedTabLink) {
+                    sessionStorage.setItem('activeTab', selectedTabLink.getAttribute('href'));
+                }
+
+                // Track tab clicks
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        sessionStorage.setItem('activeTab', this.getAttribute('href'));
                     });
-        </script>
+                });
+
+                // Restore tab after save (use captured tabParam first, fallback to sessionStorage)
+                if (wasSaved) {
+                    const tabToRestore = tabParam || sessionStorage.getItem('activeTab') || '#product-information';
+                    const tabLink = document.querySelector(`a[href="${tabToRestore}"]`);
+
+                    // Delay to allow NHS tabs module to initialise
+                    if (tabLink) {
+                        setTimeout(function () {
+                            tabLink.click();
+                        }, 200);
+                    }
+                }
+            });
+</script>
 
         <!-- End of content -->
 

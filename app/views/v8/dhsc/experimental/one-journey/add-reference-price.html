@@ -1,0 +1,215 @@
+{% extends 'layout-dhsc-dev.html' %}
+{% set pageName = "Add reference price" %}
+
+{% block beforeContent %}
+
+<!-- {{ backLink({
+    href: '/v8/dhsc/experimental/product-details?saved=false&deleted=false#ref-price-information',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+        <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
+
+
+        {{ warningCallout({
+          heading: "Important",
+          text: "You must add at least one comparator product when adding a new reference price."
+        }) }}
+
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Data correct as of</h2>
+          </legend>
+          <p class="nhsuk-hint">Enter the date the reference price was calculated. For example, 15 3 1984.</p>
+          {{ dateInput({
+            id: "reference-price-calculation-date",
+            items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+            ]
+          }) }}
+        </fieldset>
+
+        <br>
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Reference price type</h2>
+          </legend>
+          <p class="nhsuk-hint">Select the type of reference price.</p>
+          {{ radios({
+            idPrefix: "reference-price-type",
+            name: "referencePriceType",
+            items: [
+            {
+              value: "list-price-minus-12.5",
+              text: "List price minus 12.5%"
+            },
+            {
+              value: "average-selling-price",
+              text: "Average selling price"
+            }
+            ]
+          }) }}
+        </fieldset>
+
+        <br>
+
+        <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <h2 class="nhsuk-fieldset__heading">Reference price start date</h2>
+        </legend>
+        <p class="nhsuk-hint">Enter the start date for the reference price.</p>
+        {{ dateInput({
+          id: "reference-price-start-date",
+          namePrefix: "startDate",
+          items: [
+          { name: "day", classes: "nhsuk-input--width-2" },
+          { name: "month", classes: "nhsuk-input--width-2" },
+          { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+        }) }}
+        </fieldset>
+
+        <br>
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+          <h2 class="nhsuk-fieldset__heading">Reference price end date</h2>
+          </legend>
+          <p class="nhsuk-hint">Enter the end date for the reference price.</p>
+          {{ dateInput({
+          id: "reference-price-end-date",
+          namePrefix: "endDate",
+          items: [
+            { name: "day", classes: "nhsuk-input--width-2" },
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+          }) }}
+          </fieldset>
+
+          <br>
+
+          <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Adjustments</h2>
+          </legend>
+          <p class="nhsuk-hint">Select any adjustments that apply.</p>
+          {{ checkboxes({
+            idPrefix: "adjustments",
+            name: "adjustments",
+            items: [
+            { value: "interformulation-adjustment", text: "Interformulation adjustment"},
+            { value: "pack-size-adjustment", text: "Pack size adjustment" },
+            { value: "retrospective-adjustment", text: "Retrospective adjustment"},
+            { value: "prospective-adjustment", text: "Prospective adjustment"},
+            { value: "reference-price-adjustment", text: "Reference price adjustment"}
+            ]
+          }) }}
+          </fieldset>
+
+          <br>
+
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">Reference price</h2>
+            </legend>
+            {{ input({
+              label: {
+                  text: "Price in pounds"
+              },
+              hint: {
+                  text: "For example, 7,500.50."
+              },
+              id: "reference-price",
+              name: "referencePrice",
+              prefix: "£",
+              classes: "nhsuk-input--width-5"
+            }) }}
+          </fieldset>
+
+          <br>
+
+            <fieldset class="nhsuk-fieldset"></fieldset>
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">Comparator flat price</h2>
+            </legend>
+            {{ radios({
+              idPrefix: "comparator-flat-price",
+              name: "comparatorFlatPrice",
+              items: [
+              { value: "yes", text: "Yes" },
+              { value: "no", text: "No" }
+              ]
+            }) }}
+            </fieldset>
+
+          <br>
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">Reason for change (optional)</h2>
+              </legend>
+              <p class="nhsuk-hint">Give your reason for adding this reference price.</p>
+              {{ textarea({
+              name: "reasonForChange",
+              id: "reasonForChange"
+              }) }}
+            </fieldset>
+
+            <br>
+            <div class="nhsuk-button-group">
+              <button
+              type="button"
+              class="nhsuk-button"
+              id="continue-btn">
+              Save and continue
+            </button>
+            
+            <script>
+              const params = new URLSearchParams(window.location.search);
+              const returnUrl = params.get('returnUrl');
+            
+              document
+                .getElementById('continue-btn')
+                .addEventListener('click', function () {
+            
+                  window.location.href =
+                    returnUrl || 'comparators';
+            
+                });
+            </script>
+              {{ button({
+              text: "Cancel",
+              href: "product-details?saved=false&deleted=false#ref-price-information",
+              classes: "nhsuk-button nhsuk-button--secondary"
+              }) }}
+            </div>
+
+        <style>
+          .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+            padding-top: 16px;
+            padding-bottom: 16px;
+          }
+
+          .nhsuk-summary-list__actions {
+            white-space: nowrap;
+          }
+
+          .nhsuk-inset-text, .p {
+            max-width: 47em;
+          }
+        </style>
+    </div>
+</div>
+{% endblock %}

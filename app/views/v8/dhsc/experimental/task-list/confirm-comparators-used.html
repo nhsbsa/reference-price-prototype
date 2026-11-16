@@ -1,0 +1,191 @@
+{% extends 'layout-dhsc-dev.html' %}
+{% set pageName = "Check your answers" %}
+
+{% block beforeContent %}
+
+<!-- {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 id="product-name" class="nhsuk-heading-xl">Check your answers</h1>
+
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "Date correct as of"
+                },
+                value: {
+                  text: "9 November 2025"               
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-reference-price#reference-price-calculation-date-day",
+                      text: "Change",
+                      visuallyHiddenText: "reference price calculation date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price type"
+                },
+                value: {
+                  text: "List price minus 12.5%"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-reference-price#reference-price-type",
+                      text: "Change",
+                      visuallyHiddenText: "reference price type"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price start date"
+                },
+                value: {
+                  text: "10 November 2025"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-reference-price#reference-price-start-date-day",
+                      text: "Change",
+                      visuallyHiddenText: "reference price start date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price end date"
+                },
+                value: {
+                  text: "9 November 2028"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-reference-price#reference-price-end-date-day",
+                      text: "Change",
+                      visuallyHiddenText: "reference price end date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Adjustments"
+                },
+                value: {
+                    html: "Interformulation adjustment<br>
+                            Retrospective adjustment<br>
+                            Prospective adjustment<br>
+                            Reference price adjustment"      
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-reference-price#adjustments",
+                      text: "Change",
+                      visuallyHiddenText: "reference price adjustments"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Reference price"
+                },
+                value: {
+                  text: "£6.41"  
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-reference-price#reference-price",
+                      text: "Change",
+                      visuallyHiddenText: "reference price"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Comparator flat price"
+                },
+                value: {
+                  text: "No"  
+              },
+              actions: {
+                items: [
+                  {
+                    href: "add-reference-price#comparator-flat-price",
+                    text: "Change",
+                    visuallyHiddenText: "comparator flat price"
+                  }
+                ]
+              }
+              },
+              {
+                key: {
+                  text: "Reason for change"
+                },
+                value: {
+                    text: "No data",
+                    classes: "nhsuk-u-secondary-text-colour"             
+                },
+                actions: {
+                items: [
+                  {
+                    href: "add-reference-price#changeFollowingReview",
+                    text: "Change",
+                    visuallyHiddenText: "notes"
+                  }
+                ]
+              }
+            }
+            ]
+          }) }}
+            
+
+          <div class="nhsuk-button-group">
+            {{ button({
+              text: "Save and continue",
+              href: "reference-price-added" 
+            }) }}
+          
+            {{ button({
+              text: "Cancel",
+              classes: "nhsuk-button--secondary",
+              href: "product-details?saved=false&deleted=false#ref-price-information"
+            }) }}
+          </div>
+
+        <style>
+          .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            width: 55%;
+          }
+
+          .nhsuk-summary-list__key {
+            width: 45%;
+          }
+        </style>
+    </div>
+</div>
+{% endblock %}

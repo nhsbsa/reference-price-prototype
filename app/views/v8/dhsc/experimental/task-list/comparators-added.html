@@ -1,0 +1,250 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc-dev.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Comparator products used" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{{
+    backLink({
+        href: 'javascript:history.go(-1)',
+        text: "Back"
+    })
+}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <div class="nhsuk-notification-banner nhsuk-notification-banner--success" id="success-banner" style="display:none;" role="alert">
+            <div class="nhsuk-notification-banner__header">
+                <h2 class="nhsuk-notification-banner__title">Removed</h2>
+            </div>
+
+            <div class="nhsuk-notification-banner__content">
+                <h3 class="nhsuk-notification-banner__heading">Comparator products used</h3>
+
+                <p>The comparator Metformin 1g modified-release tablets (Morningside Healthcare Ltd) 28 tablet 2 x 14 tablets was removed.</p>
+
+                <a href="#" class="nhsuk-notification-banner__link"
+                    onclick="this.closest('.nhsuk-notification-banner').style.display='none'; return false;">
+                    Close
+                </a>
+            </div>
+        </div>
+
+        <style>
+            .nhsuk-notification-banner__content p {
+                max-width: 45em;
+            }
+        </style>
+
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14
+            tablets)</span>
+        <h1>Comparator products used</h1>
+        <p>Add at least one comparator product to finish adding your new reference price.</p>
+        
+
+                <table class="nhsuk-table-responsive" role="table">
+                    <thead class="nhsuk-table__head" role="rowgroup">
+                        <tr role="row">
+                            <th scope="col" class="nhsuk-table__header" role="columnheader">Product name</th>
+                            <th scope="col" class="nhsuk-table__header" role="columnheader">Year</th>
+                            <th scope="col" class="nhsuk-table__header" role="columnheader">Price</th>
+                            <th scope="col" class="nhsuk-table__header" role="columnheader">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="nhsuk-table__body">
+                        <tr class="nhsuk-table__row" role="row" data-comparator-id="1">
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
+                                Metformin 1g modified-release tablets (Morningside Healthcare Ltd) 28 tablet 2 x 14 tablets
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+                                2023
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
+                                £6.30
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="comparator-edit-cdr">Edit</a> | 
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="comparator-delete-confirm">Remove</a>
+                            </td>
+                        </tr>
+
+                        <tr class="nhsuk-table__row" role="row" data-comparator-id="1">
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
+                                Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+                                2023
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
+                                £6.30
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">Edit</a> | 
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">Remove</a>
+                            </td>
+                        </tr>
+
+                        <tr class="nhsuk-table__row" role="row" data-comparator-id="2">
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
+                                Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+                                2016
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
+                                £6.30
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">Edit</a> | 
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">Remove</a>
+                            </td>
+                        </tr>
+
+                        <tr class="nhsuk-table__row" role="row" data-comparator-id="4">
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator product</span>
+                                Migard 2.5mg tablets (TestCompanyA) 6 tablet
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+                                2011
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price</span>
+                                £9.30
+                            </td>
+                            <td class="nhsuk-table__cell" role="cell" style="white-space: nowrap;">
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">Edit</a> | 
+                                <a class="nhsuk-link--no-visited-state nhsuk-link" href="#">Remove</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <div class="nhsuk-button-group">
+                    <button
+                    type="button"
+                    class="nhsuk-button"
+                    id="continue-btn">
+                    Save and continue
+                  </button>
+
+                {{ button({
+                    text: "Add another comparator",
+                    variant: "secondary",
+                    href: "comparator-search"
+                }) }}
+                </div>
+
+                <script>
+                    const params = new URLSearchParams(window.location.search);
+                    const returnUrl = params.get('returnUrl');
+                  
+                  document.getElementById('continue-btn').addEventListener('click', function () {
+                    window.location.href = returnUrl || 'all-added';
+                  });
+                  
+                    if (params.get('removed') === 'true') {
+                      document.getElementById('success-banner').style.display = 'block';
+                  
+                      window.history.replaceState(
+                        {},
+                        document.title,
+                        window.location.pathname
+                      );
+                    }
+
+                    if (params.get('updated') === 'true') {
+                      const updatedBanner = document.createElement('div');
+                      updatedBanner.className = 'nhsuk-notification-banner nhsuk-notification-banner--success';
+                      updatedBanner.setAttribute('role', 'alert');
+                      updatedBanner.innerHTML = `
+                        <div class="nhsuk-notification-banner__header">
+                          <h2 class="nhsuk-notification-banner__title">Updated</h2>
+                        </div>
+                        <div class="nhsuk-notification-banner__content">
+                          <h3 class="nhsuk-notification-banner__heading">Comparator products used</h3>
+                            <p>The comparator Metformin 1g modified-release tablets (Morningside Healthcare Ltd) 28 tablet 2 x 14 tablets was updated.</p>
+                          <a href="#" class="nhsuk-notification-banner__link"
+                              onclick="this.closest('.nhsuk-notification-banner').style.display='none'; return false;">
+                              Close
+                          </a>
+                        </div>
+                      `;
+                      document.querySelector('.nhsuk-grid-column-full').prepend(updatedBanner);
+
+                      window.history.replaceState(
+                        {},
+                        document.title,
+                        window.location.pathname
+                      );
+                    }
+
+                    if (params.get('added') === 'true') {
+                        const addedBanner = document.createElement('div');
+                        addedBanner.className = 'nhsuk-notification-banner nhsuk-notification-banner--success';
+                        addedBanner.setAttribute('role', 'alert');
+                        addedBanner.innerHTML = `
+                            <div class="nhsuk-notification-banner__header">
+                                <h2 class="nhsuk-notification-banner__title">Added</h2>
+                            </div>
+                            <div class="nhsuk-notification-banner__content">
+                                <h3 class="nhsuk-notification-banner__heading">Comparator products used</h3>
+                                    <p>The comparator Metformin 1g modified-release tablets (Morningside Healthcare Ltd) 28 tablet 2 x 14 tablets was added.</p>
+                                <a href="#" class="nhsuk-notification-banner__link"
+                                        onclick="this.closest('.nhsuk-notification-banner').style.display='none'; return false;">
+                                        Close
+                                </a>
+                            </div>
+                        `;
+                        document.querySelector('.nhsuk-grid-column-full').prepend(addedBanner);
+
+                        window.history.replaceState(
+                            {},
+                            document.title,
+                            window.location.pathname
+                        );
+                    }
+                </script>
+                                
+
+        <!-- End of content -->
+
+    </div>
+</div>
+
+{% endblock %}

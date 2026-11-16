@@ -24,7 +24,7 @@
 {% block beforeContent %}
 {{
     backLink({
-        href: '/v8/',
+        href: 'javascript:history.go(-1)',
         text: "Back"
     })
 }}
@@ -38,12 +38,20 @@
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14
             tablets)</span>
         <h1>Add a new comparator</h1>
-        <p>To add a new comparator, search for a product by entering a product name. You can refine your search by entering company name.</p>
+        <p>To add a new comparator, first search for a product by entering a product name, VTM, or both. You can refine your search by entering company name.</p>
 
         <div id="search">
             <div class="nhsuk-form-group">
                 <label class="nhsuk-label " for="address-line-1">
                     Product name
+                </label>
+                <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-line-1" name="addressLine1" type="text"
+                    autocomplete="address-line1">
+            </div>
+
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label " for="address-line-1">
+                    Virtual Therapeutic Moiety (VTM)
                 </label>
                 <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-line-1" name="addressLine1" type="text"
                     autocomplete="address-line1">
@@ -70,6 +78,8 @@
         </div>
 
         <div id="result" style="display: none;">
+            <h2 class="nhsuk-heading-m">Search results</h2>
+            <p>There are <strong>1</strong> results with the search terms: 'Metformin' in 'Product name'.</p>
             <div class="nhsuk-hint">
                 Select a product to add a new comparator
             </div>
@@ -85,23 +95,67 @@
                            
                             <th role="columnheader" scope="col">Product name</th>
                             <th role="columnheader" scope="col">SNOMED code</th>
-                            <th role="columnheader" scope="col" style="white-space: nowrap;">Pack size</th>
+                            <th role="columnheader" scope="col">VTM</th>
+                            <th role="columnheader" scope="col">Form</th>
+                            <th role="columnheader" scope="col">Pack size</th>
                             <th role="columnheader" scope="col">Supplier</th>
-                            <th role="columnheader" scope="col">Action</th>
 
                         </tr>
                     </thead>
 
                     <tbody class="nhsuk-table__body">
                         <tr role="row" class="nhsuk-table__row">
-                          
-                            <td role="cell" class="nhsuk-table__cell">Metformin 1g modified-release tablets</td>
+                            <td role="cell" class="nhsuk-table__cell"><a href="comparator-confirm-cdr-2" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
                             <td role="cell" class="nhsuk-table__cell">38543211000001100</td>
-                            <td role="cell" class="nhsuk-table__cell nhsuk-table__cell--numeric">28</td>
+                            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell">28</td>
                             <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-                              <td role="cell" class="nhsuk-table__cell"><a href="comparator-confirm-cdr" class="nhsuk-link">Add</a></td>
+                        </tr>
 
+                        <tr role="row" class="nhsuk-table__row">
+                            <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
+                            <td role="cell" class="nhsuk-table__cell">38543411000001101</td>
+                            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell">56</td>
+                            <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
+                        </tr>
 
+                        <tr role="row" class="nhsuk-table__row">
+                            <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
+                            <td role="cell" class="nhsuk-table__cell">42144611000001102</td>
+                            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell">28</td>
+                            <td role="cell" class="nhsuk-table__cell">Strides Pharma UK Ltd</td>
+                        </tr>
+
+                        <tr role="row" class="nhsuk-table__row">
+                            <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
+                            <td role="cell" class="nhsuk-table__cell">42144711000001106</td>
+                            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell">56</td>
+                            <td role="cell" class="nhsuk-table__cell">Strides Pharma UK Ltd</td>
+                        </tr>
+
+                        <tr role="row" class="nhsuk-table__row">
+                            <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
+                            <td role="cell" class="nhsuk-table__cell">45178211000001109</td>
+                            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell">28</td>
+                            <td role="cell" class="nhsuk-table__cell">Zentiva Pharma UK Ltd</td>
+                        </tr>
+
+                        <tr role="row" class="nhsuk-table__row">
+                            <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
+                            <td role="cell" class="nhsuk-table__cell">45178311000001101</td>
+                            <td role="cell" class="nhsuk-table__cell">Metformin</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell">56</td>
+                            <td role="cell" class="nhsuk-table__cell">Zentiva Pharma UK Ltd</td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,6 +168,14 @@
 
     </div>
 </div>
+
+    <style>
+        .large-table-container th:nth-child(5),
+        .large-table-container td:nth-child(5) {
+            white-space: nowrap;
+            min-width: 110px;
+        }
+    </style>
 
 <script>
   document.getElementById("button").addEventListener("click", function(e) {

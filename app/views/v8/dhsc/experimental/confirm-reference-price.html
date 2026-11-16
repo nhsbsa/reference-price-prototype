@@ -1,4 +1,4 @@
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-dhsc-dev.html' %}
 {% set pageName = "Check your answers before adding this reference price" %}
 
 {% block beforeContent %}
@@ -16,40 +16,25 @@
 
         <h1 id="product-name" class="nhsuk-heading-xl">Check your answers before adding this reference price</h1>
 
+        <div id="referencePriceDetails">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="nhsuk-heading-m">
+              Reference price details
+            </h2>
+            <p><strong><a class="nhsuk-link nhsuk-link--no-visited-state" href="add-reference-price">
+              Edit<span class="nhsuk-u-visually-hidden"> reference price details</span>
+            </a></strong></p>
+          </div>
+        </div>
+
           {{ summaryList({
             rows: [
               {
                 key: {
-                  text: "Reference price calculation date"
+                  text: "Date correct as of"
                 },
                 value: {
-                  text: "12 October 2025"               
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-calculation-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price calculation date"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
-                  text: "Reference price start year"
-                },
-                value: {
-                  text: "2024"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-start-year-year",
-                      text: "Change",
-                      visuallyHiddenText: "reference price start year"
-                    }
-                  ]
+                  text: "9 November 2025"               
                 }
               },
               {
@@ -57,16 +42,7 @@
                   text: "Reference price type"
                 },
                 value: {
-                  text: "	List price of comparator(s) according to dm+d minus 12.5% subject to adjustments"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-type",
-                      text: "Change",
-                      visuallyHiddenText: "reference price type"
-                    }
-                  ]
+                  text: "List price minus 12.5%"
                 }
               },
               {
@@ -74,16 +50,7 @@
                   text: "Reference price start date"
                 },
                 value: {
-                  text: "15 October 2025"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-start-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price start date"
-                    }
-                  ]
+                  text: "10 November 2025"
                 }
               },
               {
@@ -91,16 +58,7 @@
                   text: "Reference price end date"
                 },
                 value: {
-                  text: "14 October 2028"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-end-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price end date"
-                    }
-                  ]
+                  text: "9 November 2028"
                 }
               },
               {
@@ -112,15 +70,6 @@
                             Retrospective adjustment<br>
                             Prospective adjustment<br>
                             Reference price adjustment"      
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#adjustments",
-                      text: "Change",
-                      visuallyHiddenText: "reference price adjustments"
-                    }
-                  ]
                 }
               },
               {
@@ -129,64 +78,61 @@
                 },
                 value: {
                   text: "£6.41"  
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price",
-                      text: "Change",
-                      visuallyHiddenText: "reference price"
-                    }
-                  ]
                 }
               },
               {
                 key: {
-                  text: "Change following review of previous version (optional)"
+                  text: "Comparator flat price"
                 },
                 value: {
-                  text: "No data available"                 
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#changeFollowingReview",
-                      text: "Change",
-                      visuallyHiddenText: "notes"
-                    }
-                  ]
-                }
+                  text: "No"  
+              }
               },
               {
-                classes: "nhsuk-summary-list__row--no-border",
                 key: {
-                  text: "Supporting evidence (optional)"
+                  text: "Reason for change"
                 },
                 value: {
-                  html: '
-                  court-ruling.pdf<br>
-                  email.msg<br>
-                  pack-size-update.xlsx
-                  '
-                },
-                actions: {
-                  items: [
-                    {
-                      classes: "nhsuk-link nhsuk-link--no-visited-state",
-                      href: "add-reference-price#supporting-evidence",
-                      text: "Change",
-                      visuallyHiddenText: "supporting evidence"
-                    }
-                  ]
+                    text: "No data",
+                    classes: "nhsuk-u-secondary-text-colour"             
                 }
               }
             ]
           }) }}
 
+
+            <br>
+            <div id="comparatorDetails">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="nhsuk-heading-m">
+                  Comparator products used
+                </h2>
+                <p><strong><a class="nhsuk-link nhsuk-link--no-visited-state" href="comparators-added">
+                  Edit<span class="nhsuk-u-visually-hidden"> comparator details</span>
+                </a></strong></p>
+              </div>
+            </div>
+            {{ summaryList({
+              rows: [
+                {
+                  key: {
+                    text: "Comparators added"
+                  },
+                  value: {
+                      html: "Metformin 1g modified-release tablets (Morningside Healthcare Ltd) 28 tablet 2 x 14 tablets<br><br>
+                            Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets<br><br>
+                            Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets<br><br>
+                            Migard 2.5mg tablets (TestCompanyA) 6 tablet"      
+                  }
+                }
+              ]
+            }) }}
+            
+
           <div class="nhsuk-button-group">
             {{ button({
-              text: "Confirm and save",
-              href: "product-details?saved=reference-price&deleted=false#ref-price-information"
+              text: "Confirm and add reference price",
+              href: "product-details?saved=true&tab=%23ref-price-information&action=reference-price-added#ref-price-information" 
             }) }}
           
             {{ button({
@@ -200,6 +146,11 @@
           .nhsuk-summary-list__key, .nhsuk-summary-list__value {
             padding-top: 12px;
             padding-bottom: 12px;
+            width: 60%;
+          }
+
+          .nhsuk-summary-list__key {
+            width: 40%;
           }
         </style>
     </div>

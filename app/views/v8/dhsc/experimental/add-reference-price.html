@@ -1,12 +1,12 @@
-{% extends 'layout-dhsc.html' %}
+{% extends 'layout-dhsc-dev.html' %}
 {% set pageName = "Add reference price" %}
 
 {% block beforeContent %}
 
-{{ backLink({
+<!-- {{ backLink({
     href: '/v8/dhsc/experimental/product-details?saved=false&deleted=false#ref-price-information',
     text: 'Back'
-  }) }}
+  }) }} -->
 
 {% endblock %}
 
@@ -16,6 +16,13 @@
 
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
         <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
+
+
+        {{ warningCallout({
+          heading: "Important",
+          text: "You must add at least one comparator product when adding a new reference price."
+        }) }}
+
 
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
@@ -133,23 +140,19 @@
 
           <br>
 
-          <fieldset class="nhsuk-fieldset">
+            <fieldset class="nhsuk-fieldset"></fieldset>
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
               <h2 class="nhsuk-fieldset__heading">Comparator flat price</h2>
             </legend>
-            {{ input({
-              label: {
-                  text: "Price in pounds"
-              },
-              hint: {
-                  text: "For example, 7,500.50."
-              },
-              id: "comparator-flat-price",
+            {{ radios({
+              idPrefix: "comparator-flat-price",
               name: "comparatorFlatPrice",
-              prefix: "£",
-              classes: "nhsuk-input--width-5"
+              items: [
+              { value: "yes", text: "Yes" },
+              { value: "no", text: "No" }
+              ]
             }) }}
-          </fieldset>
+            </fieldset>
 
           <br>
 
@@ -165,10 +168,18 @@
             </fieldset>
 
             <br>
-            {{ button({
-              text: "Continue",
-               href: "/v8/dhsc/experimental/confirm-reference-price"
-            }) }}
+            <div class="nhsuk-button-group">
+              {{ button({
+              text: "Save and continue",
+              href: "/v8/dhsc/experimental/comparators"
+              }) }}
+
+              {{ button({
+              text: "Cancel",
+              href: "/v8/dhsc/experimental/product-details?saved=false&deleted=false#ref-price-information",
+              classes: "nhsuk-button nhsuk-button--secondary"
+              }) }}
+            </div>
 
         <style>
           .nhsuk-summary-list__key, .nhsuk-summary-list__value {
@@ -178,6 +189,10 @@
 
           .nhsuk-summary-list__actions {
             white-space: nowrap;
+          }
+
+          .nhsuk-inset-text, .p {
+            max-width: 47em;
           }
         </style>
     </div>

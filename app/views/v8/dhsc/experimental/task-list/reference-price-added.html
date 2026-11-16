@@ -1,0 +1,102 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout-dhsc-dev.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Add new reference price" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{{
+    backLink({
+        href: 'javascript:history.go(-1)',
+        text: "Back"
+    })
+}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14
+            tablets)</span>
+            <h1 id="product-name" class="nhsuk-heading-xl">Add new reference price</h1>
+
+              <h2 class="nhsuk-heading-m">1. Reference price</h2>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Reference price information</dt>
+                    <dd class="nhsuk-summary-list__value">
+                        <strong class="nhsuk-tag">Completed</strong>
+                    </dd>
+                    <dd class="nhsuk-summary-list__actions">
+                        <a class="nhsuk-link nhsuk-link--no-visited-state" href="add-reference-price">
+                        Change<span class="nhsuk-u-visually-hidden"> reference price details</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+    
+            <h2 class="nhsuk-heading-m">2. Comparator products</h2>
+            <p class="nhsuk-hint">You must add at least one comparator product when adding a new reference price.</p>
+    
+            <dl class="nhsuk-summary-list">
+    
+                <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Comparator products used</dt>
+                <dd class="nhsuk-summary-list__value"></dd>
+                <dd class="nhsuk-summary-list__actions">
+                    <strong class="nhsuk-tag nhsuk-tag--white">To do</strong>
+                </dd>
+                <dd class="nhsuk-summary-list__actions">
+                    <a class="nhsuk-link nhsuk-link--no-visited-state" href="comparators">
+                    Start<span class="nhsuk-u-visually-hidden"> comparator products used</span>
+                    </a>
+                </dd>
+                </div>
+            </dl>
+
+                <style>
+                    .nhsuk-summary-list__key {
+                    width: 60%;
+                    }
+
+                    .nhsuk-summary-list__value {
+                    width: 15%;
+                    }
+
+                    .nhsuk-summary-list__actions {
+                    width: 25%;
+                    text-align: right;
+                    }
+                </style>
+        <!-- End of content -->
+
+    </div>
+</div>
+
+<script>
+  document.getElementById("button").addEventListener("click", function(e) {
+    e.preventDefault(); // Prevents the link from jumping to top
+    document.getElementById("result").style.display = "block";
+  });
+</script>
+
+{% endblock %}

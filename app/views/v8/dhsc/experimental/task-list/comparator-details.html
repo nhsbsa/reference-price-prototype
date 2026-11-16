@@ -1,0 +1,442 @@
+{% extends 'layout-dhsc-dev.html' %}
+
+{% set pageName = "Edit Comparator" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
+    <h1>Edit comparator details</h1>
+
+    <form method="POST" action="/v8/dhsc/edit-product/comparator-details" id="edit-comparator-form">
+      
+
+      <label class="nhsuk-label nhsuk-label--s nhsuk-u-font-size-22">
+        Comparator product name
+      </label>
+      <p class="nhsuk-body" id="comparator-product-display">
+      </p>
+      <br>
+
+      <table class="nhsuk-table-responsive" role="table">
+        <caption class="nhsuk-table__caption">
+          Current comparator selection
+        </caption>
+        <thead class="nhsuk-table__head" role="rowgroup">
+          <tr role="row">
+            <th scope="col" class="nhsuk-table__header" role="columnheader">Year</th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">List price</th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+          </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row" role="row" data-comparator-id="1">
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2023
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £6.30
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              10 February 2023
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              9 February 2029
+            </td>
+            </tr>
+        </tbody>
+      </table>
+
+      <p>Select a different comparator price and year.</p>
+
+      <table class="nhsuk-table-responsive" role="table">
+        <caption class="nhsuk-table__caption">
+          New comparator selection
+        </caption>
+        <thead class="nhsuk-table__head" role="rowgroup">
+          <tr role="row">
+            <th scope="col" class="nhsuk-table__header" role="columnheader"></th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">Year</th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">List price</th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">Start date</th>
+            <th scope="col" class="nhsuk-table__header" role="columnheader">End date</th>
+          </tr>
+        </thead>
+
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row" role="row" data-comparator-id="1">
+            <td class="nhsuk-table__cell" role="cell">
+              <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                  <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                </div>
+              </div>         
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2025
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £6.50
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              10 November 2025
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              9 November 2034
+            </td>
+            </tr>
+            <tr class="nhsuk-table__row" role="row" data-comparator-id="2">
+            <td class="nhsuk-table__cell" role="cell">
+              <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                  <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                </div>
+              </div>         
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2024
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £6.40
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              1 January 2024
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              31 December 2031
+            </td>
+            </tr>
+            <tr class="nhsuk-table__row" role="row" data-comparator-id="4">
+            <td class="nhsuk-table__cell" role="cell">
+              <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                  <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                </div>
+              </div>         
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2022
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £6.20
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              13 April 2022
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              12 April 2028
+            </td>
+            </tr>
+            <tr class="nhsuk-table__row" role="row" data-comparator-id="5">
+            <td class="nhsuk-table__cell" role="cell">
+              <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                  <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                </div>
+              </div>         
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2021
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £6.10
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              6 August 2021
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              5 August 2027
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row" role="row" data-comparator-id="1">
+            <td class="nhsuk-table__cell" role="cell">
+              <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                  <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                </div>
+              </div>         
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator Price Year</span>
+              2019
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £5.70
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              31 December 2019
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              30 December 2024
+            </td>
+            </tr>
+              <tr class="nhsuk-table__row" role="row" data-comparator-id="2">
+                <td class="nhsuk-table__cell" role="cell">
+                  <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                      <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                    </div>
+                  </div>         
+                </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2018
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £5.50
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              1 January 2018
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              31 December 2022
+            </td>
+            </tr>
+              <tr class="nhsuk-table__row" role="row" data-comparator-id="3">
+                <td class="nhsuk-table__cell" role="cell">
+                  <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                      <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                    </div>
+                  </div>         
+                </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2017
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £5.35
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              25 July 2017
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              24 July 2020
+            </td>
+            </tr>
+              <tr class="nhsuk-table__row" role="row" data-comparator-id="4">
+                <td class="nhsuk-table__cell" role="cell">
+                  <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                      <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                    </div>
+                  </div>         
+                </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2016
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £5.22
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              13 April 2016
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              12 April 2020
+            </td>
+            </tr>
+              <tr class="nhsuk-table__row" role="row" data-comparator-id="5">
+                <td class="nhsuk-table__cell" role="cell">
+                  <div class="nhsuk-radios nhsuk-radios--small" data-module="nhsuk-radios">
+                    <div class="nhsuk-radios__item">
+                      <input class="nhsuk-radios__input" id="filter" name="filter" type="radio" value="monthly">
+                      <label class="nhsuk-label nhsuk-radios__label" for="filter"><span class="nhsuk-u-visually-hidden">Select</span></label>
+                    </div>
+                  </div>         
+                </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator price year</span>
+              2015
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Comparator list price</span>
+              £5.18
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">Start date</span>
+              6 August 2015
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">End date</span>
+              5 August 2019
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+          {{ pagination({
+            next: {
+              href: "#"
+            },
+            items: [
+              {
+                number: 1,
+                href: "#",
+                current: true
+              },
+              {
+                number: 2,
+                href: "#"
+              },
+              {
+                number: 3,
+                href: "#"
+              },
+              {
+                ellipsis: true
+              },
+              {
+                number: 8,
+                href: "#"
+              },
+              {
+                number: 9,
+                href: "#"
+              },
+              {
+                number: 10,
+                href: "#"
+              }
+            ]
+          }) }}
+
+      <br>
+
+      <div class="nhsuk-button-group">
+      <button type="button" id="save-compare" class="nhsuk-button">
+        Save changes
+      </button>
+
+      <a href="product-details#ref-price-information" class="nhsuk-button nhsuk-button--secondary">
+        Cancel
+      </a>
+      </div>
+    </form>
+
+    <form method="GET" action="/v8/dhsc/edit-product/comparator-delete-confirm" id="remove-form">
+      <input type="hidden" id="comparator-id-input" name="id" value="">
+      <button type="submit" class="nhsuk-button nhsuk-button--secondary" id="remove-btn">
+        Remove this comparator
+      </button>
+    </form>
+
+    <style>
+      .nhsuk-table__cell .nhsuk-button {
+        margin-bottom: 0;
+      }
+    </style>
+
+    <script>
+      // Comparator data
+      const comparatorData = {
+        1: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2023', price: '6.30', flatPrice: 'yes' },
+        2: { name: 'Keral 25mg tablets (TestCompanyA) 20 tablet 2 × 10 tablets', year: '2016', price: '6.30', flatPrice: 'no' },
+        3: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2025', price: '8.30', flatPrice: 'yes' },
+        4: { name: 'Migard 2.5mg tablets (TestCompanyA) 6 tablet', year: '2011', price: '9.30', flatPrice: 'no' },
+        5: { name: 'Adenuric 120mg tablets (TestCompanyA) 28 tablet 2 × 14 tablets', year: '2020', price: '8.30', flatPrice: 'yes' }
+      };
+
+      // Get the ID from query parameters
+      const params = new URLSearchParams(window.location.search);
+      const comparatorId = params.get('id');
+
+      console.log('comparatorId:', comparatorId);
+      console.log('data:', comparatorData[comparatorId]);
+      console.log(
+        'display element:',
+        document.getElementById('comparator-product-display')
+      );
+
+      if (comparatorId && comparatorData[comparatorId]) {
+        const data = comparatorData[comparatorId];
+        
+        // Populate form fields
+        document.getElementById('comparator-id-input').value = comparatorId;
+        document.getElementById('comparator-product-display').textContent = data.name;
+
+        // document.getElementById('edit-comparator-caption').textContent =
+        //   `Edit comparator: ${data.name}`;
+      }
+
+       (function () {
+        const saveBtn = document.getElementById('save-compare');
+        if (!saveBtn) return;
+
+        saveBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+         
+          // label used by product-details to render the success banner
+          const comparatorName =
+            document.getElementById('comparator-product-display').textContent;
+
+            sessionStorage.setItem(
+                'comparatorName',
+                comparatorName
+            );
+
+            sessionStorage.setItem(
+                'referencePricePeriod',
+                '15 October 2025 to 14 October 2028'
+            );
+
+            sessionStorage.setItem(
+                'bannerAction',
+                'updated'
+            );
+
+          // prefer any stored activeTab, otherwise default to ref-price-information
+          const activeTab = sessionStorage.getItem('activeTab') || '#ref-price-information';
+          window.location.href = 'product-details?saved=true&tab=' + encodeURIComponent(activeTab);
+        });
+      }());
+    </script>
+  </div>
+</div>
+{% endblock %}
