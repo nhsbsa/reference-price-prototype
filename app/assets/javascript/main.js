@@ -39,32 +39,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const table = document.querySelector("[data-module='moj-sortable-table']");
   if (!table) return;
 
-  const headers = table.querySelectorAll("th");
+  const headers = table.querySelectorAll("th");  
   headers.forEach((header, index) => {
-    // Remove existing sort indicators if they already exist
+
+    if (!header.hasAttribute("data-sortable")) {
+      return;
+    }
+  
     const existingIndicator = header.querySelector(".sort-indicator");
     if (existingIndicator) {
       existingIndicator.remove();
     }
-
-    // Create and append a new sort indicator
+  
     let sortIndicator = document.createElement("span");
     sortIndicator.className = "sort-indicator";
     sortIndicator.setAttribute("aria-hidden", "true");
-
-sortIndicator.innerHTML = `
-<svg class="sort-icon" width="22" height="22" focusable="false" aria-hidden="true" role="img" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.1875 9.5L10.9609 3.95703L13.7344 9.5H8.1875Z" fill="currentColor"></path>
-  <path d="M13.7344 12.0781L10.9609 17.6211L8.1875 12.0781H13.7344Z" fill="currentColor"></path>
-</svg>
-`;
-
+  
+    sortIndicator.innerHTML = `
+      <svg class="sort-icon" width="22" height="22" focusable="false" aria-hidden="true" role="img" viewBox="0 0 22 22" fill="none">
+        <path d="M8.1875 9.5L10.9609 3.95703L13.7344 9.5H8.1875Z" fill="currentColor"></path>
+        <path d="M13.7344 12.0781L10.9609 17.6211L8.1875 12.0781H13.7344Z" fill="currentColor"></path>
+      </svg>
+    `;
+  
     header.appendChild(sortIndicator);
-
+  
     header.addEventListener("click", function () {
       const isAscending = header.getAttribute("aria-sort") === "ascending";
       sortTableByColumn(table, index, !isAscending);
     });
+  
   });
 
   function sortTableByColumn(table, columnIndex, ascending) {
@@ -86,7 +90,7 @@ sortIndicator.innerHTML = `
     rows.forEach(row => tbody.appendChild(row));
 
     // Reset all headers
-    table.querySelectorAll("th").forEach(th => {
+    table.querySelectorAll("th[data-sortable='true']").forEach(th => { 
       th.setAttribute("aria-sort", "none");
       const indicator = th.querySelector(".sort-indicator");
       if (indicator) {

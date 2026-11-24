@@ -83,37 +83,32 @@
             </div>
 
             <div class="large-table-container">
-                <table role="table" class="nhsuk-table-responsive">
+                <table role="table" class="nhsuk-table-responsive" data-module="moj-sortable-table">
                     <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">
-                        Product Loss of Exclusivity Table
+                        Comparator search results table
                     </caption>
 
                     <thead role="rowgroup" class="nhsuk-table__head">
                         <tr role="row">
                            
-                            <th role="columnheader" scope="col">Product name</th>
+                            <th role="columnheader" scope="col" data-sortable="true" aria-sort="none">Product name</th>
                             <th role="columnheader" scope="col">SNOMED code</th>
-                            <th role="columnheader" scope="col">VTM</th>
-                            <th role="columnheader" scope="col">Form</th>
-                            <th role="columnheader" scope="col">Pack size</th>
-                            <th role="columnheader" scope="col">Supplier</th>
-                            <th role="columnheader" scope="col">Action</th>
+                            <th role="columnheader" scope="col" data-sortable="true" aria-sort="none">VTM</th>
+                            <th role="columnheader" scope="col" data-sortable="true" aria-sort="none">Form</th>
+                            <th role="columnheader" scope="col" data-sortable="true" aria-sort="none">Pack size</th>
+                            <th role="columnheader" scope="col" data-sortable="true" aria-sort="none">Supplier</th>
 
                         </tr>
                     </thead>
 
                     <tbody class="nhsuk-table__body">
                         <tr role="row" class="nhsuk-table__row">
-                          
-                            <td role="cell" class="nhsuk-table__cell">Metformin 1g modified-release tablets</td>
+                            <td role="cell" class="nhsuk-table__cell"><a href="/v5/dhsc/comparator-confirm" class="nhsuk-link nhsuk-link--no-visited-state">Metformin 1g modified-release tablets</a></td>
                             <td role="cell" class="nhsuk-table__cell">38543211000001100</td>
                             <td role="cell" class="nhsuk-table__cell">Metformin</td>
-                            <td role="cell" class="nhsuk-table__cell">Modified-release tablets</td>
-                            <td role="cell" class="nhsuk-table__cell">28</td>
+                            <td role="cell" class="nhsuk-table__cell">Modified-release tablet</td>
+                            <td role="cell" class="nhsuk-table__cell" numeric>28</td>
                             <td role="cell" class="nhsuk-table__cell">Morningside Healthcare</td>
-                              <td role="cell" class="nhsuk-table__cell"><a href="#" class="nhsuk-link nhsuk-link--no-visited-state">Add</a></td>
-
-
                         </tr>
                     </tbody>
                 </table>
@@ -133,6 +128,11 @@
     .large-table-container td:nth-child(5) {
         white-space: nowrap;
         min-width: 110px;
+    }
+
+    .large-table-container th[data-sortable] {
+        cursor: pointer;
+        user-select: none;
     }
 </style>
 

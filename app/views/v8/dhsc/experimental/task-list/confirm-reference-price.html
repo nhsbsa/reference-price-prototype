@@ -24,15 +24,6 @@
                 },
                 value: {
                   text: "9 November 2025"               
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-calculation-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price calculation date"
-                    }
-                  ]
                 }
               },
               {
@@ -41,15 +32,6 @@
                 },
                 value: {
                   text: "List price minus 12.5%"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-type",
-                      text: "Change",
-                      visuallyHiddenText: "reference price type"
-                    }
-                  ]
                 }
               },
               {
@@ -58,15 +40,6 @@
                 },
                 value: {
                   text: "10 November 2025"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-start-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price start date"
-                    }
-                  ]
                 }
               },
               {
@@ -75,35 +48,46 @@
                 },
                 value: {
                   text: "9 November 2028"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price-end-date-day",
-                      text: "Change",
-                      visuallyHiddenText: "reference price end date"
-                    }
-                  ]
                 }
               },
               {
                 key: {
-                  text: "Adjustments"
+                  text: "Interformulation adjustment"
                 },
                 value: {
-                    html: "Interformulation adjustment<br>
-                            Retrospective adjustment<br>
-                            Prospective adjustment<br>
-                            Reference price adjustment"      
+                    text: "Yes"      
+                }
+              },
+              {
+                key: {
+                  text: "Pack size adjustment"
                 },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#adjustments",
-                      text: "Change",
-                      visuallyHiddenText: "reference price adjustments"
-                    }
-                  ]
+                value: {
+                    text: "No"      
+                }
+              },
+              {
+                key: {
+                  text: "Retrospective adjustment"
+                },
+                value: {
+                    text: "Yes"      
+                }
+              },
+              {
+                key: {
+                  text: "Prospective adjustment"
+                },
+                value: {
+                    text: "Yes"      
+                }
+              },
+              {
+                key: {
+                  text: "Strength adjustment"
+                },
+                value: {
+                    text: "Yes"      
                 }
               },
               {
@@ -112,15 +96,6 @@
                 },
                 value: {
                   text: "£6.41"  
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-reference-price#reference-price",
-                      text: "Change",
-                      visuallyHiddenText: "reference price"
-                    }
-                  ]
                 }
               },
               {
@@ -129,15 +104,6 @@
                 },
                 value: {
                   text: "No"  
-              },
-              actions: {
-                items: [
-                  {
-                    href: "add-reference-price#comparator-flat-price",
-                    text: "Change",
-                    visuallyHiddenText: "comparator flat price"
-                  }
-                ]
               }
               },
               {
@@ -147,16 +113,7 @@
                 value: {
                     text: "No data",
                     classes: "nhsuk-u-secondary-text-colour"             
-                },
-                actions: {
-                items: [
-                  {
-                    href: "add-reference-price#changeFollowingReview",
-                    text: "Change",
-                    visuallyHiddenText: "notes"
-                  }
-                ]
-              }
+                }
             }
             ]
           }) }}
@@ -171,21 +128,22 @@
             {{ button({
               text: "Cancel",
               classes: "nhsuk-button--secondary",
-              href: "product-details?saved=false&deleted=false#ref-price-information"
+              href: 'javascript:history.go(-1)'
             }) }}
           </div>
 
         <style>
           .nhsuk-summary-list__key, .nhsuk-summary-list__value {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            width: 55%;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            width: 50%;
           }
 
           .nhsuk-summary-list__key {
-            width: 45%;
+            width: 50%;
           }
         </style>
+
     </div>
 </div>
 {% endblock %}

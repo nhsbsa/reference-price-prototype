@@ -1,5 +1,5 @@
 {% extends 'layout-dhsc-dev.html' %}
-{% set pageName = "Add reference price" %}
+{% set pageName = "Add a new reference price" %}
 
 {% block beforeContent %}
 
@@ -15,12 +15,12 @@
     <div class="nhsuk-grid-column-full">
 
         <span class="nhsuk-caption-l">Metabet SR 1000mg tablets (Morningside Healthcare Ltd)(28 tablet - 2 x 14 tablets)</span>
-        <h1 id="product-name" class="nhsuk-heading-xl">Add reference price</h1>
+        <h1 id="product-name" class="nhsuk-heading-xl">Add a new reference price</h1>
 
 
         {{ warningCallout({
           heading: "Important",
-          text: "You must add at least one comparator product when adding a new reference price."
+          text: "You must add one or more comparator products to this reference price. You will do this on the next screen."
         }) }}
 
 
@@ -113,7 +113,7 @@
             { value: "pack-size-adjustment", text: "Pack size adjustment" },
             { value: "retrospective-adjustment", text: "Retrospective adjustment"},
             { value: "prospective-adjustment", text: "Prospective adjustment"},
-            { value: "reference-price-adjustment", text: "Reference price adjustment"}
+            { value: "strength-adjustment", text: "Strength adjustment"}
             ]
           }) }}
           </fieldset>
@@ -169,7 +169,7 @@
                 .addEventListener('click', function () {
             
                   window.location.href =
-                    returnUrl || 'comparators';
+                    returnUrl || 'comparator-search';
             
                 });
             </script>

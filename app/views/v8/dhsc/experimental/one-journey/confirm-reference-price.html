@@ -27,78 +27,107 @@
           </div>
         </div>
 
-          {{ summaryList({
-            rows: [
-              {
-                key: {
-                  text: "Date correct as of"
-                },
-                value: {
-                  text: "9 November 2025"               
-                }
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                text: "Date correct as of"
               },
-              {
-                key: {
-                  text: "Reference price type"
-                },
-                value: {
-                  text: "List price minus 12.5%"
-                }
-              },
-              {
-                key: {
-                  text: "Reference price start date"
-                },
-                value: {
-                  text: "10 November 2025"
-                }
-              },
-              {
-                key: {
-                  text: "Reference price end date"
-                },
-                value: {
-                  text: "9 November 2028"
-                }
-              },
-              {
-                key: {
-                  text: "Adjustments"
-                },
-                value: {
-                    html: "Interformulation adjustment<br>
-                            Retrospective adjustment<br>
-                            Prospective adjustment<br>
-                            Reference price adjustment"      
-                }
-              },
-              {
-                key: {
-                  text: "Reference price"
-                },
-                value: {
-                  text: "£6.41"  
-                }
-              },
-              {
-                key: {
-                  text: "Comparator flat price"
-                },
-                value: {
-                  text: "No"  
+              value: {
+                text: "9 November 2025"               
               }
+            },
+            {
+              key: {
+                text: "Reference price type"
               },
-              {
-                key: {
-                  text: "Reason for change"
-                },
-                value: {
-                    text: "No data",
-                    classes: "nhsuk-u-secondary-text-colour"             
-                }
+              value: {
+                text: "List price minus 12.5%"
               }
-            ]
-          }) }}
+            },
+            {
+              key: {
+                text: "Reference price start date"
+              },
+              value: {
+                text: "10 November 2025"
+              }
+            },
+            {
+              key: {
+                text: "Reference price end date"
+              },
+              value: {
+                text: "9 November 2028"
+              }
+            },
+            {
+              key: {
+                text: "Interformulation adjustment"
+              },
+              value: {
+                  text: "Yes"      
+              }
+            },
+            {
+              key: {
+                text: "Pack size adjustment"
+              },
+              value: {
+                  text: "No"      
+              }
+            },
+            {
+              key: {
+                text: "Retrospective adjustment"
+              },
+              value: {
+                  text: "Yes"      
+              }
+            },
+            {
+              key: {
+                text: "Prospective adjustment"
+              },
+              value: {
+                  text: "Yes"      
+              }
+            },
+            {
+              key: {
+                text: "Strength adjustment"
+              },
+              value: {
+                  text: "Yes"      
+              }
+            },
+            {
+              key: {
+                text: "Reference price"
+              },
+              value: {
+                text: "£6.41"  
+              }
+            },
+            {
+              key: {
+                text: "Comparator flat price"
+              },
+              value: {
+                text: "No"  
+            }
+            },
+            {
+              key: {
+                text: "Reason for change"
+              },
+              value: {
+                  text: "No data",
+                  classes: "nhsuk-u-secondary-text-colour"             
+              }
+          }
+          ]
+        }) }}
 
 
             <br>
@@ -131,7 +160,7 @@
 
             <div class="nhsuk-inset-text">
               <span class="nhsuk-u-visually-hidden">Information: </span>
-              <p>We will email your confirmed reference price details. If you cannot find the email, check your junk or spam folder.</p>
+              <p>We will email the confirmed reference price details to companies linked to the new reference price.</p>
             </div>
             
             
@@ -151,13 +180,13 @@
 
         <style>
           .nhsuk-summary-list__key, .nhsuk-summary-list__value {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            width: 60%;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            width: 50%;
           }
 
           .nhsuk-summary-list__key {
-            width: 40%;
+            width: 50%;
           }
         </style>
     </div>
